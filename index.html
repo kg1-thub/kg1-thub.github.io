@@ -3,17 +3,17 @@
     <head>
         <meta charset="utf-8" />
         <script data-ad-client="ca-pub-1993395319769113" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <meta http-equiv="refresh" content="5;URL=https://kg1-thub.github.io/catcher-stats/">
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta property="og:url" content="https://kg1-thub.github.io/catcher-stats/" />
+		<meta property="og:url" content="https://kg1-thub.github.io/" />
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="Giants/Catcher/Score" />
 		<meta property="og:description" content="巨人/捕手/スコア・成績をビジュアル化" />
 		<meta property="og:image" content="https://raw.githubusercontent.com/kg1-thub/catcher-stats/gh-pages/assets/img/screen_sample.png" />
         <meta name="twitter:card" content="summary_large_image" />
 
-        <meta name="description" content="Giants/Catcher/Score (巨人/捕手/スコア・成績)をビジュアル化. 2018年以降の読売ジャイアンツの捕手に関する成績・記録" />
+        <meta name="description" content="Giants/Catcher/Score (巨人/捕手/スコア・成績)をビジュアル化. 2018年以降の読売ジャイアンツの捕手に関する成績・記録. 巨人 捕手 スコア プロ野球 キャッチャー 成績" />
+        <meta name="keywords" content="Giants Catcher Score 巨人 捕手 スコア プロ野球 キャッチャー 成績" />
         <meta name="author" content="kg1" />
         <title>Giants/Catcher/Score</title>
         <link href="css/styles.css" rel="stylesheet" />
@@ -62,8 +62,1151 @@
             </a>
         </nav>
 
-        <img src="assets/img/nissinIMGL0787_TP_V.jpg" width="100%" alt="野球" title="野球">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2018">2018</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2019">2019</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#t2020">2020</a>
+            </li>
+        </ul>
 
+        <!-- Tab panes -->
+        <div class="tab-content p-1">
+
+            <div class="container-fluid tab-pane" id="t2018">
+                <div class="row">
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-area mr-1"></i>Giants/Team/貯金推移</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart18" width="100%" height="60vh"></canvas></div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-bar mr-1"></i>Giants/Team/月別勝利数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myBarChart18" width="100%" height="60vh"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/守備イニング</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1">
+                                <canvas id="myPieChart18" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/先発試合数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1">
+                                <canvas id="myPieChart18v2" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/許盗塁数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-2">
+                                <canvas id="myPieChart18v3" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm p-1">
+
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-table mr-1"></i>Giants/Catcher/シーズン成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive" id="t2019t1">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dataTable18" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>捕手</th>
+                                                <th>イニング</th>
+                                                <th>勝</th>
+                                                <th>敗</th>
+                                                <th>S</th>
+                                                <th>先発数</th>
+                                                <th>失点</th>
+                                                <th>自責点</th>
+                                                <th>防御率</th>
+                                                <th>盗塁企図</th>
+                                                <th>許盗塁</th>
+                                                <th>盗塁刺</th>
+                                                <th>阻止率</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>小林</td>
+                                                <td>801</td>
+                                                <td>45</td>
+                                                <td>47</td>
+                                                <td>21</td>
+                                                <td>96</td>
+                                                <td>344</td>
+                                                <td>327</td>
+                                                <td>3.67</td>
+                                                <td>44</td>
+                                                <td>29</td>
+                                                <td>15</td>
+                                                <td>0.341</td>
+                                            </tr>
+                                            <tr>
+                                                <td>大城</td>
+                                                <td>362</td>
+                                                <td>14</td>
+                                                <td>21</td>
+                                                <td>3</td>
+                                                <td>35</td>
+                                                <td>184</td>
+                                                <td>167</td>
+                                                <td>4.15</td>
+                                                <td>34</td>
+                                                <td>28</td>
+                                                <td>6</td>
+                                                <td>0.176</td>
+                                            </tr>
+                                            <tr>
+                                                <td>宇佐見</td>
+                                                <td>114</td>
+                                                <td>8</td>
+                                                <td>2</td>
+                                                <td>0</td>
+                                                <td>12</td>
+                                                <td>44</td>
+                                                <td>41</td>
+                                                <td>3.23</td>
+                                                <td>10</td>
+                                                <td>7</td>
+                                                <td>3</td>
+                                                <td>0.300</td>
+                                            </tr>
+                                            <tr>
+                                                <td>河野</td>
+                                                <td>3</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>3</td>
+                                                <td>3</td>
+                                                <td>9.0</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>1.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-table mr-1"></i>Giants/Catcher/月別成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dataTablet18v2" width="100%" cellspacing="0">
+                                        <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
+                                        <thead>
+                                            <tr>
+                                            <th>月</th>
+                                            <th>小林</th>
+                                            <th>大城</th>
+                                            <th>宇佐見</th>
+                                            <th>河野</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>1-1-0, 5.06(16)</td>
+                                                <td>0-0-0, 0(2)</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>11-9-3, 3.69(173)</td>
+                                                <td>2-1-0, 4.18(28)</td>
+                                                <td></td>
+                                                <td>0-0-1, 18(1)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>7-9-3, 4.02(127.67)</td>
+                                                <td>2-5-1, 4.66(85)</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>9-10-4, 3.45(164.33)</td>
+                                                <td>1-2-1, 3.67(27)</td>
+                                                <td>0-0-0, 4.5(10)</td>
+                                                <td>0-1-0, 4.5(2)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>2-4-6, 5.36(43.67)</td>
+                                                <td>3-6-1, 4.45(83)</td>
+                                                <td>7-1-0, 2.89(81)</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>9-9-4, 3.45(156.33)</td>
+                                                <td>3-3-0, 4.57(63)</td>
+                                                <td>1-1-0, 3.27(22)</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>4-4-1, 3(96)</td>
+                                                <td>3-4-0, 3.12(72)</td>
+                                                <td>0-0-0, 18(1)</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>2-1-0, 3.38(24)</td>
+                                                <td>0-0-0, 4.5(2)</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-table mr-1"></i>Giants/Catcher/投手別成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dataTablet18v3" width="100%" cellspacing="0">
+                                        <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
+                                        <thead>
+                                            <tr>
+                                              <th>投手</th>
+                                              <th>小林</th>
+                                              <th>大城</th>
+                                              <th>宇佐見</th>
+                                              <th>河野</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>ヤングマン</td>
+                                              <td></td>
+                                              <td></td>
+                                              <td>3-1-0, 2.77(26)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>山口俊</td>
+                                              <td>8-6-1, 3(123)</td>
+                                              <td>0-3-0, 4.7(23)</td>
+                                              <td>1-0-0, 11.25(8)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>吉川光</td>
+                                              <td>6-7-0, 3.97(90.67)</td>
+                                              <td>0-0-0, 11.56(4.67)</td>
+                                              <td>0-0-0, 3(6)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>野　上</td>
+                                              <td>3-2-0, 4.73(40)</td>
+                                              <td>1-2-0, 4.91(29.34)</td>
+                                              <td>0-0-0, 4.5(2)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>今　村</td>
+                                              <td>3-2-0, 2.98(51.33)</td>
+                                              <td>2-0-0, 5.76(20.33)</td>
+                                              <td>1-0-0, 5.07(5.33)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>内　海</td>
+                                              <td>2-0-0, 2.3(31.33)</td>
+                                              <td>3-5-0, 5.33(50.67)</td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>田　原</td>
+                                              <td>2-0-0, 0(11.33)</td>
+                                              <td>0-0-0, 4.24(17)</td>
+                                              <td>0-0-0, 3.86(2.33)</td>
+                                              <td>0-0-0, 0(1)</td>
+                                            </tr>
+                                            <tr>
+                                              <td>菅　野</td>
+                                              <td>14-7-0, 2.02(187)</td>
+                                              <td>1-1-0, 3.6(15)</td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>田　口</td>
+                                              <td>1-5-0, 5.4(55)</td>
+                                              <td>1-3-0, 3.73(31.33)</td>
+                                              <td>0-0-0, 0(1)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>澤　村</td>
+                                              <td>1-4-0, 5.29(32.34)</td>
+                                              <td>0-0-0, 3.86(14)</td>
+                                              <td>0-0-0, 1.5(6)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>カミネロ</td>
+                                              <td>1-1-10, 4.15(17.33)</td>
+                                              <td>0-0-1, 27.07(1.33)</td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>鍬　原</td>
+                                              <td>1-1-0, 8.59(14.66)</td>
+                                              <td>0-1-0, 4.09(11)</td>
+                                              <td>0-0-0, 9(2)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>池　田</td>
+                                              <td>1-0-0, 4.16(8.66)</td>
+                                              <td>0-1-0, 4.3(14.66)</td>
+                                              <td>0-0-0, 0(1)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>中　川</td>
+                                              <td>1-0-0, 4.09(11)</td>
+                                              <td>0-0-0, 4.21(25.67)</td>
+                                              <td>0-0-0, 99.99(0)</td>
+                                              <td>0-0-1, 18(1)</td>
+                                            </tr>
+                                            <tr>
+                                              <td>畠</td>
+                                              <td>1-0-0, 2.84(6.34)</td>
+                                              <td>1-0-0, 2.7(3.33)</td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>上　原</td>
+                                              <td>0-4-0, 4.74(19)</td>
+                                              <td>0-1-0, 3.37(10.67)</td>
+                                              <td>0-0-0, 0(5)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>マシソン</td>
+                                              <td>0-2-6, 2.77(26)</td>
+                                              <td>0-0-2, 1.69(5.33)</td>
+                                              <td>0-0-0, 9(1)</td>
+                                              <td>0-1-0, 9(1)</td>
+                                            </tr>
+                                            <tr>
+                                              <td>アダメス</td>
+                                              <td>0-2-4, 6.75(14.67)</td>
+                                              <td>0-0-0, 1.46(12.34)</td>
+                                              <td>0-0-0, 1.8(5)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>谷　岡</td>
+                                              <td>0-1-0, 8.08(10)</td>
+                                              <td>2-0-0, 4.36(10.33)</td>
+                                              <td>0-0-0, 3.85(4.67)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>メルセデス</td>
+                                              <td>0-1-0, 3.44(18.34)</td>
+                                              <td>2-2-0, 1.66(38)</td>
+                                              <td>3-1-0, 1.77(35.67)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>高　田</td>
+                                              <td>0-1-0, 27(2)</td>
+                                              <td></td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>大　竹</td>
+                                              <td>0-1-0, 11.25(4)</td>
+                                              <td>1-0-0, 1.8(5)</td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>篠　原</td>
+                                              <td>0-0-0, 7.2(5)</td>
+                                              <td>0-0-0, 5.4(5)</td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>高　木</td>
+                                              <td>0-0-0, 27(2)</td>
+                                              <td>0-0-0, 3(3)</td>
+                                              <td></td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>森　福</td>
+                                              <td>0-0-0, 27(1)</td>
+                                              <td></td>
+                                              <td>0-0-0, 0(1)</td>
+                                              <td></td>
+                                            </tr>
+                                            <tr>
+                                              <td>宮　國</td>
+                                              <td>0-0-0, 1.89(19)</td>
+                                              <td>0-0-0, 2.45(11)</td>
+                                              <td>0-0-0, 0(2)</td>
+                                              <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid tab-pane" id="t2019">
+                <div class="row">
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-area mr-1"></i>Giants/Team/貯金推移</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart19" width="100%" height="60vh"></canvas></div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-bar mr-1"></i>Giants/Team/月別勝利数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myBarChart19" width="100%" height="60vh"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/守備イニング</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1">
+                                <canvas id="myPieChart19" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/先発試合数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1">
+                                <canvas id="myPieChart19v2" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/許盗塁数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-2">
+                                <canvas id="myPieChart19v3" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm p-1">
+
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-table mr-1"></i>Giants/Catcher/シーズン成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive" id="t2019t1">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dataTable19" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>捕手</th>
+                                                <th>イニング</th>
+                                                <th>勝</th>
+                                                <th>敗</th>
+                                                <th>S</th>
+                                                <th>先発数</th>
+                                                <th>失点</th>
+                                                <th>自責点</th>
+                                                <th>防御率</th>
+                                                <th>盗塁企図</th>
+                                                <th>許盗塁</th>
+                                                <th>盗塁刺</th>
+                                                <th>阻止率</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>小林</td>
+                                                <td>591</td>
+                                                <td>41</td>
+                                                <td>22</td>
+                                                <td>19</td>
+                                                <td>68</td>
+                                                <td>249</td>
+                                                <td>229</td>
+                                                <td>3.49</td>
+                                                <td>31</td>
+                                                <td>18</td>
+                                                <td>13</td>
+                                                <td>0.419</td>
+                                            </tr>
+                                            <tr>
+                                                <td>炭谷</td>
+                                                <td>349</td>
+                                                <td>20</td>
+                                                <td>22</td>
+                                                <td>12</td>
+                                                <td>41</td>
+                                                <td>172</td>
+                                                <td>167</td>
+                                                <td>4.31</td>
+                                                <td>32</td>
+                                                <td>24</td>
+                                                <td>8</td>
+                                                <td>0.25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>大城</td>
+                                                <td>306.33</td>
+                                                <td>16</td>
+                                                <td>17</td>
+                                                <td>3</td>
+                                                <td>30</td>
+                                                <td>139</td>
+                                                <td>130</td>
+                                                <td>3.82</td>
+                                                <td>29</td>
+                                                <td>24</td>
+                                                <td>5</td>
+                                                <td>0.172</td>
+                                            </tr>
+                                            <tr>
+                                                <td>その他</td>
+                                                <td>33</td>
+                                                <td>0</td>
+                                                <td>3</td>
+                                                <td>0</td>
+                                                <td>4</td>
+                                                <td>13</td>
+                                                <td>10</td>
+                                                <td>2.72</td>
+                                                <td>4</td>
+                                                <td>3</td>
+                                                <td>1</td>
+                                                <td>0.25</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-table mr-1"></i>Giants/Catcher/月別成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dataTablet19v2" width="100%" cellspacing="0">
+                                        <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
+                                        <thead>
+                                            <tr>
+                                            <th>月</th>
+                                            <th>小林</th>
+                                            <th>炭谷</th>
+                                            <th>大城</th>
+                                            <th>岸田</th>
+                                            <th>田中貴</th>
+                                            <th>宇佐見</th>
+                                            <th>阿部</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>3&amp;4</td>
+                                                <td>8-4-6, 3.42 (108)</td>
+                                                <td>4-3-1, 3.66 (59)</td>
+                                                <td>4-3-0, 3.63 (62)</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>2-7-1, 4.71 (86)</td>
+                                                <td>4-6-2, 4.56 (75)</td>
+                                                <td>3-0-1, 3.14 (43)</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>0-0-0,1.5(6)</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>7-2-2, 2.70 (80)</td>
+                                                <td>7-2-5, 2.71 (73)</td>
+                                                <td>1-3-0, 4.38 (37)</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>0-0-0,7.2(5)</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>7-1-5, 3.30 (90)</td>
+                                                <td>4-7-3, 5.01 (93.33)</td>
+                                                <td>2-2-0, 2.88 (25)</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>10-5-3, 3.50 (131)</td>
+                                                <td>0-0-0, 1.80 (5)</td>
+                                                <td>5-3-2, 3.70 (87.67)</td>
+                                                <td>0-3-0,2.25(20)</td>
+                                                <td>0-0-0,0(1)</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>7-3-2, 3.28 (96)</td>
+                                                <td>1-4-1, 6.18 (43.67)</td>
+                                                <td>1-6-0, 4.88 (51.67)</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>0-0-0,0(1)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-table mr-1"></i>Giants/Catcher/投手別成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dataTablet19v3" width="100%" cellspacing="0">
+                                        <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
+                                        <thead>
+                                            <tr>
+                                            <th>投手</th>
+                                            <th>小林</th>
+                                            <th>炭谷</th>
+                                            <th>大城</th>
+                                            <th>岸田</th>
+                                            <th>田中貴</th>
+                                            <th>宇佐見</th>
+                                            <th>阿部</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <td>山　口</td>
+                                            <td>15-4-0, 2.91(170)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>菅　野</td>
+                                            <td>8-4-0, 3.74(98.66)</td>
+                                            <td>3-2-0, 4.3(37.66)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>桜　井</td>
+                                            <td>3-2-0, 2.55(42.33)</td>
+                                            <td>3-2-0, 4.5(42)</td>
+                                            <td>2-1-0, 9.18(16.67)</td>
+                                            <td>0-1-0, 3.38(5.33)</td>
+                                            <td></td>
+                                            <td>0-0-0, 0(2)</td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>メルセデス</td>
+                                            <td>0-3-0, 7.94(11.33)</td>
+                                            <td>0-0-0, 1.8(5)</td>
+                                            <td>8-5-0, 2.81(102.34)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>0-0-0, 21.56(1.67)</td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>高　橋</td>
+                                            <td>1-1-0, 3.1(20.33)</td>
+                                            <td>3-5-0, 3.88(48.67)</td>
+                                            <td>1-1-0, 1.88(24)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>今　村</td>
+                                            <td>1-1-0, 3.73(50.67)</td>
+                                            <td>1-0-0, 1.74(10.33)</td>
+                                            <td>1-1-0, 6.27(18.66)</td>
+                                            <td>0-0-0, 4.5(2)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>ヤングマン</td>
+                                            <td></td>
+                                            <td>3-3-0, 5.75(40.67)</td>
+                                            <td>0-1-0, 9.81(3.67)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>畠</td>
+                                            <td>0-1-0, 7.62(13)</td>
+                                            <td>0-0-0, 3.37(2.67)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>戸　郷</td>
+                                            <td></td>
+                                            <td>1-0-0, 2.08(8.67)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>中　川</td>
+                                            <td>4-1-8, 2.22(28.34)</td>
+                                            <td>0-1-7, 2.25(20)</td>
+                                            <td>0-0-1, 2.94(15.33)</td>
+                                            <td>0-1-0, 0(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>田　口</td>
+                                            <td>2-1-1, 4.03(29)</td>
+                                            <td>0-1-0, 4.98(12.66)</td>
+                                            <td>1-1-0, 3.97(22.67)</td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>澤　村</td>
+                                            <td>0-0-0, 2.4(15)</td>
+                                            <td>2-0-1, 1.29(14)</td>
+                                            <td>0-2-0, 3.93(18.34)</td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>大　竹</td>
+                                            <td>2-0-0, 1.35(13.33)</td>
+                                            <td>2-0-0, 4.5(6)</td>
+                                            <td>0-0-0, 4.05(6.66)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>マシソン</td>
+                                            <td>1-0-0, 1.17(7.67)</td>
+                                            <td>0-2-1, 9(8)</td>
+                                            <td>1-0-0, 3(6)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>0-0-0, 0(1)</td>
+                                            </tr>
+                                            <tr>
+                                            <td>デラロサ</td>
+                                            <td>1-0-4, 4.82(9.33)</td>
+                                            <td>0-0-2, 0(7.34)</td>
+                                            <td>0-0-2, 1.23(7.34)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>高　木</td>
+                                            <td>1-0-0, 3.66(19.67)</td>
+                                            <td>2-0-0, 2.53(21.33)</td>
+                                            <td>0-1-0, 7.83(10.34)</td>
+                                            <td>0-0-0, 0(0.67)</td>
+                                            <td></td>
+                                            <td>0-0-0, 0(2)</td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>鍵　谷</td>
+                                            <td>0-1-0, 4.5(8)</td>
+                                            <td>0-0-0, 4.15(8.67)</td>
+                                            <td>0-1-0, 1.08(8.34)</td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>田　原</td>
+                                            <td>2-1-0, 4.9(7.34)</td>
+                                            <td>0-1-0, 4.27(6.33)</td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>0-0-0, 4.5(2)</td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>宮　國</td>
+                                            <td>0-1-0, 2.45(11)</td>
+                                            <td>0-0-0, 3(6)</td>
+                                            <td>0-1-0, 6.97(10.33)</td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            <td>0-0-0, 0(1.33)</td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>アダメス</td>
+                                            <td>0-1-0, 27.11(1.66)</td>
+                                            <td>0-0-0, 0(2.67)</td>
+                                            <td>0-0-0, 3.6(5)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>クック</td>
+                                            <td>0-0-5, 3(12)</td>
+                                            <td>0-1-1, 13.5(2)</td>
+                                            <td>0-1-0, 9(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>戸　根</td>
+                                            <td>0-0-0, 2.25(8)</td>
+                                            <td>0-0-0, 1.8(5)</td>
+                                            <td>0-1-0, 1.17(7.66)</td>
+                                            <td>0-0-0, 4.5(2)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>鍬　原</td>
+                                            <td>0-0-0, 13.5(2)</td>
+                                            <td>0-1-0, 3.97(11.34)</td>
+                                            <td>0-0-0, 3.85(4.67)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>野　上</td>
+                                            <td>0-0-1, 6(3)</td>
+                                            <td>0-1-0, 4.05(6.67)</td>
+                                            <td>1-0-0, 2.08(4.33)</td>
+                                            <td>0-1-0, 2.25(4)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>堀　岡</td>
+                                            <td>0-0-0, 9(1)</td>
+                                            <td></td>
+                                            <td>0-0-0, 5.41(3.33)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>森　福</td>
+                                            <td>0-0-0, 6.74(2.67)</td>
+                                            <td>0-0-0, 0(0.66)</td>
+                                            <td>0-0-0, 9(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>吉川光</td>
+                                            <td>0-0-0, 3(3)</td>
+                                            <td>0-1-0, 23.18(2.33)</td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>大　江</td>
+                                            <td>0-0-0, 13.43(0.67)</td>
+                                            <td>0-0-0, 7.11(6.33)</td>
+                                            <td>0-0-0, 4.92(3.66)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>古　川</td>
+                                            <td>0-0-0, 0(2)</td>
+                                            <td>0-1-0, 36(1)</td>
+                                            <td>1-0-0, 0(2)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>高　田</td>
+                                            <td></td>
+                                            <td>0-0-0, 6.75(4)</td>
+                                            <td></td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>坂本工</td>
+                                            <td></td>
+                                            <td>0-0-0, 27(1)</td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            </tr>
+                                            <tr>
+                                            <td>池　田</td>
+                                            <td></td>
+                                            <td>0-0-0, 99.9(0)</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>0-0-0, 0(1)</td>
+                                            <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid tab-pane active" id="t2020">
+                <div class="row">
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-area mr-1"></i>League/Team/貯金推移</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart20" width="100%" height="60vh"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-bar mr-1"></i>Giants/Team/月別勝利数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1">
+                                <canvas id="myBarChart20" width="100%" height="60vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/守備イニング</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-2">
+                                <canvas id="myPieChart20" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/先発試合数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-2">
+                                <canvas id="myPieChart20v2" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-pie mr-1"></i>Giants/Catcher/許盗塁数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-2">
+                                <canvas id="myPieChart20v3" width="100%" height="50vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-table mr-1"></i>Giants/Catcher/シーズン成績</div>
+                            <div class="card-body pl-1 pr-1 pb-0 pt-0">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dataTable20" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>捕手</th>
+                                                <th>イニング</th>
+                                                <th>勝</th>
+                                                <th>敗</th>
+                                                <th>S</th>
+                                                <th>先発数</th>
+                                                <th>失点</th>
+                                                <th>自責点</th>
+                                                <th>防御率</th>
+                                                <th>盗塁企図</th>
+                                                <th>許盗塁</th>
+                                                <th>盗塁刺</th>
+                                                <th>阻止率</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>大城</td>
+                                                <td>71.0</td>
+                                                <td>3</td>
+                                                <td>3</td>
+                                                <td>2</td>
+                                                <td>6</td>
+                                                <td>30</td>
+                                                <td>30</td>
+                                                <td>3.8</td>
+                                                <td>4</td>
+                                                <td>3</td>
+                                                <td>1</td>
+                                                <td>0.25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>炭谷</td>
+                                                <td>49.0</td>
+                                                <td>5</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>7</td>
+                                                <td>16</td>
+                                                <td>16</td>
+                                                <td>2.93</td>
+                                                <td>4</td>
+                                                <td>3</td>
+                                                <td>1</td>
+                                                <td>0.25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>小林</td>
+                                                <td>12.0</td>
+                                                <td>2</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                                <td>3</td>
+                                                <td>2.25</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>1.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>岸田</td>
+                                                <td>3.0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0.0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>---</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated 2020.7.5</div>
+
+        </div>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
