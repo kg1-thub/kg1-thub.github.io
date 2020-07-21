@@ -94,3 +94,17 @@ $(document).ready(function() {
     "info": false
   });
 });
+$(document).ready(function() {
+  $('#dataTablet20v2').DataTable({
+    order: [ [ 0, "asc" ] ],
+    "columnDefs": [
+      // { "width": "17%", "targets": 1 },
+      // { "width": "17%", "targets": 2 },
+      // { "width": "17%", "targets": 3 },
+      // { "width": "11%", "targets": 4 },
+    ],
+    "searching": false,
+    "paging": false,
+    "info": false
+  });
+});

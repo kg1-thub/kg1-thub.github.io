@@ -717,7 +717,7 @@ var myLineChart20 = new Chart(ctx20, {
       '07/18',
       '07/19',
       '07/21',
-      // '07/22',
+      '07/22',
       // '07/23',
       // '07/24',
       // '07/25',
@@ -852,6 +852,7 @@ var myLineChart20 = new Chart(ctx20, {
           7,
           8,
           9,
+          10,
         ],
       },
       {
@@ -896,6 +897,7 @@ var myLineChart20 = new Chart(ctx20, {
           -2,
           -1,
           0,
+          1,
         ],
       },
       {
@@ -940,6 +942,7 @@ var myLineChart20 = new Chart(ctx20, {
           0,
           -1,
           -2,
+          -3,
         ],
       },
       {
@@ -984,6 +987,7 @@ var myLineChart20 = new Chart(ctx20, {
           2,
           3,
           3,
+          4,
         ],
       },
       {
@@ -1028,6 +1032,7 @@ var myLineChart20 = new Chart(ctx20, {
           -4,
           -5,
           -6,
+          -7,
         ],
       },
       {
@@ -1072,6 +1077,7 @@ var myLineChart20 = new Chart(ctx20, {
           -3,
           -4,
           -4,
+          -5,
         ],
       },
     ],
