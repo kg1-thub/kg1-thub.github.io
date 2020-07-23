@@ -156,7 +156,7 @@ var myLineChart20 = new Chart(ctx20, {
         label: "大城",
         backgroundColor: "#ffc107",
         borderColor: "#ffc107",
-        data: [1, 7],
+        data: [1, 8],
       },
       {
         label: "その他",
