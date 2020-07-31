@@ -108,3 +108,17 @@ $(document).ready(function() {
     "info": false
   });
 });
+$(document).ready(function() {
+  $('#dataTablet20v3').DataTable({
+    order: [ [ 1, "desc" ] ],
+    "columnDefs": [
+      { "width": "22%", "targets": 1 },
+      { "width": "22%", "targets": 2 },
+      { "width": "22%", "targets": 3 },
+      { "width": "22%", "targets": 4 },
+    ],
+    "searching": false,
+    "paging": false,
+    "info": false
+  });
+});
