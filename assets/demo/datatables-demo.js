@@ -110,7 +110,7 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
   $('#dataTablet20v3').DataTable({
-    order: [ [ 1, "desc" ] ],
+    order: [ [ 1, "desc" ], [ 2, "desc" ], [ 3, "desc" ]],
     "columnDefs": [
       { "width": "22%", "targets": 1 },
       { "width": "22%", "targets": 2 },

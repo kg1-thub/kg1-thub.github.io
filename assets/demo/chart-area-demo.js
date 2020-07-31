@@ -915,6 +915,7 @@ var myLineChart20 = new Chart(ctx20, {
           2,
           1,
           0,
+          0,
         ],
       },
       {
@@ -967,6 +968,7 @@ var myLineChart20 = new Chart(ctx20, {
           -1,
           -2,
           -1,
+          0,
           0,
         ],
       },
