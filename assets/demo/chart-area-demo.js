@@ -929,6 +929,7 @@ var myLineChart20 = new Chart(ctx20, {
           -2,
           -1,
           -2,
+          -3,
         ],
       },
       {
@@ -989,6 +990,7 @@ var myLineChart20 = new Chart(ctx20, {
           2,
           3,
           2,
+          3,
         ],
       },
       {
@@ -1049,6 +1051,7 @@ var myLineChart20 = new Chart(ctx20, {
           0,
           1,
           2,
+          1,
         ],
       },
       {
@@ -1170,6 +1173,7 @@ var myLineChart20 = new Chart(ctx20, {
           -4,
           -5,
           -4,
+          -3,
         ],
       },
     ],
