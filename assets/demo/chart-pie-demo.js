@@ -120,7 +120,7 @@ var myPieChart20 = new Chart(ctx20, {
   data: {
     labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
-      data: [12, 165, 247, 35.33],
+      data: [12, 165, 255, 35.33],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
@@ -139,7 +139,7 @@ var myPieChart20v2 = new Chart(ctx20v2, {
   data: {
     labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
-      data: [2, 21, 27, 2],
+      data: [2, 21, 28, 2],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
@@ -158,7 +158,7 @@ var myPieChart20v3 = new Chart(ctx20v3, {
   data: {
     labels: ["小林", "炭谷", "大城", "その他"],
     datasets: [{
-      data: [0, 7, 12, 0],
+      data: [0, 6, 12, 0],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
