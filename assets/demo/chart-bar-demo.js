@@ -162,7 +162,7 @@ var myLineChart20 = new Chart(ctx20, {
         label: "岸田",
         backgroundColor: "#28a745",
         borderColor: "#28a745",
-        data: [0, 0, 1],
+        data: [0, 0, 2],
       }
     ],
   },
