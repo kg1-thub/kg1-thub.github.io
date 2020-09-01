@@ -24,6 +24,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+        <!-- for heatmap -->
+        <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147259112-3"></script>
         <script>
@@ -1073,6 +1078,30 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fas fa-chart-bar mr-1"></i>Giants/Team/勝敗マップ</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1">
+                                <div id="example-c"></div>
+                                <script type="text/javascript">
+                                    var cal = new CalHeatMap();
+                                    cal.init({
+                                        itemSelector: "#example-c",
+                                        domain: "month",
+                                        subDomain: "day",
+                                        data: "datas-years.json",
+                                        start: new Date(2020, 5, 1),
+                                        cellSize: 9,
+                                        range: 6,
+                                        previousSelector: "#example-g-PreviousDomain-selector",
+                                        nextSelector: "#example-g-NextDomain-selector",
+                                        legend: [4, 8]
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
 
                 <div class="row">
