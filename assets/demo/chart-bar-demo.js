@@ -138,7 +138,7 @@ var ctx20 = document.getElementById("myBarChart20");
 var myLineChart20 = new Chart(ctx20, {
   type: 'bar',
   data: {
-    labels: ["6月", "7月", "8月", "9月", "10月", "11月"],
+    labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
     datasets: [
       {
         label: "小林",
@@ -150,7 +150,7 @@ var myLineChart20 = new Chart(ctx20, {
         label: "炭谷",
         backgroundColor: "#dc3545",
         borderColor: "#dc3545",
-        data: [4, 5, 4, 0],
+        data: [4, 5, 4, 1],
       },
       {
         label: "大城",
