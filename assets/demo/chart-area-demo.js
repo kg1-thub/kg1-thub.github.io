@@ -896,8 +896,9 @@ var myLineChart20 = new Chart(ctx20, {
           16,
           17,
           16,
+          17,
         ],
-      },
+      }, // Giants
       {
         label: "Tigers",
         lineTension: 0,
@@ -981,8 +982,9 @@ var myLineChart20 = new Chart(ctx20, {
           1,
           2,
           3,
+          2,
         ],
-      },
+      }, // Tigers
       {
         label: "Baystars",
         lineTension: 0,
@@ -1066,8 +1068,9 @@ var myLineChart20 = new Chart(ctx20, {
           1,
           0,
           0,
+          1,
         ],
-      },
+      }, // Baystars
       {
         label: "Swallows",
         lineTension: 0,
@@ -1152,7 +1155,7 @@ var myLineChart20 = new Chart(ctx20, {
           -8,
           -9,
         ],
-      },
+      }, // Swallows
       {
         label: "Dragons",
         lineTension: 0,
@@ -1237,7 +1240,7 @@ var myLineChart20 = new Chart(ctx20, {
           -4,
           -3,
         ],
-      },
+      }, // Dragons
       {
         label: "Carp",
         lineTension: 0,
@@ -1321,8 +1324,9 @@ var myLineChart20 = new Chart(ctx20, {
           -6,
           -7,
           -7,
+          -8,
         ],
-      },
+      }, // Carp
     ],
   },
   options: {
