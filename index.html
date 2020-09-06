@@ -29,6 +29,12 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
 
+        <!-- calendar-heatmap -->
+        <link rel="stylesheet" type="text/css" href="css/calendar-heatmap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+        <script src="js/calendar-heatmap.js"></script>
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147259112-3"></script>
         <script>
@@ -1084,6 +1090,25 @@
                             <div class="card-header p-2"><i class="fas fa-chart-bar mr-1"></i>Giants/Team/勝敗マップ</div>
                             <div class="card-body mx-auto pr-0 pl-2 pt-2 pb-1">
                                 <div id="calmap"></div>
+                                <script type="text/javascript">
+                                    var now = moment().endOf('day').toDate();
+                                    var yearAgo = moment().startOf('day').subtract(1, 'year').toDate();
+                                    var chartData = d3.timeDays(yearAgo, now).map(function (dateElement) {
+                                      return {
+                                        date: dateElement,
+                                        count: (dateElement.getDay() !== 0 && dateElement.getDay() !== 6) ? Math.floor(Math.random() * 60) : Math.floor(Math.random() * 10)
+                                      };
+                                    });
+                                    var heatmap = calendarHeatmap()
+                                      .data(chartData)
+                                      .selector('#calmap')
+                                      .tooltipEnabled(true)
+                                      .colorRange(['#f4f7f7', '#79a8a9'])
+                                      .onClick(function (data) {
+                                        console.log('data', data);
+                                      });
+                                    heatmap();  // render the chart
+                                </script>
                             </div>
                         </div>
                     </div> -->
