@@ -1089,21 +1089,27 @@
                         <div class="card mb-1">
                             <div class="card-header p-2"><i class="fas fa-chart-bar mr-1"></i>Giants/Team/勝敗マップ</div>
                             <div class="card-body mx-auto pr-0 pl-2 pt-2 pb-1">
-                                <div id="calmap"></div>
+                                <div id="calmap" class="col-sm-6 pb-1 pt-0 pl-1 pr-1"></div>
                                 <script type="text/javascript">
-                                    var now = moment().endOf('day').toDate();
-                                    var yearAgo = moment().startOf('day').subtract(1, 'year').toDate();
-                                    var chartData = d3.timeDays(yearAgo, now).map(function (dateElement) {
+                                    // var now = moment().endOf('day').toDate();
+                                    // var yearAgo = moment().startOf('day').subtract(1, 'year').toDate();
+                                    var startdt = moment('20200619', 'YYYYMMDD').startOf('day').toDate();
+                                    var enddt = moment('20201107', 'YYYYMMDD').endOf('day').toDate();
+                                    var chartData = d3.timeDays(startdt, enddt).map(function (dateElement) {
                                       return {
                                         date: dateElement,
                                         count: (dateElement.getDay() !== 0 && dateElement.getDay() !== 6) ? Math.floor(Math.random() * 60) : Math.floor(Math.random() * 10)
                                       };
                                     });
+                                    // console.log({
+                                    //     date: dateElement,
+                                    //     count: (dateElement.getDay() !== 0 && dateElement.getDay() !== 6) ? Math.floor(Math.random() * 60) : Math.floor(Math.random() * 10)
+                                    // });
                                     var heatmap = calendarHeatmap()
                                       .data(chartData)
                                       .selector('#calmap')
                                       .tooltipEnabled(true)
-                                      .colorRange(['#f4f7f7', '#79a8a9'])
+                                      .colorRange(['#f4f7f7', '#007700'])
                                       .onClick(function (data) {
                                         console.log('data', data);
                                       });
