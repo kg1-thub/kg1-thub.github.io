@@ -2,12 +2,14 @@
 function calendarHeatmap() {
   // defaults
   var width = 750;
-  var height = 110;
+  // var height = 110;
+  var height = 150;
   var legendWidth = 150;
   var selector = 'body';
   // var SQUARE_LENGTH = 11;
   var SQUARE_LENGTH = 16;
   var SQUARE_PADDING = 2;
+  var ROUNDED_RATIO = 0.2;
   var MONTH_LABEL_PADDING = 6;
   // var now = moment().endOf('day').toDate();
   var now = moment('2020-11-30', 'YYYY-MM-DD').endOf('day').toDate();
@@ -17,16 +19,18 @@ function calendarHeatmap() {
   var counterMap= {};
   var data = [];
   var max = null;
+  var min = null;
   var colorRange = ['#D8E6E7', '#218380'];
   var tooltipEnabled = true;
   var tooltipUnit = 'contribution';
   var legendEnabled = true;
   var onClick = null;
-  var weekStart = 0; //0 for Sunday, 1 for Monday
+  var weekStart = 1; //0 for Sunday, 1 for Monday
   var locale = {
     months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-    No: 'No',
+    // days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    No: '',
     on: 'on',
     Less: 'Less',
     More: 'More'
@@ -52,6 +56,12 @@ function calendarHeatmap() {
   chart.max = function (value) {
     if (!arguments.length) { return max; }
     max = value;
+    return chart;
+  };
+
+  chart.min = function (value) {
+    if (!arguments.length) { return min; }
+    min = value;
     return chart;
   };
 
@@ -120,7 +130,8 @@ function calendarHeatmap() {
     // color range
     var color = ((d3.scale && d3.scale.linear) || d3.scaleLinear)()
       .range(chart.colorRange())
-      .domain([0, max]);
+      .domain([min, max]);
+      // .domain([0, max]);
 
     var tooltip;
     var dayRects;
@@ -151,9 +162,9 @@ function calendarHeatmap() {
         })
         .attr('y', function (d, i) {
           return MONTH_LABEL_PADDING + formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING);
-        });
-        // .attr('rx', 6)
-        // .attr('ry', 6);
+        })
+        .attr('rx', SQUARE_LENGTH * ROUNDED_RATIO)
+        .attr('ry', SQUARE_LENGTH * ROUNDED_RATIO);
 
       if (typeof onClick === 'function') {
         (v === 3 ? enterSelection : enterSelection.merge(dayRects)).on('click', function(d) {
