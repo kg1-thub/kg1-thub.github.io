@@ -1,16 +1,23 @@
-
+// https://github.com/DKirwan/calendar-heatmap
 function calendarHeatmap() {
   // defaults
-  var width = 750;
-  // var height = 110;
-  var height = 150;
-  var legendWidth = 150;
+  // // var width = 750;
+  var width = 900;
+  // // var height = 110;
+  var height = 165;
+  // // var legendWidth = 150;
+  // var legendWidth = 20;
+  // var width = null;
+  // var height = null;
+  // var legendWidth = 30;
   var selector = 'body';
   // var SQUARE_LENGTH = 11;
   var SQUARE_LENGTH = 16;
   var SQUARE_PADDING = 2;
   var ROUNDED_RATIO = 0.2;
-  var MONTH_LABEL_PADDING = 6;
+  var MONTH_LABEL_PADDING = 18;
+  var DAY_LABEL_PADDING = 18;
+  var monthOutlineEnabled = true;
   // var now = moment().endOf('day').toDate();
   var now = moment('2020-11-30', 'YYYY-MM-DD').endOf('day').toDate();
   // var yearAgo = moment().startOf('day').subtract(1, 'year').toDate();
@@ -19,7 +26,7 @@ function calendarHeatmap() {
   var counterMap= {};
   var data = [];
   var max = null;
-  var min = null;
+  var MIN = -1.5;
   var colorRange = ['#D8E6E7', '#218380'];
   var tooltipEnabled = true;
   var tooltipUnit = 'contribution';
@@ -30,6 +37,7 @@ function calendarHeatmap() {
     months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     // days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
     days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    week: {dow: weekStart},
     No: '',
     on: 'on',
     Less: 'Less',
@@ -114,6 +122,10 @@ function calendarHeatmap() {
     return chart;
   };
 
+  function monthLabelHorizontalPosition({w0, w1}) {
+    return DAY_LABEL_PADDING + (((w1 + 1) + w0) / 2) * z
+  }
+
   function chart() {
 
     d3.select(chart.selector()).selectAll('svg.calendar-heatmap').remove(); // remove the existing chart, if it exists
@@ -123,15 +135,16 @@ function calendarHeatmap() {
     var firstDate = moment(dateRange[0]);
     if (chart.data().length == 0) {
       max = 0;
+      min = 0;
     } else if (max === null) {
       max = d3.max(chart.data(), function (d) { return d.count; }); // max data value
+      min = d3.min(chart.data(), function (d) { return d.count; }); // min data value
     }
 
     // color range
     var color = ((d3.scale && d3.scale.linear) || d3.scaleLinear)()
       .range(chart.colorRange())
-      .domain([min, max]);
-      // .domain([0, max]);
+      .domain([MIN, max]);
 
     var tooltip;
     var dayRects;
@@ -157,8 +170,8 @@ function calendarHeatmap() {
         .attr('fill', function(d) { return color(countForDate(d)); })
         .attr('x', function (d, i) {
           var cellDate = moment(d);
-          var result = cellDate.week() - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
-          return result * (SQUARE_LENGTH + SQUARE_PADDING);
+          var result = formatWeek(cellDate, d.getDay()) - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
+          return result * (SQUARE_LENGTH + SQUARE_PADDING) + DAY_LABEL_PADDING;
         })
         .attr('y', function (d, i) {
           return MONTH_LABEL_PADDING + formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING);
@@ -224,27 +237,24 @@ function calendarHeatmap() {
       var monthLabels = svg.selectAll('.month')
           .data(monthRange)
           .enter().append('text')
+          .style('text-anchor', 'middle')
           .attr('class', 'month-name')
           .text(function (d) {
             return locale.months[d.getMonth()];
           })
           .attr('x', function (d, i) {
-            var matchIndex = 0;
-            dateRange.find(function (element, index) {
-              matchIndex = index;
-              return moment(d).isSame(element, 'month') && moment(d).isSame(element, 'year');
-            });
-
-            return Math.floor(matchIndex / 7) * (SQUARE_LENGTH + SQUARE_PADDING);
+            return monthLabelHorizontalPosition(monthStartEndProps(d, i));
           })
-          .attr('y', 0);  // fix these to the top
+          .attr('y', MONTH_LABEL_PADDING - 5);
 
       locale.days.forEach(function (day, index) {
         index = formatWeekday(index);
         if (index % 2) {
           svg.append('text')
             .attr('class', 'day-initial')
-            .attr('transform', 'translate(-8,' + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1) + ')')
+            .attr('y', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1)))
+            .attr('x', DAY_LABEL_PADDING - 9)
+            // .attr('transform', 'translate(-8,' + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1) + ')')
             .style('text-anchor', 'middle')
             .attr('dy', '2')
             .text(day);
@@ -270,12 +280,27 @@ function calendarHeatmap() {
     function tooltipHTMLForDate(d) {
       var dateStr = moment(d).format('ddd, MMM Do YYYY');
       var count = countForDate(d);
-      return '<span><strong>' + (count ? count : locale.No) + ' ' + pluralizedTooltipUnit(count) + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
+      console.log(dateStr, count);
+      if (count == 1) {
+        // return '<span><strong>' + (count ? count : locale.No) + ' ' + pluralizedTooltipUnit(count) + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
+        return '<span><strong>' + 'WIN ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
+      } else if (count == -1) {
+        return '<span><strong>' + 'LOSE ' +'</strong> ' + locale.on + ' ' + dateStr + '</span>';
+      } else if (count == 0) {
+        return '<span><strong>' + 'DRAW ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
+      } else if (count == MIN) {
+        return '<span><strong>' + 'NO GAME ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
+      }
     }
 
     function countForDate(d) {
         var key= moment(d).format( 'YYYY-MM-DD' );
-        return counterMap[key] || 0;
+        // return counterMap[key] || 0;
+        if (counterMap[key] == 0) {
+            return counterMap[key];
+        } else {
+            return counterMap[key] || MIN;
+        }
     }
 
     function formatWeekday(weekDay) {
@@ -287,6 +312,17 @@ function calendarHeatmap() {
         }
       }
       return weekDay;
+    }
+
+    function formatWeek(cellDate, weekDay) {
+      if (weekStart === 1) {
+        if (weekDay === 0) {
+          return cellDate.week() - 1;
+        } else {
+          return cellDate.week();
+        }
+      }
+      return cellDate.week();
     }
 
     var daysOfChart = chart.data().map(function (day) {
