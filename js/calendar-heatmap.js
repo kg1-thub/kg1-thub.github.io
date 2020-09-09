@@ -1,10 +1,11 @@
 // https://github.com/DKirwan/calendar-heatmap
 function calendarHeatmap() {
   // defaults
-  // // var width = 750;
-  var width = 900;
+  // var width = 750;
+  var width = 400;
   // // var height = 110;
-  var height = 165;
+  var height = 135;
+  var viewBox = '0 0 ' + width + ' ' + height * 0.5;
   // // var legendWidth = 150;
   // var legendWidth = 20;
   // var width = null;
@@ -12,7 +13,7 @@ function calendarHeatmap() {
   // var legendWidth = 30;
   var selector = 'body';
   // var SQUARE_LENGTH = 11;
-  var SQUARE_LENGTH = 16;
+  var SQUARE_LENGTH = 11;
   var SQUARE_PADDING = 2;
   var ROUNDED_RATIO = 0.2;
   var MONTH_LABEL_PADDING = 18;
@@ -35,8 +36,7 @@ function calendarHeatmap() {
   var weekStart = 1; //0 for Sunday, 1 for Monday
   var locale = {
     months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    // days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-    days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    days: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     week: {dow: weekStart},
     No: '',
     on: 'on',
@@ -116,6 +116,24 @@ function calendarHeatmap() {
     return chart;
   };
 
+  chart.squareLength = function (value) {
+    if (!arguments.length) { return SQUARE_LENGTH; }
+    SQUARE_LENGTH = value;
+    return chart;
+  };
+
+  chart.width = function (value) {
+    if (!arguments.length) { return width; }
+    width = value;
+    return chart;
+  };
+
+  chart.height = function (value) {
+    if (!arguments.length) { return SQUARE_LENGTH * 10; }
+    height = value;
+    return chart;
+  };
+
   chart.locale = function (value) {
     if (!arguments.length) { return locale; }
     locale = value;
@@ -157,8 +175,12 @@ function calendarHeatmap() {
         .append('svg')
         .attr('width', width)
         .attr('class', 'calendar-heatmap')
+        .attr('overflow', 'scroll')
         .attr('height', height)
-        .style('padding', '36px');
+        .attr('preserveAspectRatio','xMinYMin meet')
+        // .attr('viewBox', '0 0 400 60')
+        .attr('viewBox', viewBox)
+        .style('padding', '7px');
 
       dayRects = svg.selectAll('.day-cell')
         .data(dateRange);  //  array of days for the last yr
@@ -237,24 +259,27 @@ function calendarHeatmap() {
       var monthLabels = svg.selectAll('.month')
           .data(monthRange)
           .enter().append('text')
-          .style('text-anchor', 'middle')
           .attr('class', 'month-name')
           .text(function (d) {
             return locale.months[d.getMonth()];
           })
           .attr('x', function (d, i) {
-            return monthLabelHorizontalPosition(monthStartEndProps(d, i));
+            var matchIndex = 0;
+            dateRange.find(function (element, index) {
+              matchIndex = index;
+              return moment(d).isSame(element, 'month') && moment(d).isSame(element, 'year');
+            });
+            return DAY_LABEL_PADDING + (SQUARE_LENGTH + SQUARE_PADDING) + Math.floor(matchIndex / 7) * (SQUARE_LENGTH + SQUARE_PADDING);
           })
-          .attr('y', MONTH_LABEL_PADDING - 5);
+          .attr('y', MONTH_LABEL_PADDING * 0.7);  // fix these to the top
 
       locale.days.forEach(function (day, index) {
         index = formatWeekday(index);
-        if (index % 2) {
+        if ((index + 1) % 2) {
           svg.append('text')
             .attr('class', 'day-initial')
             .attr('y', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1)))
-            .attr('x', DAY_LABEL_PADDING - 9)
-            // .attr('transform', 'translate(-8,' + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1) + ')')
+            .attr('x', DAY_LABEL_PADDING - 7)
             .style('text-anchor', 'middle')
             .attr('dy', '2')
             .text(day);

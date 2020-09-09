@@ -73,11 +73,14 @@ for (var d in datas) {
         count: datas[d]
     });
 };
+var squareLength = 15;
 var heatmap = calendarHeatmap()
   .data(chartData)
   .selector('#calmap')
   .tooltipEnabled(true)
   .legendEnabled(false)
+  .squareLength(squareLength)
+  .height(squareLength*10)
   .colorRange(['#ECEFF2', '#CE6009']);
 console.log(chartData);
 heatmap();  // render the chart
