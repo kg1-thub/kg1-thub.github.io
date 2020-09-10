@@ -66,6 +66,7 @@ var datas = {
     '2020-09-07': 1,
     '2020-09-08': 1,
     '2020-09-09': 1,
+    '2020-09-10': 0,
 };
 var chartData = [];
 for (var d in datas) {
@@ -77,11 +78,15 @@ for (var d in datas) {
 var squareLength = 15;
 var heatmap = calendarHeatmap()
   .data(chartData)
+  .startDate('2020-06-01')
+  .endDate('2020-11-30')
   .selector('#calmap')
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-  .height(squareLength*10)
+//   .height(squareLength * 7)
+//   .width('100%')
+//   .width(squareLength * 40)
   .colorRange(['#ECEFF2', '#CE6009']);
 console.log(chartData);
 heatmap();  // render the chart

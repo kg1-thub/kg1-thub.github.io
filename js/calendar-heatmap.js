@@ -1,29 +1,21 @@
 // https://github.com/DKirwan/calendar-heatmap
 function calendarHeatmap() {
   // defaults
-  // var width = 750;
-  var width = 400;
-  // // var height = 110;
+  var width = 600;
   var height = 135;
-  var viewBox = '0 0 ' + width + ' ' + height * 0.5;
-  // // var legendWidth = 150;
-  // var legendWidth = 20;
-  // var width = null;
-  // var height = null;
-  // var legendWidth = 30;
+  var viewBox = '0 0 ' + width * 1 + ' ' + height * 1;
+  var legendWidth = 150;
   var selector = 'body';
-  // var SQUARE_LENGTH = 11;
   var SQUARE_LENGTH = 11;
   var SQUARE_PADDING = 2;
-  var ROUNDED_RATIO = 0.2;
+  var ROUNDED_RATIO = 0.3;
   var MONTH_LABEL_PADDING = 18;
   var DAY_LABEL_PADDING = 18;
   var monthOutlineEnabled = true;
-  // var now = moment().endOf('day').toDate();
-  var now = moment('2020-11-30', 'YYYY-MM-DD').endOf('day').toDate();
-  // var yearAgo = moment().startOf('day').subtract(1, 'year').toDate();
-  var yearAgo = moment('2020-06-01', 'YYYY-MM-DD').startOf('day').toDate();
+  var now = moment().endOf('day').toDate();
+  var yearAgo = moment().startOf('day').subtract(1, 'year').toDate();
   var startDate = null;
+  var endDate = null;
   var counterMap= {};
   var data = [];
   var max = null;
@@ -81,8 +73,14 @@ function calendarHeatmap() {
 
   chart.startDate = function (value) {
     if (!arguments.length) { return startDate; }
-    yearAgo = value;
-    now = moment(value).endOf('day').add(1, 'year').toDate();
+    yearAgo = moment(value, 'YYYY-MM-DD').startOf('day').toDate();
+    now = moment(value, 'YYYY-MM-DD').endOf('day').add(1, 'year').toDate();
+    return chart;
+  };
+
+  chart.endDate = function (value) {
+    if (!arguments.length) { return endDate; }
+    now = moment(value, 'YYYY-MM-DD').endOf('day').toDate();
     return chart;
   };
 
@@ -131,6 +129,7 @@ function calendarHeatmap() {
   chart.height = function (value) {
     if (!arguments.length) { return SQUARE_LENGTH * 10; }
     height = value;
+    viewBox = '0 0 ' + width * 2.0 + ' ' + height * 2.5;
     return chart;
   };
 
@@ -173,13 +172,13 @@ function calendarHeatmap() {
       var svg = d3.select(chart.selector())
         .style('position', 'relative')
         .append('svg')
-        .attr('width', width)
+        // .attr('width', width)
+        // .attr('height', height)
         .attr('class', 'calendar-heatmap')
         .attr('overflow', 'scroll')
-        .attr('height', height)
         .attr('preserveAspectRatio','xMinYMin meet')
-        // .attr('viewBox', '0 0 400 60')
-        .attr('viewBox', viewBox)
+        // .attr('viewBox', '0 0 500 300')
+        // .attr('viewBox', viewBox)
         .style('padding', '7px');
 
       dayRects = svg.selectAll('.day-cell')
@@ -303,7 +302,8 @@ function calendarHeatmap() {
     }
 
     function tooltipHTMLForDate(d) {
-      var dateStr = moment(d).format('ddd, MMM Do YYYY');
+      // var dateStr = moment(d).format('ddd, MMM Do YYYY');
+      var dateStr = moment(d).format('MMM D, YYYY');
       var count = countForDate(d);
       console.log(dateStr, count);
       if (count == 1) {
@@ -314,7 +314,7 @@ function calendarHeatmap() {
       } else if (count == 0) {
         return '<span><strong>' + 'DRAW ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
       } else if (count == MIN) {
-        return '<span><strong>' + 'NO GAME ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
+        return '<span><strong>' + 'no game ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
       }
     }
 

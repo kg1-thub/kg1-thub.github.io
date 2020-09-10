@@ -201,7 +201,9 @@ img {
 }
 
 svg {
-  overflow: hidden;
+  width: 100%;
+  /* overflow: hidden; */
+  overflow: scroll;
   vertical-align: middle;
 }
 
