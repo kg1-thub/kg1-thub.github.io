@@ -1086,6 +1086,7 @@ var myLineChart20 = new Chart(ctx20, {
           2,
           3,
           2,
+          1,
         ],
       }, // Baystars
       {
@@ -1269,6 +1270,7 @@ var myLineChart20 = new Chart(ctx20, {
           -4,
           -5,
           -5,
+          -4,
         ],
       }, // Dragons
       {
