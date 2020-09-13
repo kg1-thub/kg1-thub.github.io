@@ -998,6 +998,7 @@ var myLineChart20 = new Chart(ctx20, {
           1,
           2,
           3,
+          4,
         ],
       }, // Tigers
       {
@@ -1091,6 +1092,7 @@ var myLineChart20 = new Chart(ctx20, {
           2,
           1,
           2,
+          1,
         ],
       }, // Baystars
       {
@@ -1278,6 +1280,7 @@ var myLineChart20 = new Chart(ctx20, {
           -5,
           -4,
           -5,
+          -4,
         ],
       }, // Dragons
       {
@@ -1371,6 +1374,7 @@ var myLineChart20 = new Chart(ctx20, {
           -7,
           -8,
           -9,
+          -10,
         ],
       }, // Carp
     ],
