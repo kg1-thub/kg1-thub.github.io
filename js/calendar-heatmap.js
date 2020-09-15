@@ -129,7 +129,12 @@ function calendarHeatmap() {
   chart.height = function (value) {
     if (!arguments.length) { return SQUARE_LENGTH * 10; }
     height = value;
-    viewBox = '0 0 ' + width * 2.0 + ' ' + height * 2.5;
+    // viewBox = '0 0 ' + width * 2.0 + ' ' + height * 2.5;
+    return chart;
+  };
+
+  chart.viewBox = function (w, h) {
+    viewBox = '0 0 ' + w + ' ' + h;
     return chart;
   };
 
@@ -172,12 +177,12 @@ function calendarHeatmap() {
       var svg = d3.select(chart.selector())
         .style('position', 'relative')
         .append('svg')
-        // .attr('width', width)
-        // .attr('height', height)
+        .attr('width', 450)
+        .attr('height', 100)
         .attr('class', 'calendar-heatmap')
         .attr('overflow', 'scroll')
-        .attr('preserveAspectRatio','xMinYMin meet')
-        // .attr('viewBox', '0 0 500 300')
+        // .attr('preserveAspectRatio','xMinYMin meet')
+        .attr('viewBox', '0 0 400 110')
         // .attr('viewBox', viewBox)
         .style('padding', '7px');
 

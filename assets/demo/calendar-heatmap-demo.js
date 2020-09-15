@@ -78,7 +78,7 @@ for (var d in datas) {
         count: datas[d]
     });
 };
-var squareLength = 15;
+var squareLength = 11;
 var heatmap = calendarHeatmap()
   .data(chartData)
   .startDate('2020-06-01')
@@ -87,9 +87,10 @@ var heatmap = calendarHeatmap()
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-//   .height(squareLength * 7)
-//   .width('100%')
-//   .width(squareLength * 40)
+  // .viewBox(squareLength*20, squareLength*8)
+  .height(squareLength * 7)
+  // .width('100%')
+  .width(squareLength * 40)
   .colorRange(['#ECEFF2', '#CE6009']);
 console.log(chartData);
 heatmap();  // render the chart
