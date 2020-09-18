@@ -770,7 +770,7 @@ var myLineChart20 = new Chart(ctx20, {
       '09/16',
       '09/17',
       '09/18',
-      // '09/19',
+      '09/19',
       // '09/20',
       // '09/21',
       // '09/22',
@@ -908,6 +908,7 @@ var myLineChart20 = new Chart(ctx20, {
           24,
           25,
           24,
+          23,
         ],
       }, // Giants
       {
@@ -1102,6 +1103,7 @@ var myLineChart20 = new Chart(ctx20, {
           2,
           1,
           0,
+          1,
         ],
       }, // Baystars
       {
