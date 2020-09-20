@@ -177,12 +177,12 @@ function calendarHeatmap() {
       var svg = d3.select(chart.selector())
         .style('position', 'relative')
         .append('svg')
-        .attr('width', 450)
-        .attr('height', 100)
+        .attr('height', '200px')
+        .attr('width', '700px')
         .attr('class', 'calendar-heatmap')
         .attr('overflow', 'scroll')
         // .attr('preserveAspectRatio','xMinYMin meet')
-        .attr('viewBox', '0 0 400 110')
+        // .attr('viewBox', '0 0 400 110')
         // .attr('viewBox', viewBox)
         .style('padding', '7px');
 
