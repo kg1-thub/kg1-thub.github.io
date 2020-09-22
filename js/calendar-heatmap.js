@@ -3,7 +3,7 @@ function calendarHeatmap() {
   // defaults
   var width = 600;
   var height = 135;
-  var viewBox = '0 0 ' + width * 1 + ' ' + height * 1;
+  // var viewBox = '0 0 ' + width * 1 + ' ' + height * 1;
   var legendWidth = 150;
   var selector = 'body';
   var SQUARE_LENGTH = 11;
@@ -120,23 +120,23 @@ function calendarHeatmap() {
     return chart;
   };
 
-  chart.width = function (value) {
-    if (!arguments.length) { return width; }
-    width = value;
-    return chart;
-  };
+  // chart.height = function (value) {
+  //   if (!arguments.length) { return SQUARE_LENGTH * 10; }
+  //   height = value;
+  //   // viewBox = '0 0 ' + width * 2.0 + ' ' + height * 2.5;
+  //   return chart;
+  // };
 
-  chart.height = function (value) {
-    if (!arguments.length) { return SQUARE_LENGTH * 10; }
-    height = value;
-    // viewBox = '0 0 ' + width * 2.0 + ' ' + height * 2.5;
-    return chart;
-  };
+  // chart.width = function (value) {
+  //   if (!arguments.length) { return width; }
+  //   width = value;
+  //   return chart;
+  // };
 
-  chart.viewBox = function (w, h) {
-    viewBox = '0 0 ' + w + ' ' + h;
-    return chart;
-  };
+  // chart.viewBox = function (w, h) {
+  //   viewBox = '0 0 ' + w + ' ' + h;
+  //   return chart;
+  // };
 
   chart.locale = function (value) {
     if (!arguments.length) { return locale; }
@@ -177,14 +177,15 @@ function calendarHeatmap() {
       var svg = d3.select(chart.selector())
         .style('position', 'relative')
         .append('svg')
-        .attr('height', '200px')
-        .attr('width', '700px')
+        .attr('height', '190px')
         .attr('class', 'calendar-heatmap')
-        .attr('overflow', 'scroll')
+        // .attr('overflow', 'scroll')
         // .attr('preserveAspectRatio','xMinYMin meet')
         // .attr('viewBox', '0 0 400 110')
         // .attr('viewBox', viewBox)
-        .style('padding', '7px');
+        .style('padding', '7px')
+        .style('width', '650px')
+        ;
 
       dayRects = svg.selectAll('.day-cell')
         .data(dateRange);  //  array of days for the last yr

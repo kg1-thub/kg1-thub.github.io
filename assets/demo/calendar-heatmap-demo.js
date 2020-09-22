@@ -75,7 +75,9 @@ var datas = {
     '2020-09-17': -1,
     '2020-09-18': -1,
     '2020-09-19': -1,
-    '2020-09-19': 1,
+    '2020-09-20': 1,
+    '2020-09-21': 1,
+    '2020-09-22': 1,
 };
 var chartData = [];
 for (var d in datas) {
@@ -94,9 +96,9 @@ var heatmap = calendarHeatmap()
   .legendEnabled(false)
   .squareLength(squareLength)
   // .viewBox(squareLength*20, squareLength*8)
-  .height(squareLength * 30)
+  // .height(squareLength * 30)
 //   .width('100%')
-  .width(squareLength * 80)
+  // .width(squareLength * 80)
   .colorRange(['#ECEFF2', '#CE6009']);
 console.log(chartData);
 heatmap();  // render the chart
