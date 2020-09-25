@@ -144,7 +144,7 @@ var myLineChart20 = new Chart(ctx20, {
         label: "小林",
         backgroundColor: "#007bff",
         borderColor: "#007bff",
-        data: [2, 0, 0, 0],
+        data: [2, 0, 0, 1],
       },
       {
         label: "炭谷",
