@@ -1042,6 +1042,7 @@ var myLineChart20 = new Chart(ctx20, {
           3,
           2,
           3,
+          3,
         ],
       }, // Tigers
       {
@@ -1499,6 +1500,7 @@ var myLineChart20 = new Chart(ctx20, {
           -13,
           -12,
           -11,
+          -10,
           -10,
           -10,
         ],
