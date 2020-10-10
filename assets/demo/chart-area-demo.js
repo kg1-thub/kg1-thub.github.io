@@ -1289,6 +1289,7 @@ var myLineChart20 = new Chart(ctx20, {
           -18,
           -18,
           -17,
+          -18,
         ],
       }, // Swallows
       {
@@ -1526,6 +1527,7 @@ var myLineChart20 = new Chart(ctx20, {
           -9,
           -10,
           -11,
+          -10,
         ],
       }, // Carp
     ],
