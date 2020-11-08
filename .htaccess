@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^catcher-stats/$ /gcs/about/catcher-stats/ [R=301,L]
+RewriteRule https://kg1-thub.github.io/catcher-stats/ https://kg1-thub.github.io/gcs/about/catcher-stats/
