@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule https://kg1-thub.github.io/catcher-stats/ https://kg1-thub.github.io/gcs/about/catcher-stats/
