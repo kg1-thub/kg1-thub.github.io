@@ -818,7 +818,7 @@ var myLineChart20 = new Chart(ctx20, {
       '11/06',
       '11/07',
       '11/08',
-      // '11/10',
+      '11/10',
       // '11/14',
     ],
     datasets: [
@@ -965,6 +965,7 @@ var myLineChart20 = new Chart(ctx20, {
           22,
           22,
           23,
+          22,
         ],
       }, // Giants
       {
@@ -1110,6 +1111,7 @@ var myLineChart20 = new Chart(ctx20, {
           6,
           6,
           7,
+          7,
         ],
       }, // Tigers
       {
@@ -1252,6 +1254,7 @@ var myLineChart20 = new Chart(ctx20, {
           1,
           0,
           -1,
+          -2,
           -2,
           -2,
           -2,
@@ -1400,6 +1403,7 @@ var myLineChart20 = new Chart(ctx20, {
           -28,
           -27,
           -28,
+          -27,
         ],
       }, // Swallows
       {
@@ -1543,6 +1547,7 @@ var myLineChart20 = new Chart(ctx20, {
           3,
           4,
           5,
+          4,
           4,
           4,
         ],
@@ -1689,6 +1694,7 @@ var myLineChart20 = new Chart(ctx20, {
           -4,
           -3,
           -3,
+          -4,
           -4,
         ],
       }, // Carp
