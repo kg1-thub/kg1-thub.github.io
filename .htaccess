@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^catcher-stats/$ /gcs/about/catcher-stats/ [R=301,L]
