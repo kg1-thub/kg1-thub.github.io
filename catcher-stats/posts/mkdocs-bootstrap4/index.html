@@ -62,7 +62,7 @@
                 <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nav-dropdown-About">About <b class="caret"></b></a>
                 <div class="dropdown-menu" aria-labelledby="nav-dropdown-About">
                   
-<a href="../../about/catcher-stats/" class="dropdown-item">About site</a>
+<a href="../.." class="dropdown-item">About site</a>
                   
 <a href="../../about/privacy-policy/" class="dropdown-item">Privacy policy</a>
                   
@@ -100,9 +100,9 @@
 
 
 <h1 id="mkdocs">mkdocsでサイトを作りたい</h1>
-<p>Pythonベースのmkdocsは、markdown記法で作成したページをレンダリングして静的htmlファイルを生成してくれます。導入からデモサイトまでがとても簡単なので、まとめておきます。</p>
+<p>Pythonベースの <code>mkdocs</code> は、markdown記法で作成したページをレンダリングして静的htmlファイルを生成してくれます。導入からデモサイトまでがとても簡単なので、まとめておきます。</p>
 <h2 id="mkdocs_1">mkdocs を導入したい</h2>
-<p>pipコマンドで簡単インストールできます。</p>
+<p><code>pip</code> コマンドで簡単インストールできます。</p>
 <pre><code class="language-python">pip install mkdocs
 </code></pre>
 <h2 id="mkdocs_2">mkdocs を使いたい</h2>
@@ -112,8 +112,8 @@
 <pre><code>mkdocs new gcs
 </code></pre>
 <ul>
-<li>ローカルサーバを起動します。newコマンドで作成されたフォルダに入ってmkdocs serveコマンドで起動できます。 
-ブラウザで[http://127.0.0.1:8000]または[http://localhost:8000]にアクセスすると作成したサイト、ページが表示されます。<br />
+<li>ローカルサーバを起動します。 <code>mkdocs new</code> コマンドで作成されたフォルダに入って <code>mkdocs serve</code> コマンドで起動できます。 
+ブラウザで <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> または <a href="http://localhost:8000">http://localhost:8000</a> にアクセスすると作成したサイト、ページが表示されます。<br />
 ソースを修正すると、自動でサーバに反映される。</li>
 </ul>
 <pre><code>cd gcs
@@ -127,18 +127,18 @@ mkdocs serve
 mkdocs build -d C:/Users/ki401/Documents/git/github-io/posts
 </code></pre>
 <h2 id="bootstrap-4">デザインをBootstrap 4 にしたい</h2>
-<p>とても簡単にBootstrap4デザインを導入できます。
+<p>とても簡単に<code>Bootstrap4</code>デザインを導入できます。
 まずはライブラリをインストールします。</p>
 <pre><code>pip install mkdocs-bootstrap4
 </code></pre>
 <p>テーマにbootstrap4を指定します。
-[gcs/mkdocs.yml] の theme - name を次のように指定します。</p>
+<code>gcs/mkdocs.yml</code> の theme - name を次のように指定します。</p>
 <pre><code>site_name: Giants/Catcher/Score
 theme:
     name: bootstrap4
 </code></pre>
 <p>以上。
-[mkdocs serve] で確認してみましょう。</p>
+<code>mkdocs serve</code> で確認してみましょう。</p>
 
 <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
   <li class="last-updated-holder displayDate loading">
