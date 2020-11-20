@@ -1,0 +1,32 @@
+site_name: Giants/Catcher/Score
+nav:
+    # - Home: index.md
+    - SCORE: https://kg1-thub.github.io/
+    - ABOUT:
+        - About site: index.md
+        # - About site: about/catcher-stats.md
+        # - Links: https://kg1-thub.github.io/links/
+        - Privacy policy: about/privacy-policy.md
+        - Contact: https://forms.gle/f5mB854NhKq3hHq48
+    - POSTS: 
+        - posts/maincatcher19vs20.md
+    - HACKS: 
+        - hacks/quick_start_mkdocs.md
+
+theme:
+    name: material
+    language: ja
+markdown_extensions:
+    - fontawesome_markdown
+extra_css:
+    - "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+    - "css/custom.css"
+    - "https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"
+extra_javascript:
+    - "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"
+extra:
+    search:
+        language: jp
+google_analytics:
+  - 'UA-147259112-3'
+  - 'auto'
