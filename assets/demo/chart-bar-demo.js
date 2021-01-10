@@ -4,7 +4,7 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 
 // Bar Chart 2018
 var ctx18 = document.getElementById("myBarChart18");
-var myLineChart = new Chart(ctx18, {
+var myLineChart18 = new Chart(ctx18, {
   type: 'bar',
   data: {
     labels: ["3・4月", "5月", "6月", "7月", "8月", "9・10月"],
@@ -70,7 +70,7 @@ var myLineChart = new Chart(ctx18, {
 
 // Bar Chart 2019
 var ctx19 = document.getElementById("myBarChart19");
-var myLineChart = new Chart(ctx19, {
+var myLineChart19 = new Chart(ctx19, {
   type: 'bar',
   data: {
     labels: ["3・4月", "5月", "6月", "7月", "8月", "9月"],
