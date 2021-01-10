@@ -261,7 +261,7 @@ var options_prm = {
         yAxes: [{
             scaleLabel: {
                 display: true,
-                labelString: 'percentage of total in the team'
+                labelString: 'percent of total in team'
             },
             ticks: {
               min: 0,

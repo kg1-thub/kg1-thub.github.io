@@ -73,7 +73,7 @@ function switch_chart_type_line_to_bar(config, sample_list, unit) {
     } else {
         config.type='line';
         config.options.scales.yAxes[0].ticks.max = 100;
-        config.options.scales.yAxes[0].scaleLabel.labelString = 'percentage of total in the team';
+        config.options.scales.yAxes[0].scaleLabel.labelString = 'percent of total in team';
         config.data.datasets.forEach(function(dataset, index) {
             dataset.data = sample_list.p[index];
         });
