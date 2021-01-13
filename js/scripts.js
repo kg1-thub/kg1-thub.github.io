@@ -25,6 +25,52 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
+$(document).ready(function(){
+    $(".dropdown-toggle").dropdown();
+});
+
+function tab_change(year) {
+    if (year.length>0) {
+        var years = ['2020', '2019', '2018'];
+        for (i=0; i<years.length; i++) {
+            if (years[i]==year) {
+                $(".dropdown-toggle")[0].innerText=year;
+                document.getElementById('t'+year).classList.add('active');''
+                document.getElementById('d'+year).classList.add('d-none');
+            } else {
+                document.getElementById('t'+years[i]).classList.remove('active');
+                document.getElementById('d'+years[i]).classList.remove('d-none');
+            }
+        };
+    };
+};
+
+
+document.getElementById('d2020').addEventListener('click', function() {
+    tab_change('2020');
+});
+document.getElementById('d2019').addEventListener('click', function() {
+    tab_change('2019');
+});
+document.getElementById('d2018').addEventListener('click', function() {
+    tab_change('2018');
+});
+
+
+$(document).ready(function() {
+    var year = location.hash.substring(1, 5);
+    if (year.length>0) {
+        var years = ['2020', '2019', '2018'];
+        for (i=0; i<tabs.length; i++) {
+            if (tabs[i]==year) {
+                document.getElementById('t'+year).classList.add('active');
+            } else {
+                document.getElementById('t'+years[i]).classList.remove('active');
+            }
+        };
+    };
+});
+
 
 function get_total_by_row(sample_list) {
     var total_by_row = Array(sample_list.length).fill(0);
@@ -50,7 +96,6 @@ function get_percentage_of_total(sample_list) {
     var total = get_total(sample_list);
 
     var sample_list_p = Array.from(new Array(sample_list.length), () => new Array(sample_list[0].length).fill(0))
-    console.log(sample_list_p);
     for (let i=0; i < sample_list.length; i++) {
         for (let j=0; j < sample_list[i].length; j++) {
             sample_list_p[i][j] += Math.round(sample_list[i][j]/total[j]*10000)/100;
