@@ -60,14 +60,7 @@ document.getElementById('d2018').addEventListener('click', function() {
 $(document).ready(function() {
     var year = location.hash.substring(1, 5);
     if (year.length>0) {
-        var years = ['2020', '2019', '2018'];
-        for (i=0; i<tabs.length; i++) {
-            if (tabs[i]==year) {
-                document.getElementById('t'+year).classList.add('active');
-            } else {
-                document.getElementById('t'+years[i]).classList.remove('active');
-            }
-        };
+        tab_change(year);
     };
 });
 
