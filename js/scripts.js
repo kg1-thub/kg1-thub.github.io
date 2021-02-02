@@ -31,6 +31,7 @@ $(document).ready(function(){
 
 function tab_change(year) {
     if (year.length>0) {
+        // var years = ['2021', '2020', '2019', '2018'];
         var years = ['2020', '2019', '2018'];
         for (i=0; i<years.length; i++) {
             if (years[i]==year) {
@@ -45,7 +46,9 @@ function tab_change(year) {
     };
 };
 
-
+// document.getElementById('d2021').addEventListener('click', function() {
+//     tab_change('2021');
+// });
 document.getElementById('d2020').addEventListener('click', function() {
     tab_change('2020');
 });
