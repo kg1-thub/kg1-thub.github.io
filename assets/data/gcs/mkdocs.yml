@@ -12,7 +12,8 @@ nav:
         - posts/maincatcher19vs20.md
     - HACKS: 
         - hacks/quick_start_mkdocs.md
-        - hacks/quick_regular_expressions.md
+        - hacks/oss_db_quiz:  https://kg1-thub.github.io/catcher-stats/hacks/oss_db_quiz/
+        # - hacks/quick_regular_expressions.md
 
 theme:
     name: material

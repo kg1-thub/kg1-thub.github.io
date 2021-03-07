@@ -38,10 +38,6 @@
     
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../../css/custom.css">
-    
-      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-    
     
       
         
@@ -371,6 +367,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://kg1-thub.github.io/catcher-stats/hacks/oss_db_quiz/" class="md-nav__link">
+      hacks/oss_db_quiz
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -443,55 +451,57 @@
                 <h1 id="mkdocs">mkdocsでサイトを作りたい</h1>
 <p>Pythonベースの <code>mkdocs</code> は、markdown記法で作成したページをレンダリングして静的htmlファイルを生成してくれます。導入からデモサイトまでがとても簡単なので、まとめておきます。</p>
 <h2 id="mkdocs_1">mkdocs を導入したい</h2>
-<p><code>pip</code> コマンドで簡単インストールできます。</p>
-<pre><code class="language-python">pip install mkdocs
-</code></pre>
+<p><code>pip</code> コマンドで簡単インストールできます。
+<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">mkdocs</span>
+</code></pre></div></p>
 <h2 id="mkdocs_2">mkdocs を使いたい</h2>
 <ul>
-<li>リポジトリを作ります。次のコマンドでgcsというフォルダが作成され必要なファイルがその配下に展開されます。</li>
-</ul>
-<pre><code>mkdocs new gcs
-</code></pre>
-<ul>
-<li>ローカルサーバを起動します。 <code>mkdocs new</code> コマンドで作成されたフォルダに入って <code>mkdocs serve</code> コマンドで起動できます。 
+<li>
+<p>リポジトリを作ります。次のコマンドでgcsというフォルダが作成され必要なファイルがその配下に展開されます。
+<div class="highlight"><pre><span></span><code>mkdocs new gcs
+</code></pre></div></p>
+</li>
+<li>
+<p>ローカルサーバを起動します。 <code>mkdocs new</code> コマンドで作成されたフォルダに入って <code>mkdocs serve</code> コマンドで起動できます。 
 ブラウザで <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> または <a href="http://localhost:8000">http://localhost:8000</a> にアクセスすると作成したサイト、ページが表示されます。<br />
-ソースを修正すると、自動でサーバに反映される。</li>
-</ul>
-<pre><code>cd gcs
+ソースを修正すると、自動でサーバに反映される。
+<div class="highlight"><pre><span></span><code>cd gcs
 mkdocs serve
-</code></pre>
-<p>このコマンドで特に自分でコンテンツを作らなくても、デモ用のページで作られたローカルサーバが確認できます。</p>
-<ul>
-<li>htmlファイルを生成します。-d オプションで出力先を指定できます。</li>
-</ul>
-<pre><code>mkdocs build -d site-directory
+</code></pre></div>
+このコマンドで特に自分でコンテンツを作らなくても、デモ用のページで作られたローカルサーバが確認できます。</p>
+</li>
+<li>
+<p>htmlファイルを生成します。-d オプションで出力先を指定できます。
+<div class="highlight"><pre><span></span><code>mkdocs build -d site-directory
 # cd .\assets\data\gcs\
 # mkdocs build -d C:/Users/ki401/Documents/git/github-io/catcher-stats
-</code></pre>
+</code></pre></div></p>
+</li>
+</ul>
 <h2 id="bootstrap-4">デザインを Bootstrap 4 にしたい</h2>
 <p>とても簡単に<code>Bootstrap4</code>デザインを導入できます。
-まずはライブラリをインストールします。</p>
-<pre><code>pip install mkdocs-bootstrap4
-</code></pre>
+まずはライブラリをインストールします。
+<div class="highlight"><pre><span></span><code>pip install mkdocs-bootstrap4
+</code></pre></div></p>
 <p>テーマにbootstrap4を指定します。
-<code>gcs/mkdocs.yml</code> の theme - name を次のように指定します。</p>
-<pre><code>site_name: Giants/Catcher/Score
+<code>gcs/mkdocs.yml</code> の theme - name を次のように指定します。
+<div class="highlight"><pre><span></span><code>site_name: Giants/Catcher/Score
 theme:
     name: bootstrap4
-</code></pre>
+</code></pre></div></p>
 <p>以上。
 <code>mkdocs serve</code> で確認してみましょう。</p>
 <h2 id="material">デザインを material にしたい</h2>
 <p>とても簡単に<code>material</code>デザインを導入できます。
-まずはライブラリをインストールします。</p>
-<pre><code>pip install mkdocs-material
-</code></pre>
+まずはライブラリをインストールします。
+<div class="highlight"><pre><span></span><code>pip install mkdocs-material
+</code></pre></div></p>
 <p>テーマにbootstrap4を指定します。
-<code>gcs/mkdocs.yml</code> の theme - name を次のように指定します。</p>
-<pre><code>site_name: Giants/Catcher/Score
+<code>gcs/mkdocs.yml</code> の theme - name を次のように指定します。
+<div class="highlight"><pre><span></span><code>site_name: Giants/Catcher/Score
 theme:
     name: material
-</code></pre>
+</code></pre></div></p>
 <p>以上。
 <code>mkdocs serve</code> で確認してみましょう。</p>
                 
@@ -558,8 +568,6 @@ theme:
           }, typeof search !== "undefined" && search)
         })
       </script>
-      
-        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
       
     
   </body>
