@@ -31,12 +31,11 @@ $(document).ready(function(){
 
 function tab_change(year) {
     if (year.length>0) {
-        // var years = ['2021', '2020', '2019', '2018'];
-        var years = ['2020', '2019', '2018'];
+        var years = ['2021', '2020', '2019', '2018'];
         for (i=0; i<years.length; i++) {
             if (years[i]==year) {
                 $(".dropdown-toggle")[0].innerText=year;
-                document.getElementById('t'+year).classList.add('active');''
+                document.getElementById('t'+year).classList.add('active');
                 document.getElementById('d'+year).classList.add('d-none');
             } else {
                 document.getElementById('t'+years[i]).classList.remove('active');
@@ -46,9 +45,9 @@ function tab_change(year) {
     };
 };
 
-// document.getElementById('d2021').addEventListener('click', function() {
-//     tab_change('2021');
-// });
+document.getElementById('d2021').addEventListener('click', function() {
+    tab_change('2021');
+});
 document.getElementById('d2020').addEventListener('click', function() {
     tab_change('2020');
 });

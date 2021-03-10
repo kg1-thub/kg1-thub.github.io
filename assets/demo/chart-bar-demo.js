@@ -133,6 +133,7 @@ var myLineChart19 = new Chart(ctx19, {
     }
   }
 });
+
 // Bar Chart 2020
 var ctx20 = document.getElementById("myBarChart20");
 var myLineChart20 = new Chart(ctx20, {
@@ -178,6 +179,73 @@ var myLineChart20 = new Chart(ctx20, {
         },
         ticks: {
           maxTicksLimit: 6
+        },
+        stacked: true
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          // max: 15000,
+          // maxTicksLimit: 5
+        },
+        gridLines: {
+          display: true
+        },
+        stacked: true
+      }],
+    },
+    legend: {
+      display: true,
+      position: 'right'
+    }
+  }
+});
+
+// Bar Chart 2021
+var ctx21 = document.getElementById("myBarChart21");
+var myLineChart21 = new Chart(ctx21, {
+  type: 'bar',
+  data: {
+    labels: ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+    datasets: [
+      {
+        label: "小林",
+        backgroundColor: "#007bff",
+        borderColor: "#007bff",
+        data: [],
+      },
+      {
+        label: "炭谷",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
+        data: [],
+      },
+      {
+        label: "大城",
+        backgroundColor: "#ffc107",
+        borderColor: "#ffc107",
+        data: [],
+      },
+      {
+        label: "その他",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
+        data: [],
+      }
+    ],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 8
         },
         stacked: true
       }],
