@@ -73,7 +73,7 @@ var starting_games20 = [
     [0, 0, 3, 0, 0, 5], //その他
 ];
 //小林,炭谷,大城,その他
-var stealing_bases20 = [2, 11, 33, 4];
+var stealing_bases20 = [2, 11, 31, 4];
 
 var total_innings20 = get_total_by_row(innings20);
 var innings20 = get_percentage_of_total(innings20);
