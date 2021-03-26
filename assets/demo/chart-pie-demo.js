@@ -6,13 +6,13 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 
 var innings21 = [ 
     [ //小林
-        0,
+        1,
     ],
     [ //炭谷
         0,
     ],
     [ //大城
-        0,
+        8,
     ],
     [ //その他
         0,
@@ -21,7 +21,7 @@ var innings21 = [
 var starting_games21 = [
     [0, ], //小林
     [0, ], //炭谷
-    [0, ], //大城
+    [1, ], //大城
     [0, ], //その他
 ];
 //小林,炭谷,大城,その他

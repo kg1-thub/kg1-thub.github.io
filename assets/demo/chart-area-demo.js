@@ -1917,6 +1917,7 @@ var myLineChart21 = new Chart(ctx21, {
         pointborderWidth: 5,
         data: [
           0,
+          1,
         ],
       }, // Giants
       {
@@ -1934,6 +1935,7 @@ var myLineChart21 = new Chart(ctx21, {
         pointborderWidth: 5,
         data: [
           0,
+          1,
         ],
       }, // Tigers
       {
@@ -1951,6 +1953,7 @@ var myLineChart21 = new Chart(ctx21, {
         pointborderWidth: 5,
         data: [
           0,
+          -1,
         ],
       }, // Baystars
       {
@@ -1968,6 +1971,7 @@ var myLineChart21 = new Chart(ctx21, {
         pointborderWidth: 5,
         data: [
           0,
+          -1,
         ],
       }, // Swallows
       {
@@ -1985,6 +1989,7 @@ var myLineChart21 = new Chart(ctx21, {
         pointborderWidth: 5,
         data: [
           0,
+          1,
         ],
       }, // Dragons
       {
@@ -2002,6 +2007,7 @@ var myLineChart21 = new Chart(ctx21, {
         pointborderWidth: 5,
         data: [
           0,
+          -1,
         ],
       }, // Carp
     ],
