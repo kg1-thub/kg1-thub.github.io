@@ -4,27 +4,84 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+// const fs = require('fs');
+// const pie_data21 = JSON.parse(fs.readFileSync('../data/pie_data21.json', 'utf8'));
+// const pie_data21 = {
+//   "Catcher": [
+//       "小林",
+//       "炭谷",
+//       "大城",
+//       "その他"
+//   ],
+//   "Defense_inning": [
+//       1.0,
+//       0,
+//       8.0,
+//       0
+//   ],
+//   "Starting_games": [
+//       0,
+//       0,
+//       1,
+//       0
+//   ],
+//   "Stealing_bases": [
+//       0,
+//       0,
+//       0,
+//       0
+//   ],
+//   "Winning_games": [
+//       1,
+//       0,
+//       0,
+//       0
+//   ]
+// };
+// import pie_data21 from '../data/pie_data21.json';
+// console.log(pie_data21);
+// var innings21 = pie_data21[
+//     [ //小林
+//       pie_data21['Defense_inning'][0],
+//     ],
+//     [ //炭谷
+//       pie_data21['Defense_inning'][1],
+//     ],
+//     [ //大城
+//       pie_data21['Defense_inning'][2],
+//     ],
+//     [ //その他
+//       pie_data21['Defense_inning'][3],
+//     ],
+// ];
 var innings21 = [ 
     [ //小林
-        1,
+        3,
     ],
     [ //炭谷
         0,
     ],
     [ //大城
-        8,
+        15,
     ],
     [ //その他
         0,
     ],
 ];
+// var starting_games21 = [
+//     [pie_data21['Starting_games'][0], ], //小林
+//     [pie_data21['Starting_games'][1], ], //炭谷
+//     [pie_data21['Starting_games'][2], ], //大城
+//     [pie_data21['Starting_games'][3], ], //その他
+// ];
 var starting_games21 = [
     [0, ], //小林
     [0, ], //炭谷
-    [1, ], //大城
+    [2, ], //大城
     [0, ], //その他
 ];
 //小林,炭谷,大城,その他
+// var stealing_bases21 = pie_data21['Stealing_bases'];
 var stealing_bases21 = [0, 0, 0, 0];
 
 var total_innings21 = get_total_by_row(innings21);

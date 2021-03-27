@@ -224,7 +224,7 @@ var myLineChart21 = new Chart(ctx21, {
         label: "大城",
         backgroundColor: "#ffc107",
         borderColor: "#ffc107",
-        data: [0],
+        data: [1],
       },
       {
         label: "その他",

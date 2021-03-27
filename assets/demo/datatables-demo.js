@@ -122,3 +122,50 @@ $(document).ready(function() {
     "info": false
   });
 });
+$(document).ready(function() {
+  $('#dataTable21').DataTable({
+    order: [ [ 1, "desc" ] ],
+    "columnDefs": [
+      { "width": "8%", "targets": 2 },
+      { "width": "8%", "targets": 3 },
+      { "width": "8%", "targets": 4 },
+      { "width": "8%", "targets": 5 },
+      { "width": "8%", "targets": 6 },
+      { "width": "8%", "targets": 7 },
+      { "width": "8%", "targets": 9 },
+      { "width": "8%", "targets": 10 },
+      { "width": "8%", "targets": 11 }
+    ],
+    "searching": false,
+    "paging": false,
+    "info": false
+  });
+});
+$(document).ready(function() {
+  $('#dataTablet21v2').DataTable({
+    order: [ [ 0, "asc" ] ],
+    "columnDefs": [
+      // { "width": "17%", "targets": 1 },
+      // { "width": "17%", "targets": 2 },
+      // { "width": "17%", "targets": 3 },
+      // { "width": "11%", "targets": 4 },
+    ],
+    "searching": false,
+    "paging": false,
+    "info": false
+  });
+});
+$(document).ready(function() {
+  $('#dataTablet21v3').DataTable({
+    order: [ [ 1, "desc" ], [ 2, "desc" ], [ 3, "desc" ]],
+    "columnDefs": [
+      { "width": "22%", "targets": 1 },
+      { "width": "22%", "targets": 2 },
+      { "width": "22%", "targets": 3 },
+      { "width": "22%", "targets": 4 },
+    ],
+    "searching": false,
+    "paging": false,
+    "info": false
+  });
+});
