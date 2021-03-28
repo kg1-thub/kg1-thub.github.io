@@ -1919,6 +1919,7 @@ var myLineChart21 = new Chart(ctx21, {
           0,
           1,
           2,
+          2,
         ],
       }, // Giants
       {
@@ -1938,6 +1939,7 @@ var myLineChart21 = new Chart(ctx21, {
           0,
           1,
           2,
+          3,
         ],
       }, // Tigers
       {
@@ -1956,6 +1958,7 @@ var myLineChart21 = new Chart(ctx21, {
         data: [
           0,
           -1,
+          -2,
           -2,
         ],
       }, // Baystars
@@ -1976,6 +1979,7 @@ var myLineChart21 = new Chart(ctx21, {
           0,
           -1,
           -2,
+          -3,
         ],
       }, // Swallows
       {
@@ -1995,6 +1999,7 @@ var myLineChart21 = new Chart(ctx21, {
           0,
           1,
           0,
+          0,
         ],
       }, // Dragons
       {
@@ -2013,6 +2018,7 @@ var myLineChart21 = new Chart(ctx21, {
         data: [
           0,
           -1,
+          0,
           0,
         ],
       }, // Carp

@@ -4,85 +4,11 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-// const fs = require('fs');
-// const pie_data21 = JSON.parse(fs.readFileSync('../data/pie_data21.json', 'utf8'));
-// const pie_data21 = {
-//   "Catcher": [
-//       "小林",
-//       "炭谷",
-//       "大城",
-//       "その他"
-//   ],
-//   "Defense_inning": [
-//       1.0,
-//       0,
-//       8.0,
-//       0
-//   ],
-//   "Starting_games": [
-//       0,
-//       0,
-//       1,
-//       0
-//   ],
-//   "Stealing_bases": [
-//       0,
-//       0,
-//       0,
-//       0
-//   ],
-//   "Winning_games": [
-//       1,
-//       0,
-//       0,
-//       0
-//   ]
-// };
-// import pie_data21 from '../data/pie_data21.json';
-// console.log(pie_data21);
-// var innings21 = pie_data21[
-//     [ //小林
-//       pie_data21['Defense_inning'][0],
-//     ],
-//     [ //炭谷
-//       pie_data21['Defense_inning'][1],
-//     ],
-//     [ //大城
-//       pie_data21['Defense_inning'][2],
-//     ],
-//     [ //その他
-//       pie_data21['Defense_inning'][3],
-//     ],
-// ];
-var innings21 = [ 
-    [ //小林
-        3,
-    ],
-    [ //炭谷
-        0,
-    ],
-    [ //大城
-        15,
-    ],
-    [ //その他
-        0,
-    ],
-];
-// var starting_games21 = [
-//     [pie_data21['Starting_games'][0], ], //小林
-//     [pie_data21['Starting_games'][1], ], //炭谷
-//     [pie_data21['Starting_games'][2], ], //大城
-//     [pie_data21['Starting_games'][3], ], //その他
-// ];
-var starting_games21 = [
-    [0, ], //小林
-    [0, ], //炭谷
-    [2, ], //大城
-    [0, ], //その他
-];
-//小林,炭谷,大城,その他
-// var stealing_bases21 = pie_data21['Stealing_bases'];
-var stealing_bases21 = [0, 0, 0, 0];
+var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', 'その他'], 'Stealing_bases': [0, 0, 0, 0], 'Defense_inning': [[6.0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [21.0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [3, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]}
+
+var innings21 = pie_data21.Defense_inning;
+var starting_games21 = pie_data21.Starting_games;
+var stealing_bases21 = pie_data21.Stealing_bases;
 
 var total_innings21 = get_total_by_row(innings21);
 var innings21 = get_percentage_of_total(innings21);
@@ -945,6 +871,273 @@ var myPieChart18v3 = new Chart(ctx18v3, {
   },
   options: {
     responsive: true,
+    legend: {
+      display: true,
+      position: 'right'
+    }
+  }
+});
+
+// Bar Chart
+// Bar Chart 2021
+var ctx21 = document.getElementById("myBarChart21");
+var myLineChart21 = new Chart(ctx21, {
+  type: 'bar',
+  data: {
+    labels: ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+    datasets: [
+      {
+        label: "小林",
+        backgroundColor: "#007bff",
+        borderColor: "#007bff",
+        data: pie_data21.Winning_games[0],
+      },
+      {
+        label: "炭谷",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
+        data: pie_data21.Winning_games[1],
+      },
+      {
+        label: "大城",
+        backgroundColor: "#ffc107",
+        borderColor: "#ffc107",
+        data: pie_data21.Winning_games[2],
+      },
+      {
+        label: "その他",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
+        data: pie_data21.Winning_games[3],
+      }
+    ],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 8
+        },
+        stacked: true
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          // max: 15000,
+          // maxTicksLimit: 5
+        },
+        gridLines: {
+          display: true
+        },
+        stacked: true
+      }],
+    },
+    legend: {
+      display: true,
+      position: 'right'
+    }
+  }
+});
+
+// Bar Chart 2020
+var ctx20 = document.getElementById("myBarChart20");
+var myLineChart20 = new Chart(ctx20, {
+  type: 'bar',
+  data: {
+    labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+    datasets: [
+      {
+        label: "小林",
+        backgroundColor: "#007bff",
+        borderColor: "#007bff",
+        data: [2, 0, 0, 1, 2, 0],
+      },
+      {
+        label: "炭谷",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
+        data: [4, 5, 4, 2, 2, 0],
+      },
+      {
+        label: "大城",
+        backgroundColor: "#ffc107",
+        borderColor: "#ffc107",
+        data: [1, 9, 8, 16, 6, 1],
+      },
+      {
+        label: "岸田",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
+        data: [0, 0, 2, 0, 0, 2],
+      }
+    ],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        },
+        stacked: true
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          // max: 15000,
+          // maxTicksLimit: 5
+        },
+        gridLines: {
+          display: true
+        },
+        stacked: true
+      }],
+    },
+    legend: {
+      display: true,
+      position: 'right'
+    }
+  }
+});
+
+// Bar Chart 2019
+var ctx19 = document.getElementById("myBarChart19");
+var myLineChart19 = new Chart(ctx19, {
+  type: 'bar',
+  data: {
+    labels: ["3・4月", "5月", "6月", "7月", "8月", "9月"],
+    datasets: [
+      {
+        label: "小林",
+        backgroundColor: "#007bff",
+        borderColor: "#007bff",
+        data: [8, 2, 7, 7, 10, 7],
+      },
+      {
+        label: "炭谷",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
+        data: [4, 4, 7, 4, 0, 1],
+      },
+      {
+        label: "大城",
+        backgroundColor: "#ffc107",
+        borderColor: "#ffc107",
+        data: [4, 3, 1, 2, 5, 1],
+      },
+      {
+        label: "その他",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
+        data: [0, 0, 0, 0, 0, 0],
+      }
+    ],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        },
+        stacked: true
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          // max: 15000,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          display: true
+        },
+        stacked: true
+      }],
+    },
+    legend: {
+      display: true,
+      position: 'right'
+    }
+  }
+});
+
+// Bar Chart 2018
+var ctx18 = document.getElementById("myBarChart18");
+var myLineChart18 = new Chart(ctx18, {
+  type: 'bar',
+  data: {
+    labels: ["3・4月", "5月", "6月", "7月", "8月", "9・10月"],
+    datasets: [
+      {
+        label: "小林",
+        backgroundColor: "#007bff",
+        borderColor: "#007bff",
+        data: [12, 7, 9, 2, 9, 6],
+      },
+      {
+        label: "大城",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
+        data: [2, 2, 1, 3, 3, 3],
+      },
+      {
+        label: "宇佐見",
+        backgroundColor: "#ffc107",
+        borderColor: "#ffc107",
+        data: [0, 0, 0, 7, 1, 1],
+      },
+      {
+        label: "河野",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
+        data: [0, 0, 0, 0, 0, 0],
+      }
+    ],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        },
+        stacked: true
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          // max: 15000,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          display: true
+        },
+        stacked: true
+      }],
+    },
     legend: {
       display: true,
       position: 'right'
