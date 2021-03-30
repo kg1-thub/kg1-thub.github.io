@@ -157,7 +157,7 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
   $('#dataTablet21v3').DataTable({
-    order: [ [ 1, "desc" ], [ 2, "desc" ], [ 3, "desc" ]],
+    order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     "columnDefs": [
       { "width": "22%", "targets": 1 },
       { "width": "22%", "targets": 2 },
