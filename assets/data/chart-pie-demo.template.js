@@ -4,7 +4,7 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data21 = {pie_data21}
+var pie_data21 = {pie_data21};
 
 var innings21 = pie_data21.Defense_inning;
 var starting_games21 = pie_data21.Starting_games;
