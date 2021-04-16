@@ -4,7 +4,7 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', 'その他'], 'Stealing_bases': [0, 4, 6, 0], 'Defense_inning': [[7.0, 4.0, 0, 0, 0, 0, 0, 0], [1.0, 23.0, 0, 0, 0, 0, 0, 0], [36.0, 82.0, 0, 0, 0, 0, 0, 0], [0, 3.0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[0, 0, 0, 0, 0, 0, 0, 0], [0, 3, 0, 0, 0, 0, 0, 0], [5, 10, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [1, 6, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
+var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', 'その他'], 'Stealing_bases': [0, 4, 6, 0], 'Defense_inning': [[7.0, 4.0, 0, 0, 0, 0, 0, 0], [1.0, 26.0, 0, 0, 0, 0, 0, 0], [36.0, 88.0, 0, 0, 0, 0, 0, 0], [0, 3.0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[0, 0, 0, 0, 0, 0, 0, 0], [0, 3, 0, 0, 0, 0, 0, 0], [5, 11, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [1, 7, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
 
 var innings21 = pie_data21.Defense_inning;
 var starting_games21 = pie_data21.Starting_games;
