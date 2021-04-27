@@ -1,4 +1,4 @@
-wls,pitcher,innings,opportunity,hits,strikeout,walk,run,earned_run,catcher,day_of_game,vs_team,starting,series
+wls,pitcher,innings,at_bats,hits,strikeouts,walks,runs,earned_runs,catcher,day_of_game,vs_team,starting,series
 W,›@–ì,7,26,6,8,0,2,2,¬—Ñ,2020/06/19,ã_,1,2020RS
 ,’†@ì,1,3,0,0,0,0,0,’Y’J,2020/06/19,ã_,0,2020RS
 S,ƒfƒ‰ƒƒT,1,3,1,1,0,0,0,’Y’J,2020/06/19,ã_,0,2020RS
