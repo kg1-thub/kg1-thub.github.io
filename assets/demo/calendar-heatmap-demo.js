@@ -141,5 +141,5 @@ var heatmap = calendarHeatmap()
 //   .width('100%')
   // .width(squareLength * 80)
   .colorRange(['#ECEFF2', '#CE6009']);
-console.log(chartData);
+// console.log(chartData);
 heatmap();  // render the chart
