@@ -43,7 +43,7 @@ window.chartColors = {
 	];
 
 	var Samples = global.Samples || (global.Samples = {});
-	var Color = Chart.helpers.color;
+	// var Color = Chart.helpers.color;
 
 	function applyDefaultNumbers(config) {
 		var cfg = config || {};
