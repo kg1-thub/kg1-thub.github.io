@@ -1,3 +1,5 @@
+// const line = require("../../js/chartjs-plugin-annotation/types/line");
+
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
@@ -8,7 +10,7 @@ var ctx21_data = {
       7,  8,  7,  8,  9,  8,  7,  6,  7,  7],
   'Tigers':   [0, 1, 2, 3, 2, 1, 2, 1, 2, 3, 4, 5, 4, 5, 6, 7, 7, 8,  9, 10, 10, 11, 12, 11, 10,
       9, 10, 11, 10,  9, 10, 11, 11, 12, 12, 13, 13, 12, 13, 14, 14, 14, 15, 16, 15, 16, 15, 16,
-     16, 16, 16, 15, 16, 15, 16, 15, 16],
+     16, 16, 16, 15, 16, 15, 16, 15, 16, 15],
   'Baystars': [0,-1,-2,-2,-3,-4,-4,-5,-6,-5,-4,-5,-4,-5,-6,-7,-8,-9,-10,-11,-12,-12,-12,-13,-14,
     -13,-14,-15,-16,-15,-14,-15,-14,-13,-12,-13,-12,-11,-12,-13,-14,-14,-14,-15,-15,-15,-16,-16,
     -15,-16,-17,-16,-17,-16,-15,-15,-16,-15],
@@ -20,7 +22,7 @@ var ctx21_data = {
      -6, -7, -6, -5, -4, -4, -5, -4, -3, -2],
   'Carp':     [0,-1, 0, 0, 1, 2, 1, 2, 3, 2, 3, 2, 1, 2, 3, 2, 2, 1,  0,  1,  0,  1,  0,  0, -1,
      -2, -1,  0,  1,  0, -1, -2, -2, -3, -4, -4, -5, -5, -4, -5, -5, -5, -5, -4, -4, -4, -5, -4,
-     -4, -4, -4, -4, -4, -4, -3, -4, -5],
+     -4, -4, -4, -4, -4, -4, -3, -4, -5, -6],
   'labels':[
     'Start','03/26','03/27','03/28','03/30','03/31','04/01','04/02','04/03','04/04','04/06',
     '04/07','04/08','04/09','04/10','04/11','04/13','04/14','04/15','04/16','04/17','04/18',
@@ -1964,6 +1966,22 @@ var myLineChart21 = new Chart(ctx21, {
     ],
   },
   options: {
+    // annotation: 
+    //   annotations: [
+    //   {
+    //     type: "line",
+    //     mode: "vertical",
+    //     scaleID: "x-axis-0",
+    //     value: "06/01",
+    //     borderColor: "blue",
+    //     label: {
+    //       content: "1008",
+    //       enabled: true,
+    //       position: "top"
+    //     }
+    //   },
+    //   ]
+    // },
     responsive: true,
     scales: {
       xAxes: [{
