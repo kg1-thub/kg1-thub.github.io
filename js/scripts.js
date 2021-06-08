@@ -105,15 +105,17 @@ function get_percentage_of_total(sample_list) {
 function switch_chart_type_line_to_bar(config, sample_list, unit) {
     if (config.type == 'line') {
         config.type = 'bar';
-        delete config.options.scales.yAxes[0].ticks.max;
-        config.options.scales.yAxes[0].scaleLabel.labelString = unit;
+        console.log(config);
+        delete config.options.scales.y.max;
+        config.options.scales.y.title.text = unit;
         config.data.datasets.forEach(function(dataset, index) {
             dataset.data = sample_list.v[index];
         });
     } else {
         config.type='line';
-        config.options.scales.yAxes[0].ticks.max = 100;
-        config.options.scales.yAxes[0].scaleLabel.labelString = 'percent of total in team';
+        console.log(config);
+        config.options.scales.y.max = 100;
+        config.options.scales.y.title.text = 'percent of total in team';
         config.data.datasets.forEach(function(dataset, index) {
             dataset.data = sample_list.p[index];
         });

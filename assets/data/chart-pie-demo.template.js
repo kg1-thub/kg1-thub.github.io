@@ -1,6 +1,6 @@
 // Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#292b2c';
+// Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+// Chart.defaults.global.defaultFontColor = '#292b2c';
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -251,44 +251,58 @@ var options_prm = {
         },
         tooltip: {
             mode: 'index',
+        },
+        legend: {
+          position: 'right'
         }
     },
     hover: {
         mode: 'index'
     },
     scales: {
-        xAxes: [{
-            // time: {
-            //   unit: 'month'
-            // },
-            // gridLines: {
-            //   display: true
-            // },
-            ticks: {
-              maxTicksLimit: 8
-            },
-            stacked: true
-          }],
-        yAxes: [{
-            scaleLabel: {
-                display: true,
-                labelString: 'percent of total in team'
-            },
-            ticks: {
-              min: 0,
-              max: 100,
-              // maxTicksLimit: 5
-            },
-            gridLines: {
-              display: true
-            },
-            stacked: true
-          }],
-    },
-    legend: {
+      x: {
+        stacked: true,
+        title: {
+          display: true
+        }
+      },
+      y: {
+        stacked: true,
         display: true,
-        position: 'right'
-    }
+        title: {
+          display: true,
+          text: 'percent of total in team'
+        },
+        max: 100
+      },
+      // xAxes: [{
+      //     time: {
+      //       unit: 'month'
+      //     },
+      //     gridLines: {
+      //       display: true
+      //     },
+      //     ticks: {
+      //       maxTicksLimit: 8
+      //     },
+      //     stacked: true
+      //   }],
+      // yAxes: [{
+      //     scaleLabel: {
+      //         display: true,
+      //         labelString: 'percent of total in team'
+      //     },
+      //     ticks: {
+      //       min: 0,
+      //       max: 100,
+      //       // maxTicksLimit: 5
+      //     },
+      //     gridLines: {
+      //       display: true
+      //     },
+      //     stacked: true
+      // }],
+    },
 };
 
 
@@ -657,11 +671,12 @@ var myPieChart21 = new Chart(ctx21, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 // Pie Chart 2020 v2 Starting_games
@@ -676,11 +691,12 @@ var myPieChart21v2 = new Chart(ctx21v2, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 // Pie Chart 2020 v3 Stealing_bases
@@ -695,11 +711,12 @@ var myPieChart21v3 = new Chart(ctx21v3, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 
@@ -715,11 +732,12 @@ var myPieChart20 = new Chart(ctx20, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 // Pie Chart 2020 v2 Starting_games
@@ -734,11 +752,12 @@ var myPieChart20v2 = new Chart(ctx20v2, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 // Pie Chart 2020 v3 Stealing_bases
@@ -753,11 +772,12 @@ var myPieChart20v3 = new Chart(ctx20v3, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 
@@ -774,10 +794,11 @@ var myPieChart19 = new Chart(ctx19, {
     }],
   },
   options: {
-    legend: {
-      display: true,
-      position: 'right'
-    }
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
   }
 });
 // Pie Chart 2019 v2 Starting_games
@@ -793,10 +814,11 @@ var myPieChart19v2 = new Chart(ctx19v2, {
     }],
   },
   options: {
-    legend: {
-      display: true,
-      position: 'right'
-    }
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
   }
 });
 // Pie Chart 2019 v3 Stealing_bases
@@ -811,11 +833,12 @@ var myPieChart19v3 = new Chart(ctx19v3, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 
@@ -832,10 +855,11 @@ var myPieChart18 = new Chart(ctx18, {
     }],
   },
   options: {
-    legend: {
-      display: true,
-      position: 'right'
-    }
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
   }
 });
 // Pie Chart 2018 v2 Starting_games
@@ -851,10 +875,11 @@ var myPieChart18v2 = new Chart(ctx18v2, {
     }],
   },
   options: {
-    legend: {
-      display: true,
-      position: 'right'
-    }
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
   }
 });
 // Pie Chart 2018 v3 Stealing_bases
@@ -870,11 +895,12 @@ var myPieChart18v3 = new Chart(ctx18v3, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 
@@ -913,36 +939,41 @@ var myLineChart21 = new Chart(ctx21, {
     ],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
     scales: {
-      xAxes: [{
-        time: {
-          unit: 'month'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 8
-        },
-        stacked: true
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          // max: 15000,
-          // maxTicksLimit: 5
-        },
-        gridLines: {
-          display: true
-        },
-        stacked: true
-      }],
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+      // xAxes: [{
+      //   time: {
+      //     unit: 'month'
+      //   },
+      //   gridLines: {
+      //     display: false
+      //   },
+      //   ticks: {
+      //     maxTicksLimit: 8
+      //   },
+      // }],
+      // yAxes: [{
+      //   ticks: {
+      //     min: 0,
+      //     // max: 15000,
+      //     // maxTicksLimit: 5
+      //   },
+      //   gridLines: {
+      //     display: true
+      //   },
+      // }],
     },
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 
@@ -980,36 +1011,43 @@ var myLineChart20 = new Chart(ctx20, {
     ],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
     scales: {
-      xAxes: [{
-        time: {
-          unit: 'month'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 6
-        },
-        stacked: true
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          // max: 15000,
-          // maxTicksLimit: 5
-        },
-        gridLines: {
-          display: true
-        },
-        stacked: true
-      }],
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+      // xAxes: [{
+      //   time: {
+      //     unit: 'month'
+      //   },
+      //   gridLines: {
+      //     display: false
+      //   },
+      //   ticks: {
+      //     maxTicksLimit: 6
+      //   },
+      //   stacked: true
+      // }],
+      // yAxes: [{
+      //   ticks: {
+      //     min: 0,
+      //     // max: 15000,
+      //     // maxTicksLimit: 5
+      //   },
+      //   gridLines: {
+      //     display: true
+      //   },
+      //   stacked: true
+      // }],
     },
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 
@@ -1047,35 +1085,42 @@ var myLineChart19 = new Chart(ctx19, {
     ],
   },
   options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'month'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 6
-        },
-        stacked: true
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          // max: 15000,
-          maxTicksLimit: 5
-        },
-        gridLines: {
-          display: true
-        },
-        stacked: true
-      }],
+    plugins: {
+      legend: {
+        position: 'right'
+      }
     },
-    legend: {
-      display: true,
-      position: 'right'
-    }
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+      // xAxes: [{
+      //   time: {
+      //     unit: 'month'
+      //   },
+      //   gridLines: {
+      //     display: false
+      //   },
+      //   ticks: {
+      //     maxTicksLimit: 6
+      //   },
+      //   stacked: true
+      // }],
+      // yAxes: [{
+      //   ticks: {
+      //     min: 0,
+      //     // max: 15000,
+      //     maxTicksLimit: 5
+      //   },
+      //   gridLines: {
+      //     display: true
+      //   },
+      //   stacked: true
+      // }],
+    },
   }
 });
 
@@ -1113,34 +1158,41 @@ var myLineChart18 = new Chart(ctx18, {
     ],
   },
   options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'month'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 6
-        },
-        stacked: true
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          // max: 15000,
-          maxTicksLimit: 5
-        },
-        gridLines: {
-          display: true
-        },
-        stacked: true
-      }],
+    plugins: {
+      legend: {
+        position: 'right'
+      }
     },
-    legend: {
-      display: true,
-      position: 'right'
-    }
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+      // xAxes: [{
+      //   time: {
+      //     unit: 'month'
+      //   },
+      //   gridLines: {
+      //     display: false
+      //   },
+      //   ticks: {
+      //     maxTicksLimit: 6
+      //   },
+      //   stacked: true
+      // }],
+      // yAxes: [{
+      //   ticks: {
+      //     min: 0,
+      //     // max: 15000,
+      //     maxTicksLimit: 5
+      //   },
+      //   gridLines: {
+      //     display: true
+      //   },
+      //   stacked: true
+      // }],
+    },
   }
 });

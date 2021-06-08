@@ -3,36 +3,35 @@
 // const annotationPlugin = require("../../js/chartjs-plugin-annotation/chartjs-plugin-annotation");
 
 // Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#292b2c';
+// Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+// Chart.defaults.global.defaultFontColor = '#292b2c';
 
 var ctx21_data = {
   'Giants':   [0, 1, 2, 2, 2, 1, 2, 1, 1, 2, 1, 0, 1, 0,-1, 0, 1, 2,  3,  4,  5,  5,  4,  5,  6,
       7,  6,  5,  6,  7,  7,  6,  5,  5,  6,  6,  7,  6,  6,  7,  8,  8,  8,  7,  8,  7,  8,  7,
-      7,  8,  7,  8,  9,  8,  7,  6,  7,  7,  8,  8,  9,  8,  7],
+      7,  8,  7,  7,  8,  9,  8,  7,  6,  7,  7,  8,  8,  9,  8,  7,  7],
   'Tigers':   [0, 1, 2, 3, 2, 1, 2, 1, 2, 3, 4, 5, 4, 5, 6, 7, 7, 8,  9, 10, 10, 11, 12, 11, 10,
       9, 10, 11, 10,  9, 10, 11, 11, 12, 12, 13, 13, 12, 13, 14, 14, 14, 15, 16, 15, 16, 15, 16,
-     16, 16, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 14],
+     16, 16, 16, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 14, 15],
   'Baystars': [0,-1,-2,-2,-3,-4,-4,-5,-6,-5,-4,-5,-4,-5,-6,-7,-8,-9,-10,-11,-12,-12,-12,-13,-14,
     -13,-14,-15,-16,-15,-14,-15,-14,-13,-12,-13,-12,-11,-12,-13,-14,-14,-14,-15,-15,-15,-16,-16,
-    -15,-16,-17,-16,-17,-16,-15,-15,-16,-15,-15,-14,-15,-14,-13],
+    -15,-16,-17,-17,-16,-17,-16,-15,-15,-16,-15,-15,-14,-15,-14,-13,-14],
   'Swallows': [0,-1,-2,-3,-2,-1,-1, 0, 0,-1,-2,-1, 0, 0, 0,-1, 0, 1,  2,  1,  1,  0,  1,  1,  2,
       3,  4,  5,  4,  3,  3,  4,  3,  2,  2,  1,  1,  2,  2,  1,  1,  1,  1,  2,  3,  3,  4,  3,
-      2,  3,  4,  3,  4,  5,  4,  5,  4,  5,  4,  3,  4,  3,  4],
+      2,  3,  4,  4,  3,  4,  5,  4,  5,  4,  5,  4,  3,  4,  3,  4,  3],
   'Dragons':  [0, 1, 0, 0, 0, 1, 0, 1, 0,-1,-2,-1,-2,-2,-2,-1,-2,-3, -4, -5, -4, -5, -5, -4, -3,
      -4, -5, -6, -5, -4, -5, -4, -3, -3, -4, -3, -4, -4, -5, -4, -4, -4, -5, -6, -7, -7, -6, -6,
-     -6, -7, -6, -5, -4, -4, -5, -4, -3, -2, -2, -1, -2, -1, -2],
+     -6, -7, -6, -6, -5, -4, -4, -5, -4, -3, -2, -2, -1, -2, -1, -2, -3],
   'Carp':     [0,-1, 0, 0, 1, 2, 1, 2, 3, 2, 3, 2, 1, 2, 3, 2, 2, 1,  0,  1,  0,  1,  0,  0, -1,
      -2, -1,  0,  1,  0, -1, -2, -2, -3, -4, -4, -5, -5, -4, -5, -5, -5, -5, -4, -4, -4, -5, -4,
-     -4, -4, -4, -4, -4, -4, -3, -4, -5, -6, -5, -5, -6, -7, -8],
+     -4, -4, -4, -4, -4, -4, -4, -3, -4, -5, -6, -5, -5, -6, -7, -8, -8],
   'labels':[
     'Start','03/26','03/27','03/28','03/30','03/31','04/01','04/02','04/03','04/04','04/06',
     '04/07','04/08','04/09','04/10','04/11','04/13','04/14','04/15','04/16','04/17','04/18',
     '04/20','04/21','04/22','04/23','04/24','04/25','04/27','04/28','04/29','04/30','05/01',
     '05/02','05/03','05/04','05/05','05/07','05/08','05/09','05/11','05/12','05/13','05/14',
-    '05/15','05/16','05/18','05/19','05/21','05/22','05/23','05/25','05/26','05/27','05/28',
-    '05/29','05/30','06/01','06/02','06/03','06/04','06/05','06/06','06/08',
-    // '06/09',
+    '05/15','05/16','05/18','05/19','05/21','05/22','05/23','05/24','05/25','05/26','05/27',
+    '05/28','05/29','05/30','06/01','06/02','06/03','06/04','06/05','06/06','06/08','06/09',
     // '06/10',
     // '06/11',
     // '06/12',
@@ -427,6 +426,11 @@ var myLineChart18 = new Chart(ctx18, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     scales: {
       xAxes: [{
         time: {
@@ -450,9 +454,6 @@ var myLineChart18 = new Chart(ctx18, {
         }
       }],
     },
-    legend: {
-      display: false
-    }
   }
 });
 // Area Chart 2019
@@ -767,6 +768,11 @@ var myLineChart19 = new Chart(ctx19, {
     }],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     scales: {
       xAxes: [{
         time: {
@@ -790,9 +796,6 @@ var myLineChart19 = new Chart(ctx19, {
         }
       }],
     },
-    legend: {
-      display: false
-    }
   }
 });
 // Area Chart 2020
@@ -1833,6 +1836,11 @@ var myLineChart20 = new Chart(ctx20, {
     ],
   },
   options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
     responsive: true,
     scales: {
       xAxes: [{
@@ -1857,35 +1865,27 @@ var myLineChart20 = new Chart(ctx20, {
         }
       }],
     },
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
 
-const annotation1 = {
+const zero = {
   type: 'line',
   scaleID: 'y',
-  borderWidth: 3,
-  borderColor: 'black',
-  value: minValue,
-  label: {
-    content: (ctx) => 'Lower bound: ' + minValue(ctx).toFixed(3),
-    enabled: true
-  },
+  borderWidth: 2,
+  borderColor: 'gray',
+  value: 0,
 };
 
-const annotation2 = {
+const ilstart = {
   type: 'line',
-  scaleID: 'y',
+  scaleID: 'x',
   borderWidth: 3,
-  borderColor: 'black',
-  value: maxValue,
+  borderColor: 'pink',
+  value: 51,
   label: {
-    rotation: 'auto',
-    backgroundColor: 'black',
-    content: (ctx) => 'Upper bound: ' + maxValue(ctx).toFixed(3),
+    // rotation: 'auto',
+    backgroundColor: 'pink',
+    content: 'IL Start',
     enabled: true
   }
 };
@@ -1991,40 +1991,17 @@ var myLineChart21 = new Chart(ctx21, {
   },
   options: {
     plugins: {
+      autocplors: false,
       annotation: {
         annotations: {
-          annotation1,
-          annotation2
+          zero,
+          ilstart,
         }
+      },
+      legend: {
+        position: 'right'
       }
     },
     responsive: true,
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: true
-        },
-        ticks: {
-          // maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          // min: 0,
-          // max: 40000,
-          // maxTicksLimit: 5
-        },
-        gridLines: {
-          color: "rgba(0, 0, 0, .125)",
-        },
-      }],
-    },
-    legend: {
-      display: true,
-      position: 'right'
-    }
   }
 });
