@@ -275,33 +275,6 @@ var options_prm = {
         },
         max: 100
       },
-      // xAxes: [{
-      //     time: {
-      //       unit: 'month'
-      //     },
-      //     gridLines: {
-      //       display: true
-      //     },
-      //     ticks: {
-      //       maxTicksLimit: 8
-      //     },
-      //     stacked: true
-      //   }],
-      // yAxes: [{
-      //     scaleLabel: {
-      //         display: true,
-      //         labelString: 'percent of total in team'
-      //     },
-      //     ticks: {
-      //       min: 0,
-      //       max: 100,
-      //       // maxTicksLimit: 5
-      //     },
-      //     gridLines: {
-      //       display: true
-      //     },
-      //     stacked: true
-      // }],
     },
 };
 
@@ -603,20 +576,7 @@ window.onload = function() {
     window.myLine21v1 = new Chart(innings21_ctx, innings21_ctx_config);
     var starting_games21_ctx = document.getElementById('starting_games21canvas').getContext('2d');
     window.myLine21v2 = new Chart(starting_games21_ctx, starting_games21_ctx_config);
-    var innings20_ctx = document.getElementById('innings20canvas').getContext('2d');
-    window.myLine20v1 = new Chart(innings20_ctx, innings20_ctx_config);
-    var starting_games20_ctx = document.getElementById('starting_games20canvas').getContext('2d');
-    window.myLine20v2 = new Chart(starting_games20_ctx, starting_games20_ctx_config);
-    var innings19_ctx = document.getElementById('innings19canvas').getContext('2d');
-    window.myLine19v1 = new Chart(innings19_ctx, innings19_ctx_config);
-    var starting_games19_ctx = document.getElementById('starting_games19canvas').getContext('2d');
-    window.myLine19v2 = new Chart(starting_games19_ctx, starting_games19_ctx_config);
-    var innings18_ctx = document.getElementById('innings18canvas').getContext('2d');
-    window.myLine18v1 = new Chart(innings18_ctx, innings18_ctx_config);
-    var starting_games18_ctx = document.getElementById('starting_games18canvas').getContext('2d');
-    window.myLine18v2 = new Chart(starting_games18_ctx, starting_games18_ctx_config);
 };
-
 
 document.getElementById('innings21redraw').addEventListener('click', function() {
     switch_chart_type_line_to_bar(innings21_ctx_config, innings21, 'innings')
@@ -952,27 +912,6 @@ var myLineChart21 = new Chart(ctx21, {
       y: {
         stacked: true,
       },
-      // xAxes: [{
-      //   time: {
-      //     unit: 'month'
-      //   },
-      //   gridLines: {
-      //     display: false
-      //   },
-      //   ticks: {
-      //     maxTicksLimit: 8
-      //   },
-      // }],
-      // yAxes: [{
-      //   ticks: {
-      //     min: 0,
-      //     // max: 15000,
-      //     // maxTicksLimit: 5
-      //   },
-      //   gridLines: {
-      //     display: true
-      //   },
-      // }],
     },
   }
 });
@@ -1024,29 +963,6 @@ var myLineChart20 = new Chart(ctx20, {
       y: {
         stacked: true,
       },
-      // xAxes: [{
-      //   time: {
-      //     unit: 'month'
-      //   },
-      //   gridLines: {
-      //     display: false
-      //   },
-      //   ticks: {
-      //     maxTicksLimit: 6
-      //   },
-      //   stacked: true
-      // }],
-      // yAxes: [{
-      //   ticks: {
-      //     min: 0,
-      //     // max: 15000,
-      //     // maxTicksLimit: 5
-      //   },
-      //   gridLines: {
-      //     display: true
-      //   },
-      //   stacked: true
-      // }],
     },
   }
 });
@@ -1097,29 +1013,6 @@ var myLineChart19 = new Chart(ctx19, {
       y: {
         stacked: true,
       },
-      // xAxes: [{
-      //   time: {
-      //     unit: 'month'
-      //   },
-      //   gridLines: {
-      //     display: false
-      //   },
-      //   ticks: {
-      //     maxTicksLimit: 6
-      //   },
-      //   stacked: true
-      // }],
-      // yAxes: [{
-      //   ticks: {
-      //     min: 0,
-      //     // max: 15000,
-      //     maxTicksLimit: 5
-      //   },
-      //   gridLines: {
-      //     display: true
-      //   },
-      //   stacked: true
-      // }],
     },
   }
 });
@@ -1170,29 +1063,6 @@ var myLineChart18 = new Chart(ctx18, {
       y: {
         stacked: true,
       },
-      // xAxes: [{
-      //   time: {
-      //     unit: 'month'
-      //   },
-      //   gridLines: {
-      //     display: false
-      //   },
-      //   ticks: {
-      //     maxTicksLimit: 6
-      //   },
-      //   stacked: true
-      // }],
-      // yAxes: [{
-      //   ticks: {
-      //     min: 0,
-      //     // max: 15000,
-      //     maxTicksLimit: 5
-      //   },
-      //   gridLines: {
-      //     display: true
-      //   },
-      //   stacked: true
-      // }],
     },
   }
 });
