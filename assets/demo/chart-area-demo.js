@@ -9,22 +9,22 @@
 var ctx21_data = {
   'Giants':   [0, 1, 2, 2, 2, 1, 2, 1, 1, 2, 1, 0, 1, 0,-1, 0, 1, 2,  3,  4,  5,  5,  4,  5,  6,
       7,  6,  5,  6,  7,  7,  6,  5,  5,  6,  6,  7,  6,  6,  7,  8,  8,  8,  7,  8,  7,  8,  7,
-      7,  8,  7,  7,  8,  9,  8,  7,  6,  7,  7,  8,  8,  9,  8,  7,  7,  6],
+      7,  8,  7,  7,  8,  9,  8,  7,  6,  7,  7,  8,  8,  9,  8,  7,  7,  6,  5],
   'Tigers':   [0, 1, 2, 3, 2, 1, 2, 1, 2, 3, 4, 5, 4, 5, 6, 7, 7, 8,  9, 10, 10, 11, 12, 11, 10,
       9, 10, 11, 10,  9, 10, 11, 11, 12, 12, 13, 13, 12, 13, 14, 14, 14, 15, 16, 15, 16, 15, 16,
-     16, 16, 16, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 14, 15, 16],
+     16, 16, 16, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 16, 15, 14, 15, 16, 17],
   'Baystars': [0,-1,-2,-2,-3,-4,-4,-5,-6,-5,-4,-5,-4,-5,-6,-7,-8,-9,-10,-11,-12,-12,-12,-13,-14,
     -13,-14,-15,-16,-15,-14,-15,-14,-13,-12,-13,-12,-11,-12,-13,-14,-14,-14,-15,-15,-15,-16,-16,
-    -15,-16,-17,-17,-16,-17,-16,-15,-15,-16,-15,-15,-14,-15,-14,-13,-14,-14],
+    -15,-16,-17,-17,-16,-17,-16,-15,-15,-16,-15,-15,-14,-15,-14,-13,-14,-14,-15],
   'Swallows': [0,-1,-2,-3,-2,-1,-1, 0, 0,-1,-2,-1, 0, 0, 0,-1, 0, 1,  2,  1,  1,  0,  1,  1,  2,
       3,  4,  5,  4,  3,  3,  4,  3,  2,  2,  1,  1,  2,  2,  1,  1,  1,  1,  2,  3,  3,  4,  3,
-      2,  3,  4,  4,  3,  4,  5,  4,  5,  4,  5,  4,  3,  4,  3,  4,  3,  4],
+      2,  3,  4,  4,  3,  4,  5,  4,  5,  4,  5,  4,  3,  4,  3,  4,  3,  4,  3],
   'Dragons':  [0, 1, 0, 0, 0, 1, 0, 1, 0,-1,-2,-1,-2,-2,-2,-1,-2,-3, -4, -5, -4, -5, -5, -4, -3,
      -4, -5, -6, -5, -4, -5, -4, -3, -3, -4, -3, -4, -4, -5, -4, -4, -4, -5, -6, -7, -7, -6, -6,
-     -6, -7, -6, -6, -5, -4, -4, -5, -4, -3, -2, -2, -1, -2, -1, -2, -3, -2],
+     -6, -7, -6, -6, -5, -4, -4, -5, -4, -3, -2, -2, -1, -2, -1, -2, -3, -2, -3],
   'Carp':     [0,-1, 0, 0, 1, 2, 1, 2, 3, 2, 3, 2, 1, 2, 3, 2, 2, 1,  0,  1,  0,  1,  0,  0, -1,
      -2, -1,  0,  1,  0, -1, -2, -2, -3, -4, -4, -5, -5, -4, -5, -5, -5, -5, -4, -4, -4, -5, -4,
-     -4, -4, -4, -4, -4, -4, -4, -3, -4, -5, -6, -5, -5, -6, -7, -8, -8, -9],
+     -4, -4, -4, -4, -4, -4, -4, -3, -4, -5, -6, -5, -5, -6, -7, -8, -8, -9, -9],
   'labels':[
     'Start','03/26','03/27','03/28','03/30','03/31','04/01','04/02','04/03','04/04','04/06',
     '04/07','04/08','04/09','04/10','04/11','04/13','04/14','04/15','04/16','04/17','04/18',
@@ -32,8 +32,7 @@ var ctx21_data = {
     '05/02','05/03','05/04','05/05','05/07','05/08','05/09','05/11','05/12','05/13','05/14',
     '05/15','05/16','05/18','05/19','05/21','05/22','05/23','05/24','05/25','05/26','05/27',
     '05/28','05/29','05/30','06/01','06/02','06/03','06/04','06/05','06/06','06/08','06/09',
-    '06/10',
-    // '06/11',
+    '06/10', '06/11',
     // '06/12',
     // '06/13',
     // '06/18',
@@ -113,6 +112,34 @@ var ctx21_data = {
     // '10/16',
   ],
 };
+
+// Annotation
+const zero = {
+  type: 'line',
+  scaleID: 'y',
+  borderWidth: 2,
+  borderColor: 'gray',
+  value: 0,
+};
+
+const ilstart21 = {
+  type: 'line',
+  scaleID: 'x',
+  borderWidth: 3,
+  borderColor: 'pink',
+  value: 51,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'pink',
+    content: 'Interleague Start',
+    enabled: true,
+    position: 'end',
+    font: {
+      size: 7
+    }
+  }
+};
+
 
 // Area Chart 2018
 var ctx18 = document.getElementById("myAreaChart18");
@@ -268,6 +295,7 @@ var myLineChart18 = new Chart(ctx18, {
     datasets: [{
       label: "Giants",
       lineTension: 0,
+      fill: 'origin',
       backgroundColor: "rgba(255,140,0,0.2)",
       borderColor: "rgba(255,140,0,1)",
       pointRadius: 0.3,
@@ -429,31 +457,15 @@ var myLineChart18 = new Chart(ctx18, {
     plugins: {
       legend: {
         position: 'right'
+      },
+      autocolors: false,
+      annotation: {
+        annotations: {
+          zero
+        }
       }
     },
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: true
-        },
-        ticks: {
-          // maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          // min: 0,
-          // max: 40000,
-          // maxTicksLimit: 5
-        },
-        gridLines: {
-          color: "rgba(0, 0, 0, .125)",
-        }
-      }],
-    },
+    responsive: true,
   }
 });
 // Area Chart 2019
@@ -610,6 +622,7 @@ var myLineChart19 = new Chart(ctx19, {
     datasets: [{
       label: "Giants",
       lineTension: 0,
+      fill: 'origin',
       backgroundColor: "rgba(255,140,0,0.2)",
       borderColor: "rgba(255,140,0,1)",
       pointRadius: 0.3,
@@ -771,33 +784,18 @@ var myLineChart19 = new Chart(ctx19, {
     plugins: {
       legend: {
         position: 'right'
+      },
+      autocolors: false,
+      annotation: {
+        annotations: {
+          zero
+        }
       }
     },
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: true
-        },
-        ticks: {
-          // maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          // min: 0,
-          // max: 40000,
-          // maxTicksLimit: 5
-        },
-        gridLines: {
-          color: "rgba(0, 0, 0, .125)",
-        }
-      }],
-    },
+    responsive: true,
   }
 });
+
 // Area Chart 2020
 var ctx20 = document.getElementById("myAreaChart20");
 var myLineChart20 = new Chart(ctx20, {
@@ -942,6 +940,7 @@ var myLineChart20 = new Chart(ctx20, {
       {
         label: "Giants",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(255,140,0,0.1)",
         borderColor: "#EB9E16",
         borderWidth: 5,
@@ -1091,6 +1090,7 @@ var myLineChart20 = new Chart(ctx20, {
       {
         label: "Tigers",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(255,215,0,0.05)",
         borderColor: "#F1EA49",
         borderWidth: 5,
@@ -1240,6 +1240,7 @@ var myLineChart20 = new Chart(ctx20, {
       {
         label: "Baystars",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(135,206,250,0.05)",
         borderColor: "#3893D2",
         borderWidth: 5,
@@ -1389,6 +1390,7 @@ var myLineChart20 = new Chart(ctx20, {
       {
         label: "Swallows",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(51,204,0,0.05)",
         borderColor: "#5DD95D",
         borderWidth: 5,
@@ -1538,6 +1540,7 @@ var myLineChart20 = new Chart(ctx20, {
       {
         label: "Dragons",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(0,0,128,0.05)",
         borderColor: "#6F3BC8",
         borderWidth: 5,
@@ -1687,6 +1690,7 @@ var myLineChart20 = new Chart(ctx20, {
       {
         label: "Carp",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(255,0,0,0.05)",
         borderColor: "#EF3A38",
         borderWidth: 5,
@@ -1841,57 +1845,15 @@ var myLineChart20 = new Chart(ctx20, {
         position: 'right'
       },
       autocolors: false,
-      // annotation: {
-      //   annotations: {
-      //     point1: {
-      //       type: 'line',
-      //       scaleID: 'x',
-      //       borderWidth: 3,
-      //       borderColor: 'pink',
-      //       value: 121,
-      //       label: {
-      //         // rotation: 'auto',
-      //         backgroundColor: 'pink',
-      //         content: 'Giants Won League Regular Series',
-      //         enabled: true,
-      //         position: 'start',
-      //         font: {
-      //           size: 9
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
+      annotation: {
+        annotations: {
+          zero
+        }
+      }
     },
     responsive: true,
   }
 });
-
-const zero = {
-  type: 'line',
-  scaleID: 'y',
-  borderWidth: 2,
-  borderColor: 'gray',
-  value: 0,
-};
-
-const ilstart = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 3,
-  borderColor: 'pink',
-  value: 51,
-  label: {
-    // rotation: 'auto',
-    backgroundColor: 'pink',
-    content: 'Interleague Start',
-    enabled: true,
-    position: 'start',
-    font: {
-      size: 9
-    }
-  }
-};
 
 // Area Chart 2021
 var ctx21 = document.getElementById("myAreaChart21");
@@ -1914,10 +1876,12 @@ var myLineChart21 = new Chart(ctx21, {
         pointHitRadius: 50,
         pointborderWidth: 5,
         data: ctx21_data.Giants,
+        fill: 'origin',
       }, // Giants
       {
         label: "Tigers",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(255,215,0,0.05)",
         borderColor: "#F1EA49",
         borderWidth: 5,
@@ -1933,6 +1897,7 @@ var myLineChart21 = new Chart(ctx21, {
       {
         label: "Baystars",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(135,206,250,0.05)",
         borderColor: "#3893D2",
         borderWidth: 5,
@@ -1948,6 +1913,7 @@ var myLineChart21 = new Chart(ctx21, {
       {
         label: "Swallows",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(51,204,0,0.05)",
         borderColor: "#5DD95D",
         borderWidth: 5,
@@ -1963,6 +1929,7 @@ var myLineChart21 = new Chart(ctx21, {
       {
         label: "Dragons",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(0,0,128,0.05)",
         borderColor: "#6F3BC8",
         borderWidth: 5,
@@ -1978,6 +1945,7 @@ var myLineChart21 = new Chart(ctx21, {
       {
         label: "Carp",
         lineTension: 0,
+        fill: 'origin',
         backgroundColor: "rgba(255,0,0,0.05)",
         borderColor: "#EF3A38",
         borderWidth: 5,
@@ -1998,7 +1966,7 @@ var myLineChart21 = new Chart(ctx21, {
       annotation: {
         annotations: {
           zero,
-          ilstart,
+          ilstart21,
         }
       },
       legend: {
