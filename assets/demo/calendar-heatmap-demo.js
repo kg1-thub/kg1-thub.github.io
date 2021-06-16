@@ -1,4 +1,6 @@
-var datas = {
+var squareLength = 18;
+
+var datas20 = {
     '2020-06-19': 1,
     '2020-06-20': 1,
     '2020-06-21': 1,
@@ -120,19 +122,18 @@ var datas = {
     '2020-11-10': 1,
     '2020-11-14': -1,
 };
-var chartData = [];
-for (var d in datas) {
-    chartData.push({
+var chartData20 = [];
+for (var d in datas20) {
+    chartData20.push({
         date: moment(d, 'YYYY-MM-DD').startOf('day').toDate(),
-        count: datas[d]
+        count: datas20[d]
     });
 };
-var squareLength = 18;
-var heatmap = calendarHeatmap()
-  .data(chartData)
+var heatmap20 = calendarHeatmap()
+  .data(chartData20)
   .startDate('2020-06-01')
   .endDate('2020-11-30')
-  .selector('#calmap')
+  .selector('#calmap20')
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
@@ -142,4 +143,93 @@ var heatmap = calendarHeatmap()
   // .width(squareLength * 80)
   .colorRange(['#ECEFF2', '#CE6009']);
 // console.log(chartData);
-heatmap();  // render the chart
+heatmap20();  // render the chart
+
+var datas21 = {
+    '2021-03-26': 1,
+    '2021-03-27': 1,
+    '2021-03-28': 0,
+    '2021-03-30': 0,
+    '2021-03-31': -1,
+    '2021-04-01': 1,
+    '2021-04-02': 0,
+    '2021-04-03': -1,
+    '2021-04-04': 1,
+    '2021-04-06': -1,
+    '2021-04-07': -1,
+    '2021-04-08': 1,
+    '2021-04-09': -1,
+    '2021-04-10': -1,
+    '2021-04-11': 1,
+    '2021-04-13': 1,
+    '2021-04-14': 1,
+    '2021-04-15': 1,
+    '2021-04-16': 1,
+    '2021-04-17': 1,
+    '2021-04-18': 0,
+    '2021-04-20': -1,
+    '2021-04-21': 1,
+    '2021-04-22': 1,
+    '2021-04-23': 1,
+    '2021-04-24': -1,
+    '2021-04-25': -1,
+    '2021-04-27': 1,
+    '2021-04-28': 1,
+    '2021-04-30': -1,
+    '2021-05-01': -1,
+    '2021-05-03': 1,
+    '2021-05-04': 0,
+    '2021-05-05': -1,
+    '2021-05-07': 1,
+    '2021-05-09': 1,
+    '2021-05-11': 1,
+    '2021-05-12': 0,
+    '2021-05-14': -1,
+    '2021-05-15': 1,
+    '2021-05-16': -1,
+    '2021-05-18': 1,
+    '2021-05-19': -1,
+    '2021-05-21': 0,
+    '2021-05-22': 1,
+    '2021-05-23': -1,
+    '2021-05-25': 1,
+    '2021-05-26': 1,
+    '2021-05-27': -1,
+    '2021-05-28': -1,
+    '2021-05-29': -1,
+    '2021-05-30': 1,
+    '2021-06-01': 0,
+    '2021-06-02': 1,
+    '2021-06-03': 0,
+    '2021-06-04': 1,
+    '2021-06-05': -1,
+    '2021-06-06': -1,
+    '2021-06-08': 0,
+    '2021-06-09': -1,
+    '2021-06-10': -1,
+    '2021-06-11': 1,
+    '2021-06-12': 1,
+    '2021-06-13': -1,
+};
+var chartData21 = [];
+for (var d in datas21) {
+    chartData21.push({
+        date: moment(d, 'YYYY-MM-DD').startOf('day').toDate(),
+        count: datas21[d]
+    });
+};
+var heatmap21 = calendarHeatmap()
+  .data(chartData21)
+  .startDate('2021-03-15')
+  .endDate('2021-10-31')
+  .selector('#calmap21')
+  .tooltipEnabled(true)
+  .legendEnabled(false)
+  .squareLength(squareLength)
+  // .viewBox(squareLength*20, squareLength*8)
+  // .height(squareLength * 30)
+//   .width('100%')
+  // .width(squareLength * 80)
+  .colorRange(['#ECEFF2', '#CE6009']);
+// console.log(chartData);
+heatmap21();  // render the chart

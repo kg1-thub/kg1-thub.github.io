@@ -32,8 +32,9 @@ function calendarHeatmap() {
     week: {dow: weekStart},
     No: '',
     on: 'on',
-    Less: 'Less',
-    More: 'More'
+    ZERO: 'Draw',
+    Less: 'Lose',
+    More: 'Win'
   };
   var v = Number(d3.version.split('.')[0]);
 
@@ -179,10 +180,6 @@ function calendarHeatmap() {
         .append('svg')
         .attr('height', '190px')
         .attr('class', 'calendar-heatmap')
-        // .attr('overflow', 'scroll')
-        // .attr('preserveAspectRatio','xMinYMin meet')
-        // .attr('viewBox', '0 0 400 110')
-        // .attr('viewBox', viewBox)
         .style('padding', '7px')
         .style('width', '650px')
         ;
@@ -231,10 +228,11 @@ function calendarHeatmap() {
 
       if (chart.legendEnabled()) {
         var colorRange = [color(0)];
-        for (var i = 3; i > 0; i--) {
+        for (var i = 2; i > 0; i--) {
           colorRange.push(color(max / i));
         }
 
+        console.log(colorRange.length,colorRange);
         var legendGroup = svg.append('g');
         legendGroup.selectAll('.calendar-heatmap-legend')
             .data(colorRange)
@@ -243,21 +241,30 @@ function calendarHeatmap() {
             .attr('class', 'calendar-heatmap-legend')
             .attr('width', SQUARE_LENGTH)
             .attr('height', SQUARE_LENGTH)
-            .attr('x', function (d, i) { return (width - legendWidth) + (i + 1) * 13; })
-            .attr('y', height + SQUARE_PADDING)
+            // .attr('x', function (d, i) { return (width - legendWidth) + (i + 1) * 13; })
+            .attr('x', function (d, i) { return (legendWidth*0.2) + (i + 1) * (SQUARE_LENGTH*1.1); })
+            .attr('y', height + SQUARE_LENGTH*1.5)
             .attr('fill', function (d) { return d; });
 
         legendGroup.append('text')
           .attr('class', 'calendar-heatmap-legend-text calendar-heatmap-legend-text-less')
-          .attr('x', width - legendWidth - 13)
-          .attr('y', height + SQUARE_LENGTH)
+          .attr('x', width*0.07)
+          .attr('y', height + SQUARE_LENGTH*2.2)
           .text(locale.Less);
 
         legendGroup.append('text')
-          .attr('class', 'calendar-heatmap-legend-text calendar-heatmap-legend-text-more')
-          .attr('x', (width - legendWidth + SQUARE_PADDING) + (colorRange.length + 1) * 13)
-          .attr('y', height + SQUARE_LENGTH)
+          .attr('class', 'calendar-heatmap-legend-text calendar-heatmap-legend-text-zero')
+          // .attr('x', (width - legendWidth + SQUARE_PADDING) + (colorRange.length) * 13*1.3)
+          .attr('x', width*0.16)
+          .attr('y', height + SQUARE_LENGTH*2.2)
           .text(locale.More);
+
+          legendGroup.append('text')
+          .attr('class', 'calendar-heatmap-legend-text calendar-heatmap-legend-text-more')
+          // .attr('x', (width - legendWidth + SQUARE_PADDING) + (colorRange.length) * 13/2*1.3)
+          .attr('x', width*0.11)
+          .attr('y', height + SQUARE_LENGTH*2.2)
+          .text(locale.ZERO);
       }
 
       dayRects.exit().remove();
