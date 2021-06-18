@@ -1,4 +1,5 @@
 var squareLength = 18;
+var _colorRange = ['#ECEFF2', '#ff8000'];
 
 var datas20 = {
     '2020-06-19': 1,
@@ -141,7 +142,7 @@ var heatmap20 = calendarHeatmap()
   // .height(squareLength * 30)
 //   .width('100%')
   // .width(squareLength * 80)
-  .colorRange(['#ECEFF2', '#CE6009']);
+  .colorRange(_colorRange);
 // console.log(chartData);
 heatmap20();  // render the chart
 
@@ -210,6 +211,7 @@ var datas21 = {
     '2021-06-11': 1,
     '2021-06-12': 1,
     '2021-06-13': -1,
+    '2021-06-18': 1,
 };
 var chartData21 = [];
 for (var d in datas21) {
@@ -230,6 +232,6 @@ var heatmap21 = calendarHeatmap()
   // .height(squareLength * 30)
 //   .width('100%')
   // .width(squareLength * 80)
-  .colorRange(['#ECEFF2', '#CE6009']);
+  .colorRange(_colorRange);
 // console.log(chartData);
 heatmap21();  // render the chart
