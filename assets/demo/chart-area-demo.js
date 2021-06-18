@@ -1884,6 +1884,8 @@ var myLineChart21 = new Chart(ctx21, {
     datasets: [
       {
         label: "Giants",
+        hidden: false,
+        fill: 'origin',
         lineTension: 0,
         backgroundColor: "rgba(255,140,0,0.1)",
         borderColor: "#EB9E16",
@@ -1896,12 +1898,12 @@ var myLineChart21 = new Chart(ctx21, {
         pointHitRadius: 50,
         pointborderWidth: 5,
         data: ctx21_data.Giants,
-        fill: 'origin',
       }, // Giants
       {
         label: "Tigers",
-        lineTension: 0,
+        hidden: false,
         fill: 'origin',
+        lineTension: 0,
         backgroundColor: "rgba(255,215,0,0.05)",
         borderColor: "#F1EA49",
         borderWidth: 5,
@@ -1916,8 +1918,9 @@ var myLineChart21 = new Chart(ctx21, {
       }, // Tigers
       {
         label: "Baystars",
-        lineTension: 0,
+        hidden: true,
         fill: 'origin',
+        lineTension: 0,
         backgroundColor: "rgba(135,206,250,0.05)",
         borderColor: "#3893D2",
         borderWidth: 5,
@@ -1932,8 +1935,9 @@ var myLineChart21 = new Chart(ctx21, {
       }, // Baystars
       {
         label: "Swallows",
-        lineTension: 0,
+        hidden: false,
         fill: 'origin',
+        lineTension: 0,
         backgroundColor: "rgba(51,204,0,0.05)",
         borderColor: "#5DD95D",
         borderWidth: 5,
@@ -1948,8 +1952,9 @@ var myLineChart21 = new Chart(ctx21, {
       }, // Swallows
       {
         label: "Dragons",
-        lineTension: 0,
+        hidden: true,
         fill: 'origin',
+        lineTension: 0,
         backgroundColor: "rgba(0,0,128,0.05)",
         borderColor: "#6F3BC8",
         borderWidth: 5,
@@ -1964,8 +1969,9 @@ var myLineChart21 = new Chart(ctx21, {
       }, // Dragons
       {
         label: "Carp",
-        lineTension: 0,
+        hidden: true,
         fill: 'origin',
+        lineTension: 0,
         backgroundColor: "rgba(255,0,0,0.05)",
         borderColor: "#EF3A38",
         borderWidth: 5,
