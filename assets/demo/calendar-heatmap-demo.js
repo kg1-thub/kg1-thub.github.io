@@ -132,8 +132,8 @@ for (var d in datas20) {
 };
 var heatmap20 = calendarHeatmap()
   .data(chartData20)
-  .startDate('2020-06-01')
-  .endDate('2020-11-30')
+  .startDate('2020-06-07')
+  .endDate('2020-11-15')
   .selector('#calmap20')
   .tooltipEnabled(true)
   .legendEnabled(false)
@@ -225,14 +225,14 @@ for (var d in datas21) {
 var heatmap21 = calendarHeatmap()
   .data(chartData21)
   .startDate('2021-03-15')
-  .endDate('2021-10-31')
+  .endDate('2021-10-10')
   .selector('#calmap21')
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
   // .viewBox(squareLength*20, squareLength*8)
   // .height(squareLength * 30)
-//   .width('100%')
+  // .width('100%')
   // .width(squareLength * 80)
   .colorRange(_colorRange);
 // console.log(chartData);
