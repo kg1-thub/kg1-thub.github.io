@@ -901,7 +901,8 @@ var myLineChart21 = new Chart(ctx21, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'top'
+        // position: 'right'
       }
     },
     responsive: true,
@@ -952,7 +953,8 @@ var myLineChart20 = new Chart(ctx20, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'top'
+        // position: 'right'
       }
     },
     responsive: true,
@@ -1003,7 +1005,8 @@ var myLineChart19 = new Chart(ctx19, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'top'
+        // position: 'right'
       }
     },
     scales: {
@@ -1053,7 +1056,8 @@ var myLineChart18 = new Chart(ctx18, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'top'
+        // position: 'right'
       }
     },
     scales: {

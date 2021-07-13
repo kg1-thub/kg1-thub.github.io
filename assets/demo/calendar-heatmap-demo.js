@@ -230,6 +230,7 @@ var datas21 = {
     '2021-07-09': -1,
     '2021-07-10': 1,
     '2021-07-11': 1,
+    '2021-07-13': -1,
 };
 var chartData21 = [];
 for (var d in datas21) {
@@ -246,6 +247,7 @@ var heatmap21 = calendarHeatmap()
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
+  // .height(50)
   // .viewBox(squareLength*20, squareLength*8)
   // .height(squareLength * 30)
   // .width('100%')

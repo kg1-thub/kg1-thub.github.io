@@ -4,7 +4,7 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', 'その他'], 'Stealing_bases': [2, 12, 18, 0], 'Defense_inning': [[7.0, 4.0, 0, 41.0, 24.33, 0, 0, 0], [1.0, 46.0, 82.0, 40.0, 1.0, 0, 0, 0], [36.0, 166.0, 101.0, 113.0, 51.67, 0, 0, 0], [0, 4.0, 12.0, 0, 0, 0, 0, 0]], 'Starting_games': [[0, 0, 0, 4, 3, 0, 0, 0], [0, 4, 10, 4, 0, 0, 0, 0], [5, 21, 12, 14, 6, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[1, 0, 0, 1, 1, 0, 0, 0], [0, 1, 5, 1, 0, 0, 0, 0], [1, 13, 5, 10, 4, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
+var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', 'その他'], 'Stealing_bases': [2, 12, 18, 0], 'Defense_inning': [[7.0, 4.0, 0, 41.0, 24.33, 0, 0, 0], [1.0, 46.0, 82.0, 40.0, 1.0, 0, 0, 0], [36.0, 166.0, 101.0, 113.0, 56.67, 0, 0, 0], [0, 4.0, 12.0, 0, 4.0, 0, 0, 0]], 'Starting_games': [[0, 0, 0, 4, 3, 0, 0, 0], [0, 4, 10, 4, 0, 0, 0, 0], [5, 21, 12, 14, 7, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[1, 0, 0, 1, 1, 0, 0, 0], [0, 1, 5, 1, 0, 0, 0, 0], [1, 13, 5, 10, 4, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
 
 var innings21 = pie_data21.Defense_inning;
 var starting_games21 = pie_data21.Starting_games;
@@ -901,7 +901,8 @@ var myLineChart21 = new Chart(ctx21, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'top'
+        // position: 'right'
       }
     },
     responsive: true,
@@ -952,7 +953,8 @@ var myLineChart20 = new Chart(ctx20, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'top'
+        // position: 'right'
       }
     },
     responsive: true,
@@ -1003,7 +1005,8 @@ var myLineChart19 = new Chart(ctx19, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'top'
+        // position: 'right'
       }
     },
     scales: {
@@ -1053,7 +1056,8 @@ var myLineChart18 = new Chart(ctx18, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'top'
+        // position: 'right'
       }
     },
     scales: {
