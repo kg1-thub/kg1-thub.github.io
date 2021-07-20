@@ -182,11 +182,11 @@ const olbreak21 = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 10,
-  borderColor: 'navy',
+  borderColor: 'rgba(0,0,128,0.5)',
   value: 97,
   label: {
-    // rotation: 270,
-    backgroundColor: 'navy',
+    // rotation: 90,
+    backgroundColor: 'rgba(0,0,128,1)',
     color: 'white',
     content: 'OLYMPIC BREAK',
     enabled: true,
@@ -197,7 +197,7 @@ const olbreak21 = {
   }
 };
 
-const out22 = {
+const out_n22 = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 3,
@@ -215,7 +215,7 @@ const out22 = {
   }
 };
 
-const in22 = {
+const in_n22 = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 3,
@@ -233,7 +233,7 @@ const in22 = {
   }
 };
 
-const out27 = {
+const out_n27 = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 3,
@@ -2088,9 +2088,9 @@ var myLineChart21 = new Chart(ctx21, {
           illabel21,
           ilperiod21,
           olbreak21,
-          // out22,
-          // in22,
-          // out27,
+          // out_n22,
+          // in_n22,
+          // out_n27,
         }
       },
       legend: {
