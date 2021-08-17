@@ -512,22 +512,22 @@ var innings18_ctx_config = {
         }, {
             label: '大城',
             lineTension: 0,
-            borderColor: window.chartColors.red,
-            backgroundColor: window.chartColors.red,
+            borderColor: window.chartColors.yellow,
+            backgroundColor: window.chartColors.yellow,
             data: innings18.p[1],
             fill: true
         }, {
             label: '宇佐見',
             lineTension: 0,
-            borderColor: window.chartColors.yellow,
-            backgroundColor: window.chartColors.yellow,
+            borderColor: window.chartColors.green,
+            backgroundColor: window.chartColors.green,
             data: innings18.p[2],
             fill: true
         }, {
             label: '河野',
             lineTension: 0,
-            borderColor: window.chartColors.green,
-            backgroundColor: window.chartColors.green,
+            borderColor: window.chartColors.red,
+            backgroundColor: window.chartColors.red,
             data: innings18.p[3],
             fill: true
         }]
@@ -548,22 +548,22 @@ var starting_games18_ctx_config = {
         }, {
             label: '大城',
             lineTension: 0,
-            borderColor: window.chartColors.red,
-            backgroundColor: window.chartColors.red,
+            borderColor: window.chartColors.yellow,
+            backgroundColor: window.chartColors.yellow,
             data: starting_games18.p[1],
             fill: true
         }, {
             label: '宇佐見',
             lineTension: 0,
-            borderColor: window.chartColors.yellow,
-            backgroundColor: window.chartColors.yellow,
+            borderColor: window.chartColors.green,
+            backgroundColor: window.chartColors.green,
             data: starting_games18.p[2],
             fill: true
         }, {
             label: '河野',
             lineTension: 0,
-            borderColor: window.chartColors.green,
-            backgroundColor: window.chartColors.green,
+            borderColor: window.chartColors.red,
+            backgroundColor: window.chartColors.red,
             data: starting_games18.p[3],
             fill: true
         }]
@@ -811,7 +811,7 @@ var myPieChart18 = new Chart(ctx18, {
     datasets: [{
       data: total_innings18,
     //   data: [801, 362, 114, 3],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+      backgroundColor: ['#007bff', '#ffc107', '#28a745', '#dc3545'],
     }],
   },
   options: {
@@ -831,7 +831,7 @@ var myPieChart18v2 = new Chart(ctx18v2, {
     datasets: [{
       data: total_starting_games18,
     //   data: [96, 35, 12, 0],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+      backgroundColor: ['#007bff', '#ffc107', '#28a745', '#dc3545'],
     }],
   },
   options: {
@@ -851,7 +851,7 @@ var myPieChart18v3 = new Chart(ctx18v3, {
     datasets: [{
       data: stealing_bases18,
     //   data: [29, 28, 7, 0],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+      backgroundColor: ['#007bff', '#ffc107', '#28a745', '#dc3545'],
     }],
   },
   options: {
@@ -1035,20 +1035,20 @@ var myLineChart18 = new Chart(ctx18, {
       },
       {
         label: "大城",
-        backgroundColor: "#dc3545",
-        borderColor: "#dc3545",
+        backgroundColor: "#ffc107",
+        borderColor: "#ffc107",
         data: [2, 2, 1, 3, 3, 3],
       },
       {
         label: "宇佐見",
-        backgroundColor: "#ffc107",
-        borderColor: "#ffc107",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
         data: [0, 0, 0, 7, 1, 1],
       },
       {
         label: "河野",
-        backgroundColor: "#28a745",
-        borderColor: "#28a745",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
         data: [0, 0, 0, 0, 0, 0],
       }
     ],
