@@ -1,11 +1,3 @@
-// const line = require("../../js/chartjs-plugin-annotation/types/line");
-
-// const annotationPlugin = require("../../js/chartjs-plugin-annotation/chartjs-plugin-annotation");
-
-// Set new default font family and font color to mimic Bootstrap's default styling
-// Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-// Chart.defaults.global.defaultFontColor = '#292b2c';
-
 var ctx21_data = {
   'Giants':   [0, 1, 2, 2, 2, 1, 2, 1, 1, 2, 1, 0, 1, 0,-1, 0, 1, 2,  3,  4,  5,  5,  4,  5,  6,
       7,  6,  5,  6,  7,  7,  6,  5,  5,  6,  6,  7,  6,  6,  7,  8,  8,  8,  7,  8,  7,  8,  7,
