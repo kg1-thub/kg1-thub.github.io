@@ -18,6 +18,8 @@ rect.day-cell:hover {
   background: rgba(0, 0, 0, 0.85);
   border-radius: 3px;
   text-align: center;
+  width: 165px;
+  height: 30px;
 }
 .day-cell-tooltip > span {
   font-family: Helvetica, arial, 'Open Sans', sans-serif
