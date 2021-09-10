@@ -4,7 +4,7 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', 'その他'], 'Stealing_bases': [5, 12, 23, 0], 'Defense_inning': [[7.0, 4.0, 0, 41.0, 30.33, 32.0, 28.0, 0], [1.0, 46.0, 82.0, 40.0, 1.0, 0, 0, 0], [36.0, 166.0, 101.0, 113.0, 59.67, 97.0, 29.0, 0], [0, 4.0, 12.0, 0, 4.0, 4.0, 11.0, 0]], 'Starting_games': [[0, 0, 0, 4, 4, 2, 3, 0], [0, 4, 10, 4, 0, 0, 0, 0], [5, 21, 12, 14, 7, 13, 4, 0], [0, 0, 0, 0, 0, 0, 1, 0]], 'Winning_games': [[1, 0, 0, 1, 1, 0, 1, 0], [0, 1, 5, 1, 0, 0, 0, 0], [1, 13, 5, 10, 4, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
+var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', '岸田'], 'Stealing_bases': [5, 12, 23, 0], 'Defense_inning': [[7.0, 4.0, 0, 41.0, 30.33, 32.0, 28.0, 0], [1.0, 46.0, 82.0, 40.0, 1.0, 0, 0, 0], [36.0, 166.0, 101.0, 113.0, 59.67, 97.0, 29.0, 0], [0, 4.0, 12.0, 0, 4.0, 4.0, 20.0, 0]], 'Starting_games': [[0, 0, 0, 4, 4, 2, 3, 0], [0, 4, 10, 4, 0, 0, 0, 0], [5, 21, 12, 14, 7, 13, 4, 0], [0, 0, 0, 0, 0, 0, 2, 0]], 'Winning_games': [[1, 0, 0, 1, 1, 0, 1, 0], [0, 1, 5, 1, 0, 0, 0, 0], [1, 13, 5, 10, 4, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
 
 var innings21 = pie_data21.Defense_inning;
 var starting_games21 = pie_data21.Starting_games;
@@ -305,7 +305,7 @@ var innings21_ctx_config = {
           data: innings21.p[2],
           fill: true
       }, {
-          label: 'その他',
+          label: '岸田',
           lineTension: 0,
           borderColor: window.chartColors.green,
           backgroundColor: window.chartColors.green,
@@ -341,7 +341,7 @@ var starting_games21_ctx_config = {
           data: starting_games21.p[2],
           fill: true
       }, {
-          label: 'その他',
+          label: '岸田',
           lineTension: 0,
           borderColor: window.chartColors.green,
           backgroundColor: window.chartColors.green,
@@ -624,7 +624,7 @@ var ctx21 = document.getElementById("myPieChart21");
 var myPieChart21 = new Chart(ctx21, {
   type: 'pie',
   data: {
-    labels: ["小林", "炭谷", "大城", "その他"],
+    labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
       data: total_innings21,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
@@ -644,7 +644,7 @@ var ctx21v2 = document.getElementById("myPieChart21v2");
 var myPieChart21v2 = new Chart(ctx21v2, {
   type: 'pie',
   data: {
-    labels: ["小林", "炭谷", "大城", "その他"],
+    labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
       data: total_starting_games21,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
@@ -664,7 +664,7 @@ var ctx21v3 = document.getElementById("myPieChart21v3");
 var myPieChart21v3 = new Chart(ctx21v3, {
   type: 'pie',
   data: {
-    labels: ["小林", "炭谷", "大城", "その他"],
+    labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
       data: stealing_bases21,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
@@ -891,7 +891,7 @@ var myLineChart21 = new Chart(ctx21, {
         data: pie_data21.Winning_games[2],
       },
       {
-        label: "その他",
+        label: "岸田",
         backgroundColor: "#28a745",
         borderColor: "#28a745",
         data: pie_data21.Winning_games[3],
