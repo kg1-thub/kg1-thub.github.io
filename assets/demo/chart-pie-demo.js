@@ -639,7 +639,7 @@ var myPieChart21 = new Chart(ctx21, {
     responsive: true,
   }
 });
-// Pie Chart 2020 v2 Starting_games
+// Pie Chart 2021 v2 Starting_games
 var ctx21v2 = document.getElementById("myPieChart21v2");
 var myPieChart21v2 = new Chart(ctx21v2, {
   type: 'pie',
@@ -659,7 +659,7 @@ var myPieChart21v2 = new Chart(ctx21v2, {
     responsive: true,
   }
 });
-// Pie Chart 2020 v3 Stealing_bases
+// Pie Chart 2021 v3 Stealing_bases
 var ctx21v3 = document.getElementById("myPieChart21v3");
 var myPieChart21v3 = new Chart(ctx21v3, {
   type: 'pie',

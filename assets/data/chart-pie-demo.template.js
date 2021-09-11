@@ -305,7 +305,7 @@ var innings21_ctx_config = {
           data: innings21.p[2],
           fill: true
       }, {
-          label: 'その他',
+          label: '岸田',
           lineTension: 0,
           borderColor: window.chartColors.green,
           backgroundColor: window.chartColors.green,
@@ -341,7 +341,7 @@ var starting_games21_ctx_config = {
           data: starting_games21.p[2],
           fill: true
       }, {
-          label: 'その他',
+          label: '岸田',
           lineTension: 0,
           borderColor: window.chartColors.green,
           backgroundColor: window.chartColors.green,
@@ -624,7 +624,7 @@ var ctx21 = document.getElementById("myPieChart21");
 var myPieChart21 = new Chart(ctx21, {
   type: 'pie',
   data: {
-    labels: ["小林", "炭谷", "大城", "その他"],
+    labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
       data: total_innings21,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
@@ -639,12 +639,12 @@ var myPieChart21 = new Chart(ctx21, {
     responsive: true,
   }
 });
-// Pie Chart 2020 v2 Starting_games
+// Pie Chart 2021 v2 Starting_games
 var ctx21v2 = document.getElementById("myPieChart21v2");
 var myPieChart21v2 = new Chart(ctx21v2, {
   type: 'pie',
   data: {
-    labels: ["小林", "炭谷", "大城", "その他"],
+    labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
       data: total_starting_games21,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
@@ -659,12 +659,12 @@ var myPieChart21v2 = new Chart(ctx21v2, {
     responsive: true,
   }
 });
-// Pie Chart 2020 v3 Stealing_bases
+// Pie Chart 2021 v3 Stealing_bases
 var ctx21v3 = document.getElementById("myPieChart21v3");
 var myPieChart21v3 = new Chart(ctx21v3, {
   type: 'pie',
   data: {
-    labels: ["小林", "炭谷", "大城", "その他"],
+    labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
       data: stealing_bases21,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
@@ -891,7 +891,7 @@ var myLineChart21 = new Chart(ctx21, {
         data: pie_data21.Winning_games[2],
       },
       {
-        label: "その他",
+        label: "岸田",
         backgroundColor: "#28a745",
         borderColor: "#28a745",
         data: pie_data21.Winning_games[3],
