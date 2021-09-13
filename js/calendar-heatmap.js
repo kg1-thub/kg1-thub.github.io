@@ -232,7 +232,7 @@ function calendarHeatmap() {
           colorRange.push(color(max / i));
         }
 
-        console.log(colorRange.length,colorRange);
+        // console.log(colorRange.length,colorRange);
         var legendGroup = svg.append('g');
         legendGroup.selectAll('.calendar-heatmap-legend')
             .data(colorRange)
@@ -318,7 +318,7 @@ function calendarHeatmap() {
       // var dateStr = moment(d).format('ddd, MMM Do YYYY');
       var dateStr = moment(d).format('MMM D, YYYY');
       var count = countForDate(d);
-      console.log(dateStr, count);
+      // console.log(dateStr, count);
       if (count == 1) {
         // return '<span><strong>' + (count ? count : locale.No) + ' ' + pluralizedTooltipUnit(count) + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
         return '<span><strong>' + 'WIN ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';

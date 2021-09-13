@@ -82,7 +82,6 @@ $(document).ready(function() {
     };
 });
 
-
 function get_total_by_row(sample_list) {
     var total_by_row = Array(sample_list.length).fill(0);
     for (let i=0; i < sample_list.length; i++) {
