@@ -258,6 +258,7 @@ var datas21 = {
     '2021-09-10': -1,
     '2021-09-11': -1,
     '2021-09-12': 1,
+    '2021-09-14': -1,
 };
 var chartData21 = [];
 for (var d in datas21) {
@@ -269,7 +270,7 @@ for (var d in datas21) {
 var heatmap21 = calendarHeatmap()
   .data(chartData21)
   .startDate('2021-03-15')
-  .endDate('2021-10-10')
+  .endDate('2021-10-24')
   .selector('#calmap21')
   .tooltipEnabled(true)
   .legendEnabled(false)
