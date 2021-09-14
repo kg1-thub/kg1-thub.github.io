@@ -80,6 +80,10 @@ $(document).ready(function() {
     if (year.length>0) {
         tab_change(year);
     };
+    var calmapR = document.getElementsByClassName('calmap-r');
+    for (let i=0; i<calmapR.length;i++) {
+        calmapR[i].scrollTo({top: 0, left: calmapR[i].scrollWidth, behavior: "smooth"});
+    };
 });
 
 function get_total_by_row(sample_list) {
