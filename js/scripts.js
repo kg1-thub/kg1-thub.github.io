@@ -3,23 +3,6 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
     */
-// (function($) {
-//     "use strict";
-
-//     // Add active state to sidbar nav links
-//     var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-//         $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
-//             if (this.href === path) {
-//                 $(this).addClass("active");
-//             }
-//         });
-
-//     // Toggle the side navigation
-//     $("#sidebarToggle").on("click", function(e) {
-//         e.preventDefault();
-//         $("body").toggleClass("sb-sidenav-toggled");
-//     });
-// })(jQuery);
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -81,7 +64,7 @@ $(document).ready(function() {
         tab_change(year);
     };
     var calmapR = document.getElementsByClassName('calmap-r');
-    for (let i=0; i<calmapR.length;i++) {
+    for (let i=0; i<calmapR.length; i++) {
         calmapR[i].scrollTo({top: 0, left: calmapR[i].scrollWidth, behavior: "smooth"});
     };
 });

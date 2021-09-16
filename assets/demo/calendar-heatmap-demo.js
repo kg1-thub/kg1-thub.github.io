@@ -138,12 +138,8 @@ var heatmap20 = calendarHeatmap()
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-  // .viewBox(squareLength*20, squareLength*8)
-  // .height(squareLength * 30)
-//   .width('100%')
-  // .width(squareLength * 80)
+  .svgWidth('500px')
   .colorRange(_colorRange);
-// console.log(chartData);
 heatmap20();  // render the chart
 
 var datas21 = {
@@ -276,11 +272,6 @@ var heatmap21 = calendarHeatmap()
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-  // .height(50)
-  // .viewBox(squareLength*20, squareLength*8)
-  // .height(squareLength * 30)
-  // .width('100%')
-  // .width(squareLength * 80)
+  .svgWidth('680px')
   .colorRange(_colorRange);
-// console.log(chartData);
 heatmap21();  // render the chart

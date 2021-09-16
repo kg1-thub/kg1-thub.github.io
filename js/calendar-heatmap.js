@@ -3,9 +3,9 @@ function calendarHeatmap() {
   // defaults
   var width = 600;
   var height = 135;
-  // var viewBox = '0 0 ' + width * 1 + ' ' + height * 1;
   var legendWidth = 150;
   var selector = 'body';
+  var SVG_WIDTH = '680px';
   var SQUARE_LENGTH = 11;
   var SQUARE_PADDING = 2;
   var ROUNDED_RATIO = 0.3;
@@ -121,23 +121,11 @@ function calendarHeatmap() {
     return chart;
   };
 
-  // chart.height = function (value) {
-  //   if (!arguments.length) { return SQUARE_LENGTH * 10; }
-  //   height = value;
-  //   // viewBox = '0 0 ' + width * 2.0 + ' ' + height * 2.5;
-  //   return chart;
-  // };
-
-  // chart.width = function (value) {
-  //   if (!arguments.length) { return width; }
-  //   width = value;
-  //   return chart;
-  // };
-
-  // chart.viewBox = function (w, h) {
-  //   viewBox = '0 0 ' + w + ' ' + h;
-  //   return chart;
-  // };
+  chart.svgWidth = function (value) {
+    if (!arguments.length) { return SVG_WIDTH; }
+    SVG_WIDTH = value;
+    return chart;
+  };
 
   chart.locale = function (value) {
     if (!arguments.length) { return locale; }
@@ -181,7 +169,7 @@ function calendarHeatmap() {
         .attr('height', '190px')
         .attr('class', 'calendar-heatmap')
         .style('padding', '7px')
-        .style('width', '680px')
+        .style('width', SVG_WIDTH)
         ;
 
       dayRects = svg.selectAll('.day-cell')
