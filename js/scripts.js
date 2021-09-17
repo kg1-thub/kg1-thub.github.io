@@ -28,13 +28,6 @@ function tab_change(year) {
     };
 };
 
-document.getElementById('d2021').addEventListener('click', function() {
-    tab_change('2021');
-    var innings21_ctx = document.getElementById('innings21canvas').getContext('2d');
-    window.myLine21v1 = new Chart(innings21_ctx, innings21_ctx_config);
-    var starting_games21_ctx = document.getElementById('starting_games21canvas').getContext('2d');
-    window.myLine21v2 = new Chart(starting_games21_ctx, starting_games21_ctx_config);
-});
 document.getElementById('d2020').addEventListener('click', function() {
     tab_change('2020');
     var innings20_ctx = document.getElementById('innings20canvas').getContext('2d');
