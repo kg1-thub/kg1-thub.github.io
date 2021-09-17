@@ -85,40 +85,62 @@ const zero = {
   value: 0,
 };
 
-const ilstart21 = {
+const illabel18 = {
   type: 'line',
   scaleID: 'x',
-  borderWidth: 3,
-  borderColor: 'rgba(255,182,193,0.5)',
-  value: 51,
+  borderWidth: 0,
+  borderColor: 'rgba(255,182,193,0)',
+  value: 61,
   label: {
     // rotation: 270,
     backgroundColor: 'pink',
-    // content: 'Interleague Start',
+    color: 'black',
+    content: 'INTERLEAGUE PLAY',
     enabled: true,
-    position: 'end',
+    position: 'start',
     font: {
-      size: 8
+      size: 12
     }
   }
 };
 
-const ilend21 = {
+const ilperiod18 = {
+  type: 'box',
+  backgroundColor: 'rgba(255,182,193,0.35)',
+  borderColor: 'rgba(0,150,0,0)',
+  borderWidth: 1,
+  cornerRadius: 4,
+  xMin: 46,
+  xMax: 64,
+};
+
+const illabel19 = {
   type: 'line',
   scaleID: 'x',
-  borderWidth: 3,
-  borderColor: 'rgba(255,182,193,0.5)',
-  value: 72,
+  borderWidth: 0,
+  borderColor: 'rgba(255,182,193,0)',
+  value: 61,
   label: {
     // rotation: 270,
     backgroundColor: 'pink',
-    // content: 'Interleague End',
+    color: 'black',
+    content: 'INTERLEAGUE PLAY',
     enabled: true,
-    position: 'end',
+    position: 'start',
     font: {
-      size: 8
+      size: 12
     }
   }
+};
+
+const ilperiod19 = {
+  type: 'box',
+  backgroundColor: 'rgba(255,182,193,0.35)',
+  borderColor: 'rgba(0,150,0,0)',
+  borderWidth: 1,
+  cornerRadius: 4,
+  xMin: 51,
+  xMax: 69,
 };
 
 const illabel21 = {
@@ -142,7 +164,7 @@ const illabel21 = {
 
 const ilperiod21 = {
   type: 'box',
-  backgroundColor: 'rgba(255,182,193,0.2)',
+  backgroundColor: 'rgba(255,182,193,0.35)',
   borderColor: 'rgba(0,150,0,0)',
   borderWidth: 1,
   cornerRadius: 4,
@@ -162,7 +184,7 @@ const olbreak21 = {
     color: 'white',
     content: 'OLYMPIC BREAK',
     enabled: true,
-    position: 'end',
+    position: 'start',
     font: {
       size: 12
     }
@@ -178,7 +200,7 @@ const out_n22 = {
   label: {
     // rotation: 270,
     backgroundColor: 'blue',
-    content: '小林 out [to farm]',
+    content: '#22 out [to Farm]',
     enabled: true,
     position: 'end',
     font: {
@@ -196,7 +218,7 @@ const in_n22 = {
   label: {
     // rotation: 270,
     backgroundColor: 'blue',
-    content: '小林 in [from farm]',
+    content: '#22 in [from Farm]',
     enabled: true,
     position: 'end',
     font: {
@@ -214,7 +236,7 @@ const out_n27 = {
   label: {
     // rotation: 270,
     backgroundColor: 'red',
-    content: '炭谷 out [to Eagle]',
+    content: '#27 out [to Eagles]',
     enabled: true,
     position: 'end',
     font: {
@@ -222,7 +244,6 @@ const out_n27 = {
     }
   }
 };
-
 
 // Area Chart 2018
 var ctx18 = document.getElementById("myAreaChart18");
@@ -544,7 +565,9 @@ var myLineChart18 = new Chart(ctx18, {
       autocolors: false,
       annotation: {
         annotations: {
-          zero
+          zero,
+          illabel18,
+          ilperiod18
         }
       }
     },
@@ -871,7 +894,9 @@ var myLineChart19 = new Chart(ctx19, {
       autocolors: false,
       annotation: {
         annotations: {
-          zero
+          zero,
+          illabel19,
+          ilperiod19
         }
       }
     },
@@ -2055,8 +2080,6 @@ var myLineChart21 = new Chart(ctx21, {
       annotation: {
         annotations: {
           zero,
-          ilstart21,
-          ilend21,
           illabel21,
           ilperiod21,
           olbreak21,

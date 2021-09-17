@@ -20,9 +20,11 @@ function tab_change(year) {
                 $(".dropdown-toggle")[0].innerText=year;
                 document.getElementById('t'+year).classList.add('active');
                 document.getElementById('d'+year).classList.add('d-none');
+                calmap_scroll_right();
             } else {
                 document.getElementById('t'+years[i]).classList.remove('active');
                 document.getElementById('d'+years[i]).classList.remove('d-none');
+                calmap_scroll_right();
             }
         };
     };
@@ -56,10 +58,7 @@ $(document).ready(function() {
     if (year.length>0) {
         tab_change(year);
     };
-    var calmapR = document.getElementsByClassName('calmap-r');
-    for (let i=0; i<calmapR.length; i++) {
-        calmapR[i].scrollTo({top: 0, left: calmapR[i].scrollWidth, behavior: "smooth"});
-    };
+    calmap_scroll_right();
 });
 
 function get_total_by_row(sample_list) {
@@ -100,7 +99,6 @@ function get_percentage_of_total(sample_list) {
 function switch_chart_type_line_to_bar(config, sample_list, unit) {
     if (config.type == 'line') {
         config.type = 'bar';
-        console.log(config);
         delete config.options.scales.y.max;
         config.options.scales.y.title.text = unit;
         config.data.datasets.forEach(function(dataset, index) {
@@ -108,13 +106,19 @@ function switch_chart_type_line_to_bar(config, sample_list, unit) {
         });
     } else {
         config.type='line';
-        console.log(config);
         config.options.scales.y.max = 100;
         config.options.scales.y.title.text = 'percent of total in team';
         config.data.datasets.forEach(function(dataset, index) {
             dataset.data = sample_list.p[index];
         });
     }
+};
+
+function calmap_scroll_right() {
+    var calmapR = document.getElementsByClassName('calmap-r');
+    for (let i=0; i<calmapR.length; i++) {
+        calmapR[i].scrollTo({top: 0, left: calmapR[i].scrollWidth, behavior: "smooth"});
+    };
 };
 
 function minValue(ctx) {
