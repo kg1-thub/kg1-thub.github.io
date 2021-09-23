@@ -1,18 +1,18 @@
 site_name: Giants/Catcher/Score
 nav:
     # - Home: index.md
-    - SCORE: https://kg1-thub.github.io/
-    - ABOUT:
-        - About site: index.md
+    - DASHBOARD: https://kg1-thub.github.io/
+    - ABOUT: https://kg1-thub.github.io/catcher-stats/
+        # - About site: index.md
         # - About site: about/catcher-stats.md
-        # - Links: https://kg1-thub.github.io/links/
-        - Privacy policy: about/privacy-policy.md
-        - Contact: https://forms.gle/f5mB854NhKq3hHq48
-    - POSTS: 
-        - posts/maincatcher19vs20.md
-    - HACKS: 
-        - hacks/quick_start_mkdocs.md
-        - oss_db_quiz:  https://kg1-thub.github.io/catcher-stats/hacks/oss_db_quiz/
+    - Links: https://kg1-thub.github.io/links/
+        # - Privacy policy: about/privacy-policy.md
+    - Contact: https://forms.gle/f5mB854NhKq3hHq48
+    # - POSTS: 
+        # - posts/maincatcher19vs20.md
+    # - HACKS: 
+        # - hacks/quick_start_mkdocs.md
+        # - oss_db_quiz:  https://kg1-thub.github.io/catcher-stats/hacks/oss_db_quiz/
         # - hacks/quick_regular_expressions.md
 
 theme:
