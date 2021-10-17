@@ -2052,7 +2052,7 @@ var myLineChart21 = new Chart(ctx21, {
       }, // Dragons
       {
         label: "Carp",
-        hidden: true,
+        hidden: false,
         fill: 'origin',
         lineTension: 0,
         backgroundColor: "rgba(255,0,0,0.05)",
