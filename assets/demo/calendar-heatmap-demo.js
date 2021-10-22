@@ -295,11 +295,11 @@ for (var d in datas21) {
 var heatmap21 = calendarHeatmap()
   .data(chartData21)
   .startDate('2021-03-15')
-  .endDate('2021-10-31')
+  .endDate('2021-10-24')
   .selector('#calmap21')
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-  .svgWidth('700px')
+  .svgWidth('690px')
   .colorRange(_colorRange);
 heatmap21();  // render the chart
