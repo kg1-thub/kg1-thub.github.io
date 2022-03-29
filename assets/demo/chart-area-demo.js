@@ -1,3 +1,15 @@
+var ctx22_data = {
+  'Giants':   [0, 1, 2, 1],
+  'Tigers':   [0,-1,-2,-3],
+  'Baystars': [0,-1,-2,-3],
+  'Swallows': [0, 1, 2, 3],
+  'Dragons':  [0,-1,-2,-1],
+  'Carp':     [0, 1, 2, 3],
+  'labels':[
+    'Start','03/25','03/26','03/27'
+  ],
+};
+
 var ctx21_data = {
   'Giants':   [0, 1, 2, 2, 2, 1, 2, 1, 1, 2, 1, 0, 1, 0,-1, 0, 1, 2,  3,  4,  5,  5,  4,  5,  6,
       7,  6,  5,  6,  7,  7,  6,  5,  5,  6,  6,  7,  6,  6,  7,  8,  8,  8,  7,  8,  7,  8,  7,
@@ -2077,6 +2089,133 @@ var myLineChart21 = new Chart(ctx21, {
           // out_n22,
           // in_n22,
           // out_n27,
+        }
+      },
+      legend: {
+        position: 'right'
+      }
+    },
+    responsive: true,
+  }
+});
+
+// Area Chart 2022
+var ctx22 = document.getElementById("myAreaChart22");
+var myLineChart22 = new Chart(ctx22, {
+  type: 'line',
+  data: {
+    labels: ctx22_data.labels,
+    datasets: [
+      {
+        label: "Giants",
+        hidden: false,
+        fill: 'origin',
+        lineTension: 0,
+        backgroundColor: "rgba(255,140,0,0.1)",
+        borderColor: "#EB9E16",
+        borderWidth: 5,
+        pointRadius: 0.3,
+        pointBackgroundColor: "#EB9E16",
+        pointBorderColor: "#EB9E16",
+        pointHoverRadius: 0.3,
+        pointHoverBackgroundColor: "#EB9E16",
+        pointHitRadius: 50,
+        pointborderWidth: 5,
+        data: ctx22_data.Giants,
+      }, // Giants
+      {
+        label: "Tigers",
+        hidden: false,
+        fill: 'origin',
+        lineTension: 0,
+        backgroundColor: "rgba(255,215,0,0.05)",
+        borderColor: "#F1EA49",
+        borderWidth: 5,
+        pointRadius: 0.3,
+        pointBackgroundColor: "#F1EA49",
+        pointBorderColor: "#F1EA49",
+        pointHoverRadius: 0.3,
+        pointHoverBackgroundColor: "#F1EA49",
+        pointHitRadius: 50,
+        pointborderWidth: 5,
+        data: ctx22_data.Tigers,
+      }, // Tigers
+      {
+        label: "Baystars",
+        hidden: false,
+        fill: 'origin',
+        lineTension: 0,
+        backgroundColor: "rgba(135,206,250,0.05)",
+        borderColor: "#3893D2",
+        borderWidth: 5,
+        pointRadius: 0.3,
+        pointBackgroundColor: "#3893D2",
+        pointBorderColor: "#3893D2",
+        pointHoverRadius: 0.3,
+        pointHoverBackgroundColor: "#3893D2",
+        pointHitRadius: 50,
+        pointborderWidth: 5,
+        data: ctx22_data.Baystars,
+      }, // Baystars
+      {
+        label: "Swallows",
+        hidden: false,
+        fill: 'origin',
+        lineTension: 0,
+        backgroundColor: "rgba(51,204,0,0.05)",
+        borderColor: "#5DD95D",
+        borderWidth: 5,
+        pointRadius: 0.3,
+        pointBackgroundColor: "#5DD95D",
+        pointBorderColor: "#5DD95D",
+        pointHoverRadius: 0.3,
+        pointHoverBackgroundColor: "#5DD95D",
+        pointHitRadius: 50,
+        pointborderWidth: 5,
+        data: ctx22_data.Swallows,
+      }, // Swallows
+      {
+        label: "Dragons",
+        hidden: false,
+        fill: 'origin',
+        lineTension: 0,
+        backgroundColor: "rgba(0,0,128,0.05)",
+        borderColor: "#6F3BC8",
+        borderWidth: 5,
+        pointRadius: 0.3,
+        pointBackgroundColor: "#6F3BC8",
+        pointBorderColor: "#6F3BC8",
+        pointHoverRadius: 0.3,
+        pointHoverBackgroundColor: "#6F3BC8",
+        pointHitRadius: 50,
+        pointborderWidth: 5,
+        data: ctx22_data.Dragons,
+      }, // Dragons
+      {
+        label: "Carp",
+        hidden: false,
+        fill: 'origin',
+        lineTension: 0,
+        backgroundColor: "rgba(255,0,0,0.05)",
+        borderColor: "#EF3A38",
+        borderWidth: 5,
+        pointRadius: 0.3,
+        pointBackgroundColor: "#EF3A38",
+        pointBorderColor: "#EF3A38",
+        pointHoverRadius: 0.3,
+        pointHoverBackgroundColor: "#EF3A38",
+        pointHitRadius: 50,
+        pointborderWidth: 5,
+        data: ctx22_data.Carp,
+      }, // Carp
+    ],
+  },
+  options: {
+    plugins: {
+      autocplors: false,
+      annotation: {
+        annotations: {
+          zero,
         }
       },
       legend: {

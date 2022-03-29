@@ -4,12 +4,19 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data21 = {pie_data21};
+var pie_data22 = {pie_data22};
+var innings22 = pie_data22.Defense_inning;
+var starting_games22 = pie_data22.Starting_games;
+var stealing_bases22 = pie_data22.Stealing_bases;
+var total_innings22 = get_total_by_row(innings22);
+var innings22 = get_percentage_of_total(innings22);
+var total_starting_games22 = get_total_by_row(starting_games22);
+var starting_games22 = get_percentage_of_total(starting_games22);
 
+var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', '岸田'], 'Stealing_bases': [8, 12, 26, 1], 'Defense_inning': [[7.0, 4.0, 0, 41.0, 30.33, 32.0, 98.0, 53.67], [1.0, 46.0, 82.0, 40.0, 1.0, 0, 0, 0], [36.0, 166.0, 101.0, 113.0, 59.67, 97.0, 86.67, 91.0], [0, 4.0, 12.0, 0, 4.0, 4.0, 32.33, 10.0]], 'Starting_games': [[0, 0, 0, 4, 4, 2, 11, 6], [0, 4, 10, 4, 0, 0, 0, 0], [5, 21, 12, 14, 7, 13, 12, 11], [0, 0, 0, 0, 0, 0, 2, 1]], 'Winning_games': [[1, 0, 0, 1, 1, 0, 3, 2], [0, 1, 5, 1, 0, 0, 0, 0], [1, 13, 5, 10, 4, 8, 2, 2], [0, 0, 0, 0, 0, 0, 1, 0]]};
 var innings21 = pie_data21.Defense_inning;
 var starting_games21 = pie_data21.Starting_games;
 var stealing_bases21 = pie_data21.Stealing_bases;
-
 var total_innings21 = get_total_by_row(innings21);
 var innings21 = get_percentage_of_total(innings21);
 var total_starting_games21 = get_total_by_row(starting_games21);
@@ -57,7 +64,6 @@ var starting_games20 = [
 ];
 //小林,炭谷,大城,その他
 var stealing_bases20 = [2, 11, 31, 4];
-
 var total_innings20 = get_total_by_row(innings20);
 var innings20 = get_percentage_of_total(innings20);
 var total_starting_games20 = get_total_by_row(starting_games20);
@@ -101,7 +107,6 @@ var innings19 = [
         1,
     ],
 ];
-
 var starting_games19 = [
     [ //小林
         2,
@@ -140,9 +145,7 @@ var starting_games19 = [
         1,
     ],
 ];
-
 var stealing_bases19 = [18, 24, 24, 3];
-
 var total_innings19 = get_total_by_row(innings19);
 var innings19 = get_percentage_of_total(innings19);
 var total_starting_games19 = get_total_by_row(starting_games19);
@@ -190,7 +193,6 @@ var innings18 = [
         0,
     ],
 ];
-
 var starting_games18 = [
     [ //小林
         2,
@@ -233,14 +235,11 @@ var starting_games18 = [
         0,
     ],
 ];
-
 var stealing_bases18 = [29, 28, 7, 0];
-
 var total_innings18 = get_total_by_row(innings18);
 var innings18 = get_percentage_of_total(innings18);
 var total_starting_games18 = get_total_by_row(starting_games18);
 var starting_games18 = get_percentage_of_total(starting_games18);
-
 
 var options_prm = {
     responsive: true,
@@ -278,6 +277,78 @@ var options_prm = {
     },
 };
 
+var innings22_ctx_config = {
+  type: 'line',
+  data: {
+    labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    datasets: [{
+          label: '大城',
+          lineTension: 0,
+          borderColor: window.chartColors.yellow,
+          backgroundColor: window.chartColors.yellow,
+          data: innings22.p[0],
+          fill: true
+      }, {
+          label: '小林',
+          lineTension: 0,
+          borderColor: window.chartColors.blue,
+          backgroundColor: window.chartColors.blue,
+          data: innings22.p[1],
+          fill: true
+      }, {
+          label: '喜多',
+          lineTension: 0,
+          borderColor: window.chartColors.red,
+          backgroundColor: window.chartColors.red,
+          data: innings22.p[2],
+          fill: true
+      }, {
+          label: 'その他',
+          lineTension: 0,
+          borderColor: window.chartColors.green,
+          backgroundColor: window.chartColors.green,
+          data: innings22.p[3],
+          fill: true
+      }]
+  },
+  options: options_prm
+};
+var starting_games22_ctx_config = {
+  type: 'line',
+  data: {
+      labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+      datasets: [{
+          label: '大城',
+          lineTension: 0,
+          borderColor: window.chartColors.yellow,
+          backgroundColor: window.chartColors.yellow,
+          data: starting_games22.p[0],
+          fill: true
+      }, {
+          label: '小林',
+          lineTension: 0,
+          borderColor: window.chartColors.blue,
+          backgroundColor: window.chartColors.blue,
+          data: starting_games22.p[1],
+          fill: true
+      }, {
+          label: '喜多',
+          lineTension: 0,
+          borderColor: window.chartColors.red,
+          backgroundColor: window.chartColors.red,
+          data: starting_games22.p[2],
+          fill: true
+      }, {
+          label: 'その他',
+          lineTension: 0,
+          borderColor: window.chartColors.green,
+          backgroundColor: window.chartColors.green,
+          data: starting_games22.p[3],
+          fill: true
+      }]
+  },
+  options: options_prm
+};
 
 var innings21_ctx_config = {
   type: 'line',
@@ -572,11 +643,21 @@ var starting_games18_ctx_config = {
 };
 
 window.onload = function() {
-    var innings21_ctx = document.getElementById('innings21canvas').getContext('2d');
-    window.myLine21v1 = new Chart(innings21_ctx, innings21_ctx_config);
-    var starting_games21_ctx = document.getElementById('starting_games21canvas').getContext('2d');
-    window.myLine21v2 = new Chart(starting_games21_ctx, starting_games21_ctx_config);
+    var innings22_ctx = document.getElementById('innings22canvas').getContext('2d');
+    window.myLine22v1 = new Chart(innings22_ctx, innings22_ctx_config);
+    var starting_games22_ctx = document.getElementById('starting_games22canvas').getContext('2d');
+    window.myLine22v2 = new Chart(starting_games22_ctx, starting_games22_ctx_config);
 };
+
+document.getElementById('innings22redraw').addEventListener('click', function() {
+  switch_chart_type_line_to_bar(innings22_ctx_config, innings22, 'innings')
+  window.myLine22v1.update();
+});
+
+document.getElementById('starting_games22redraw').addEventListener('click', function() {
+  switch_chart_type_line_to_bar(starting_games22_ctx_config, starting_games22, 'games')
+  window.myLine22v2.update();
+});
 
 document.getElementById('innings21redraw').addEventListener('click', function() {
     switch_chart_type_line_to_bar(innings21_ctx_config, innings21, 'innings')
@@ -618,6 +699,66 @@ document.getElementById('starting_games18redraw').addEventListener('click', func
     window.myLine18v2.update();
 });
 
+// Pie Chart 2022 Defense_inning
+var ctx22 = document.getElementById("myPieChart22");
+var myPieChart22 = new Chart(ctx22, {
+  type: 'pie',
+  data: {
+    labels: ["大城", "小林", "喜多", "その他"],
+    datasets: [{
+      data: total_innings22,
+      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
+    }],
+  },
+  options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
+    responsive: true,
+  }
+});
+// Pie Chart 2022 v2 Starting_games
+var ctx22v2 = document.getElementById("myPieChart22v2");
+var myPieChart22v2 = new Chart(ctx22v2, {
+  type: 'pie',
+  data: {
+    labels: ["大城", "小林", "喜多", "その他"],
+    datasets: [{
+      data: total_starting_games22,
+      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
+    }],
+  },
+  options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
+    responsive: true,
+  }
+});
+// Pie Chart 2022 v3 Stealing_bases
+var ctx22v3 = document.getElementById("myPieChart22v3");
+var myPieChart22v3 = new Chart(ctx22v3, {
+  type: 'pie',
+  data: {
+    labels: ["大城", "小林", "喜多", "その他"],
+    datasets: [{
+      data: stealing_bases22,
+      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
+    }],
+  },
+  options: {
+    plugins: {
+      legend: {
+        position: 'right'
+      }
+    },
+    responsive: true,
+  }
+});
 
 // Pie Chart 2021 Defense_inning
 var ctx21 = document.getElementById("myPieChart21");
@@ -865,6 +1006,58 @@ var myPieChart18v3 = new Chart(ctx18v3, {
 });
 
 // Bar Chart
+// Bar Chart 2022
+var ctx22 = document.getElementById("myBarChart22");
+var myLineChart22 = new Chart(ctx22, {
+  type: 'bar',
+  data: {
+    labels: ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+    datasets: [
+      {
+        label: "大城",
+        backgroundColor: "#ffc107",
+        borderColor: "#ffc107",
+        data: pie_data22.Winning_games[0],
+      },
+      {
+        label: "小林",
+        backgroundColor: "#007bff",
+        borderColor: "#007bff",
+        data: pie_data22.Winning_games[1],
+      },
+      {
+        label: "喜多",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
+        data: pie_data22.Winning_games[2],
+      },
+      {
+        label: "その他",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
+        data: pie_data22.Winning_games[3],
+      }
+    ],
+  },
+  options: {
+    plugins: {
+      legend: {
+        position: 'top'
+        // position: 'right'
+      }
+    },
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+    },
+  }
+});
+
 // Bar Chart 2021
 var ctx21 = document.getElementById("myBarChart21");
 var myLineChart21 = new Chart(ctx21, {

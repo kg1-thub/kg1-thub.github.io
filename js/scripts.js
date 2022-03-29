@@ -14,22 +14,29 @@ $(document).ready(function(){
 
 function tab_change(year) {
     if (year.length>0) {
-        var years = ['2021', '2020', '2019', '2018'];
+        var years = ['2022', '2021', '2020', '2019', '2018'];
         for (i=0; i<years.length; i++) {
             if (years[i]==year) {
                 $(".dropdown-toggle")[0].innerText=year;
                 document.getElementById('t'+year).classList.add('active');
                 document.getElementById('d'+year).classList.add('d-none');
-                calmap_scroll_right();
+                // calmap_scroll_right();
             } else {
                 document.getElementById('t'+years[i]).classList.remove('active');
                 document.getElementById('d'+years[i]).classList.remove('d-none');
-                calmap_scroll_right();
+                // calmap_scroll_right();
             }
         };
     };
 };
 
+document.getElementById('d2021').addEventListener('click', function() {
+    tab_change('2021');
+    var innings21_ctx = document.getElementById('innings21canvas').getContext('2d');
+    window.myLine21v1 = new Chart(innings21_ctx, innings21_ctx_config);
+    var starting_games21_ctx = document.getElementById('starting_games21canvas').getContext('2d');
+    window.myLine21v2 = new Chart(starting_games21_ctx, starting_games21_ctx_config);
+});
 document.getElementById('d2020').addEventListener('click', function() {
     tab_change('2020');
     var innings20_ctx = document.getElementById('innings20canvas').getContext('2d');
@@ -58,7 +65,7 @@ $(document).ready(function() {
     if (year.length>0) {
         tab_change(year);
     };
-    calmap_scroll_right();
+    // calmap_scroll_right();
 });
 
 function get_total_by_row(sample_list) {
