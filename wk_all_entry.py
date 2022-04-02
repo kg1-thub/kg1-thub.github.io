@@ -238,9 +238,8 @@ if __name__=='__main__':
         with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:
             writer.write(content)
         print('CALENDER-HEATMAP UPDATED.')
-
-        print()
         print('CSV UPDATED!')
+        print()
 
     if make_html:
 
@@ -423,7 +422,6 @@ if __name__=='__main__':
             ON tmp.month = wins.month and tmp.catcher=wins.catcher\
             ;"
 
-
         area_datas = get_query2(sql_month_stats, TODAY.strftime('%Y')+'RS')
 
         for x in area_datas:
@@ -459,5 +457,5 @@ if __name__=='__main__':
                         line.replace('{pie_data22}', str(pie_data))
                     )
 
-        print()
         print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'HTML UPDATED!')
+        print()
