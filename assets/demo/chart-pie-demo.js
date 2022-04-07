@@ -4,7 +4,7 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data22 = {'Catcher': ['大城', '小林', '喜多', 'その他'], 'Stealing_bases': [1, 2, 0, 0], 'Defense_inning': [[35.0, 28.0, 0, 0, 0, 0, 0, 0], [20.0, 16.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[4, 3, 0, 0, 0, 0, 0, 0], [2, 2, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[3, 2, 0, 0, 0, 0, 0, 0], [2, 2, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
+var pie_data22 = {'Catcher': ['大城', '小林', '山瀬', 'その他'], 'Stealing_bases': [1, 3, 0, 0], 'Defense_inning': [[35.0, 28.0, 0, 0, 0, 0, 0, 0], [20.0, 23.0, 0, 0, 0, 0, 0, 0], [0, 1.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[4, 3, 0, 0, 0, 0, 0, 0], [2, 3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[3, 2, 0, 0, 0, 0, 0, 0], [2, 2, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
 var innings22 = pie_data22.Defense_inning;
 var starting_games22 = pie_data22.Starting_games;
 var stealing_bases22 = pie_data22.Stealing_bases;
@@ -296,7 +296,7 @@ var innings22_ctx_config = {
           data: innings22.p[1],
           fill: true
       }, {
-          label: '喜多',
+          label: '山瀬',
           lineTension: 0,
           borderColor: window.chartColors.red,
           backgroundColor: window.chartColors.red,
@@ -332,7 +332,7 @@ var starting_games22_ctx_config = {
           data: starting_games22.p[1],
           fill: true
       }, {
-          label: '喜多',
+          label: '山瀬',
           lineTension: 0,
           borderColor: window.chartColors.red,
           backgroundColor: window.chartColors.red,
@@ -704,7 +704,7 @@ var ctx22 = document.getElementById("myPieChart22");
 var myPieChart22 = new Chart(ctx22, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "喜多", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: total_innings22,
       backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
@@ -724,7 +724,7 @@ var ctx22v2 = document.getElementById("myPieChart22v2");
 var myPieChart22v2 = new Chart(ctx22v2, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "喜多", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: total_starting_games22,
       backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
@@ -744,7 +744,7 @@ var ctx22v3 = document.getElementById("myPieChart22v3");
 var myPieChart22v3 = new Chart(ctx22v3, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "喜多", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: stealing_bases22,
       backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
@@ -1026,7 +1026,7 @@ var myLineChart22 = new Chart(ctx22, {
         data: pie_data22.Winning_games[1],
       },
       {
-        label: "喜多",
+        label: "山瀬",
         backgroundColor: "#dc3545",
         borderColor: "#dc3545",
         data: pie_data22.Winning_games[2],

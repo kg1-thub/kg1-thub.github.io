@@ -296,7 +296,7 @@ var innings22_ctx_config = {
           data: innings22.p[1],
           fill: true
       }, {
-          label: '喜多',
+          label: '山瀬',
           lineTension: 0,
           borderColor: window.chartColors.red,
           backgroundColor: window.chartColors.red,
@@ -332,7 +332,7 @@ var starting_games22_ctx_config = {
           data: starting_games22.p[1],
           fill: true
       }, {
-          label: '喜多',
+          label: '山瀬',
           lineTension: 0,
           borderColor: window.chartColors.red,
           backgroundColor: window.chartColors.red,
@@ -704,7 +704,7 @@ var ctx22 = document.getElementById("myPieChart22");
 var myPieChart22 = new Chart(ctx22, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "喜多", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: total_innings22,
       backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
@@ -724,7 +724,7 @@ var ctx22v2 = document.getElementById("myPieChart22v2");
 var myPieChart22v2 = new Chart(ctx22v2, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "喜多", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: total_starting_games22,
       backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
@@ -744,7 +744,7 @@ var ctx22v3 = document.getElementById("myPieChart22v3");
 var myPieChart22v3 = new Chart(ctx22v3, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "喜多", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: stealing_bases22,
       backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
@@ -1026,7 +1026,7 @@ var myLineChart22 = new Chart(ctx22, {
         data: pie_data22.Winning_games[1],
       },
       {
-        label: "喜多",
+        label: "山瀬",
         backgroundColor: "#dc3545",
         borderColor: "#dc3545",
         data: pie_data22.Winning_games[2],

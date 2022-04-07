@@ -10,7 +10,7 @@ def get_catcher_name(_catcher):
     elif _catcher==1:
         catcher='小林'
     elif _catcher==2:
-        catcher='岸田'
+        catcher='山瀬'
     else:
         catcher=str(input('  捕手の名前> '))
     return catcher
@@ -102,7 +102,7 @@ if __name__=='__main__':
                 if int(input('今日の試合? (1:YES, 0:NO)> ')) \
                 else datetime.datetime(int(TODAY.strftime('%Y')), int(input('  月> ')), int(input('  日> ')))
 
-        catcher = get_catcher_name(int(input('スタメン捕手 (0:大城, 1:小林, 2:岸田, 3:その他)> ')))
+        catcher = get_catcher_name(int(input('スタメン捕手 (0:大城, 1:小林, 2:山瀬, 3:その他)> ')))
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
 
         url = 'https://www.giants.jp/G/result/'+tday.strftime('%Y%m%d')+'1/bis/ScoreBook.html'
@@ -157,7 +157,7 @@ if __name__=='__main__':
                                     if j==1 or fullmask 
                                     else 
                                         get_catcher_name(
-                                            int(input('次の投手 "'+tdata[1]+'" の捕手 (0:大城, 1:小林, 2:岸田, 3:その他)> '))
+                                            int(input('次の投手 "'+tdata[1]+'" の捕手 (0:大城, 1:小林, 2:山瀬, 3:その他)> '))
                                         )
                             )
                             tdata.append(tday.strftime('%Y/%m/%d'))
@@ -175,7 +175,7 @@ if __name__=='__main__':
                 runner = input('  走者> ')
                 if not fullmask:
                     catcher = get_catcher_name(
-                                    int(input('  捕手 (0:大城, 1:小林, 2:岸田, 3:その他)> '))
+                                    int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:その他)> '))
                             )
                 pitcher = input('  投手> ')
 
@@ -209,7 +209,7 @@ if __name__=='__main__':
             while nextbattery:
                 if not fullmask:
                     catcher = get_catcher_name(
-                                    int(input('  捕手 (0:大城, 1:小林, 2:岸田, 3:その他)> '))
+                                    int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:その他)> '))
                             )
                 pitcher = input('  投手> ')
                 pdata = []
@@ -308,7 +308,7 @@ if __name__=='__main__':
             %s, \
             MAX(CASE tmp2.catcher WHEN '大城' THEN tmp2.wls ELSE NULL END) 大城, \
             MAX(CASE tmp2.catcher WHEN '小林' THEN tmp2.wls ELSE NULL END) 小林, \
-            MAX(CASE tmp2.catcher WHEN '喜多' THEN tmp2.wls ELSE NULL END) 喜多, \
+            MAX(CASE tmp2.catcher WHEN '山瀬' THEN tmp2.wls ELSE NULL END) 山瀬, \
             MAX(CASE tmp2.catcher WHEN '岸田' THEN tmp2.wls ELSE NULL END) 岸田 \
             FROM \
             ( \
@@ -370,7 +370,7 @@ if __name__=='__main__':
             table_html += tb + '</tr>\n'
         table_html = table_html[:-1]
 
-        pie_data = {'Catcher':['大城', '小林', '喜多', 'その他'],
+        pie_data = {'Catcher':['大城', '小林', '山瀬', 'その他'],
                     'Stealing_bases':[0,0,0,0],
                     'Defense_inning':[
                         [0,0,0,0,0,0,0,0],
@@ -393,7 +393,7 @@ if __name__=='__main__':
 
         for stat in catcher_stats[1:]:
             # pie_data['Stealing_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
-            if stat[0] in ['大城', '小林', '喜多']:
+            if stat[0] in ['大城', '小林', '山瀬']:
                 pie_data['Stealing_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
             else:
                 pie_data['Stealing_bases'][pie_data['Catcher'].index('その他')] += stat[10]
@@ -425,7 +425,7 @@ if __name__=='__main__':
         area_datas = get_query2(sql_month_stats, TODAY.strftime('%Y')+'RS')
 
         for x in area_datas:
-            if x[1] in ['大城', '小林', '喜多']:
+            if x[1] in ['大城', '小林', '山瀬']:
                 pie_data['Starting_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[2]
                 pie_data['Defense_inning'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[3]
                 pie_data['Winning_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[4] or 0
