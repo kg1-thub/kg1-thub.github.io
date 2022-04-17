@@ -216,7 +216,8 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('#dataTablet22v3').DataTable({
-    order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
+    // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
+    order: [[ 2, "desc" ]],
     "columnDefs": [
       { "width": "22%", "targets": 1 },
       { "width": "22%", "targets": 2 },
