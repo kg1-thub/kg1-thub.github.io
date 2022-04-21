@@ -66,6 +66,27 @@
         }
 
         document.getElementById('time'+String(times)).hidden = false;
-
     });
+
+
+
+    num1.addEventListener('oninput', ()=> {
+        console.log('num1 input');
+        if (num1.value.length==1) {
+            num2.focus();
+        }
+    });
+
+    num2.addEventListener('oninput', ()=> {
+        if (num2.value.length==1) {
+            num3.focus();
+        }
+    });
+    
+    num3.addEventListener('oninput', ()=> {
+        if (num3.length==1) {
+            spin.focus();
+        }
+    });
+
 }
