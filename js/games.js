@@ -61,7 +61,7 @@
         let ansnum = 0;
         let answers = [];
         let playinterval = null;
-        let texts = "http://twitter.com/share?url=kg1-thub.github.io/games/&text=";
+        let texts = "http://twitter.com/share?url=https://kg1-thub.github.io/games/&text=";
         let endflg=0;
 
         for (let j=1; j<hits+1; j++){
