@@ -76,7 +76,7 @@
 
         if (hits==target_hits) {
             hits1.textContent = `${hits}HITS!!!  WIN!!!`;
-            texts = `${hits}HITS. WIN!!!%0D%0A`;
+            texts += `${hits}HITS. WIN!!!%0D%0A`;
             endflg = 1;
             answers = ['resetbtn', 'sharebtn'];
         } else {
@@ -86,7 +86,7 @@
                 for (let i=0; i<target_hits; i++) {
                     document.getElementById('answer'+String(i+1)).textContent=answer_key[i];
                 }
-                texts += `NOT ${target_hits}HITS. LOSE!%0D%0A`;
+                texts += `NOT ${target_hits}HITS. LOSE...%0D%0A`;
                 console.log(texts);
                 endflg=1;
                 if (target_hits==3){
