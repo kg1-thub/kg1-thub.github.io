@@ -1,14 +1,21 @@
 'use strict';
 
 {
+    let target_hits = 4;
+
     const answer_key = [];
-    while (answer_key.length < 3) {
+    while (answer_key.length < target_hits) {
         const j = Math.floor(Math.random()*10);
         if(!answer_key.includes(j)){
             answer_key.push(j);
         }
     }
-    
+    const h1hits = document.getElementById('h1hits'+String(target_hits));
+    const up = document.getElementById('up');
+
+    h1hits.hidden = false;
+    up.textContent = `Up to ${target_hits*2-1} attempts.`
+
     const spin = document.getElementById('spin1');
     const hits1 = document.getElementById('hits1');
     const hits2 = document.getElementById('hits2');
@@ -24,18 +31,18 @@
         const answer = [];
         var hits=0;
         var fouls=0;
+        let sheet = [];
 
-        for (let i=0; i<3; i++) {
+        for (let i=0; i<target_hits; i++) {
             let k = parseInt(document.getElementById('num'+String(i+1)).value);
             answer.push(k);
             document.getElementById('sheet'+String(times)+String(i+1)).textContent=k;
             document.getElementById('num'+String(i+1)).value="";
+            sheet.push(-1);
         }
-        
-        let sheet = [-1, -1, -1];
 
-        for (let i=0; i<3; i++) {
-            for (let k=0; k<3; k++){
+        for (let i=0; i<target_hits; i++) {
+            for (let k=0; k<target_hits; k++){
                 if (answer[i]==answer_key[k]){
                     if (i==k) {
                         hits++;
@@ -57,28 +64,43 @@
         let texts = "http://twitter.com/share?url=kg1-thub.github.io/games/&text=";
         let endflg=0;
 
-        if (hits==3) {
+        for (let j=1; j<hits+1; j++){
+            document.getElementById('green'+String(times)+String(j)).hidden = false;
+        }
+
+        for (let j=1; j<fouls+1; j++){
+            document.getElementById('yellow'+String(times)+String(j)).hidden = false;
+        }
+
+        document.getElementById('time'+String(times)).hidden = false;
+
+        if (hits==target_hits) {
             hits1.textContent = `${hits}HITS!!!  WIN!!!`;
-            texts = "3HITS. WIN!!!%0D%0A";
+            texts = `${hits}HITS. WIN!!!%0D%0A`;
             endflg = 1;
             answers = ['resetbtn', 'sharebtn'];
         } else {
-            hits1.textContent = `${hits} HITS, ${fouls} FOULS.`;
-            if (times==5) {
-                hits2.textContent = `5 attempts. LOSE!!!`;
-                for (let i=0; i<3; i++) {
+            hits1.textContent = `${hits} HITS, ${fouls} BLOWS.`;
+            if (times==target_hits*2-1) {
+                hits2.textContent = `${times} attempts. LOSE!!!`;
+                for (let i=0; i<target_hits; i++) {
                     document.getElementById('answer'+String(i+1)).textContent=answer_key[i];
                 }
-                texts += "NOT 3HITS. LOSE!%0D%0A";
+                texts += `NOT ${target_hits}HITS. LOSE!%0D%0A`;
                 console.log(texts);
                 endflg=1;
-                answers = ['answer', 'answer1', 'answer2', 'answer3', 'greena1', 'greena2', 'greena3', 'resetbtn', 'sharebtn'];
+                if (target_hits==3){
+                    answers = ['answer', 'answer1', 'answer2', 'answer3', 'greena1', 'greena2', 'greena3', 'resetbtn', 'sharebtn'];
+                }
+                if (target_hits==4){
+                    answers = ['answer', 'answer1', 'answer2', 'answer3', 'answer4','greena1', 'greena2', 'greena3', 'greena4', 'resetbtn', 'sharebtn'];
+                }
             }
         }
 
         if (endflg>0){
             for (let j=0; j<times; j++) {
-                for (let i=0; i<3; i++) {
+                for (let i=0; i<target_hits; i++) {
                     if (sheets[j][i]==1){
                         texts += '🟩';
                         marks.push([j, i]);
@@ -91,13 +113,15 @@
                 }
                 texts += '%0D%0A';
             }
-            texts += '&hashtags=3HITS';
+            texts += `&hashtags=${target_hits}HITS`;
 
+            console.log(texts);
             playinterval = setInterval(() => {
                 if(k==marks.length){
-                    if(ansnum==answers.length){
+                    if(ansnum==answers.length-1){
                         clearInterval(playinterval);
                     }
+                    console.log(ansnum);
                     document.getElementById(answers[ansnum]).hidden = false;
                     ansnum++;
                 } else {
@@ -114,22 +138,13 @@
                     k++;
                 }
             }, 150);
+            let tweet = document.getElementById('tweetcontents');
+            tweet.setAttribute('href',texts);
+            resetbtn.focus();
+        } else {
+            num1.focus();
         }
 
-
-        let tweet = document.getElementById('tweetcontents');
-        tweet.setAttribute('href',texts);
-
-        for (let j=1; j<hits+1; j++){
-            document.getElementById('green'+String(times)+String(j)).hidden = false;
-        }
-
-        for (let j=1; j<fouls+1; j++){
-            document.getElementById('yellow'+String(times)+String(j)).hidden = false;
-        }
-
-        document.getElementById('time'+String(times)).hidden = false;
-        resetbtn.focus();
     });
 
 
@@ -146,11 +161,27 @@
         }
     });
     
-    num3.addEventListener('input', ()=> {
-        console.log('num3')
-        if (num3.value.length==1) {
-            spin.focus();
-        }
-    });
+    if (target_hits==3) {
+        num3.addEventListener('input', ()=> {
+            if (num3.value.length==1) {
+                spin.focus();
+            }
+        });
+    }
+
+    if (target_hits==4) {
+        num3.addEventListener('input', ()=> {
+            if (num3.value.length==1) {
+                num4.focus();
+            }
+        });
+
+        num4.addEventListener('input', ()=> {
+            if (num4.value.length==1) {
+                spin.focus();
+            }
+        });
+
+    }
 
 }
