@@ -129,7 +129,7 @@
         }
 
         document.getElementById('time'+String(times)).hidden = false;
-        num1.focus();
+        resetbtn.focus();
     });
 
 
