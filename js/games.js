@@ -143,15 +143,17 @@
 
                     let tweet = document.getElementById('tweetcontents');
                     tweet.setAttribute('href',texts);
-                    resetbtn.focus();
-                } else {
-                    num1.focus();
                 }
 
                 clearInterval(playinterval1);
             }
         }, 500);
 
+        if (hits==target_hits || times==target_hits*2-1) {
+            spin.blur();
+        } else {
+            num1.focus();
+        }
     });
 
     num1.addEventListener('input', ()=> {
