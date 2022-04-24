@@ -11,9 +11,9 @@
         }
     }
     const h1hits = document.getElementById('h1hits'+String(target_hits));
-    const up = document.getElementById('up');
-
     h1hits.hidden = false;
+
+    const up = document.getElementById('up');
     up.textContent = `Up to ${target_hits*2-1} attempts.`
 
     const spin = document.getElementById('spin1');
@@ -24,6 +24,48 @@
     let marks = [];
 
     num1.focus();
+
+    num1.addEventListener('input', ()=> {
+        if (num1.value.length==1) {
+            num2.focus();
+        }
+    });
+
+    num2.addEventListener('input', ()=> {
+        if (num2.value.length==1) {
+            num3.focus();
+        } else if (num2.value.length==0) {
+            num1.focus();
+        }
+    });
+
+    if (target_hits==3) {
+        num3.addEventListener('input', ()=> {
+            if (num3.value.length==1) {
+                spin.focus();
+            } else if (num3.value.length==0) {
+                num2.focus();
+            }
+        });
+    } else if (target_hits==4) {
+        document.getElementById('num'+String(answer_key.length)).hidden=false;
+
+        num3.addEventListener('input', ()=> {
+            if (num3.value.length==1) {
+                num4.focus();
+            } else if (num3.value.length==0) {
+                num2.focus();
+            }
+        });
+
+        num4.addEventListener('input', ()=> {
+            if (num4.value.length==1) {
+                spin.focus();
+            } else if (num4.value.length==0) {
+                num3.focus();
+            }
+        });
+    }
 
     spin.addEventListener('click', () => {
         times++;
@@ -89,10 +131,10 @@
                 console.log(texts);
                 endflg=1;
                 if (target_hits==3){
-                    answers = ['answer', 'answer1', 'answer2', 'answer3', 'greena1', 'greena2', 'greena3', 'resetbtn', 'sharebtn'];
+                    answers = ['answer', 'answer1', 'answer2', 'answer3', 'resetbtn', 'sharebtn'];
                 }
                 if (target_hits==4){
-                    answers = ['answer', 'answer1', 'answer2', 'answer3', 'answer4','greena1', 'greena2', 'greena3', 'greena4', 'resetbtn', 'sharebtn'];
+                    answers = ['answer', 'answer1', 'answer2', 'answer3', 'answer4', 'resetbtn', 'sharebtn'];
                 }
             }
         }
@@ -145,35 +187,17 @@
         }
     });
 
-    num1.addEventListener('input', ()=> {
-        if (num1.value.length==1) {
-            num2.focus();
-        }
-    });
+    // const modal = document.getElementById('modalbtn');
+    // modal.click();
 
-    num2.addEventListener('input', ()=> {
-        if (num2.value.length==1) {
-            num3.focus();
-        }
-    });
+    // function ResetReload() {
+    //      // reloadメソッドによりページをリロード
+    //     window.location.reload();
+    //     const modal = document.getElementById('myModal');
+    //     modal.hidden;
+    // }
 
-    if (target_hits==3) {
-        num3.addEventListener('input', ()=> {
-            if (num3.value.length==1) {
-                spin.focus();
-            }
-        });
-    } else if (target_hits==4) {
-        num3.addEventListener('input', ()=> {
-            if (num3.value.length==1) {
-                num4.focus();
-            }
-        });
-
-        num4.addEventListener('input', ()=> {
-            if (num4.value.length==1) {
-                spin.focus();
-            }
-        });
-    }
+    // $(window).on('load',function(){
+    //     $('#myModal').modal('show');
+    // });
 }
