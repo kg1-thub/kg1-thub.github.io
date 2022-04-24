@@ -17,14 +17,34 @@
     <title>G/C/S</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/744c487899.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147259112-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-147259112-3');
+    </script>
+
 </head>
 <body class="bg-dark mx-auto">
     <main class="container rounded bg-lite text-center mt-2 mb-2 pt-2 pb-2">
-        <h1 style="background-color: aliceblue; color:sienna;" class="col-sm-4" id="h1hits3" hidden><strong style="font-size: 45px;">3</strong>HITS</h1>
-        <h1 style="background-color: aliceblue; color:sienna;" class="col-sm-4" id="h1hits4" hidden><strong style="font-size: 45px;">4</strong>HITS</h1>
+        <div class="row mx-auto my-auto" data-toggle="modal" data-target="#rulemodal" id="modalbtn">
+            <h1 style="background-color: aliceblue; color:sienna;" class="col-sm-4" id="h1hits3" hidden><strong style="font-size: 45px;">3</strong>HITS
+                <i class="fa-solid fa-circle-question"></i>
+            </h1>
+            <h1 style="background-color: aliceblue; color:sienna;" class="col-sm-4" id="h1hits4" hidden><strong style="font-size: 45px;">4</strong>HITS
+                <i class="fa-solid fa-circle-question"></i>
+            </h1>
+        </div>
+
+
+
         <div class="row mx-auto my-auto">
             <div id="up" class="h6" style="color:aliceblue;"></div>
         </div>
@@ -170,36 +190,49 @@
 
         <div class="row mx-auto my-auto">
             <button id="resetbtn" type="button" class="resetbtn btn-md btn-warning p-0 m-1 rounded" style="width: 60px;" onclick="location.reload()" hidden> RESET</button>
-            <!-- <button id="resetbtn" type="button" class="resetbtn btn-md btn-warning p-0 m-1 rounded" style="width: 60px;" onclick="ResetReload()" hidden> RESET</button> -->
+            <!-- <button id="resetbtn" type="button" class="resetbtn btn-md btn-warning p-0 m-1 rounded" style="width: 60px;" onclick="reloadHits(3)" > 3HITS</button> -->
             <a id="tweetcontents" href="http://twitter.com/share?url=kg1-thub.github.io/games/&text=3HITS%0D%0A&hashtags=giants" target="_blank">
                 <button id="sharebtn" type="button" class="sharebtn btn-md btn-lite p-0 m-1 rounded" style="width: 60px;background-color: #1DA1F2;border-color: #1DA1F2;color:aliceblue;font-weight: bold;" hidden> Tweet</button>
             </a>
         </div>
 
-        <!-- <h2>Modal Example</h2>
-        Button to Open the Modal
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="modalbtn" hidden>
-        </button>
-        <div class="modal" id="myModal">
+        <div class="modal col-12" id="rulemodal">
             <div class="modal-dialog">
               <div class="modal-content">
-          
+
                 <div class="modal-header">
-                  <h4 class="modal-title">Modal Heading</h4>
+                  <h4 class="modal-title">Rules - HIT AND BLOW</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-          
-                <div class="modal-body">
-                  Modal body..
+
+                <div class="modal-body text-left my-auto">
+                    Guess 4 numbers and positions.<br>
+                    Each number is "0"-"9" and unique.<br>
+                    After each guess, you know "Hit and Blow".<br>
+                    <br>
+                    <div class="row mx-auto my-auto">
+                        <div id="greenm" class="btn-sm rounded-circle my-auto mr-1" style="height: 15px; background-color:yellowgreen; border-color: black;"></div>  <strong>HIT</strong>
+                    </div>
+                    <div class="row mx-auto my-auto">
+                        - Correct number and postion.
+                    </div>
+                    <br>
+                    <div class="row mx-auto my-auto">
+                        <div id="greenm" class="btn-sm rounded-circle my-auto mr-1" style="height: 15px; background-color:khaki; border-color: black;"></div>  <strong>BLOW</strong>
+                    </div>
+                    <div class="row mx-auto my-auto">
+                        - Correct number. NOT correct position.
+                    </div>
                 </div>
-          
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
-          
+
               </div>
             </div>
-          </div> -->
+          </div>
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -1,8 +1,6 @@
 'use strict';
 
-{
-    let target_hits = 4;
-
+function reloadHits(target_hits){
     const answer_key = [];
     while (answer_key.length < target_hits) {
         const j = Math.floor(Math.random()*10);
@@ -10,6 +8,10 @@
             answer_key.push(j);
         }
     }
+
+    document.getElementById('h1hits3').hidden = true;
+    document.getElementById('h1hits4').hidden = true;
+
     const h1hits = document.getElementById('h1hits'+String(target_hits));
     h1hits.hidden = false;
 
@@ -40,6 +42,8 @@
     });
 
     if (target_hits==3) {
+        document.getElementById('num4').hidden=true;
+
         num3.addEventListener('input', ()=> {
             if (num3.value.length==1) {
                 spin.focus();
@@ -48,7 +52,7 @@
             }
         });
     } else if (target_hits==4) {
-        document.getElementById('num'+String(answer_key.length)).hidden=false;
+        document.getElementById('num4').hidden=false;
 
         num3.addEventListener('input', ()=> {
             if (num3.value.length==1) {
@@ -128,7 +132,6 @@
                     document.getElementById('answer'+String(i+1)).textContent=answer_key[i];
                 }
                 texts += `NOT ${target_hits}HITS. LOSE!!!%0D%0A`;
-                console.log(texts);
                 endflg=1;
                 if (target_hits==3){
                     answers = ['answer', 'answer1', 'answer2', 'answer3', 'resetbtn', 'sharebtn'];
@@ -156,13 +159,11 @@
             }
             texts += `&hashtags=${target_hits}HITS`;
 
-            console.log(texts);
             playinterval = setInterval(() => {
                 if(k==marks.length){
                     if(ansnum==answers.length-1){
                         clearInterval(playinterval);
                     }
-                    console.log(ansnum);
                     document.getElementById(answers[ansnum]).hidden = false;
                     ansnum++;
                 } else {
@@ -186,18 +187,14 @@
             num1.focus();
         }
     });
+}
+
+{
+    
+
+    let target_hits = 4;
+    reloadHits(target_hits);
 
     // const modal = document.getElementById('modalbtn');
     // modal.click();
-
-    // function ResetReload() {
-    //      // reloadメソッドによりページをリロード
-    //     window.location.reload();
-    //     const modal = document.getElementById('myModal');
-    //     modal.hidden;
-    // }
-
-    // $(window).on('load',function(){
-    //     $('#myModal').modal('show');
-    // });
 }
