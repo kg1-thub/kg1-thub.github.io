@@ -33,13 +33,27 @@ function reloadHits(target_hits){
         }
     });
 
+    if (num2.value.length==0) {
+        num2.addEventListener('keydown', event=>{
+            if (event.keyCode==8){
+                num1.focus();
+            }
+        })
+    }
+
     num2.addEventListener('input', ()=> {
         if (num2.value.length==1) {
             num3.focus();
-        } else if (num2.value.length==0) {
-            num1.focus();
         }
     });
+
+    if (num3.value.length==0) {
+        num3.addEventListener('keydown', event=>{
+            if (event.keyCode==8){
+                num2.focus();
+            }
+        })
+    }
 
     if (target_hits==3) {
         document.getElementById('num4').hidden=true;
@@ -47,8 +61,6 @@ function reloadHits(target_hits){
         num3.addEventListener('input', ()=> {
             if (num3.value.length==1) {
                 spin.focus();
-            } else if (num3.value.length==0) {
-                num2.focus();
             }
         });
     } else if (target_hits==4) {
@@ -57,18 +69,22 @@ function reloadHits(target_hits){
         num3.addEventListener('input', ()=> {
             if (num3.value.length==1) {
                 num4.focus();
-            } else if (num3.value.length==0) {
-                num2.focus();
             }
         });
 
         num4.addEventListener('input', ()=> {
             if (num4.value.length==1) {
                 spin.focus();
-            } else if (num4.value.length==0) {
-                num3.focus();
             }
         });
+
+        if (num4.value.length==0) {
+            num4.addEventListener('keydown', event=>{
+                if (event.keyCode==8){
+                    num3.focus();
+                }
+            })
+        }
     }
 
     spin.addEventListener('click', () => {
@@ -190,8 +206,6 @@ function reloadHits(target_hits){
 }
 
 {
-    
-
     let target_hits = 4;
     reloadHits(target_hits);
 
