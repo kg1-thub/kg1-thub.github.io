@@ -1,9 +1,10 @@
 'use strict';
 
 function clickSpin(times, target_hits, answer_key){
+    console.log('clickspin!');
+    console.log(times, target_hits, answer_key);
     const hits1 = document.getElementById('hits1');
     const hits2 = document.getElementById('hits2');
-    const spin = document.getElementById('spin'+String(target_hits));
 
     const answer = [];
     var hits=0;
@@ -17,6 +18,7 @@ function clickSpin(times, target_hits, answer_key){
         document.getElementById('num'+String(i+1)).value="";
         sheet.push(-1);
     }
+
     for (let i=0; i<target_hits; i++) {
         for (let k=0; k<target_hits; k++){
             if (answer[i]==answer_key[k]){
@@ -49,7 +51,7 @@ function clickSpin(times, target_hits, answer_key){
         hits1.textContent = `${hits}HITS!!!  WIN!!!`;
         texts += `${hits}HITS. WIN!!!%0D%0A`;
         endflg = 1;
-        answers = ['resetbtn', 'hits3btn', 'sharebtn'];
+        answers = ['hits3btn', 'hits4btn', 'sharebtn'];
     } else {
         hits1.textContent = `${hits} HITS, ${fouls} BLOWS.`;
         if (times==target_hits*2-1) {
@@ -60,10 +62,10 @@ function clickSpin(times, target_hits, answer_key){
             texts += `NOT ${target_hits}HITS. LOSE!!!%0D%0A`;
             endflg=1;
             if (target_hits==3){
-                answers = ['answer', 'answer1', 'answer2', 'answer3', 'resetbtn', 'hits3btn', 'sharebtn'];
+                answers = ['answer', 'answer1', 'answer2', 'answer3', 'hits3btn', 'hits4btn', 'sharebtn'];
             }
             if (target_hits==4){
-                answers = ['answer', 'answer1', 'answer2', 'answer3', 'answer4', 'resetbtn', 'hits3btn', 'sharebtn'];
+                answers = ['answer', 'answer1', 'answer2', 'answer3', 'answer4', 'hits3btn', 'hits4btn', 'sharebtn'];
             }
         }
     }
@@ -79,7 +81,7 @@ function reloadHits(target_hits){
         }
     }
 
-    document.getElementById('resetbtn').hidden = true;
+    document.getElementById('hits4btn').hidden = true;
     document.getElementById('hits3btn').hidden = true;
     document.getElementById('sharebtn').hidden = true;
 
@@ -262,10 +264,13 @@ function reloadHits(target_hits){
     let answer_key = reloadHits(target_hits);
 
     var times = 0;
-    const sheets = [];
+    let sheets = [];
     let marks = [];
 
     hits3btn.addEventListener('click', () => {
+        times = 0;
+        sheets = [];
+        marks = [];
         answer_key = reloadHits(3);
     });
 
@@ -322,7 +327,7 @@ function reloadHits(target_hits){
             }, 150);
             let tweet = document.getElementById('tweetcontents');
             tweet.setAttribute('href',texts);
-            spin.blur();
+            hits4btn.blur();
         } else {
             num1.focus();
         }
@@ -381,7 +386,7 @@ function reloadHits(target_hits){
             }, 150);
             let tweet = document.getElementById('tweetcontents');
             tweet.setAttribute('href',texts);
-            spin.blur();
+            hits4btn.blur();
         } else {
             num1.focus();
         }
