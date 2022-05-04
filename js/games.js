@@ -30,7 +30,6 @@ function clickSpin(times, target_hits, answer_key){
             }
         }
     }
-    // sheets.push(sheet);
 
     let answers = [];
     let texts = "http://twitter.com/share?url=https://kg1-thub.github.io/games/&text=";
@@ -48,13 +47,11 @@ function clickSpin(times, target_hits, answer_key){
 
     if (hits==target_hits) {
         hits1.textContent = `${hits}HITS!!!  WIN!!!`;
-        console.log(hits1.textContent);
         texts += `${hits}HITS. WIN!!!%0D%0A`;
         endflg = 1;
-        answers = ['resetbtn', 'sharebtn'];
+        answers = ['resetbtn', 'hits3btn', 'sharebtn'];
     } else {
         hits1.textContent = `${hits} HITS, ${fouls} BLOWS.`;
-        console.log(hits1.textContent);
         if (times==target_hits*2-1) {
             hits2.textContent = `Done ${times} attempts. LOSE!!!`;
             for (let i=0; i<target_hits; i++) {
@@ -63,10 +60,10 @@ function clickSpin(times, target_hits, answer_key){
             texts += `NOT ${target_hits}HITS. LOSE!!!%0D%0A`;
             endflg=1;
             if (target_hits==3){
-                answers = ['answer', 'answer1', 'answer2', 'answer3', 'resetbtn', 'sharebtn'];
+                answers = ['answer', 'answer1', 'answer2', 'answer3', 'resetbtn', 'hits3btn', 'sharebtn'];
             }
             if (target_hits==4){
-                answers = ['answer', 'answer1', 'answer2', 'answer3', 'answer4', 'resetbtn', 'sharebtn'];
+                answers = ['answer', 'answer1', 'answer2', 'answer3', 'answer4', 'resetbtn', 'hits3btn', 'sharebtn'];
             }
         }
     }
@@ -80,6 +77,106 @@ function reloadHits(target_hits){
         if(!answer_key.includes(j)){
             answer_key.push(j);
         }
+    }
+
+    document.getElementById('resetbtn').hidden = true;
+    document.getElementById('hits3btn').hidden = true;
+    document.getElementById('sharebtn').hidden = true;
+
+    document.getElementById('hits1').textContent = 'HIT AND BLOW.';
+    document.getElementById('hits2').textContent = '';
+
+    const divtimes = document.getElementById('divtimes');
+    document.getElementById('divrows').remove();
+    const divrows = document.createElement("div");
+    divrows.setAttribute('id', 'divrows');
+    divtimes.appendChild(divrows);
+    let _times = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th'];
+
+    for (let i=0; i<target_hits*2-1; i++){
+        let divrow = document.createElement('div');
+        divrow.setAttribute('id', 'divrow'+String(i+1));
+        divrow.classList.add('row');
+        divrow.classList.add('mx-auto');
+        divrow.classList.add('my-auto');
+        divrows.appendChild(divrow);
+
+        let time = document.createElement('div');
+        time.setAttribute('id', 'time'+String(i+1));
+        time.classList.add('btn-sm');
+        time.style.color = 'aliceblue';
+        time.style.width = '50px';
+        time.textContent = _times[i];
+        time.hidden = true;
+        divrow.appendChild(time);
+
+        for (let j=0; j<target_hits; j++){
+            const sheet = document.createElement('div');
+            sheet.setAttribute('id', 'sheet'+String(i+1)+String(j+1));
+            sheet.classList.add('btn-sm');
+            sheet.classList.add('mb-1');
+            if (j<target_hits-1){
+                sheet.classList.add('mr-1');
+            }else{
+                sheet.classList.add('mr-3');
+            }
+            sheet.style.color = 'aliceblue';
+            divrow.appendChild(sheet);
+        }
+
+        for (let j=0; j<target_hits; j++){
+            const green = document.createElement('div');
+            green.setAttribute('id', 'green'+String(i+1)+String(j+1));
+            green.classList.add('btn-sm');
+            green.classList.add('rounded-circle');
+            green.classList.add('my-auto');
+            green.classList.add('mr-1');
+            green.style.height = '15px';
+            green.style.background = 'yellowgreen';
+            green.hidden = true;
+            divrow.appendChild(green);
+        }
+
+        for (let j=0; j<target_hits; j++){
+            const yellow = document.createElement('div');
+            yellow.setAttribute('id', 'yellow'+String(i+1)+String(j+1));
+            yellow.classList.add('btn-sm');
+            yellow.classList.add('rounded-circle');
+            yellow.classList.add('my-auto');
+            yellow.classList.add('mr-1');
+            yellow.style.height = '15px';
+            yellow.style.background = 'khaki';
+            yellow.hidden = true;
+            divrow.appendChild(yellow);
+        }
+    }
+
+    let divrow = document.createElement('div');
+    divrow.setAttribute('id', 'divrowa');
+    divrow.classList.add('row');
+    divrow.classList.add('mx-auto');
+    divrow.classList.add('my-auto');
+    divrows.appendChild(divrow);
+
+    let time = document.createElement('div');
+    time.setAttribute('id', 'answer');
+    time.classList.add('btn-sm');
+    time.style.color = 'aliceblue';
+    time.style.width = '50px';
+    time.textContent = 'ans.';
+    time.hidden = true;
+    divrow.appendChild(time);
+
+    for (let j=0; j<target_hits; j++){
+        const green = document.createElement('div');
+        green.setAttribute('id', 'answer'+String(j+1));
+        green.classList.add('btn-sm');
+        green.classList.add('mb-1');
+        green.classList.add('mr-1');
+        green.style.background = 'yellowgreen';
+        green.style.color = 'midnightblue';
+        green.hidden = true;
+        divrow.appendChild(green);
     }
 
     document.getElementById('h1hits3').hidden = true;
@@ -168,10 +265,9 @@ function reloadHits(target_hits){
     const sheets = [];
     let marks = [];
 
-    // hits3btn.addEventListener('click', () => {
-    //     // location.reload();
-    //     answer_key = reloadHits(3);
-    // });
+    hits3btn.addEventListener('click', () => {
+        answer_key = reloadHits(3);
+    });
 
     spin4.addEventListener('click', () => {
         let k=0;
@@ -180,7 +276,6 @@ function reloadHits(target_hits){
 
         times++;
         let result = clickSpin(times, 4, answer_key);
-        console.log(result);
         let endflg = result[0];
         let sheet = result[1];
         let texts = result[2];
