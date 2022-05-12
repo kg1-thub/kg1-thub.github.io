@@ -14,46 +14,103 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>G/C/S</title>
+    <title>Giants/Catcher/Score/Games</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" href="../assets/img/map_pin_shadow.ico">
+
     <script src="https://kit.fontawesome.com/744c487899.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/encoding-japanese/2.0.0/encoding.min.js" integrity="sha512-AhAMtLXTbhq+dyODjwnLcSlytykROxgUhR+gDZmRavVCNj6Gjta5l+8TqGAyLZiNsvJhh3J83ElyhU+5dS2OZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/encoding-japanese/2.0.0/encoding.js" integrity="sha512-vaCo7tf//3zOfbhMkG2cwdcR4XGe8V6V9UEqLYaZ02WcW0QioesBenI0awCRCNVZqAo34uG3gUGxkOCoIjJYVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.0/lib/bundle.min.js"></script>
-    <script>
-        //danfo is exposed on dfd namespace
-        // s = new dfd.Series([1,2,3,4,5]);
-        // console.log(s);
-        dfd.readCSV(
-            "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats22.csv", {encoding: 'Shift_JIS'}
-        //   "https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv"
-        )
-        .then(df => {
-        // .then((df) => {
-            df.head().print();
-            //   let layout = {
-        //     title: "A financial charts",
-        //     xaxis: {
-        //       title: "Date",
-        //     },
-        //     yaxis: {
-        //       title: "Count",
-        //     },
-        //   };
+    <!-- <script>
+        var fileurl = "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats22.csv";
 
-        //   let config = {
-        //     columns: ["AAPL.Open", "AAPL.High"],
-        //   };
+        fetch(fileurl)
+        .then(res => res.blob()) // Gets the response and returns it as a blob
+        .then(blob => {
+            var file = blob;
+            var type = file.type; // MIMEタイプ
+            var size = file.size; // ファイル容量（byte）
+            var limit = 10000; // byte, 10KB
+            var reader = new FileReader();
+            reader.readAsText(file, 'Shift_JIS');
+            reader.onload = function(event) {
+                var textdata = event.target.result;
+                var tmp = textdata.split("\n");
+                var cols = tmp[0].split(",");
+                console.log(cols);
+                var records = [];
+                for (var i = 0; i < tmp.length-2; i++) {
+                    var row_data = tmp[i+1];
+                    records[i] = row_data.split(",");
+                }
+                // const df = new dfd.DataFrame(records, {columns: cols});
+                // df.head().print();
+                // var _df = df.loc({columns:["wls","pitcher","innings","runs","earned_runs","catcher","day_of_game","vs_team","starting"]});
+                // _df.query({ column: "starting", is: "==", to: "1" }).print();
+                // var _df2 = _df.query({ column: "starting", is: "==", to: "1" });
+                // _df2.head().print();
+                makeCSV(records, cols);
+            };
+            reader.onerror = function() {
+                alert("エラー：ファイルをロードできません。");
+            };
 
-        //   let new_df = df.setIndex({ column: "Date" });
-        //   new_df.plot("plot_div").line({ config, layout });
-        })
-        .catch((err) => {
-          console.log(err);
         });
-    </script>
+
+        function makeCSV(records, columns) {
+            var tabledata = $("#plot_div");
+            // var records = df.values;
+            // var columns = df.columns;
+           var htmldata = "<thead>";
+            htmldata += "<tr>";
+            for (var j = 0; j < columns.length; j++) {
+                htmldata += "<td>" + columns[j] + "</td>";
+            }
+            htmldata += "</tr>";
+            htmldata += "</thead>";
+            htmldata += "<tbody>";
+           for (var i = 0; i < records.length; i++) {
+               console.log(records[i][12]);
+                if (records[i][12]=="1") {
+                    htmldata += "<tr>";
+                    for (var j = 0; j < columns.length; j++) {
+                        htmldata += "<td>" + records[i][j] + "</td>";
+                    }
+                    htmldata += "</tr>";
+                }
+            }
+            htmldata += "</tbody>";
+            tabledata.append(htmldata);
+        }
+
+        $(document).ready(function() {
+            $('#plot_div').DataTable({
+                // order: [ [ 1, "desc" ] ],
+                "columnDefs": [
+                { "width": "8%", "targets": 2 },
+                // { "width": "8%", "targets": 3 },
+                // { "width": "8%", "targets": 4 },
+                // { "width": "8%", "targets": 5 },
+                // { "width": "8%", "targets": 6 },
+                // { "width": "8%", "targets": 8 },
+                // { "width": "8%", "targets": 9 },
+                // { "width": "8%", "targets": 10 }
+                ],
+                "searching": false,
+                "paging": false,
+                "info": false,
+                // scrollX: true,
+                // scrollCollapse: true,
+                // fixedColumns: true
+            });
+            });
+
+    </script> -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147259112-3"></script>
@@ -75,8 +132,15 @@
                 <i class="fa-solid fa-circle-question"></i>
             </h1>
         </div>
-
-        <div id="plot_div"></div>
+        <!-- <div class="card mb-1">
+            <div class="card-header p-2"><i class="fas fa-table mr-1"></i>Giants/Catcher/シーズン成績</div>
+            <div class="card-body p-1">
+                <div class="table-responsive" id="t2018t1">
+                    <table class="table-sm table-bordered table-hover text-center" id="plot_div" width="100%" cellspacing="0">
+                    </table>
+                </div>
+            </div>
+        </div> -->
 
         <div class="row mx-auto my-auto">
             <div id="up" class="h6" style="color:aliceblue;"></div>
