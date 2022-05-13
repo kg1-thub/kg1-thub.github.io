@@ -256,7 +256,17 @@ function makeCSV(records, columns) {
       divtr.appendChild(divtd);
       for (var j = 0; j < columns.length; j++) {
           let divtd = document.createElement("td");
-          divtd.textContent = records[i][j];
+          if (j==12) {
+            if (records[i][j]=="1") {
+              divtd.textContent = "先発";
+            } else {
+              divtd.textContent = "交代";
+            }
+          } else if (j==10) {
+            divtd.textContent = records[i][j].substr(5);
+          } else {
+            divtd.textContent = records[i][j];
+          }
           divtr.appendChild(divtd);
       }
   }
@@ -266,22 +276,34 @@ function makeCSV(records, columns) {
         order: [[ 0, "asc" ]],
           "columnDefs": [
             { "visible": false, "targets": 0 },
+            { "width": "11%", "targets": 1 },
+            { "width": "11%", "targets": 2 },
+            { "width": "11%", "targets": 3 },
             { "visible": false, "targets": 4 },
             { "visible": false, "targets": 5 },
             { "visible": false, "targets": 6 },
             { "visible": false, "targets": 7 },
+            { "width": "11%", "targets": 8 },
+            { "width": "11%", "targets": 9 },
+            { "width": "11%", "targets": 10 },
+            { "width": "11%", "targets": 11 },
+            { "width": "11%", "targets": 12 },
+            { "width": "11%", "targets": 13 },
             { "visible": false, "targets": 14 },
           ],
+          // "dom": 'frtiQlp',
+          "dom": '<"float-left"f>rtp',
           "searching": true,
           "search": {
-            "regex": true
+            "regex": true,
+            "search": "先発"
           },
           "paging": true,
-          "info": true,
+          "info": false,
           // "language": {
           //   "searchPlaceholder": "2022/05/*"
           // }
-          // lengthMenu: [ 5, 10, 15, 20, 50 ]
+          "lengthMenu": [ 15, 30, 50 ]
       });
   });
 };
@@ -297,7 +319,9 @@ function makeCSV(records, columns) {
       reader.onload = function(event) {
           var textdata = event.target.result;
           var tmp = textdata.split("\n");
-          var cols = tmp[0].split(",");
+          // var cols = tmp[0].split(",");
+          // var cols = ["wls","pitcher","innings","at_bats","hits","strikeouts","walks","runs","earned_runs","catcher","day_of_game","vs_team,starting,series"];
+          var cols = ["勝敗S","投手","イニング","at_bats","hits","strikeouts","walks","失点","自責点","捕手","月日","対戦","出場","series"];
           var records = [];
           for (var i = 0; i < tmp.length-2; i++) {
               var row_data = tmp[i+1];
