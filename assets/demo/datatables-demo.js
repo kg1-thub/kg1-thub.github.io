@@ -276,36 +276,47 @@ function makeCSV(records, columns) {
         order: [[ 0, "asc" ]],
           "columnDefs": [
             { "visible": false, "targets": 0 },
-            { "width": "11%", "targets": 1 },
-            { "width": "11%", "targets": 2 },
-            { "width": "11%", "targets": 3 },
+            { "width": "9%", "targets": 1 },
+            { "width": "9%", "targets": 2 },
+            { "width": "9%", "targets": 3 },
             { "visible": false, "targets": 4 },
             { "visible": false, "targets": 5 },
             { "visible": false, "targets": 6 },
             { "visible": false, "targets": 7 },
-            { "width": "11%", "targets": 8 },
-            { "width": "11%", "targets": 9 },
-            { "width": "11%", "targets": 10 },
-            { "width": "11%", "targets": 11 },
-            { "width": "11%", "targets": 12 },
-            { "width": "11%", "targets": 13 },
+            { "width": "9%", "targets": 8 },
+            { "width": "9%", "targets": 9 },
+            { "width": "9%", "targets": 10 },
+            { "width": "13%", "targets": 11 },
+            { "width": "9%", "targets": 12 },
+            { "width": "9%", "targets": 13 },
             { "visible": false, "targets": 14 },
           ],
           // "dom": 'frtiQlp',
-          "dom": '<"float-left"f>rtp',
+          "dom": '<"float-left"f>rt<"float-left"p>',
           "searching": true,
           "search": {
             "regex": true,
-            "search": "先発"
+            // "search": "先発"
           },
           "paging": true,
           "info": false,
           // "language": {
-          //   "searchPlaceholder": "2022/05/*"
+          //   "searchPlaceholder": "search keyword"
           // }
           "lengthMenu": [ 15, 30, 50 ]
       });
   });
+};
+
+function search_keyword(keyword) {
+  var table = $('#dataTable22days').DataTable();
+  table.search( keyword ).draw();
+};
+
+function search_today() {
+  var today=new Date(); 
+  var table = $('#dataTable22days').DataTable();
+  table.search( ('0'+String(today.getMonth()+1)).slice(-2)+"/"+('0'+String(today.getDate())).slice(-2) ).draw();
 };
 
 {
