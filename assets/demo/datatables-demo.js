@@ -230,9 +230,9 @@ $(document).ready(function() {
   });
 });
 
-// dataTable22days
+// dataTable22games
 function makeCSV(records, columns) {
-  const divtable = document.getElementById('dataTable22days');
+  const divtable = document.getElementById('dataTable22games');
   const divthead = document.createElement("thead");
   divtable.appendChild(divthead);
   const divtheadr = document.createElement("tr");
@@ -272,7 +272,7 @@ function makeCSV(records, columns) {
   }
 
   $(document).ready(function() {
-      $('#dataTable22days').DataTable({
+      $('#dataTable22games').DataTable({
         order: [[ 0, "asc" ]],
           "columnDefs": [
             { "visible": false, "targets": 0 },
@@ -309,13 +309,13 @@ function makeCSV(records, columns) {
 };
 
 function search_keyword(keyword) {
-  var table = $('#dataTable22days').DataTable();
+  var table = $('#dataTable22games').DataTable();
   table.search( keyword ).draw();
 };
 
 function search_today() {
   var today=new Date(); 
-  var table = $('#dataTable22days').DataTable();
+  var table = $('#dataTable22games').DataTable();
   table.search( ('0'+String(today.getMonth()+1)).slice(-2)+"/"+('0'+String(today.getDate())).slice(-2) ).draw();
 };
 

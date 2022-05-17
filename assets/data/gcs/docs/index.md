@@ -1,7 +1,7 @@
 # 当サイトについて
 
 当サイトは、一野球ファンの運営による個人サイトです。  
-当サイトでは、読売ジャイアンツの捕手別の投手の勝敗・セーブ数および盗塁阻止に関する記録を掲載しています。  
+当サイトでは、読売Giantsの捕手別の投手の勝敗・セーブ数および盗塁阻止に関する記録を掲載しています。  
 
 >MLBでは、捕手別に投手防御率を集計した結果を cERA(Catcher's ERA: 捕手防御率) というスコアとしています 。アメリカのスポーツ専門チャンネル ESPN の Webサイトにて、2002年～2017年までの間 cERAが掲載されています。
 >[ESPN(MLB Player Fielding Stats - As C)](http://www.espn.com/mlb/stats/fielding/_/year/2017/position/c/sort/catcherERA/order/false)  
