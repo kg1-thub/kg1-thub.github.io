@@ -3,6 +3,7 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
     */
+var years = ['2022', '2021', '2020', '2019', '2018'];
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -14,7 +15,7 @@ $(document).ready(function(){
 
 function tab_change(year) {
     if (year.length>0) {
-        var years = ['2022', '2021', '2020', '2019', '2018'];
+        // var years = ['2022', '2021', '2020', '2019', '2018'];
         for (i=0; i<years.length; i++) {
             if (years[i]==year) {
                 $(".dropdown-toggle")[0].innerText=year;
@@ -62,9 +63,9 @@ document.getElementById('d2018').addEventListener('click', function() {
 
 $(document).ready(function() {
     var year = location.hash.substring(1, 5);
-    if (year.length>0) {
+    if (year.includes(years)) {
         tab_change(year);
-    };
+    }
     // calmap_scroll_right();
 });
 

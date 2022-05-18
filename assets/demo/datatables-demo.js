@@ -233,6 +233,40 @@ $(document).ready(function() {
 // dataTable22games
 function makeCSV(records, columns) {
   const divtable = document.getElementById('dataTable22games');
+  const divcaption = document.createElement("caption");
+  divcaption.setAttribute("id", "dt22gamescaption");
+  divcaption.style.captionSide = "top";
+  divcaption.style.fontSize = "1.4rem";
+  divcaption.style.fontWeight = "300";
+  divcaption.style.lineHeight = "1.2";
+  divcaption.classList.add("pt-0");
+  divcaption.classList.add("pb-0");
+  var wls = [0, 0, 0];
+  var ins_outs = [0, 0];
+  var ers = 0;
+  for (let i=0; i<records.length; i++) {
+    if (records[i][0]=='W') {
+      wls[0] += 1;
+    } else if (records[i][0]=='L') {
+      wls[1] += 1;
+    } else if (records[i][0]=='S') {
+      wls[2] += 1;
+    }
+
+    if (records[i][2].includes('.')) {
+      var _ins_outs = records[i][2].split('.');
+      ins_outs[0] += parseInt(_ins_outs[0]);
+      ins_outs[1] += parseInt(_ins_outs[1]);
+    } else {
+      ins_outs[0] += parseInt(records[i][2]);
+    }
+
+    ers += parseInt(records[i][8]);
+  }
+  // divcaption.textContent = "勝-敗-S, 防御率 (イニング)";
+  divcaption.textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+  divtable.appendChild(divcaption);
+
   const divthead = document.createElement("thead");
   divtable.appendChild(divthead);
   const divtheadr = document.createElement("tr");
@@ -303,8 +337,36 @@ function makeCSV(records, columns) {
           // "language": {
           //   "searchPlaceholder": "search keyword"
           // }
-          "lengthMenu": [ 15, 30, 50 ]
-      });
+          "lengthMenu": [ 15, 30, 50 ],
+      }).on('search.dt', function() {
+        var table = $('#dataTable22games').DataTable();
+
+        var data = table.columns( [1, 3, 9] , {filter:'applied'}).data();
+        var wls = [0, 0, 0];
+        var ins_outs = [0, 0];
+        var ers = 0;
+
+        for (let i=0; i<data[0].length; i++) {
+          if (data[0][i]=='W') {
+            wls[0] += 1;
+          } else if (data[0][i]=='L') {
+            wls[1] += 1;
+          } else if (data[0][i]=='S') {
+            wls[2] += 1;
+          }
+
+          if (data[1][i].includes('.')) {
+            var _ins_outs = data[1][i].split('.');
+            ins_outs[0] += parseInt(_ins_outs[0]);
+            ins_outs[1] += parseInt(_ins_outs[1]);
+          } else {
+            ins_outs[0] += parseInt(data[1][i]);
+          }
+
+          ers += parseInt(data[2][i]);
+        }
+        document.getElementById('dt22gamescaption').textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+      })
   });
 };
 
