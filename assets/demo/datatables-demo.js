@@ -290,14 +290,16 @@ function makeCSV(records, columns) {
       divtr.appendChild(divtd);
       for (var j = 0; j < columns.length; j++) {
           let divtd = document.createElement("td");
-          if (j==12) {
+          if (j==1) {
+            divtd.textContent = records[i][j].replace("　", "");
+          } else if (j==10) {
+            divtd.textContent = records[i][j].substr(5);
+          } else if (j==12) {
             if (records[i][j]=="1") {
               divtd.textContent = "先発";
             } else {
               divtd.textContent = "交代";
             }
-          } else if (j==10) {
-            divtd.textContent = records[i][j].substr(5);
           } else {
             divtd.textContent = records[i][j];
           }
@@ -311,7 +313,7 @@ function makeCSV(records, columns) {
           "columnDefs": [
             { "visible": false, "targets": 0 },
             { "width": "9%", "targets": 1 },
-            { "width": "9%", "targets": 2 },
+            { "width": "13%", "targets": 2 },
             { "width": "9%", "targets": 3 },
             { "visible": false, "targets": 4 },
             { "visible": false, "targets": 5 },
@@ -319,9 +321,9 @@ function makeCSV(records, columns) {
             { "visible": false, "targets": 7 },
             { "width": "9%", "targets": 8 },
             { "width": "9%", "targets": 9 },
-            { "width": "9%", "targets": 10 },
+            { "width": "13%", "targets": 10 },
             { "width": "13%", "targets": 11 },
-            { "width": "9%", "targets": 12 },
+            { "width": "13%", "targets": 12 },
             { "width": "9%", "targets": 13 },
             { "visible": false, "targets": 14 },
           ],
