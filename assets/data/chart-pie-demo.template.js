@@ -647,6 +647,14 @@ window.onload = function() {
     window.myLine22v1 = new Chart(innings22_ctx, innings22_ctx_config);
     var starting_games22_ctx = document.getElementById('starting_games22canvas').getContext('2d');
     window.myLine22v2 = new Chart(starting_games22_ctx, starting_games22_ctx_config);
+
+    // datatables-demo.js
+    if (location.search) {
+      let params = new URLSearchParams(location.search.substring(1));
+      var search = params.get("search");
+      var query = decodeURI(search).replace(",", " ");
+      search_keyword(query);
+    }
 };
 
 document.getElementById('innings22redraw').addEventListener('click', function() {
