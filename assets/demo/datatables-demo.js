@@ -384,9 +384,12 @@ function search_today() {
 };
 
 window.onload = function() {
-  var q = location.search;
-  var query = decodeURI(q).substring(1).replace("&", " ");
-  search_keyword(query);
+  if (location.search) {
+    let params = new URLSearchParams(location.search.substring(1));
+    var search = params.get("search");
+    var query = decodeURI(search).replace(",", " ");
+    search_keyword(query);
+  }
 };
 
 {
