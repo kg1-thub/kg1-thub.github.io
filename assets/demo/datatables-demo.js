@@ -339,7 +339,7 @@ function makeCSV(records, columns) {
           // "language": {
           //   "searchPlaceholder": "search keyword"
           // }
-          "lengthMenu": [ 15, 30, 50 ],
+          "lengthMenu": [ 10, 30, 50 ],
       }).on('search.dt', function() {
         var table = $('#dataTable22games').DataTable();
 
