@@ -383,6 +383,14 @@ function search_today() {
   table.search( ('0'+String(today.getMonth()+1)).slice(-2)+"/"+('0'+String(today.getDate())).slice(-2) ).draw();
 };
 
+window.onload = function() {
+  if (location.search) {
+    let params = new URLSearchParams(location.search.substring(1));
+    var search = params.get("search");
+    var query = decodeURI(search).replace(",", " ");
+    search_keyword(query);
+  }
+};
 
 {
   var fileurl = "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats22.csv";
