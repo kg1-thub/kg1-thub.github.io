@@ -4,7 +4,7 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data22 = {'Catcher': ['大城', '小林', '山瀬', '岸田'], 'Stealing_bases': [11, 4, 0, 0], 'Defense_inning': [[35.0, 132.0, 103.67, 0, 0, 0, 0, 0], [20.0, 73.0, 4.0, 0, 0, 0, 0, 0], [0, 1.0, 0, 0, 0, 0, 0, 0], [0, 14.0, 24.33, 0, 0, 0, 0, 0]], 'Starting_games': [[4, 16, 13, 0, 0, 0, 0, 0], [2, 8, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0]], 'Winning_games': [[3, 10, 7, 0, 0, 0, 0, 0], [2, 4, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0]]};
+var pie_data22 = {'Catcher': ['大城', '小林', '山瀬', '岸田'], 'Stealing_bases': [12, 4, 0, 0], 'Defense_inning': [[35.0, 132.0, 115.67, 0, 0, 0, 0, 0], [20.0, 73.0, 4.0, 0, 0, 0, 0, 0], [0, 1.0, 0, 0, 0, 0, 0, 0], [0, 14.0, 24.33, 0, 0, 0, 0, 0]], 'Starting_games': [[4, 16, 14, 0, 0, 0, 0, 0], [2, 8, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0]], 'Winning_games': [[3, 10, 8, 0, 0, 0, 0, 0], [2, 4, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0]]};
 var innings22 = pie_data22.Defense_inning;
 var starting_games22 = pie_data22.Starting_games;
 var stealing_bases22 = pie_data22.Stealing_bases;
@@ -647,14 +647,6 @@ var starting_games18_ctx_config = {
 //     window.myLine22v1 = new Chart(innings22_ctx, innings22_ctx_config);
 //     var starting_games22_ctx = document.getElementById('starting_games22canvas').getContext('2d');
 //     window.myLine22v2 = new Chart(starting_games22_ctx, starting_games22_ctx_config);
-
-//     // datatables-demo.js
-//     if (location.search) {
-//       let params = new URLSearchParams(location.search.substring(1));
-//       var search = params.get("search");
-//       var query = decodeURI(search).replace(",", " ");
-//       search_keyword(query);
-//     }
 // };
 
 window.addEventListener('load', function(){
