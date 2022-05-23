@@ -23,26 +23,26 @@ var ctx22_data = {
     '04/21','04/22','04/23','04/24','04/26','04/27','04/28','04/29','04/30','05/01','05/03','05/04',
     '05/05','05/06','05/07','05/08','05/10','05/11','05/12','05/13','05/14','05/15','05/17','05/18',
     '05/19','05/20','05/21','05/22','05/24',
-    //'05/25',
-    //'05/26',
-    //'05/27',
-    //'05/28',
-    //'05/29',
-    //'05/31',
-    //'06/01',
-    //'06/02',
-    //'06/03',
-    //'06/04',
-    //'06/05',
-    //'06/07',
-    //'06/08',
-    //'06/09',
-    //'06/10',
-    //'06/11',
-    //'06/12',
-    //'06/17',
-    //'06/18',
-    //'06/19',
+    '05/25',
+    '05/26',
+    '05/27',
+    '05/28',
+    '05/29',
+    '05/31',
+    '06/01',
+    '06/02',
+    '06/03',
+    '06/04',
+    '06/05',
+    '06/07',
+    '06/08',
+    '06/09',
+    '06/10',
+    '06/11',
+    '06/12',
+    // '06/17',
+    // '06/18',
+    // '06/19',
     //'06/21',
     //'06/22',
     //'06/23',
@@ -212,7 +212,7 @@ const zero = {
   value: 0,
 };
 
-const illabel18 = {
+const illabel22 = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 0,
@@ -231,36 +231,7 @@ const illabel18 = {
   }
 };
 
-const ilperiod18 = {
-  type: 'box',
-  backgroundColor: 'rgba(255,182,193,0.35)',
-  borderColor: 'rgba(0,150,0,0)',
-  borderWidth: 1,
-  cornerRadius: 4,
-  xMin: 46,
-  xMax: 64,
-};
-
-const illabel19 = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 0,
-  borderColor: 'rgba(255,182,193,0)',
-  value: 61,
-  label: {
-    // rotation: 270,
-    backgroundColor: 'pink',
-    color: 'black',
-    content: 'INTERLEAGUE PLAY',
-    enabled: true,
-    position: 'start',
-    font: {
-      size: 12
-    }
-  }
-};
-
-const ilperiod19 = {
+const ilperiod22 = {
   type: 'box',
   backgroundColor: 'rgba(255,182,193,0.35)',
   borderColor: 'rgba(0,150,0,0)',
@@ -370,6 +341,64 @@ const out_n27 = {
       size: 8
     }
   }
+};
+
+const illabel19 = {
+  type: 'line',
+  scaleID: 'x',
+  borderWidth: 0,
+  borderColor: 'rgba(255,182,193,0)',
+  value: 61,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'pink',
+    color: 'black',
+    content: 'INTERLEAGUE PLAY',
+    enabled: true,
+    position: 'start',
+    font: {
+      size: 12
+    }
+  }
+};
+
+const ilperiod19 = {
+  type: 'box',
+  backgroundColor: 'rgba(255,182,193,0.35)',
+  borderColor: 'rgba(0,150,0,0)',
+  borderWidth: 1,
+  cornerRadius: 4,
+  xMin: 51,
+  xMax: 69,
+};
+
+const illabel18 = {
+  type: 'line',
+  scaleID: 'x',
+  borderWidth: 0,
+  borderColor: 'rgba(255,182,193,0)',
+  value: 61,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'pink',
+    color: 'black',
+    content: 'INTERLEAGUE PLAY',
+    enabled: true,
+    position: 'start',
+    font: {
+      size: 12
+    }
+  }
+};
+
+const ilperiod18 = {
+  type: 'box',
+  backgroundColor: 'rgba(255,182,193,0.35)',
+  borderColor: 'rgba(0,150,0,0)',
+  borderWidth: 1,
+  cornerRadius: 4,
+  xMin: 46,
+  xMax: 64,
 };
 
 // Area Chart 2018
@@ -2340,6 +2369,8 @@ var myLineChart22 = new Chart(ctx22, {
       annotation: {
         annotations: {
           zero,
+          ilperiod22,
+          illabel22,
         }
       },
       legend: {

@@ -2,19 +2,19 @@
 $(document).ready(function() {
   $('#dataTable18').DataTable({
     order: [ [ 1, "desc" ] ],
-    "columnDefs": [
-      { "width": "8%", "targets": 2 },
-      { "width": "8%", "targets": 3 },
-      { "width": "8%", "targets": 4 },
-      { "width": "8%", "targets": 5 },
-      { "width": "8%", "targets": 6 },
-      { "width": "8%", "targets": 8 },
-      { "width": "8%", "targets": 9 },
-      { "width": "8%", "targets": 10 }
+    columnDefs: [
+      { width: "8%", targets: 2 },
+      { width: "8%", targets: 3 },
+      { width: "8%", targets: 4 },
+      { width: "8%", targets: 5 },
+      { width: "8%", targets: 6 },
+      { width: "8%", targets: 8 },
+      { width: "8%", targets: 9 },
+      { width: "8%", targets: 10 }
     ],
-    "searching": false,
-    "paging": false,
-    "info": false,
+    searching: false,
+    paging: false,
+    info: false,
     // scrollX: true,
     // scrollCollapse: true,
     // fixedColumns: true
@@ -24,19 +24,19 @@ $(document).ready(function() {
 $(document).ready(function() {
   $('#dataTable19').DataTable({
     order: [ [ 1, "desc" ] ],
-    "columnDefs": [
-      { "width": "8%", "targets": 2 },
-      { "width": "8%", "targets": 3 },
-      { "width": "8%", "targets": 4 },
-      { "width": "8%", "targets": 5 },
-      { "width": "8%", "targets": 6 },
-      { "width": "8%", "targets": 8 },
-      { "width": "8%", "targets": 9 },
-      { "width": "8%", "targets": 10 }
+    columnDefs: [
+      { width: "8%", targets: 2 },
+      { width: "8%", targets: 3 },
+      { width: "8%", targets: 4 },
+      { width: "8%", targets: 5 },
+      { width: "8%", targets: 6 },
+      { width: "8%", targets: 8 },
+      { width: "8%", targets: 9 },
+      { width: "8%", targets: 10 }
     ],
-    "searching": false,
-    "paging": false,
-    "info": false,
+    searching: false,
+    paging: false,
+    info: false,
     // scrollX: true,
     // scrollCollapse: true,
     // fixedColumns: true
@@ -46,171 +46,171 @@ $(document).ready(function() {
 $(document).ready(function() {
   $('#dataTable19v2').DataTable({
     order: [ [ 0, "asc" ] ],
-    "columnDefs": [
-      { "width": "17%", "targets": 1 },
-      { "width": "17%", "targets": 2 },
-      { "width": "17%", "targets": 3 },
-      { "width": "11%", "targets": 4 },
-      { "width": "11%", "targets": 5 },
-      { "width": "11%", "targets": 6 },
-      { "width": "11%", "targets": 7 },
+    columnDefs: [
+      { width: "17%", targets: 1 },
+      { width: "17%", targets: 2 },
+      { width: "17%", targets: 3 },
+      { width: "11%", targets: 4 },
+      { width: "11%", targets: 5 },
+      { width: "11%", targets: 6 },
+      { width: "11%", targets: 7 },
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable19v3').DataTable({
     order: [ [ 1, "desc" ] ],
-    "columnDefs": [
-      { "width": "17%", "targets": 1 },
-      { "width": "17%", "targets": 2 },
-      { "width": "17%", "targets": 3 },
-      { "width": "11%", "targets": 4 },
-      { "width": "11%", "targets": 5 },
-      { "width": "11%", "targets": 6 },
-      { "width": "11%", "targets": 7 },
+    columnDefs: [
+      { width: "17%", targets: 1 },
+      { width: "17%", targets: 2 },
+      { width: "17%", targets: 3 },
+      { width: "11%", targets: 4 },
+      { width: "11%", targets: 5 },
+      { width: "11%", targets: 6 },
+      { width: "11%", targets: 7 },
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable20').DataTable({
     order: [ [ 1, "desc" ] ],
-    "columnDefs": [
-      { "width": "8%", "targets": 2 },
-      { "width": "8%", "targets": 3 },
-      { "width": "8%", "targets": 4 },
-      { "width": "8%", "targets": 5 },
-      { "width": "8%", "targets": 6 },
-      { "width": "8%", "targets": 7 },
-      { "width": "8%", "targets": 9 },
-      { "width": "8%", "targets": 10 },
-      { "width": "8%", "targets": 11 }
+    columnDefs: [
+      { width: "8%", targets: 2 },
+      { width: "8%", targets: 3 },
+      { width: "8%", targets: 4 },
+      { width: "8%", targets: 5 },
+      { width: "8%", targets: 6 },
+      { width: "8%", targets: 7 },
+      { width: "8%", targets: 9 },
+      { width: "8%", targets: 10 },
+      { width: "8%", targets: 11 }
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable20v2').DataTable({
     order: [ [ 0, "asc" ] ],
-    "columnDefs": [
-      // { "width": "17%", "targets": 1 },
-      // { "width": "17%", "targets": 2 },
-      // { "width": "17%", "targets": 3 },
-      // { "width": "11%", "targets": 4 },
+    columnDefs: [
+      // { width: "17%", targets: 1 },
+      // { width: "17%", targets: 2 },
+      // { width: "17%", targets: 3 },
+      // { width: "11%", targets: 4 },
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable20v3').DataTable({
     order: [ [ 1, "desc" ], [ 2, "desc" ], [ 3, "desc" ]],
-    "columnDefs": [
-      { "width": "22%", "targets": 1 },
-      { "width": "22%", "targets": 2 },
-      { "width": "22%", "targets": 3 },
-      { "width": "22%", "targets": 4 },
+    columnDefs: [
+      { width: "22%", targets: 1 },
+      { width: "22%", targets: 2 },
+      { width: "22%", targets: 3 },
+      { width: "22%", targets: 4 },
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable21').DataTable({
     order: [ [ 1, "desc" ] ],
-    "columnDefs": [
-      { "width": "8%", "targets": 2 },
-      { "width": "8%", "targets": 3 },
-      { "width": "8%", "targets": 4 },
-      { "width": "8%", "targets": 5 },
-      { "width": "8%", "targets": 6 },
-      { "width": "8%", "targets": 7 },
-      { "width": "8%", "targets": 9 },
-      { "width": "8%", "targets": 10 },
-      { "width": "8%", "targets": 11 }
+    columnDefs: [
+      { width: "8%", targets: 2 },
+      { width: "8%", targets: 3 },
+      { width: "8%", targets: 4 },
+      { width: "8%", targets: 5 },
+      { width: "8%", targets: 6 },
+      { width: "8%", targets: 7 },
+      { width: "8%", targets: 9 },
+      { width: "8%", targets: 10 },
+      { width: "8%", targets: 11 }
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable21v2').DataTable({
     order: [ [ 0, "asc" ] ],
-    "columnDefs": [
-      // { "width": "17%", "targets": 1 },
-      // { "width": "17%", "targets": 2 },
-      // { "width": "17%", "targets": 3 },
-      // { "width": "11%", "targets": 4 },
+    columnDefs: [
+      // { width: "17%", targets: 1 },
+      // { width: "17%", targets: 2 },
+      // { width: "17%", targets: 3 },
+      // { width: "11%", targets: 4 },
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable21v3').DataTable({
     order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
-    "columnDefs": [
-      { "width": "22%", "targets": 1 },
-      { "width": "22%", "targets": 2 },
-      { "width": "22%", "targets": 3 },
-      { "width": "22%", "targets": 4 },
+    columnDefs: [
+      { width: "22%", targets: 1 },
+      { width: "22%", targets: 2 },
+      { width: "22%", targets: 3 },
+      { width: "22%", targets: 4 },
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable22').DataTable({
     order: [ [ 1, "desc" ] ],
-    "columnDefs": [
-      { "width": "8%", "targets": 2 },
-      { "width": "8%", "targets": 3 },
-      { "width": "8%", "targets": 4 },
-      { "width": "8%", "targets": 5 },
-      { "width": "8%", "targets": 6 },
-      { "width": "8%", "targets": 7 },
-      { "width": "8%", "targets": 9 },
-      { "width": "8%", "targets": 10 },
-      { "width": "8%", "targets": 11 }
+    columnDefs: [
+      { width: "8%", targets: 2 },
+      { width: "8%", targets: 3 },
+      { width: "8%", targets: 4 },
+      { width: "8%", targets: 5 },
+      { width: "8%", targets: 6 },
+      { width: "8%", targets: 7 },
+      { width: "8%", targets: 9 },
+      { width: "8%", targets: 10 },
+      { width: "8%", targets: 11 }
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
 $(document).ready(function() {
   $('#dataTable22v2').DataTable({
     order: [ [ 0, "asc" ] ],
-    "columnDefs": [
-      // { "width": "17%", "targets": 1 },
-      // { "width": "17%", "targets": 2 },
-      // { "width": "17%", "targets": 3 },
-      // { "width": "11%", "targets": 4 },
+    columnDefs: [
+      // { width: "17%", targets: 1 },
+      // { width: "17%", targets: 2 },
+      // { width: "17%", targets: 3 },
+      // { width: "11%", targets: 4 },
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
@@ -218,15 +218,15 @@ $(document).ready(function() {
   $('#dataTable22v3').DataTable({
     // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     order: [[ 1, "desc" ]],
-    "columnDefs": [
-      { "width": "22%", "targets": 1 },
-      { "width": "22%", "targets": 2 },
-      { "width": "22%", "targets": 3 },
-      { "width": "22%", "targets": 4 },
+    columnDefs: [
+      { width: "22%", targets: 1 },
+      { width: "22%", targets: 2 },
+      { width: "22%", targets: 3 },
+      { width: "22%", targets: 4 },
     ],
-    "searching": false,
-    "paging": false,
-    "info": false
+    searching: false,
+    paging: false,
+    info: false
   });
 });
 
@@ -310,36 +310,37 @@ function makeCSV(records, columns) {
   $(document).ready(function() {
       $('#dataTable22games').DataTable({
         order: [[ 0, "asc" ]],
-          "columnDefs": [
-            { "visible": false, "targets": 0 },
-            { "width": "9%", "targets": 1 },
-            { "width": "13%", "targets": 2 },
-            { "width": "9%", "targets": 3 },
-            { "visible": false, "targets": 4 },
-            { "visible": false, "targets": 5 },
-            { "visible": false, "targets": 6 },
-            { "visible": false, "targets": 7 },
-            { "width": "9%", "targets": 8 },
-            { "width": "9%", "targets": 9 },
-            { "width": "13%", "targets": 10 },
-            { "width": "13%", "targets": 11 },
-            { "width": "13%", "targets": 12 },
-            { "width": "9%", "targets": 13 },
-            { "visible": false, "targets": 14 },
-          ],
-          // "dom": 'frtiQlp',
-          "dom": '<"float-left"f>rt<"float-left"p>',
-          "searching": true,
-          "search": {
-            "regex": true,
-            // "search": "先発"
-          },
-          "paging": true,
-          "info": false,
-          // "language": {
-          //   "searchPlaceholder": "search keyword"
-          // }
-          "lengthMenu": [ 10, 30, 50 ],
+        columnDefs: [
+          { visible: false, targets: 0 },
+          { width: "9%",    targets: 1 },
+          { width: "13%",   targets: 2 },
+          { width: "9%",    targets: 3 },
+          { visible: false, targets: 4 },
+          { visible: false, targets: 5 },
+          { visible: false, targets: 6 },
+          { visible: false, targets: 7 },
+          { width: "9%",    targets: 8 },
+          { width: "9%",    targets: 9 },
+          { width: "13%",   targets: 10 },
+          { width: "13%",   targets: 11 },
+          { width: "13%",   targets: 12 },
+          { width: "9%",    targets: 13 },
+          { visible: false, targets: 14 },
+        ],
+        // dom: 'frtiQlp',
+        dom: '<"float-left"f>rt<"float-left"p>',
+        searching: true,
+        search: {
+          regex: true,
+          // search: "先発"
+        },
+        paging: true,
+        info: false,
+        // language: {
+        //   searchPlaceholder: "search keyword"
+        // }
+        lengthMenu: [ 10, 30, 50 ],
+        mark: true,
       }).on('search.dt', function() {
         var table = $('#dataTable22games').DataTable();
 
