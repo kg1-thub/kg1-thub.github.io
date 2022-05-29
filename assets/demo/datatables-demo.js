@@ -332,7 +332,7 @@ function makeCSV(records, columns) {
         searching: true,
         search: {
           regex: true,
-          search: "05/28" // @@KEYWORD@@
+          search: "05/29" // @@KEYWORD@@
         },
         paging: true,
         info: false,
