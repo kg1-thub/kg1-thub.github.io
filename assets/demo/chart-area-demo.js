@@ -709,7 +709,10 @@ var myLineChart18 = new Chart(ctx18, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          boxWidth: 12
+        }
       },
       autocolors: false,
       annotation: {
@@ -1038,7 +1041,10 @@ var myLineChart19 = new Chart(ctx19, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          boxWidth: 12
+        }
       },
       autocolors: false,
       annotation: {
@@ -2099,7 +2105,10 @@ var myLineChart20 = new Chart(ctx20, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          boxWidth: 12
+        }
       },
       autocolors: false,
       annotation: {
@@ -2238,7 +2247,10 @@ var myLineChart21 = new Chart(ctx21, {
         }
       },
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
     responsive: true,
@@ -2367,7 +2379,10 @@ var myLineChart22 = new Chart(ctx22, {
         }
       },
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
     responsive: true,

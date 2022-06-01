@@ -252,7 +252,10 @@ var options_prm = {
             mode: 'index',
         },
         legend: {
-          position: 'right'
+          position: 'right',
+          labels: {
+            boxWidth: 12
+          }
         }
     },
     hover: {
@@ -720,7 +723,10 @@ var myPieChart22 = new Chart(ctx22, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -740,7 +746,10 @@ var myPieChart22v2 = new Chart(ctx22v2, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -760,7 +769,10 @@ var myPieChart22v3 = new Chart(ctx22v3, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -781,7 +793,10 @@ var myPieChart21 = new Chart(ctx21, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -801,7 +816,10 @@ var myPieChart21v2 = new Chart(ctx21v2, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -821,7 +839,10 @@ var myPieChart21v3 = new Chart(ctx21v3, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -842,7 +863,10 @@ var myPieChart20 = new Chart(ctx20, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -862,7 +886,10 @@ var myPieChart20v2 = new Chart(ctx20v2, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -882,7 +909,10 @@ var myPieChart20v3 = new Chart(ctx20v3, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -904,7 +934,10 @@ var myPieChart19 = new Chart(ctx19, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
   }
@@ -924,7 +957,10 @@ var myPieChart19v2 = new Chart(ctx19v2, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
   }
@@ -943,7 +979,10 @@ var myPieChart19v3 = new Chart(ctx19v3, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -965,7 +1004,10 @@ var myPieChart18 = new Chart(ctx18, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
   }
@@ -985,7 +1027,10 @@ var myPieChart18v2 = new Chart(ctx18v2, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
   }
@@ -1005,7 +1050,10 @@ var myPieChart18v3 = new Chart(ctx18v3, {
   options: {
     plugins: {
       legend: {
-        position: 'right'
+        position: 'right',
+        labels: {
+          usePointStyle: true
+        }
       }
     },
     responsive: true,
@@ -1049,8 +1097,10 @@ var myLineChart22 = new Chart(ctx22, {
   options: {
     plugins: {
       legend: {
-        position: 'top'
-        // position: 'right'
+        position: 'top',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
     responsive: true,
@@ -1101,8 +1151,10 @@ var myLineChart21 = new Chart(ctx21, {
   options: {
     plugins: {
       legend: {
-        position: 'top'
-        // position: 'right'
+        position: 'top',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
     responsive: true,
@@ -1153,8 +1205,10 @@ var myLineChart20 = new Chart(ctx20, {
   options: {
     plugins: {
       legend: {
-        position: 'top'
-        // position: 'right'
+        position: 'top',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
     responsive: true,
@@ -1205,8 +1259,10 @@ var myLineChart19 = new Chart(ctx19, {
   options: {
     plugins: {
       legend: {
-        position: 'top'
-        // position: 'right'
+        position: 'top',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
     scales: {
@@ -1256,8 +1312,10 @@ var myLineChart18 = new Chart(ctx18, {
   options: {
     plugins: {
       legend: {
-        position: 'top'
-        // position: 'right'
+        position: 'top',
+        labels: {
+          boxWidth: 12
+        }
       }
     },
     scales: {
