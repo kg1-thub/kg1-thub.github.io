@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <script data-ad-client="ca-pub-1993395319769113" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:url" content="https://kg1-thub.github.io/soccer" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Soccer/Japan/Score" />
+		<meta property="og:description" content="サッカー/日本代表/成績をビジュアル化" />
+		<meta property="og:image" content="https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/img/screen_sample.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="description" content="Soccer/Japan/Score (サッカー/日本代表/成績)をビジュアル化. 2006年W杯以降のサッカー日本代表に関する成績・記録を集計し、グラフ、チャート、テーブルにまとめています. サッカー　日本代表 成績 SamuraiBlue" />
+        <meta name="keywords" content="Soccer Japan Score サッカー 日本代表 成績 SamuraiBlue" />
+        <meta name="author" content="kg1" />
+        <title>Soccer/Japan/Score</title>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+        <script src="../js/utils.js"></script>
+        <style>
+            canvas {
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+        </style>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147259112-3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-147259112-3');
+        </script>
+        <link rel="icon" href="../assets/img/map_pin_shadow.ico">
+    </head>
+
+    <body class="sb-nav-fixed pt-5">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
+            <a class="navbar-brand" href="https://kg1-thub.github.io/soccer">Soccer/Japan/Score</a>
+            <nav class="nav">
+                <ul class="navbar-nav">
+                </ul>
+            </nav>
+        </nav>
+
+        <!-- <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2018">2018</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2019">2019</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#t2020">2020</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2021">2021</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2022">2022</a>
+            </li>
+        </ul> -->
+
+        <!-- Tab panes -->
+        <div class="tab-content p-1">
+
+            <div class="container-fluid tab-pane active" id="t2022">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header p-1">
+                                Group A
+                            </div>
+                            <div class="card-body p-1">
+                                Qatar <br>
+                                Ecuador <br>
+                                Senegal <br>
+                                Netherlands            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header p-1">
+                                Group B
+                            </div>
+                            <div class="card-body p-1">
+                                England <br>
+                                IR Iran <br>
+                                USA <br>
+                                Euro Play-off            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header p-1">
+                                Group C
+                            </div>
+                            <div class="card-body p-1">
+                                Argentina <br>
+                                Saudi Arabia <br>
+                                Mexico <br>
+                                Poland            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header p-1">
+                                Group D
+                            </div>
+                            <div class="card-body p-1">
+                                France <br>
+                                IC Play-off1 <br>
+                                Denmark <br>
+                                Tunisia            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header p-1">
+                                Group E
+                            </div>
+                            <div class="card-body p-1">
+                                Spain <br>
+                                IC Play-off2 <br>
+                                Germany <br>
+                                Japan            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header p-1">
+                                Group F
+                            </div>
+                            <div class="card-body p-1">
+                                Belgium <br>
+                                Canada <br>
+                                Morocco <br>
+                                Croatia            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header p-1">
+                                Group G
+                            </div>
+                            <div class="card-body p-1">
+                                Brazil <br>
+                                Serbia <br>
+                                Switzerland <br>
+                                Cameroon            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header p-1">
+                                Group H
+                            </div>
+                            <div class="card-body p-1">
+                                Portugal <br>
+                                Ghana <br>
+                                Uruguay <br>
+                                Koria Republic            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1" id="games22v">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Soccer/Japan/Score
+                                <div class="float-right">
+                                    <button id="filter_no" class="badge badge-pill area" onclick="search_keywordv('')" style="border-style: none; background-color: aquamarine;"><i class="fa-solid fa-filter mr-1" style="width: 10px;"></i>ALL</button>
+                                    <button id="filter_eu" class="badge badge-pill badge-secondary area" style="border-style: none; " onclick="search_keywordv('欧州')"><i class="fa-solid fa-filter mr-1" style="width: 10px;"></i>欧州</button>
+                                    <button id="filter_na" class="badge badge-pill badge-secondary area" style="border-style: none;" onclick="search_keywordv('北中米カリブ海')"><i class="fa-solid fa-filter mr-1" style="width: 10px;"></i>北中米カリブ海</button>
+                                    <button id="filter_sa" class="badge badge-pill badge-secondary area" style="border-style: none;" onclick="search_keywordv('南米')"><i class="fa-solid fa-filter mr-1" style="width: 10px;"></i>南米</button>
+                                    <button id="filter_asia" class="badge badge-pill badge-secondary area" style="border-style: none;" onclick="search_keywordv('アジア')"><i class="fa-solid fa-filter mr-1" style="width: 10px;"></i>アジア</button>
+                                    <button id="filter_af" class="badge badge-pill badge-secondary area" style="border-style: none;" onclick="search_keywordv('アフリカ')"><i class="fa-solid fa-filter mr-1" style="width: 10px;"></i>アフリカ</button>
+                                    <button id="filter_oce" class="badge badge-pill badge-secondary area" style="border-style: none;" onclick="search_keywordv('オセアニア')"><i class="fa-solid fa-filter mr-1" style="width: 10px;"></i>オセアニア</button>
+                                 </div>
+                            </div>
+                            <div class="card-body pl-1 pr-1 pb-0 pt-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="DTSoccerGames"
+                                     width="100%" cellspacing="0">
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advertisement area 3 START -->
+                <div class="row">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A7XWMQ+39FI+1TIYU9" rel="nofollow">
+                        <img border="0" width="300" height="250" alt="" src="https://www29.a8.net/svt/bgt?aid=220520897618&wid=001&eno=01&mid=s00000015219011006000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=3NAJ0H+A7XWMQ+39FI+1TIYU9" alt="">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A6R1F6+4TIO+5ZMCH" rel="nofollow">
+                        <img border="0" width="300" height="250" alt="" src="https://www26.a8.net/svt/bgt?aid=220520897616&wid=001&eno=01&mid=s00000022488001006000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=3NAJ0H+A6R1F6+4TIO+5ZMCH" alt="">
+                </div>
+                <!-- admax -->
+                <!-- <script src="https://adm.shinobi.jp/o/8eda2143802ac117df64c7c8ee7bde8a"></script> -->
+                <!-- admax -->
+                <!-- Advertisement area 3 END-->
+
+            </div>
+
+            <!-- fixed btn -->
+            <!-- <button type="button" id="top-btn" class="btn btn-sm btn-floating btn-secondary" style="position: fixed; bottom: 5%; right: 40px; display: none; opacity: 70%; border-radius: 100%; width: 31px; height: 31px;">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+            <button type="button" id="down-btn" class="btn btn-sm btn-floating btn-secondary" style="position: fixed; bottom: 5%; right: 5px; display: block; opacity: 70%; border-radius: 100%; width: 31px; height: 31px;">
+                <i class="fa-solid fa-arrow-down"></i>
+            </button> -->
+
+            <footer class="py-3 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Updated 2022.05.29</div>
+                        <div>
+                            <a href="https://kg1-thub.github.io/soccer">DASHBOARD</a>
+                            &middot;
+                            <!-- <a href="https://kg1-thub.github.io/catcher-stats/">About Site</a>
+                            &middot;
+                            <a href="https://kg1-thub.github.io/links/">Link</a>
+                            &middot; -->
+                            <a href="https://forms.gle/f5mB854NhKq3hHq48">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <!-- <script src="../js/scripts.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/1.0.2/chartjs-plugin-annotation.min.js" integrity="sha512-FuXN8O36qmtA+vRJyRoAxPcThh/1KJJp7WSRnjCpqA+13HYGrSWiyzrCHalCWi42L5qH1jt88lX5wy5JyFxhfQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js)"></script>
+        <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
+        <script src="../assets/demo/datatables-soccer.js"></script>
+    </body>
+</html>
