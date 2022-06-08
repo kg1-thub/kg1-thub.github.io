@@ -250,6 +250,16 @@ if __name__=='__main__':
             _team = 'Baystars'
         elif team=='西武':
             _team = 'Lions'
+        elif team=='楽天':
+            _team = 'Eagles'
+        elif team=='オリックス':
+            _team = 'Orix'
+        elif team=='ソフトバンク':
+            _team = 'Softbank'
+        elif team=='ロッテ':
+            _team = 'Lotte'
+        elif team=='日本ハム':
+            _team = 'Fighters'
 
         with open(CALENDERHEATMAP,mode='r',encoding='utf-8') as reader:
             content = reader.read()

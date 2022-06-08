@@ -208,7 +208,9 @@ function calendarHeatmap() {
             .style('height', hightForDate(d))
             .style('left', function () { return Math.floor(i / 7) * SQUARE_LENGTH + 'px'; })
             .style('top', function () {
-              return formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING) + SQUARE_LENGTH * 1 + 'px';
+
+              return ((formatWeekday(d.getDay()) + 2) % 7) * (SQUARE_LENGTH + SQUARE_PADDING) +
+                       SQUARE_LENGTH * (0.2 + Math.floor((formatWeekday(d.getDay()) + 2) / 7))*3.3 + 'px';
               // return formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING) + MONTH_LABEL_PADDING * 2 + 'px';
             });
         })
