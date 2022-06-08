@@ -7,16 +7,16 @@ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 var pie_data22 = {pie_data22};
 var innings22 = pie_data22.Defense_inning;
 var starting_games22 = pie_data22.Starting_games;
-var stealing_bases22 = pie_data22.Stealing_bases;
+var stolen_bases22 = pie_data22.stolen_bases;
 var total_innings22 = get_total_by_row(innings22);
 var innings22 = get_percentage_of_total(innings22);
 var total_starting_games22 = get_total_by_row(starting_games22);
 var starting_games22 = get_percentage_of_total(starting_games22);
 
-var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', '岸田'], 'Stealing_bases': [8, 12, 26, 1], 'Defense_inning': [[7.0, 4.0, 0, 41.0, 30.33, 32.0, 98.0, 53.67], [1.0, 46.0, 82.0, 40.0, 1.0, 0, 0, 0], [36.0, 166.0, 101.0, 113.0, 59.67, 97.0, 86.67, 91.0], [0, 4.0, 12.0, 0, 4.0, 4.0, 32.33, 10.0]], 'Starting_games': [[0, 0, 0, 4, 4, 2, 11, 6], [0, 4, 10, 4, 0, 0, 0, 0], [5, 21, 12, 14, 7, 13, 12, 11], [0, 0, 0, 0, 0, 0, 2, 1]], 'Winning_games': [[1, 0, 0, 1, 1, 0, 3, 2], [0, 1, 5, 1, 0, 0, 0, 0], [1, 13, 5, 10, 4, 8, 2, 2], [0, 0, 0, 0, 0, 0, 1, 0]]};
+var pie_data21 = {'Catcher': ['小林', '炭谷', '大城', '岸田'], 'stolen_bases': [8, 12, 26, 1], 'Defense_inning': [[7.0, 4.0, 0, 41.0, 30.33, 32.0, 98.0, 53.67], [1.0, 46.0, 82.0, 40.0, 1.0, 0, 0, 0], [36.0, 166.0, 101.0, 113.0, 59.67, 97.0, 86.67, 91.0], [0, 4.0, 12.0, 0, 4.0, 4.0, 32.33, 10.0]], 'Starting_games': [[0, 0, 0, 4, 4, 2, 11, 6], [0, 4, 10, 4, 0, 0, 0, 0], [5, 21, 12, 14, 7, 13, 12, 11], [0, 0, 0, 0, 0, 0, 2, 1]], 'Winning_games': [[1, 0, 0, 1, 1, 0, 3, 2], [0, 1, 5, 1, 0, 0, 0, 0], [1, 13, 5, 10, 4, 8, 2, 2], [0, 0, 0, 0, 0, 0, 1, 0]]};
 var innings21 = pie_data21.Defense_inning;
 var starting_games21 = pie_data21.Starting_games;
-var stealing_bases21 = pie_data21.Stealing_bases;
+var stolen_bases21 = pie_data21.stolen_bases;
 var total_innings21 = get_total_by_row(innings21);
 var innings21 = get_percentage_of_total(innings21);
 var total_starting_games21 = get_total_by_row(starting_games21);
@@ -63,7 +63,7 @@ var starting_games20 = [
     [0, 0, 3, 0, 0, 5], //その他
 ];
 //小林,炭谷,大城,その他
-var stealing_bases20 = [2, 11, 31, 4];
+var stolen_bases20 = [2, 11, 31, 4];
 var total_innings20 = get_total_by_row(innings20);
 var innings20 = get_percentage_of_total(innings20);
 var total_starting_games20 = get_total_by_row(starting_games20);
@@ -145,7 +145,7 @@ var starting_games19 = [
         1,
     ],
 ];
-var stealing_bases19 = [18, 24, 24, 3];
+var stolen_bases19 = [18, 24, 24, 3];
 var total_innings19 = get_total_by_row(innings19);
 var innings19 = get_percentage_of_total(innings19);
 var total_starting_games19 = get_total_by_row(starting_games19);
@@ -235,7 +235,7 @@ var starting_games18 = [
         0,
     ],
 ];
-var stealing_bases18 = [29, 28, 7, 0];
+var stolen_bases18 = [29, 28, 7, 0];
 var total_innings18 = get_total_by_row(innings18);
 var innings18 = get_percentage_of_total(innings18);
 var total_starting_games18 = get_total_by_row(starting_games18);
@@ -646,72 +646,72 @@ var starting_games18_ctx_config = {
 };
 
 // window.onload = function() {
-//     var innings22_ctx = document.getElementById('innings22canvas').getContext('2d');
-//     window.myLine22v1 = new Chart(innings22_ctx, innings22_ctx_config);
-//     var starting_games22_ctx = document.getElementById('starting_games22canvas').getContext('2d');
-//     window.myLine22v2 = new Chart(starting_games22_ctx, starting_games22_ctx_config);
+//     var innings22_ctx = document.getElementById('canvas22innings').getContext('2d');
+//     window.line22innings = new Chart(innings22_ctx, innings22_ctx_config);
+//     var starting_games22_ctx = document.getElementById('canvas22startings').getContext('2d');
+//     window.line22startings = new Chart(starting_games22_ctx, starting_games22_ctx_config);
 // };
 
 window.addEventListener('load', function(){
-  var innings22_ctx = document.getElementById('innings22canvas').getContext('2d');
-  window.myLine22v1 = new Chart(innings22_ctx, innings22_ctx_config);
-  var starting_games22_ctx = document.getElementById('starting_games22canvas').getContext('2d');
-  window.myLine22v2 = new Chart(starting_games22_ctx, starting_games22_ctx_config);
+  var innings22_ctx = document.getElementById('canvas22innings').getContext('2d');
+  window.line22innings = new Chart(innings22_ctx, innings22_ctx_config);
+  var starting_games22_ctx = document.getElementById('canvas22startings').getContext('2d');
+  window.line22startings = new Chart(starting_games22_ctx, starting_games22_ctx_config);
 });
 
-document.getElementById('innings22redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas22innings').addEventListener('click', function() {
   switch_chart_type_line_to_bar(innings22_ctx_config, innings22, 'innings')
-  window.myLine22v1.update();
+  window.line22innings.update();
 });
 
-document.getElementById('starting_games22redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas22startings').addEventListener('click', function() {
   switch_chart_type_line_to_bar(starting_games22_ctx_config, starting_games22, 'games')
-  window.myLine22v2.update();
+  window.line22startings.update();
 });
 
-document.getElementById('innings21redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas21innings').addEventListener('click', function() {
     switch_chart_type_line_to_bar(innings21_ctx_config, innings21, 'innings')
-    window.myLine21v1.update();
+    window.line21innings.update();
 });
 
-document.getElementById('starting_games21redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas21startings').addEventListener('click', function() {
     switch_chart_type_line_to_bar(starting_games21_ctx_config, starting_games21, 'games')
-    window.myLine21v2.update();
+    window.line21startings.update();
 });
 
-document.getElementById('innings20redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas20innings').addEventListener('click', function() {
     switch_chart_type_line_to_bar(innings20_ctx_config, innings20, 'innings')
-    window.myLine20v1.update();
+    window.line20innings.update();
 });
 
-document.getElementById('starting_games20redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas20startings').addEventListener('click', function() {
     switch_chart_type_line_to_bar(starting_games20_ctx_config, starting_games20, 'games')
-    window.myLine20v2.update();
+    window.line20startings.update();
 });
 
-document.getElementById('innings19redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas19innings').addEventListener('click', function() {
     switch_chart_type_line_to_bar(innings19_ctx_config, innings19, 'innings')
-    window.myLine19v1.update();
+    window.line19innings.update();
 });
 
-document.getElementById('starting_games19redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas19startings').addEventListener('click', function() {
     switch_chart_type_line_to_bar(starting_games19_ctx_config, starting_games19, 'games')
-    window.myLine19v2.update();
+    window.line19startings.update();
 });
 
-document.getElementById('innings18redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas18innings').addEventListener('click', function() {
     switch_chart_type_line_to_bar(innings18_ctx_config, innings18, 'innings')
-    window.myLine18v1.update();
+    window.line18innings.update();
 });
 
-document.getElementById('starting_games18redraw').addEventListener('click', function() {
+document.getElementById('redraw_canvas18startings').addEventListener('click', function() {
     switch_chart_type_line_to_bar(starting_games18_ctx_config, starting_games18, 'games')
-    window.myLine18v2.update();
+    window.line18startings.update();
 });
 
 // Pie Chart 2022 Defense_inning
-var ctx22 = document.getElementById("myPieChart22");
-var myPieChart22 = new Chart(ctx22, {
+var ctx22 = document.getElementById("pie22innings");
+var pie22innings = new Chart(ctx22, {
   type: 'pie',
   data: {
     labels: ["大城", "小林", "山瀬", "岸田"],
@@ -733,8 +733,8 @@ var myPieChart22 = new Chart(ctx22, {
   }
 });
 // Pie Chart 2022 v2 Starting_games
-var ctx22v2 = document.getElementById("myPieChart22v2");
-var myPieChart22v2 = new Chart(ctx22v2, {
+var ctx22v2 = document.getElementById("pie22startings");
+var pie22startings = new Chart(ctx22v2, {
   type: 'pie',
   data: {
     labels: ["大城", "小林", "山瀬", "岸田"],
@@ -755,14 +755,14 @@ var myPieChart22v2 = new Chart(ctx22v2, {
     responsive: true,
   }
 });
-// Pie Chart 2022 v3 Stealing_bases
-var ctx22v3 = document.getElementById("myPieChart22v3");
-var myPieChart22v3 = new Chart(ctx22v3, {
+// Pie Chart 2022 v3 stolen_bases
+var ctx22v3 = document.getElementById("pie22stolenbases");
+var pie22stolenbases = new Chart(ctx22v3, {
   type: 'pie',
   data: {
     labels: ["大城", "小林", "山瀬", "岸田"],
     datasets: [{
-      data: stealing_bases22,
+      data: stolen_bases22,
       backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
     }],
   },
@@ -780,8 +780,8 @@ var myPieChart22v3 = new Chart(ctx22v3, {
 });
 
 // Pie Chart 2021 Defense_inning
-var ctx21 = document.getElementById("myPieChart21");
-var myPieChart21 = new Chart(ctx21, {
+var ctx21 = document.getElementById("pie21innings");
+var pie21innings = new Chart(ctx21, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "岸田"],
@@ -803,8 +803,8 @@ var myPieChart21 = new Chart(ctx21, {
   }
 });
 // Pie Chart 2021 v2 Starting_games
-var ctx21v2 = document.getElementById("myPieChart21v2");
-var myPieChart21v2 = new Chart(ctx21v2, {
+var ctx21v2 = document.getElementById("pie21startings");
+var pie21startings = new Chart(ctx21v2, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "岸田"],
@@ -825,14 +825,14 @@ var myPieChart21v2 = new Chart(ctx21v2, {
     responsive: true,
   }
 });
-// Pie Chart 2021 v3 Stealing_bases
-var ctx21v3 = document.getElementById("myPieChart21v3");
-var myPieChart21v3 = new Chart(ctx21v3, {
+// Pie Chart 2021 v3 stolen_bases
+var ctx21v3 = document.getElementById("pie21stolenbases");
+var pie21stolenbases = new Chart(ctx21v3, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
-      data: stealing_bases21,
+      data: stolen_bases21,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
@@ -850,8 +850,8 @@ var myPieChart21v3 = new Chart(ctx21v3, {
 });
 
 // Pie Chart 2020 Defense_inning
-var ctx20 = document.getElementById("myPieChart20");
-var myPieChart20 = new Chart(ctx20, {
+var ctx20 = document.getElementById("pie20innings");
+var pie20innings = new Chart(ctx20, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "岸田"],
@@ -873,8 +873,8 @@ var myPieChart20 = new Chart(ctx20, {
   }
 });
 // Pie Chart 2020 v2 Starting_games
-var ctx20v2 = document.getElementById("myPieChart20v2");
-var myPieChart20v2 = new Chart(ctx20v2, {
+var ctx20v2 = document.getElementById("pie20startings");
+var pie20startings = new Chart(ctx20v2, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "岸田"],
@@ -895,14 +895,14 @@ var myPieChart20v2 = new Chart(ctx20v2, {
     responsive: true,
   }
 });
-// Pie Chart 2020 v3 Stealing_bases
-var ctx20v3 = document.getElementById("myPieChart20v3");
-var myPieChart20v3 = new Chart(ctx20v3, {
+// Pie Chart 2020 v3 stolen_bases
+var ctx20v3 = document.getElementById("pie20stolenbases");
+var pie20stolenbases = new Chart(ctx20v3, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "岸田"],
     datasets: [{
-      data: stealing_bases20,
+      data: stolen_bases20,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
@@ -920,8 +920,8 @@ var myPieChart20v3 = new Chart(ctx20v3, {
 });
 
 // Pie Chart 2019 Defense_inning
-var ctx19 = document.getElementById("myPieChart19");
-var myPieChart19 = new Chart(ctx19, {
+var ctx19 = document.getElementById("pie19innings");
+var pie19innings = new Chart(ctx19, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "その他"],
@@ -943,8 +943,8 @@ var myPieChart19 = new Chart(ctx19, {
   }
 });
 // Pie Chart 2019 v2 Starting_games
-var ctx19v2 = document.getElementById("myPieChart19v2");
-var myPieChart19v2 = new Chart(ctx19v2, {
+var ctx19v2 = document.getElementById("pie19startings");
+var pie19startings = new Chart(ctx19v2, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "その他"],
@@ -965,14 +965,14 @@ var myPieChart19v2 = new Chart(ctx19v2, {
     },
   }
 });
-// Pie Chart 2019 v3 Stealing_bases
-var ctx19v3 = document.getElementById("myPieChart19v3");
-var myPieChart19v3 = new Chart(ctx19v3, {
+// Pie Chart 2019 v3 stolen_bases
+var ctx19v3 = document.getElementById("pie19stolenbases");
+var pie19stolenbases = new Chart(ctx19v3, {
   type: 'pie',
   data: {
     labels: ["小林", "炭谷", "大城", "その他"],
     datasets: [{
-      data: stealing_bases19,
+      data: stolen_bases19,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
@@ -990,8 +990,8 @@ var myPieChart19v3 = new Chart(ctx19v3, {
 });
 
 // Pie Chart 2018 Defense_inning
-var ctx18 = document.getElementById("myPieChart18");
-var myPieChart18 = new Chart(ctx18, {
+var ctx18 = document.getElementById("pie18innings");
+var pie18innings = new Chart(ctx18, {
   type: 'pie',
   data: {
     labels: ["小林", "大城", "宇佐見", "河野"],
@@ -1013,8 +1013,8 @@ var myPieChart18 = new Chart(ctx18, {
   }
 });
 // Pie Chart 2018 v2 Starting_games
-var ctx18v2 = document.getElementById("myPieChart18v2");
-var myPieChart18v2 = new Chart(ctx18v2, {
+var ctx18v2 = document.getElementById("pie18startings");
+var pie18startings = new Chart(ctx18v2, {
   type: 'pie',
   data: {
     labels: ["小林", "大城", "宇佐見", "河野"],
@@ -1035,14 +1035,14 @@ var myPieChart18v2 = new Chart(ctx18v2, {
     },
   }
 });
-// Pie Chart 2018 v3 Stealing_bases
-var ctx18v3 = document.getElementById("myPieChart18v3");
-var myPieChart18v3 = new Chart(ctx18v3, {
+// Pie Chart 2018 v3 stolen_bases
+var ctx18v3 = document.getElementById("pie18stolenbases");
+var pie18stolenbases = new Chart(ctx18v3, {
   type: 'pie',
   data: {
     labels: ["小林", "大城", "宇佐見", "河野"],
     datasets: [{
-      data: stealing_bases18,
+      data: stolen_bases18,
     //   data: [29, 28, 7, 0],
       backgroundColor: ['#007bff', '#ffc107', '#28a745', '#dc3545'],
     }],
@@ -1062,7 +1062,7 @@ var myPieChart18v3 = new Chart(ctx18v3, {
 
 // Bar Chart
 // Bar Chart 2022
-var ctx22 = document.getElementById("myBarChart22");
+var ctx22 = document.getElementById("bar22wins");
 var myLineChart22 = new Chart(ctx22, {
   type: 'bar',
   data: {

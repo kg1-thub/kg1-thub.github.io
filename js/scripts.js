@@ -28,36 +28,41 @@ function tab_change(year) {
                 // calmap_scroll_right();
             }
         };
+        if (year != '2022') {
+            downbtn.classList.add('d-none');
+        } else {
+            downbtn.classList.remove('d-none');
+        }
     };
 };
 
 document.getElementById('d2021').addEventListener('click', function() {
     tab_change('2021');
-    var innings21_ctx = document.getElementById('innings21canvas').getContext('2d');
-    window.myLine21v1 = new Chart(innings21_ctx, innings21_ctx_config);
-    var starting_games21_ctx = document.getElementById('starting_games21canvas').getContext('2d');
-    window.myLine21v2 = new Chart(starting_games21_ctx, starting_games21_ctx_config);
+    var innings21_ctx = document.getElementById('canvas21innings').getContext('2d');
+    window.line21innings = new Chart(innings21_ctx, innings21_ctx_config);
+    var starting_games21_ctx = document.getElementById('canvas21startings').getContext('2d');
+    window.line21startings = new Chart(starting_games21_ctx, starting_games21_ctx_config);
 });
 document.getElementById('d2020').addEventListener('click', function() {
     tab_change('2020');
-    var innings20_ctx = document.getElementById('innings20canvas').getContext('2d');
-    window.myLine20v1 = new Chart(innings20_ctx, innings20_ctx_config);
-    var starting_games20_ctx = document.getElementById('starting_games20canvas').getContext('2d');
-    window.myLine20v2 = new Chart(starting_games20_ctx, starting_games20_ctx_config);
+    var innings20_ctx = document.getElementById('canvas20innings').getContext('2d');
+    window.line20innings = new Chart(innings20_ctx, innings20_ctx_config);
+    var starting_games20_ctx = document.getElementById('canvas20startings').getContext('2d');
+    window.line20startings = new Chart(starting_games20_ctx, starting_games20_ctx_config);
 });
 document.getElementById('d2019').addEventListener('click', function() {
     tab_change('2019');
-    var innings19_ctx = document.getElementById('innings19canvas').getContext('2d');
-    window.myLine19v1 = new Chart(innings19_ctx, innings19_ctx_config);
-    var starting_games19_ctx = document.getElementById('starting_games19canvas').getContext('2d');
-    window.myLine19v2 = new Chart(starting_games19_ctx, starting_games19_ctx_config);
+    var innings19_ctx = document.getElementById('canvas19innings').getContext('2d');
+    window.line19innings = new Chart(innings19_ctx, innings19_ctx_config);
+    var starting_games19_ctx = document.getElementById('canvas19startings').getContext('2d');
+    window.line19startings = new Chart(starting_games19_ctx, starting_games19_ctx_config);
 });
 document.getElementById('d2018').addEventListener('click', function() {
     tab_change('2018');
-    var innings18_ctx = document.getElementById('innings18canvas').getContext('2d');
-    window.myLine18v1 = new Chart(innings18_ctx, innings18_ctx_config);
-    var starting_games18_ctx = document.getElementById('starting_games18canvas').getContext('2d');
-    window.myLine18v2 = new Chart(starting_games18_ctx, starting_games18_ctx_config);
+    var innings18_ctx = document.getElementById('canvas18innings').getContext('2d');
+    window.line18innings = new Chart(innings18_ctx, innings18_ctx_config);
+    var starting_games18_ctx = document.getElementById('canvas18startings').getContext('2d');
+    window.line18startings = new Chart(starting_games18_ctx, starting_games18_ctx_config);
 });
 
 

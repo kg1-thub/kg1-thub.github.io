@@ -394,7 +394,7 @@ if __name__=='__main__':
         atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
 
         pie_data = {'Catcher':['大城', '小林', '山瀬', '岸田'],
-                    'Stealing_bases':[0,0,0,0],
+                    'stolen_bases':[0,0,0,0],
                     'Defense_inning':[
                         [0,0,0,0,0,0,0,0],
                         [0,0,0,0,0,0,0,0],
@@ -415,11 +415,11 @@ if __name__=='__main__':
                     ]}
 
         for stat in catcher_stats[1:]:
-            pie_data['Stealing_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
+            pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
             # if stat[0] in ['大城', '小林', '山瀬', '岸田']:
-            #     pie_data['Stealing_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
+            #     pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
             # else:
-            #     pie_data['Stealing_bases'][pie_data['Catcher'].index('その他')] += stat[10]
+            #     pie_data['stolen_bases'][pie_data['Catcher'].index('その他')] += stat[10]
 
         sql_month_stats = " \
             SELECT tmp.month, tmp.catcher, tmp.cnt, tmp.ins, wins.cnt \

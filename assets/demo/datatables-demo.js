@@ -1,6 +1,6 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-  $('#dataTable18').DataTable({
+  $('#dt18catcher').DataTable({
     order: [ [ 1, "desc" ] ],
     columnDefs: [
       { width: "8%", targets: 2 },
@@ -22,7 +22,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable19').DataTable({
+  $('#dt19catcher').DataTable({
     order: [ [ 1, "desc" ] ],
     columnDefs: [
       { width: "8%", targets: 2 },
@@ -44,7 +44,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable19v2').DataTable({
+  $('#dt19month').DataTable({
     order: [ [ 0, "asc" ] ],
     columnDefs: [
       { width: "17%", targets: 1 },
@@ -62,7 +62,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable19v3').DataTable({
+  $('#dt19pitcher').DataTable({
     order: [ [ 1, "desc" ] ],
     columnDefs: [
       { width: "17%", targets: 1 },
@@ -80,7 +80,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable20').DataTable({
+  $('#dt20catcher').DataTable({
     order: [ [ 1, "desc" ] ],
     columnDefs: [
       { width: "8%", targets: 2 },
@@ -100,7 +100,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable20v2').DataTable({
+  $('#dt20month').DataTable({
     order: [ [ 0, "asc" ] ],
     columnDefs: [
       // { width: "17%", targets: 1 },
@@ -115,7 +115,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable20v3').DataTable({
+  $('#dt20pitcher').DataTable({
     order: [ [ 1, "desc" ], [ 2, "desc" ], [ 3, "desc" ]],
     columnDefs: [
       { width: "22%", targets: 1 },
@@ -130,7 +130,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable21').DataTable({
+  $('#dt21catcher').DataTable({
     order: [ [ 1, "desc" ] ],
     columnDefs: [
       { width: "8%", targets: 2 },
@@ -150,7 +150,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable21v2').DataTable({
+  $('#dt21month').DataTable({
     order: [ [ 0, "asc" ] ],
     columnDefs: [
       // { width: "17%", targets: 1 },
@@ -165,7 +165,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable21v3').DataTable({
+  $('#dt21pitcher').DataTable({
     order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     columnDefs: [
       { width: "22%", targets: 1 },
@@ -180,7 +180,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable22').DataTable({
+  $('#dt22catcher').DataTable({
     order: [ [ 1, "desc" ] ],
     columnDefs: [
       { width: "8%", targets: 2 },
@@ -200,7 +200,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable22v2').DataTable({
+  $('#dt22month').DataTable({
     order: [ [ 0, "asc" ] ],
     columnDefs: [
       // { width: "17%", targets: 1 },
@@ -215,7 +215,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#dataTable22v3').DataTable({
+  $('#dt22pitcher').DataTable({
     // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     order: [[ 1, "desc" ]],
     columnDefs: [
@@ -230,9 +230,9 @@ $(document).ready(function() {
   });
 });
 
-// dataTable22games
+// dt22games
 function makeCSV(records, columns) {
-  const divtable = document.getElementById('dataTable22games');
+  const divtable = document.getElementById('dt22games');
   const divcaption = document.createElement("caption");
   divcaption.setAttribute("id", "dt22gamescaption");
   divcaption.style.captionSide = "top";
@@ -308,7 +308,7 @@ function makeCSV(records, columns) {
   }
 
   $(document).ready(function() {
-      $('#dataTable22games').DataTable({
+      $('#dt22games').DataTable({
         order: [[ 0, "asc" ]],
         columnDefs: [
           { visible: false, targets: 0 },
@@ -342,7 +342,7 @@ function makeCSV(records, columns) {
         lengthMenu: [ 10, 30, 50 ],
         mark: true,
       }).on('search.dt', function() {
-        var table = $('#dataTable22games').DataTable();
+        var table = $('#dt22games').DataTable();
 
         var data = table.columns( [1, 3, 9] , {filter:'applied'}).data();
         var wls = [0, 0, 0];
@@ -374,13 +374,13 @@ function makeCSV(records, columns) {
 };
 
 function search_keyword(keyword) {
-  var table = $('#dataTable22games').DataTable();
+  var table = $('#dt22games').DataTable();
   table.search( keyword ).draw();
 };
 
 function search_today() {
   var today=new Date(); 
-  var table = $('#dataTable22games').DataTable();
+  var table = $('#dt22games').DataTable();
   table.search( ('0'+String(today.getMonth()+1)).slice(-2)+"/"+('0'+String(today.getDate())).slice(-2) ).draw();
 };
 
