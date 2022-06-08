@@ -237,6 +237,20 @@ if __name__=='__main__':
 
         # CALENDER-HEATMAP UPDATE
         CALENDERHEATMAP = './assets/demo/calendar-heatmap-demo.js'
+        _team = ''
+        if team=='阪神':
+            _team = 'Tigers'
+        elif team=='中日':
+            _team = 'Dragons'
+        elif team=='ヤクルト':
+            _team = 'Swallows'
+        elif team=='広島':
+            _team = 'Carp'
+        elif team=='ＤｅＮＡ':
+            _team = 'Baystars'
+        elif team=='西武':
+            _team = 'Lions'
+
         with open(CALENDERHEATMAP,mode='r',encoding='utf-8') as reader:
             content = reader.read()
             content = content.replace(
@@ -244,7 +258,7 @@ if __name__=='__main__':
                         "'"+tday.strftime('%Y-%m-%d')+"'"+': '+str(heatmap_WLD)+',\n    //@@NEXTGAME@@'
                     ).replace(
                         '//@@NEXTSCORE@@', 
-                        "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+team+' , '+score+ "',\n    //@@NEXTSCORE@@"
+                        "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score+ "',\n    //@@NEXTSCORE@@"
                     )
         with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:
             writer.write(content)

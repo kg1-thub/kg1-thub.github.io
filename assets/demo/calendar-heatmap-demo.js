@@ -68,8 +68,8 @@ var datas22 = {
     //@@NEXTGAME@@
 };
 var score22 = {
-    '2022-06-07': 'vs Lions , 4-9',
-    '2022-06-08': 'vs Lions , 3−0',
+    '2022-06-07': 'vs Lions , 9-4',
+    '2022-06-08': 'vs Lions , 3-0',
     //@@NEXTSCORE@@
 };
 var chartData22 = [];
