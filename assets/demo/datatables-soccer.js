@@ -53,8 +53,8 @@ function csv_data(dataPath) {
             { targets: 2 },
             { targets: 3 },
             { targets: 4 },
-            { targets: 6 },
             { targets: 5 },
+            { targets: 6 },
           ],
           columns: [     // [day, wc, game, 地区, vs, result , acore]
             null,

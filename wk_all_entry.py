@@ -1,6 +1,8 @@
 import requests
 import datetime
 from bs4 import BeautifulSoup
+import re
+import unicodedata
 import psycopg2
 from decimal import Decimal, ROUND_HALF_UP
 
@@ -119,6 +121,10 @@ if __name__=='__main__':
                 else:
                     team = news.text
 
+        _score = soup.find('p', class_='score')
+        _score = re.search(r'[０-９]{1,2}(−)[０-９]{1,2}', _score.text).group()
+        score = unicodedata.normalize('NFKC', _score.replace('−', '-'))
+
         tables = soup.findAll('div', class_='pitchscore')
         heatmap_WLD = 0    # (WIN=1, LOSE=-1, DRAW=0)
 
@@ -236,6 +242,9 @@ if __name__=='__main__':
             content = content.replace(
                         '//@@NEXTGAME@@', 
                         "'"+tday.strftime('%Y-%m-%d')+"'"+': '+str(heatmap_WLD)+',\n    //@@NEXTGAME@@'
+                    ).replace(
+                        '//@@NEXTSCORE@@', 
+                        "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+team+' , '+score+ "',\n    //@@NEXTSCORE@@"
                     )
         with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:
             writer.write(content)

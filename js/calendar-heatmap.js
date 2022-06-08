@@ -17,6 +17,7 @@ function calendarHeatmap() {
   var startDate = null;
   var endDate = null;
   var counterMap= {};
+  var score= {};
   var data = [];
   var max = null;
   var MIN = -1.5;
@@ -42,13 +43,13 @@ function calendarHeatmap() {
   chart.data = function (value) {
     if (!arguments.length) { return data; }
     data = value;
-
     counterMap= {};
 
     data.forEach(function (element, index) {
         var key= moment(element.date).format( 'YYYY-MM-DD' );
         var counter= counterMap[key] || 0;
         counterMap[key]= counter + element.count;
+        score[key] = element.score;
     });
 
     return chart;
@@ -204,9 +205,11 @@ function calendarHeatmap() {
             .append('div')
             .attr('class', 'day-cell-tooltip')
             .html(tooltipHTMLForDate(d))
+            .style('height', hightForDate(d))
             .style('left', function () { return Math.floor(i / 7) * SQUARE_LENGTH + 'px'; })
             .style('top', function () {
-              return formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING) + MONTH_LABEL_PADDING * 2 + 'px';
+              return formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING) + SQUARE_LENGTH * 1 + 'px';
+              // return formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING) + MONTH_LABEL_PADDING * 2 + 'px';
             });
         })
         .on('mouseout', function (d, i) {
@@ -246,7 +249,7 @@ function calendarHeatmap() {
           .attr('y', height + SQUARE_LENGTH*2.2)
           .text(locale.More);
 
-          legendGroup.append('text')
+        legendGroup.append('text')
           .attr('class', 'calendar-heatmap-legend-text calendar-heatmap-legend-text-more')
           // .attr('x', (width - legendWidth + SQUARE_PADDING) + (colorRange.length) * 13/2*1.3)
           .attr('x', width*0.11)
@@ -322,13 +325,14 @@ function calendarHeatmap() {
     function tooltipHTMLForDate(d) {
       var dateStr = moment(d).format('MMM D, YYYY');
       var count = countForDate(d);
+      var score = scoreForDate(d);
       if (count == 1) {
+        return '<span><strong>' + 'WIN ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>' + score;
         // return '<span><strong>' + (count ? count : locale.No) + ' ' + pluralizedTooltipUnit(count) + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
-        return '<span><strong>' + 'WIN ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
       } else if (count == -1) {
-        return '<span><strong>' + 'LOSE ' +'</strong> ' + locale.on + ' ' + dateStr + '</span>';
+        return '<span><strong>' + 'LOSE ' +'</strong> ' + locale.on + ' ' + dateStr + '</span>' + score;
       } else if (count == 0) {
-        return '<span><strong>' + 'DRAW ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
+        return '<span><strong>' + 'DRAW ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>' + score;
       } else if (count == MIN) {
         return '<span><strong>' + 'no game ' + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
       }
@@ -341,6 +345,26 @@ function calendarHeatmap() {
             return counterMap[key];
         } else {
             return counterMap[key] || MIN;
+        }
+    }
+
+    function scoreForDate(d) {
+        var key= moment(d).format( 'YYYY-MM-DD' );
+        // return counterMap[key] || 0;
+        if (score[key]) {
+            return '<br>' + score[key];
+        } else {
+            return '';
+        }
+    }
+
+    function hightForDate(d) {
+        var key= moment(d).format( 'YYYY-MM-DD' );
+        // return counterMap[key] || 0;
+        if (score[key]) {
+            return SQUARE_LENGTH*2.5 + 'px';
+        } else {
+            return SQUARE_LENGTH*1.5 + 'px';
         }
     }
 

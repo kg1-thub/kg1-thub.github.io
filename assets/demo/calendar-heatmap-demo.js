@@ -64,13 +64,20 @@ var datas22 = {
     '2022-06-04': 1,
     '2022-06-05': -1,
     '2022-06-07': -1,
+    '2022-06-08': -1,
     //@@NEXTGAME@@
+};
+var score22 = {
+    '2022-06-07': 'vs Lions , 4-9',
+    '2022-06-08': 'vs Lions , 3−0',
+    //@@NEXTSCORE@@
 };
 var chartData22 = [];
 for (var d in datas22) {
     chartData22.push({
         date: moment(d, 'YYYY-MM-DD').startOf('day').toDate(),
-        count: datas22[d]
+        count: datas22[d],
+        score: score22[d],
     });
 };
 var heatmap22 = calendarHeatmap()
@@ -81,7 +88,7 @@ var heatmap22 = calendarHeatmap()
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-  .svgWidth('690px')
+  .svgWidth('700px')
   .colorRange(_colorRange);
 heatmap22();  // render the chart
 
