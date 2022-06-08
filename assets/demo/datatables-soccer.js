@@ -6,7 +6,8 @@ function csv_data(dataPath) {
 	request.addEventListener('load', (event) => { // ロードさせ実行
 		const response = event.target.responseText; // 受け取ったテキストを返す
     var tmp = response.split("\n");
-    var cols = ["day","spot","score","vs", "result", "area", "wc"];
+    var cols = ["試合日","試合","スコア","対戦チーム", "勝敗", "所属", "カテゴリ"];
+    var icols = [0, 6, 1, 5, 3, 4, 2];
     const divcaption2 = document.createElement("caption");
     divcaption2.setAttribute("id", "dt22gamesvcaption");
     divcaption2.style.captionSide = "top";
@@ -22,9 +23,9 @@ function csv_data(dataPath) {
     output_svg.appendChild(divthead2);
     const divtheadr2 = document.createElement("tr");
     divthead2.appendChild(divtheadr2);
-    for (var j = 0; j < cols.length; j++) {
+    for (var j = 0; j < icols.length; j++) {
         let divth = document.createElement("th");
-        divth.textContent = cols[j];
+        divth.textContent = cols[icols[j]];
         divtheadr2.appendChild(divth);
     }
   
@@ -36,9 +37,9 @@ function csv_data(dataPath) {
       divtbody2.appendChild(divtr);
       var row_data = tmp[i+1];
         records[i] = row_data.split(",");
-        for (var j=0; j<cols.length; j++) {
+        for (var j=0; j<icols.length; j++) {
           let divtd = document.createElement("td");
-          divtd.textContent = String(records[i][j]);
+          divtd.textContent = String(records[i][icols[j]]);
           divtr.appendChild(divtd);
         }
     }
@@ -52,23 +53,41 @@ function csv_data(dataPath) {
             { targets: 2 },
             { targets: 3 },
             { targets: 4 },
-            { targets: 5 },
             { targets: 6 },
+            { targets: 5 },
           ],
-          columns: [
-            null,
+          columns: [     // [day, wc, game, 地区, vs, result , acore]
             null,
             {
-              render: function(arg) { 
-                // console.log(arg);
-                if (arg.includes("PK")) {
-                  _k = arg.split("PK");
-                  // return `<span class="badge badge-warning">${arg}</span>`;
-                  return `${_k[0]}<br><span class="badge badge-info">PK ${_k[1]}</span>`;
+              render: function(arg) {
+                if (arg=="W杯本戦") {
+                  return `<span class="badge badge-success">${arg}</span>`;
+                } else if (arg=="W杯予選") {
+                  return `<span class="badge badge-danger">${arg}</span>`;
                 } else {
                   return `${arg}`;
                 }
-              },
+             }
+            },
+            null,
+            {
+              render: function(arg) {
+                if (arg=="アジア") {
+                  return `<span class="badge" style="background-color: rgb(170,221,221);">${arg}</span>`;
+                } else if (arg=="アフリカ") {
+                  return `<span class="badge" style="background-color: rgb(170,221,170);">${arg}</span>`;
+                } else if (arg=="オセアニア") {
+                  return `<span class="badge" style="background-color: rgb(255,255,187);">${arg}</span>`;
+                } else if (arg=="欧州") {
+                  return `<span class="badge" style="background-color: rgb(255,187,221);">${arg}</span>`;
+                } else if (arg=="北中米カリブ海") {
+                  return `<span class="badge" style="background-color: rgb(153,221,255);">${arg}</span>`;
+                } else if (arg=="南米") {
+                  return `<span class="badge" style="background-color: rgb(170,187,238);">${arg}</span>`;
+                } else {
+                  return `<span class="badge" style="background-color: rgb(204,204,204);">${arg}</span>`;
+                }
+              }
             },
             null,
             // {
@@ -89,34 +108,16 @@ function csv_data(dataPath) {
               }
             },
             {
-              render: function(arg) {
-                if (arg=="アジア") {
-                  return `<span class="badge" style="background-color: rgb(170,221,221);">${arg}</span>`;
-                } else if (arg=="アフリカ") {
-                  return `<span class="badge" style="background-color: rgb(170,221,170);">${arg}</span>`;
-                } else if (arg=="オセアニア") {
-                  return `<span class="badge" style="background-color: rgb(255,255,187);">${arg}</span>`;
-                } else if (arg=="欧州") {
-                  return `<span class="badge" style="background-color: rgb(255,187,221);">${arg}</span>`;
-                } else if (arg=="北中米カリブ海") {
-                  return `<span class="badge" style="background-color: rgb(153,221,255);">${arg}</span>`;
-                } else if (arg=="南米") {
-                  return `<span class="badge" style="background-color: rgb(170,187,238);">${arg}</span>`;
-                } else {
-                  return `<span class="badge" style="background-color: rgb(204,204,204);">${arg}</span>`;
-                }
-              }
-            },
-            {
-              render: function(arg) {
-                if (arg=="W杯本戦") {
-                  return `<span class="badge badge-success">${arg}</span>`;
-                } else if (arg=="W杯予選") {
-                  return `<span class="badge badge-danger">${arg}</span>`;
+              render: function(arg) { 
+                // console.log(arg);
+                if (arg.includes("PK")) {
+                  _k = arg.split("PK");
+                  // return `<span class="badge badge-warning">${arg}</span>`;
+                  return `${_k[0]}<br><span class="badge badge-info">PK ${_k[1]}</span>`;
                 } else {
                   return `${arg}`;
                 }
-             }
+              },
             },
           ],
           // dom: 'frtiQlp',
@@ -135,10 +136,10 @@ function csv_data(dataPath) {
           mark: false,
         }).on('search.dt', function() {
           var table = $('#DTSoccerGames').DataTable();
-  
-          var data = table.columns( [4] , {filter:'applied'}).data();
+
+          var data = table.columns( [5] , {filter:'applied'}).data();
           var wld = [0, 0, 0];
-  
+
           for (let i=0; i<data[0].length; i++) {
             if (data[0][i]=='Win') {
               wld[0] += 1;
@@ -166,7 +167,7 @@ function search_keywordv(keyword) {
     areas[i].style.backgroundColor = null;
   }
   var table = $('#DTSoccerGames').DataTable();
-  table.columns(5).search( keyword ).draw();
+  table.columns(3).search( keyword ).draw();
   if (keyword=="欧州") {
     var badge = document.getElementById('filter_eu');
     badge.classList.remove('badge-secondary');
