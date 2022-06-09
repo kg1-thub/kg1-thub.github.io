@@ -205,12 +205,11 @@ function calendarHeatmap() {
             .append('div')
             .attr('class', 'day-cell-tooltip')
             .html(tooltipHTMLForDate(d))
-            .style('height', hightForDate(d))
+            .style('height', SQUARE_LENGTH * (1.5 + isScoreForDate(d)) + 'px')
             .style('left', function () { return Math.floor(i / 7) * SQUARE_LENGTH + 'px'; })
             .style('top', function () {
-
               return ((formatWeekday(d.getDay()) + 2) % 7) * (SQUARE_LENGTH + SQUARE_PADDING) +
-                       SQUARE_LENGTH * (0.2 + Math.floor((formatWeekday(d.getDay()) + 2) / 7))*3.3 + 'px';
+                       SQUARE_LENGTH * (0.66 + Math.floor((formatWeekday(d.getDay()) + 2) / 7)*(4.3 - isScoreForDate(d))) + 'px';
               // return formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING) + MONTH_LABEL_PADDING * 2 + 'px';
             });
         })
@@ -360,13 +359,13 @@ function calendarHeatmap() {
         }
     }
 
-    function hightForDate(d) {
+    function isScoreForDate(d) {
         var key= moment(d).format( 'YYYY-MM-DD' );
         // return counterMap[key] || 0;
         if (score[key]) {
-            return SQUARE_LENGTH*2.5 + 'px';
+            return 1;
         } else {
-            return SQUARE_LENGTH*1.5 + 'px';
+            return 0;
         }
     }
 
