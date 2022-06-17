@@ -172,6 +172,16 @@ if __name__=='__main__':
                             tdata.append(team)
                             tdata.append('1' if j==1 else '0')
                             tdata.append(tday.strftime('%Y')+'RS')
+                            if j==1: ## heatmap data
+                                start_catcher = catcher
+                                start_pitcher = tdata[1].replace("　", "")
+                                if start_pitcher=='メルセデス':
+                                    start_pitcher='ﾒﾙｾﾃﾞｽ'
+                                elif start_pitcher=='シューメーカー':
+                                    start_pitcher='ｼｭｰﾒｰｶｰ'
+                                elif start_pitcher=='アンドリース':
+                                    start_pitcher='ｱﾝﾄﾞﾘｰｽ'
+
 
                             print(','.join(tdata))
                             if not fullmask: print()
@@ -268,7 +278,8 @@ if __name__=='__main__':
                         "'"+tday.strftime('%Y-%m-%d')+"'"+': '+str(heatmap_WLD)+',\n    //@@NEXTGAME@@'
                     ).replace(
                         '//@@NEXTSCORE@@', 
-                        "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score+ "',\n    //@@NEXTSCORE@@"
+                        "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
+                        + ' </br>Start P.'+start_pitcher+' / C.'+start_catcher+"',\n    //@@NEXTSCORE@@"
                     )
         with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:
             writer.write(content)

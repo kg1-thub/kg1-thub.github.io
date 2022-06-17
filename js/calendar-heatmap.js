@@ -205,11 +205,11 @@ function calendarHeatmap() {
             .append('div')
             .attr('class', 'day-cell-tooltip')
             .html(tooltipHTMLForDate(d))
-            .style('height', SQUARE_LENGTH * (1.5 + isScoreForDate(d)) + 'px')
+            .style('height', SQUARE_LENGTH * (1.5 + isScoreForDate(d)*2) + 'px')
             .style('left', function () { return Math.floor(i / 7) * SQUARE_LENGTH + 'px'; })
             .style('top', function () {
-              return ((formatWeekday(d.getDay()) + 2) % 7) * (SQUARE_LENGTH + SQUARE_PADDING) +
-                       SQUARE_LENGTH * (0.66 + Math.floor((formatWeekday(d.getDay()) + 2) / 7)*(4.3 - isScoreForDate(d))) + 'px';
+              return ((formatWeekday(d.getDay()) + 3) % 7 - 0.2) * (SQUARE_LENGTH + SQUARE_PADDING) +
+                       SQUARE_LENGTH * (Math.floor((formatWeekday(d.getDay()) + 3) / 7)*(3.9 - isScoreForDate(d)*2)) + 'px';
               // return formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING) + MONTH_LABEL_PADDING * 2 + 'px';
             });
         })
