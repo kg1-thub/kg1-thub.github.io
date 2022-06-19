@@ -71,6 +71,7 @@ var datas22 = {
     '2022-06-12': -1,
     '2022-06-17': -1,
     '2022-06-18': -1,
+    '2022-06-19': 1,
     //@@NEXTGAME@@
 };
 var score22 = {
@@ -143,6 +144,7 @@ var score22 = {
     '2022-06-12': 'vs Eagles , 9-2 </br>Start P.山崎伊 / C.山瀬',
     '2022-06-17': 'vs Dragons , 2-0 </br>Start P.菅野 / C.小林',
     '2022-06-18': 'vs Dragons , 4-3 </br>Start P.ｱﾝﾄﾞﾘｰｽ / C.小林',
+    '2022-06-19': 'vs Dragons , 3-5 </br>Start P.ｼｭｰﾒｰｶｰ / C.小林',
     //@@NEXTSCORE@@
 };
 var chartData22 = [];
