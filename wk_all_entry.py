@@ -392,6 +392,7 @@ if __name__=='__main__':
                 sum(floor(innings))+sum(mod(innings,1))*10/3 ins \
                 FROM catcher_stats \
                 WHERE series = '%s' \
+                  AND NOT (catcher='小林' AND pitcher='井　納' ) \
                 GROUP BY catcher, win_lose_save, %s \
                 ORDER BY 1, 2 DESC \
             ) tmp \
@@ -401,6 +402,7 @@ if __name__=='__main__':
             GROUP BY %s \
             ORDER BY 1 ASC, 2 ASC, 3 ASC, 4 ASC  \
             ;"
+        # l.395, division by zero error 回避の暫定対応
 
         stats = get_query(sql_v3, TODAY.strftime('%Y')+'RS')
         catcher_stats = []
