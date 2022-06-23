@@ -67,7 +67,10 @@ def create_table_category(series, category):
         table_html += tb+'<tr>\n'
         for x in stat:
             if x is None:
-                table_html += tb+'\t<td>---</td>\n'
+                if stat[0] != '井　納':
+                    table_html += tb+'\t<td>---</td>\n'
+                else:
+                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
             else:
                 table_html += tb+'\t<td>'+str(x)+'</td>\n'
         table_html += tb+'</tr>\n'
