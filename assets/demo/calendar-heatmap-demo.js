@@ -75,6 +75,7 @@ var datas22 = {
     '2022-06-21': -1,
     '2022-06-22': 1,
     '2022-06-23': -1,
+    '2022-06-24': -1,
     //@@NEXTGAME@@
 };
 var score22 = {
@@ -151,6 +152,7 @@ var score22 = {
     '2022-06-21': 'vs Baystars , 1-3 </br>Start P.戸郷 / C.大城',
     '2022-06-22': 'vs Baystars , 5-4 </br>Start P.ﾒﾙｾﾃﾞｽ / C.小林',
     '2022-06-23': 'vs Baystars , 5-7 </br>Start P.赤星 / C.小林',
+    '2022-06-24': 'vs Swallows , 16-6 </br>Start P.菅野 / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData22 = [];

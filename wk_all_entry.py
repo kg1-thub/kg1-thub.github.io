@@ -125,6 +125,7 @@ if __name__=='__main__':
                     team = news.text
 
         _score = soup.find('p', class_='score')
+        # print(_score.text)
         _score = re.search(r'[０-９]{1,2}(−)[０-９]{1,2}', _score.text).group()
         score = unicodedata.normalize('NFKC', _score.replace('−', '-'))
 
