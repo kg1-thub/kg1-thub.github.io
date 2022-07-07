@@ -219,10 +219,10 @@ $(document).ready(function() {
     // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     order: [[ 1, "desc" ]],
     columnDefs: [
-      { width: "22%", targets: 1 },
-      { width: "22%", targets: 2 },
-      { width: "22%", targets: 3 },
-      { width: "22%", targets: 4 },
+      // { width: "22%", targets: 1 },
+      // { width: "22%", targets: 2 },
+      // { width: "22%", targets: 3 },
+      // { width: "22%", targets: 4 },
     ],
     searching: false,
     paging: false,
@@ -332,7 +332,7 @@ function makeCSV(records, columns) {
         searching: true,
         search: {
           regex: true,
-          search: "07/06" // @@KEYWORD@@
+          search: "07/07" // @@KEYWORD@@
         },
         paging: true,
         info: false,

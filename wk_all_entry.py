@@ -65,12 +65,12 @@ def create_table_category(series, category):
     tb = '\t'*11
     for stat in stats:
         table_html += tb+'<tr>\n'
-        for x in stat:
+        for i, x in enumerate(stat):
             if x is None:
-                if stat[0] != '井　納':
-                    table_html += tb+'\t<td>---</td>\n'
-                else:
+                if stat[0] == '井　納' and i==2:
                     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
+                else:
+                    table_html += tb+'\t<td>---</td>\n'
             else:
                 table_html += tb+'\t<td>'+str(x)+'</td>\n'
         table_html += tb+'</tr>\n'
@@ -374,6 +374,7 @@ if __name__=='__main__':
             MAX(CASE tmp2.catcher WHEN '大城' THEN tmp2.wls ELSE NULL END) 大城, \
             MAX(CASE tmp2.catcher WHEN '小林' THEN tmp2.wls ELSE NULL END) 小林, \
             MAX(CASE tmp2.catcher WHEN '山瀬' THEN tmp2.wls ELSE NULL END) 山瀬, \
+            MAX(CASE tmp2.catcher WHEN '喜多' THEN tmp2.wls ELSE NULL END) 喜多, \
             MAX(CASE tmp2.catcher WHEN '岸田' THEN tmp2.wls ELSE NULL END) 岸田 \
             FROM \
             ( \
@@ -443,7 +444,7 @@ if __name__=='__main__':
             atag_tweet_html += str(catcher_stat[8])+' ('+str(float(catcher_stat[1]))+')%0D%0A'
         atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
 
-        pie_data = {'Catcher':['大城', '小林', '山瀬', '岸田'],
+        pie_data = {'Catcher':['大城', '小林', '岸田', 'その他'],
                     'stolen_bases':[0,0,0,0],
                     'Defense_inning':[
                         [0,0,0,0,0,0,0,0],
@@ -465,11 +466,11 @@ if __name__=='__main__':
                     ]}
 
         for stat in catcher_stats[1:]:
-            pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
-            # if stat[0] in ['大城', '小林', '山瀬', '岸田']:
-            #     pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
-            # else:
-            #     pie_data['stolen_bases'][pie_data['Catcher'].index('その他')] += stat[10]
+            # pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
+            if stat[0] in ['大城', '小林', '岸田']:
+                pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
+            else:
+                pie_data['stolen_bases'][pie_data['Catcher'].index('その他')] += stat[10]
 
         sql_month_stats = " \
             SELECT tmp.month, tmp.catcher, tmp.cnt, tmp.ins, wins.cnt \
@@ -498,14 +499,14 @@ if __name__=='__main__':
         area_datas = get_query2(sql_month_stats, TODAY.strftime('%Y')+'RS')
 
         for x in area_datas:
-            if x[1] in ['大城', '小林', '山瀬', '岸田']:
+            if x[1] in ['大城', '小林', '岸田']:
                 pie_data['Starting_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[2]
                 pie_data['Defense_inning'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[3]
                 pie_data['Winning_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[4] or 0
-            # else:
-            #     pie_data['Starting_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[2]
-            #     pie_data['Defense_inning'][pie_data['Catcher'].index('その他')][x[0]-3] += x[3]
-            #     pie_data['Winning_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[4] or 0
+            else:
+                pie_data['Starting_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[2]
+                pie_data['Defense_inning'][pie_data['Catcher'].index('その他')][x[0]-3] += x[3]
+                pie_data['Winning_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[4] or 0
 
         table_month_html = create_table_category(TODAY.strftime('%Y')+'RS', 'month')
 
