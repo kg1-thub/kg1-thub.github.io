@@ -67,9 +67,7 @@ def create_table_category(series, category):
         table_html += tb+'<tr>\n'
         for i, x in enumerate(stat):
             if x is None:
-                if stat[0] == '井　納' and i==2:
-                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
-                elif stat[0] == 'シューメーカー' and i==5:
+                if stat[0] == 'シューメーカー' and i==5:
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 else:
                     table_html += tb+'\t<td>---</td>\n'
@@ -399,7 +397,6 @@ if __name__=='__main__':
                 sum(floor(innings))+sum(mod(innings,1))*10/3 ins \
                 FROM catcher_stats \
                 WHERE series = '%s' \
-                  AND NOT (catcher='小林' AND pitcher='井　納' ) \
                   AND NOT (catcher='岸田' AND pitcher='シューメーカー' ) \
                 GROUP BY catcher, win_lose_save, %s \
                 ORDER BY 1, 2 DESC \
