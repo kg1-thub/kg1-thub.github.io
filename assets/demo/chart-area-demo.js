@@ -178,7 +178,7 @@ const illabel22 = {
     // rotation: 270,
     backgroundColor: 'pink',
     color: 'black',
-    content: 'INTERLEAGUE',
+    content: 'INTERLEAGUE PLAY',
     enabled: true,
     position: 'end',
     font: {
@@ -207,7 +207,7 @@ const illabel21 = {
     // rotation: 270,
     backgroundColor: 'pink',
     color: 'black',
-    content: 'INTERLEAGUE',
+    content: 'INTERLEAGUE PLAY',
     enabled: true,
     position: 'start',
     font: {
@@ -309,7 +309,7 @@ const illabel19 = {
     // rotation: 270,
     backgroundColor: 'pink',
     color: 'black',
-    content: 'INTERLEAGUE',
+    content: 'INTERLEAGUE PLAY',
     enabled: true,
     position: 'start',
     font: {
@@ -338,7 +338,7 @@ const illabel18 = {
     // rotation: 270,
     backgroundColor: 'pink',
     color: 'black',
-    content: 'INTERLEAGUE',
+    content: 'INTERLEAGUE PLAY',
     enabled: true,
     position: 'start',
     font: {
