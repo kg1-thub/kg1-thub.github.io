@@ -111,6 +111,7 @@ var datas22 = {
     '2022-08-13': 1,
     '2022-08-14': 1,
     '2022-08-16': -1,
+    '2022-08-17': -1,
     //@@NEXTGAME@@
 };
 var score22 = {
@@ -223,6 +224,7 @@ var score22 = {
     '2022-08-13': 'vs Carp , 4-1 </br>Start P.直江 / C.大城',
     '2022-08-14': 'vs Carp , 3-2 </br>Start P.ｼｭｰﾒｰｶｰ / C.大城',
     '2022-08-16': 'vs Baystars , 3-1 </br>Start P.菅野 / C.大城',
+    '2022-08-17': 'vs Baystars , 7-3 </br>Start P.ﾒﾙｾﾃﾞｽ / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData22 = [];
