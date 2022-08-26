@@ -1006,7 +1006,7 @@ var pie18innings = new Chart(ctx18, {
       legend: {
         position: 'right',
         labels: {
-          boxWidth: 12
+          usePointStyle: true
         }
       }
     },
@@ -1029,7 +1029,7 @@ var pie18startings = new Chart(ctx18v2, {
       legend: {
         position: 'right',
         labels: {
-          boxWidth: 12
+          usePointStyle: true
         }
       }
     },
