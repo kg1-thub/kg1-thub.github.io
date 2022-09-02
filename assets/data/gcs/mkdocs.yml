@@ -9,11 +9,13 @@ nav:
         # - Privacy policy: about/privacy-policy.md
     - Contact: https://forms.gle/f5mB854NhKq3hHq48
     # - POSTS: 
-        # - posts/maincatcher19vs20.md
-    # - HACKS: 
+    #     - posts/maincatcher19vs20.md
+    - HACKS: 
         # - hacks/quick_start_mkdocs.md
+        - hacks/quick_regular_expressions.md
         # - oss_db_quiz:  https://kg1-thub.github.io/catcher-stats/hacks/oss_db_quiz/
-        # - hacks/quick_regular_expressions.md
+    - GAMES: 
+        - 4HITS:  https://kg1-thub.github.io/games/
 
 theme:
     name: material
