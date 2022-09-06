@@ -244,6 +244,8 @@ function makeCSV(records, columns) {
   var wls = [0, 0, 0];
   var ins_outs = [0, 0];
   var ers = 0;
+  var qs = 0;
+  var hqs = 0;
   for (let i=0; i<records.length; i++) {
     if (records[i][0]=='W') {
       wls[0] += 1;
@@ -261,10 +263,16 @@ function makeCSV(records, columns) {
       ins_outs[0] += parseInt(records[i][2]);
     }
 
+    if (records[i][12]=='1' && parseFloat(records[i][2])>=6 && parseFloat(records[i][8])<=3)
+    {
+      console.log(qs,records[i]);
+      qs += 1;
+    }
+
     ers += parseInt(records[i][8]);
   }
   // divcaption.textContent = "勝-敗-S, 防御率 (イニング)";
-  divcaption.textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+  divcaption.textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS`;
   divtable.appendChild(divcaption);
 
   const divthead = document.createElement("thead");
@@ -332,7 +340,7 @@ function makeCSV(records, columns) {
         searching: true,
         search: {
           regex: true,
-          search: "09/04" // @@KEYWORD@@
+          search: "09/06" // @@KEYWORD@@
         },
         paging: true,
         info: false,
@@ -344,10 +352,12 @@ function makeCSV(records, columns) {
       }).on('search.dt', function() {
         var table = $('#dt22games').DataTable();
 
-        var data = table.columns( [1, 3, 9] , {filter:'applied'}).data();
+        var data = table.columns( [1, 3, 9, 13] , {filter:'applied'}).data();
         var wls = [0, 0, 0];
         var ins_outs = [0, 0];
         var ers = 0;
+        var qs = 0;
+        var st = 0
 
         for (let i=0; i<data[0].length; i++) {
           if (data[0][i]=='W') {
@@ -366,9 +376,22 @@ function makeCSV(records, columns) {
             ins_outs[0] += parseInt(data[1][i]);
           }
 
+          console.log(data);
+          if (data[3][i]=='先発') {
+            st += 1;
+            if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3)
+            {
+            qs += 1;
+            }
+          } 
+
           ers += parseInt(data[2][i]);
         }
-        document.getElementById('dt22gamescaption').textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+        if (st==0){
+          document.getElementById('dt22gamescaption').textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+        } else {
+          document.getElementById('dt22gamescaption').textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
+        }
       })
   });
 };
