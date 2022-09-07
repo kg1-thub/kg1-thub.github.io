@@ -231,10 +231,10 @@ $(document).ready(function() {
 });
 
 // dt22games
-function makeCSV(records, columns) {
-  const divtable = document.getElementById('dt22games');
+function makeCSV(records, columns, year) {
+  const divtable = document.getElementById('dt'+year+'games');
   const divcaption = document.createElement("caption");
-  divcaption.setAttribute("id", "dt22gamescaption");
+  divcaption.setAttribute("id", "dt"+year+"gamescaption");
   divcaption.style.captionSide = "top";
   divcaption.style.fontSize = "1.4rem";
   divcaption.style.fontWeight = "300";
@@ -265,7 +265,6 @@ function makeCSV(records, columns) {
 
     if (records[i][12]=='1' && parseFloat(records[i][2])>=6 && parseFloat(records[i][8])<=3)
     {
-      console.log(qs,records[i]);
       qs += 1;
     }
 
@@ -316,7 +315,7 @@ function makeCSV(records, columns) {
   }
 
   $(document).ready(function() {
-      $('#dt22games').DataTable({
+      $('#dt'+year+'games').DataTable({
         order: [[ 0, "asc" ]],
         columnDefs: [
           { visible: false, targets: 0 },
@@ -340,7 +339,7 @@ function makeCSV(records, columns) {
         searching: true,
         search: {
           regex: true,
-          search: "09/06" // @@KEYWORD@@
+          search: "09/07" // @@KEYWORD@@
         },
         paging: true,
         info: false,
@@ -350,7 +349,7 @@ function makeCSV(records, columns) {
         lengthMenu: [ 10, 30, 50 ],
         mark: true,
       }).on('search.dt', function() {
-        var table = $('#dt22games').DataTable();
+        var table = $('#dt'+year+'games').DataTable();
 
         var data = table.columns( [1, 3, 9, 13] , {filter:'applied'}).data();
         var wls = [0, 0, 0];
@@ -376,21 +375,19 @@ function makeCSV(records, columns) {
             ins_outs[0] += parseInt(data[1][i]);
           }
 
-          console.log(data);
           if (data[3][i]=='先発') {
             st += 1;
-            if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3)
-            {
-            qs += 1;
+            if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3) {
+              qs += 1;
             }
-          } 
+          }
 
           ers += parseInt(data[2][i]);
         }
         if (st==0){
-          document.getElementById('dt22gamescaption').textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+          document.getElementById('dt'+year+'gamescaption').textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
         } else {
-          document.getElementById('dt22gamescaption').textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
+          document.getElementById('dt'+year+'gamescaption').textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
         }
       })
   });
@@ -417,8 +414,11 @@ window.onload = function() {
 };
 
 {
-  var fileurl = "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats22.csv";
-  fetch(fileurl)
+  // var cols = ["wls","pitcher","innings","at_bats","hits","strikeouts","walks","runs","earned_runs","catcher","day_of_game","vs_team,starting,series"];
+  var cols = ["勝敗S","投手","イニング","at_bats","hits","strikeouts","walks","失点","自責点","捕手","月日","対戦","出場","series"];
+
+  var fileurl22 = "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats22.csv";
+  fetch(fileurl22)
   .then(res => res.blob()) // Gets the response and returns it as a blob
   .then(blob => {
       var file = blob;
@@ -428,17 +428,109 @@ window.onload = function() {
           var textdata = event.target.result;
           var tmp = textdata.split("\n");
           // var cols = tmp[0].split(",");
-          // var cols = ["wls","pitcher","innings","at_bats","hits","strikeouts","walks","runs","earned_runs","catcher","day_of_game","vs_team,starting,series"];
-          var cols = ["勝敗S","投手","イニング","at_bats","hits","strikeouts","walks","失点","自責点","捕手","月日","対戦","出場","series"];
           var records = [];
           for (var i = 0; i < tmp.length-2; i++) {
               var row_data = tmp[i+1];
               records[i] = row_data.split(",");
+              console.log(row_data);
           }
-          makeCSV(records, cols);
+          makeCSV(records, cols, '22');
       };
       reader.onerror = function() {
           alert("エラー：ファイルをロードできません。");
       };
   });
+
+  // var fileurl21 = "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats21.csv";
+  // fetch(fileurl21)
+  // .then(res21 => res21.blob()) // Gets the response and returns it as a blob
+  // .then(blob21 => {
+  //     var file = blob21;
+  //     var reader = new FileReader();
+  //     reader.readAsText(file, 'Shift_JIS');
+  //     reader.onload = function(event) {
+  //         var textdata = event.target.result;
+  //         var tmp = textdata.split("\n");
+  //         // var cols = tmp[0].split(",");
+  //         var records = [];
+  //         for (var i = 0; i < tmp.length-2; i++) {
+  //             var row_data = tmp[i+1];
+  //             records[i] = row_data.split(",");
+  //             console.log(row_data);
+  //         }
+  //         makeCSV(records, cols, '21');
+  //     };
+  //     reader.onerror = function() {
+  //         alert("エラー：ファイルをロードできません。");
+  //     };
+  // });
+
+  // var fileurl20 = "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats20.csv";
+  // fetch(fileurl20)
+  // .then(res => res.blob()) // Gets the response and returns it as a blob
+  // .then(blob => {
+  //     var file = blob;
+  //     var reader = new FileReader();
+  //     reader.readAsText(file, 'Shift_JIS');
+  //     reader.onload = function(event) {
+  //         var textdata = event.target.result;
+  //         var tmp = textdata.split("\n");
+  //         // var cols = tmp[0].split(",");
+  //         var records = [];
+  //         for (var i = 0; i < tmp.length-2; i++) {
+  //             var row_data = tmp[i+1];
+  //             records[i] = row_data.split(",");
+  //         }
+  //         makeCSV(records, cols, '20');
+  //     };
+  //     reader.onerror = function() {
+  //         alert("エラー：ファイルをロードできません。");
+  //     };
+  // });
+
+  // var fileurl19 = "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats19.csv";
+  // fetch(fileurl19)
+  // .then(res => res.blob()) // Gets the response and returns it as a blob
+  // .then(blob => {
+  //     var file = blob;
+  //     var reader = new FileReader();
+  //     reader.readAsText(file, 'Shift_JIS');
+  //     reader.onload = function(event) {
+  //         var textdata = event.target.result;
+  //         var tmp = textdata.split("\n");
+  //         // var cols = tmp[0].split(",");
+  //         var records = [];
+  //         for (var i = 0; i < tmp.length-2; i++) {
+  //             var row_data = tmp[i+1];
+  //             records[i] = row_data.split(",");
+  //         }
+  //         makeCSV(records, cols, '19');
+  //     };
+  //     reader.onerror = function() {
+  //         alert("エラー：ファイルをロードできません。");
+  //     };
+  // });
+
+  // var fileurl18 = "https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats18.csv";
+  // fetch(fileurl18)
+  // .then(res => res.blob()) // Gets the response and returns it as a blob
+  // .then(blob => {
+  //     var file = blob;
+  //     var reader = new FileReader();
+  //     reader.readAsText(file, 'Shift_JIS');
+  //     reader.onload = function(event) {
+  //         var textdata = event.target.result;
+  //         var tmp = textdata.split("\n");
+  //         // var cols = tmp[0].split(",");
+  //         var records = [];
+  //         for (var i = 0; i < tmp.length-2; i++) {
+  //             var row_data = tmp[i+1];
+  //             records[i] = row_data.split(",");
+  //         }
+  //         makeCSV(records, cols, '18');
+  //     };
+  //     reader.onerror = function() {
+  //         alert("エラー：ファイルをロードできません。");
+  //     };
+  // });
 }
