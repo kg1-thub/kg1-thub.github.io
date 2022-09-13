@@ -296,7 +296,7 @@ if __name__=='__main__':
             content = ''
             for line in lines:
                 if '@@KEYWORD@@' in line:
-                    content += '          search: "'+tday.strftime('%m/%d')+'" // @@KEYWORD@@\n'
+                    content += '    keyword = "'+tday.strftime('%m/%d')+'" // @@KEYWORD@@\n'
                 else:
                     content += line
         with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:

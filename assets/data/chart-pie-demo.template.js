@@ -645,13 +645,6 @@ var starting_games18_ctx_config = {
     options: options_prm
 };
 
-// window.onload = function() {
-//     var innings22_ctx = document.getElementById('canvas22innings').getContext('2d');
-//     window.line22innings = new Chart(innings22_ctx, innings22_ctx_config);
-//     var starting_games22_ctx = document.getElementById('canvas22startings').getContext('2d');
-//     window.line22startings = new Chart(starting_games22_ctx, starting_games22_ctx_config);
-// };
-
 window.addEventListener('load', function(){
   var innings22_ctx = document.getElementById('canvas22innings').getContext('2d');
   window.line22innings = new Chart(innings22_ctx, innings22_ctx_config);
