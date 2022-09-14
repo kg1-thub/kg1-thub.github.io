@@ -347,7 +347,8 @@ function makeCSV(records, columns, year) {
           regex: true,
           search: keyword
         },
-        paging: true,
+        // paging: true,
+        paging: false,
         info: false,
         // language: {
         //   searchPlaceholder: "search keyword"
@@ -453,5 +454,4 @@ window.onload = function() {
 
 {
   csvLoad('22');
-  // csvLoad('21');
 }
