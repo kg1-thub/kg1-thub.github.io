@@ -347,8 +347,7 @@ function makeCSV(records, columns, year) {
           regex: true,
           search: keyword
         },
-        // paging: true,
-        paging: false,
+        paging: true,
         info: false,
         // language: {
         //   searchPlaceholder: "search keyword"
