@@ -428,7 +428,6 @@ function csvLoad(year) {
           for (var i = 0; i < tmp.length-2; i++) {
               var row_data = tmp[i+1];
               records[i] = row_data.split(",");
-              console.log(row_data);
           }
           makeCSV(records, cols, year);
       };
