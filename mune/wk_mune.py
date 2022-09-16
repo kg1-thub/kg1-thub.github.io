@@ -7,7 +7,7 @@ with open('mune.csv') as f:
 
 games = {}
 score = {}
-for _g in gs[1:]:
+for _g in gs[-1:]:
     # print(_g)
     pt = 0
     if int(_g[4])>0:

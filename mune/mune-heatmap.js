@@ -217,6 +217,7 @@ function calendarHeatmap() {
             .append('div')
             .attr('class', 'day-cell-tooltip')
             .html(tooltipHTMLForDate(d))
+            .style('font-size', '14px')
             .style('height', SQUARE_LENGTH * (1.5 + isScoreForDate(d)*2) + 'px')
             // .style('top', function () { return Math.floor(i / 7) * SQUARE_LENGTH + 'px'; })
             // .style('left', function () {
@@ -300,9 +301,9 @@ function calendarHeatmap() {
               matchIndex = index;
               return moment(d).isSame(element, 'month') && moment(d).isSame(element, 'year');
             });
-            return DAY_LABEL_PADDING + (SQUARE_LENGTH + SQUARE_PADDING) + Math.floor(matchIndex / 7) * (SQUARE_LENGTH + SQUARE_PADDING);
+            return DAY_LABEL_PADDING*0.5 + (SQUARE_LENGTH + SQUARE_PADDING) + Math.floor(matchIndex / 7) * (SQUARE_LENGTH + SQUARE_PADDING);
           })
-          .attr('x', MONTH_LABEL_PADDING * 0.7);  // fix these to the top
+          .attr('x', MONTH_LABEL_PADDING * 0.0);  // fix these to the top
           // .attr('x', function (d) {
           //   var matchIndex = 0;
           //   dateRange.find(function (element, index) {
@@ -318,7 +319,7 @@ function calendarHeatmap() {
         if ((index + 1) % 2) {
           svg.append('text')
             .attr('class', 'day-initial')
-            .attr('x', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1)))
+            .attr('x', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 0.7)))
             .attr('y', DAY_LABEL_PADDING - 7)
             // .attr('y', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1)))
             // .attr('x', DAY_LABEL_PADDING - 7)
@@ -333,7 +334,7 @@ function calendarHeatmap() {
         if ((index + 1) % 2) {
           svg.append('text')
             .attr('class', 'day-initial')
-            .attr('x', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1)))
+            .attr('x', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 0.7)))
             .attr('y', function () {
               var cellDate = moment(dateRange[dateRange.length-1]);
               var result = formatWeek(cellDate, dateRange[dateRange.length-1].getDay()) - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
