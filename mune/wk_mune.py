@@ -1,6 +1,6 @@
 import csv
 
-with open('mune.csv') as f:
+with open('C:/Users/ki401/Documents/git/github-io/mune/mune.csv') as f:
     reader = csv.reader(f)
     gs = [row for row in reader]
     print()
