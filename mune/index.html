@@ -69,17 +69,31 @@
         <!-- Tab panes -->
         <div class="tab-content p-1">
             <div><h1><strong>55 Munetaka MURAKAMI</strong></h1></div>
-            <div><h4>.333 149 HITS, 55 HR, 132 RBI.</h4></div>
+            <div><h4>.330 149 HITS, 55 HR, 132 RBI.</h4></div>
             <div class="container-fluid tab-pane active" id="t2022">
-                <div id="munemap22"></div>
+                <div class="row">
+                    <div class="card mb-1 col-lg-4">
+                        <div class="card-header p-2"><i class="fa-solid fa-th mr-1" style="width: 17px;"></i>MURAKAMI/HEATMAP</div>
+                        <div class="card-body col-lg-4" id="munemap22"></div>
+                    </div>
+
+                    <div class="card mb-1 col-lg-8">
+                        <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>MURAKAMI/HIT・HR・RBI</div>
+                        <div class="card-body">
+                            <div class="col-lg-12"><canvas id="mune22hits"></canvas></div>
+                            <div class="col-lg-12"><canvas id="mune22hrs"></canvas></div>
+                            <div class="col-lg-12"><canvas id="mune22rbis"></canvas></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <footer class="py-3 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Updated 2022.09.16</div>
                         <div>
                             <a href="https://kg1-thub.github.io/">Giants/Catcher/Score</a>
+                            &middot;
                             <a href="https://kg1-thub.github.io/soccer">SOCCER</a>
                             &middot;
                             <!-- <a href="https://kg1-thub.github.io/catcher-stats/">About Site</a>
@@ -102,6 +116,6 @@
         <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js)"></script>
         <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
         <script src="mune-heatmap-demo.js"></script>
-        <!-- <script src="mune-area-demo.js"></script> -->
+        <script src="mune-area-demo.js"></script>
     </body>
 </html>
