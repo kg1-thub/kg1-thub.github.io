@@ -45,14 +45,6 @@ var mune22_data = {'hits': [0, 1, 1, 3, 3, 4, 4, 5, 6, 8, 8, 9, 11, 11, 12, 12, 
 }
 
 // Annotation
-const zero = {
-  type: 'line',
-  scaleID: 'y',
-  borderWidth: 2,
-  borderColor: 'gray',
-  value: 0,
-};
-
 const illabel22 = {
   type: 'line',
   scaleID: 'x',
@@ -82,166 +74,6 @@ const ilperiod22 = {
   xMax: 69,
 };
 
-const illabel21 = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 0,
-  borderColor: 'rgba(255,182,193,0)',
-  value: 61,
-  label: {
-    // rotation: 270,
-    backgroundColor: 'pink',
-    color: 'black',
-    content: 'INTERLEAGUE PLAY',
-    enabled: true,
-    position: 'start',
-    font: {
-      size: 12
-    }
-  }
-};
-
-const ilperiod21 = {
-  type: 'box',
-  backgroundColor: 'rgba(255,182,193,0.35)',
-  borderColor: 'rgba(0,150,0,0)',
-  borderWidth: 1,
-  cornerRadius: 4,
-  xMin: 51,
-  xMax: 72,
-};
-
-const olbreak21 = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 10,
-  borderColor: 'rgba(0,0,128,0.5)',
-  value: 97,
-  label: {
-    // rotation: 90,
-    backgroundColor: 'rgba(0,0,128,1)',
-    color: 'white',
-    content: 'OLYMPIC BREAK',
-    enabled: true,
-    position: 'start',
-    font: {
-      size: 12
-    }
-  }
-};
-
-const out_n22 = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 3,
-  borderColor: 'blue',
-  value: 11,
-  label: {
-    // rotation: 270,
-    backgroundColor: 'blue',
-    content: '#22 out [to Farm]',
-    enabled: true,
-    position: 'end',
-    font: {
-      size: 8
-    }
-  }
-};
-
-const in_n22 = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 3,
-  borderColor: 'blue',
-  value: 59,
-  label: {
-    // rotation: 270,
-    backgroundColor: 'blue',
-    content: '#22 in [from Farm]',
-    enabled: true,
-    position: 'end',
-    font: {
-      size: 8
-    }
-  }
-};
-
-const out_n27 = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 3,
-  borderColor: 'red',
-  value: 87,
-  label: {
-    // rotation: 270,
-    backgroundColor: 'red',
-    content: '#27 out [to Eagles]',
-    enabled: true,
-    position: 'end',
-    font: {
-      size: 8
-    }
-  }
-};
-
-const illabel19 = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 0,
-  borderColor: 'rgba(255,182,193,0)',
-  value: 61,
-  label: {
-    // rotation: 270,
-    backgroundColor: 'pink',
-    color: 'black',
-    content: 'INTERLEAGUE PLAY',
-    enabled: true,
-    position: 'start',
-    font: {
-      size: 12
-    }
-  }
-};
-
-const ilperiod19 = {
-  type: 'box',
-  backgroundColor: 'rgba(255,182,193,0.35)',
-  borderColor: 'rgba(0,150,0,0)',
-  borderWidth: 1,
-  cornerRadius: 4,
-  xMin: 51,
-  xMax: 69,
-};
-
-const illabel18 = {
-  type: 'line',
-  scaleID: 'x',
-  borderWidth: 0,
-  borderColor: 'rgba(255,182,193,0)',
-  value: 61,
-  label: {
-    // rotation: 270,
-    backgroundColor: 'pink',
-    color: 'black',
-    content: 'INTERLEAGUE PLAY',
-    enabled: true,
-    position: 'start',
-    font: {
-      size: 12
-    }
-  }
-};
-
-const ilperiod18 = {
-  type: 'box',
-  backgroundColor: 'rgba(255,182,193,0.35)',
-  borderColor: 'rgba(0,150,0,0)',
-  borderWidth: 1,
-  cornerRadius: 4,
-  xMin: 46,
-  xMax: 64,
-};
-
 // Area Chart 2022
 var ctx_mune22hrs = document.getElementById("mune22hrs");
 var mune22hrs = new Chart(ctx_mune22hrs, {
@@ -254,16 +86,9 @@ var mune22hrs = new Chart(ctx_mune22hrs, {
         hidden: false,
         fill: 'origin',
         lineTension: 0,
-        // backgroundColor: "rgba(255,140,0,0.1)",
         borderColor: "navy",
         borderWidth: 5,
         pointRadius: 0.3,
-        // pointBackgroundColor: "#EB9E16",
-        // pointBorderColor: "#EB9E16",
-        // pointHoverRadius: 0.3,
-        // pointHoverBackgroundColor: "#EB9E16",
-        // pointHitRadius: 50,
-        // pointborderWidth: 5,
         data: mune22_data.hrs,
       }
     ],
@@ -279,6 +104,7 @@ var mune22hrs = new Chart(ctx_mune22hrs, {
         }
       },
       legend: {
+        display: false
         // position: 'right',
         // labels: {
         //   boxWidth: 12
@@ -288,6 +114,7 @@ var mune22hrs = new Chart(ctx_mune22hrs, {
     responsive: true,
   }
 });
+
 var ctx_mune22hits = document.getElementById("mune22hits");
 var mune22hits = new Chart(ctx_mune22hits, {
   type: 'line',
@@ -299,16 +126,9 @@ var mune22hits = new Chart(ctx_mune22hits, {
         hidden: false,
         fill: 'origin',
         lineTension: 0,
-        // backgroundColor: "rgba(255,140,0,0.1)",
         borderColor: "blue",
         borderWidth: 5,
         pointRadius: 0.3,
-        // pointBackgroundColor: "#EB9E16",
-        // pointBorderColor: "#EB9E16",
-        // pointHoverRadius: 0.3,
-        // pointHoverBackgroundColor: "#EB9E16",
-        // pointHitRadius: 50,
-        // pointborderWidth: 5,
         data: mune22_data.hits,
       }
     ],
@@ -324,6 +144,7 @@ var mune22hits = new Chart(ctx_mune22hits, {
         }
       },
       legend: {
+        display: false
         // position: 'right',
         // labels: {
         //   boxWidth: 12
@@ -333,6 +154,7 @@ var mune22hits = new Chart(ctx_mune22hits, {
     responsive: true,
   }
 });
+
 var ctx_mune22rbis = document.getElementById("mune22rbis");
 var mune22rbis = new Chart(ctx_mune22rbis, {
   type: 'line',
@@ -344,16 +166,9 @@ var mune22rbis = new Chart(ctx_mune22rbis, {
         hidden: false,
         fill: 'origin',
         lineTension: 0,
-        // backgroundColor: "rgba(255,140,0,0.1)",
         borderColor: "green",
         borderWidth: 5,
         pointRadius: 0.3,
-        // pointBackgroundColor: "#EB9E16",
-        // pointBorderColor: "#EB9E16",
-        // pointHoverRadius: 0.3,
-        // pointHoverBackgroundColor: "#EB9E16",
-        // pointHitRadius: 50,
-        // pointborderWidth: 5,
         data: mune22_data.rbis,
       }
     ],
@@ -369,6 +184,7 @@ var mune22rbis = new Chart(ctx_mune22rbis, {
         }
       },
       legend: {
+        display: false
         // position: 'right',
         // labels: {
         //   boxWidth: 12

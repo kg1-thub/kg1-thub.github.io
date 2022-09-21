@@ -3,7 +3,6 @@ function calendarHeatmap() {
   // defaults
   var width = 600;
   var height = 700;
-  // var height = 135;
   var legendWidth = 150;
   var selector = 'body';
   var SVG_WIDTH = '300px';
@@ -169,7 +168,6 @@ function calendarHeatmap() {
         .style('position', 'relative')
         .append('svg')
         .attr('height', '760px')
-        // .attr('height', '170px')
         .attr('class', 'calendar-heatmap')
         .style('padding', '7px')
         .style('width', SVG_WIDTH)
@@ -193,16 +191,6 @@ function calendarHeatmap() {
         })
         .attr('ry', SQUARE_LENGTH * ROUNDED_RATIO)
         .attr('rx', SQUARE_LENGTH * ROUNDED_RATIO);
-        // .attr('x', function (d) {
-        //   var cellDate = moment(d);
-        //   var result = formatWeek(cellDate, d.getDay()) - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
-        //   return result * (SQUARE_LENGTH + SQUARE_PADDING) + DAY_LABEL_PADDING;
-        // })
-        // .attr('y', function (d) {
-        //   return MONTH_LABEL_PADDING + formatWeekday(d.getDay()) * (SQUARE_LENGTH + SQUARE_PADDING);
-        // })
-        // .attr('rx', SQUARE_LENGTH * ROUNDED_RATIO)
-        // .attr('ry', SQUARE_LENGTH * ROUNDED_RATIO);
 
       if (typeof onClick === 'function') {
         (v === 3 ? enterSelection : enterSelection.merge(dayRects)).on('click', function(d) {
@@ -219,19 +207,10 @@ function calendarHeatmap() {
             .html(tooltipHTMLForDate(d))
             .style('font-size', '14px')
             .style('height', SQUARE_LENGTH * (1.5 + isScoreForDate(d)*2) + 'px')
-            // .style('top', function () { return Math.floor(i / 7) * SQUARE_LENGTH + 'px'; })
-            // .style('left', function () {
-            //   return ((formatWeekday(d.getDay()) + 3) % 7 - 0.2) * (SQUARE_LENGTH + SQUARE_PADDING) +
-            //            SQUARE_LENGTH * (Math.floor((formatWeekday(d.getDay()) + 3) / 7)*(3.9 - isScoreForDate(d)*2)) + 'px';
             .style('left', function () { return SQUARE_LENGTH*8.5 + 'px'; })
-            // .style('left', function () { return Math.floor(i / 7) * SQUARE_LENGTH + 'px'; })
             .style('top', function () {
               var basedate= new Date("2022/3/21");
               return Math.floor((d-basedate)/86400000/7)*SQUARE_LENGTH + 'px';
-            // .style('top',function (d) {
-            //   var cellDate = moment(d);
-            //   var result = formatWeek(cellDate, d.getDay()) - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
-            //   return result * (SQUARE_LENGTH + SQUARE_PADDING) + DAY_LABEL_PADDING + 'px';
             });
         })
         .on('mouseout', function (d, i) {
@@ -253,37 +232,26 @@ function calendarHeatmap() {
             .attr('class', 'calendar-heatmap-legend')
             .attr('width', SQUARE_LENGTH)
             .attr('height', SQUARE_LENGTH)
-            // .attr('x', function (d, i) { return (width - legendWidth) + (i + 1) * 13; })
             .attr('y', function (i) { return (legendWidth*0.2) + (i + 1) * (SQUARE_LENGTH*1.1); })
             .attr('x', height + SQUARE_LENGTH*1.5)
-            // .attr('x', function (i) { return (legendWidth*0.2) + (i + 1) * (SQUARE_LENGTH*1.1); })
-            // .attr('y', height + SQUARE_LENGTH*1.5)
             .attr('fill', function (d) { return d; });
 
         legendGroup.append('text')
           .attr('class', 'calendar-heatmap-legend-text calendar-heatmap-legend-text-less')
           .attr('y', width*0.07)
           .attr('x', height + SQUARE_LENGTH*2.2)
-          // .attr('x', width*0.07)
-          // .attr('y', height + SQUARE_LENGTH*2.2)
           .text(locale.Less);
 
         legendGroup.append('text')
           .attr('class', 'calendar-heatmap-legend-text calendar-heatmap-legend-text-zero')
-          // .attr('x', (width - legendWidth + SQUARE_PADDING) + (colorRange.length) * 13*1.3)
           .attr('y', width*0.16)
           .attr('x', height + SQUARE_LENGTH*2.2)
-          // .attr('x', width*0.16)
-          // .attr('y', height + SQUARE_LENGTH*2.2)
           .text(locale.More);
 
         legendGroup.append('text')
           .attr('class', 'calendar-heatmap-legend-text calendar-heatmap-legend-text-more')
-          // .attr('x', (width - legendWidth + SQUARE_PADDING) + (colorRange.length) * 13/2*1.3)
           .attr('y', width*0.11)
           .attr('x', height + SQUARE_LENGTH*2.2)
-          // .attr('x', width*0.11)
-          // .attr('y', height + SQUARE_LENGTH*2.2)
           .text(locale.ZERO);
       }
 
@@ -304,15 +272,6 @@ function calendarHeatmap() {
             return DAY_LABEL_PADDING*0.5 + (SQUARE_LENGTH + SQUARE_PADDING) + Math.floor(matchIndex / 7) * (SQUARE_LENGTH + SQUARE_PADDING);
           })
           .attr('x', MONTH_LABEL_PADDING * 0.0);  // fix these to the top
-          // .attr('x', function (d) {
-          //   var matchIndex = 0;
-          //   dateRange.find(function (element, index) {
-          //     matchIndex = index;
-          //     return moment(d).isSame(element, 'month') && moment(d).isSame(element, 'year');
-          //   });
-          //   return DAY_LABEL_PADDING + (SQUARE_LENGTH + SQUARE_PADDING) + Math.floor(matchIndex / 7) * (SQUARE_LENGTH + SQUARE_PADDING);
-          // })
-          // .attr('y', MONTH_LABEL_PADDING * 0.7);  // fix these to the top
 
       locale.days.forEach(function (day, index) {
         index = formatWeekday(index);
@@ -321,8 +280,6 @@ function calendarHeatmap() {
             .attr('class', 'day-initial')
             .attr('x', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 0.7)))
             .attr('y', DAY_LABEL_PADDING - 7)
-            // .attr('y', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1)))
-            // .attr('x', DAY_LABEL_PADDING - 7)
             .style('text-anchor', 'middle')
             .attr('dy', '2')
             .text(day);
@@ -340,12 +297,6 @@ function calendarHeatmap() {
               var result = formatWeek(cellDate, dateRange[dateRange.length-1].getDay()) - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
               return (result+1) * (SQUARE_LENGTH + SQUARE_PADDING) + DAY_LABEL_PADDING + 7;
             })
-            // .attr('y', (MONTH_LABEL_PADDING - 7 + (SQUARE_LENGTH + SQUARE_PADDING) * (index + 1)))
-            // .attr('x', function () {
-            //   var cellDate = moment(dateRange[dateRange.length-1]);
-            //   var result = formatWeek(cellDate, dateRange[dateRange.length-1].getDay()) - firstDate.week() + (firstDate.weeksInYear() * (cellDate.weekYear() - firstDate.weekYear()));
-            //   return (result+1) * (SQUARE_LENGTH + SQUARE_PADDING) + DAY_LABEL_PADDING + 7;
-            // })
             .style('text-anchor', 'middle')
             .attr('dy', '2')
             .text(day);
@@ -375,7 +326,6 @@ function calendarHeatmap() {
       var score = scoreForDate(d);
       if (count >= 0) {
         return '<span><strong>'   + dateStr + '</strong></span>' + score;
-        // return '<span><strong>' + (count ? count : locale.No) + ' ' + pluralizedTooltipUnit(count) + '</strong> ' + locale.on + ' ' + dateStr + '</span>';
       } else if (count == -1) {
         return '<span><strong>Scheduled. '   + dateStr + '</strong></span>';
       } else if (count == MIN) {
@@ -385,7 +335,6 @@ function calendarHeatmap() {
 
     function countForDate(d) {
         var key= moment(d).format( 'YYYY-MM-DD' );
-        // return counterMap[key] || 0;
         if (counterMap[key] == 0) {
             return counterMap[key];
         } else {
@@ -395,7 +344,6 @@ function calendarHeatmap() {
 
     function scoreForDate(d) {
         var key= moment(d).format( 'YYYY-MM-DD' );
-        // return counterMap[key] || 0;
         if (score[key]) {
             return '<br>' + score[key];
         } else {
@@ -405,7 +353,6 @@ function calendarHeatmap() {
 
     function isScoreForDate(d) {
         var key= moment(d).format( 'YYYY-MM-DD' );
-        // return counterMap[key] || 0;
         if (score[key]) {
             return 1;
         } else {
