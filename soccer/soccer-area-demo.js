@@ -16,13 +16,13 @@ var wcup22_data = {
   // Group H
   'Portugal': [0,], 'Ghana': [0,], 'Uruguay': [0,],  'Korea': [0,],
   // label
-  'labels': ['Start', 'GR1', 'GR2', 'GR3'],
+  'labels': ['Start', 'GS1', 'GS2', 'GS3'],
 }
 
 var _option = {
   scales: {
     y: {
-      max: 12,
+      max: 9,
     }
   },
   plugins: {
