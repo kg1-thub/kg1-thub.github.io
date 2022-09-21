@@ -184,7 +184,7 @@ var mune22rbis = new Chart(ctx_mune22rbis, {
         }
       },
       legend: {
-        display: false
+        display: false,
         // position: 'right',
         // labels: {
         //   boxWidth: 12

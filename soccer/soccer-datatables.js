@@ -157,7 +157,7 @@ function csv_data(dataPath) {
 	request.open('GET', dataPath, true); // csvのパスを指定
 	request.send();
 }
-csv_data('../assets/data/csv/soccer_japan_upd.csv'); // csvのパス
+csv_data('../soccer/soccer_japan_upd.csv'); // csvのパス
 
 function search_keywordv(keyword) {
   var areas = document.getElementsByClassName('area');
