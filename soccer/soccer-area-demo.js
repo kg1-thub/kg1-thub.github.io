@@ -49,7 +49,7 @@ var wcup22gra = new Chart(ctx_wcup22gra, {
     datasets: [
       {
         label: "Qatar",
-        borderColor: "red",
+        borderColor: "maroon",
         data: wcup22_data.Qatar,
       },
       {
@@ -117,7 +117,7 @@ var wcup22grc = new Chart(ctx_wcup22grc, {
       },
       {
         label: "SaudiArabia",
-        borderColor: "green",
+        borderColor: "darkgreen",
         data: wcup22_data.SaudiArabia,
       },
       {
@@ -191,7 +191,7 @@ var wcup22gre = new Chart(ctx_wcup22gre, {
       },
       {
         label: "Japan",
-        borderColor: "blue",
+        borderColor: "mediumblue",
         data: wcup22_data.Japan,
       },
     ],

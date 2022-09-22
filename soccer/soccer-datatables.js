@@ -1,4 +1,166 @@
 // Call the dataTables jQuery plugin
+// Call the dataTables jQuery plugin
+$(document).ready(function() {
+  $('#dt22gra').DataTable({
+    order: [ [ 6, "desc" ], [5, "desc"] ],
+    columnDefs: [
+      { width: "30%", targets: 1 },
+      { width: "10%", targets: 2 },
+      { width: "10%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "10%", targets: 5 },
+      { width: "10%", targets: 6 },
+    ],
+    searching: false,
+    paging: false,
+    info: false,
+    // scrollX: true,
+    // scrollCollapse: true,
+    // fixedColumns: true
+  });
+});
+
+$(document).ready(function() {
+  $('#dt22grb').DataTable({
+    order: [ [ 6, "desc" ], [5, "desc"] ],
+    columnDefs: [
+      { width: "30%", targets: 1 },
+      { width: "10%", targets: 2 },
+      { width: "10%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "10%", targets: 5 },
+      { width: "10%", targets: 6 },
+    ],
+    searching: false,
+    paging: false,
+    info: false,
+    // scrollX: true,
+    // scrollCollapse: true,
+    // fixedColumns: true
+  });
+});
+
+$(document).ready(function() {
+  $('#dt22grc').DataTable({
+    order: [ [ 6, "desc" ], [5, "desc"] ],
+    columnDefs: [
+      { width: "30%", targets: 1 },
+      { width: "10%", targets: 2 },
+      { width: "10%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "10%", targets: 5 },
+      { width: "10%", targets: 6 },
+    ],
+    searching: false,
+    paging: false,
+    info: false,
+    // scrollX: true,
+    // scrollCollapse: true,
+    // fixedColumns: true
+  });
+});
+
+$(document).ready(function() {
+  $('#dt22grd').DataTable({
+    order: [ [ 6, "desc" ], [5, "desc"] ],
+    columnDefs: [
+      { width: "30%", targets: 1 },
+      { width: "10%", targets: 2 },
+      { width: "10%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "10%", targets: 5 },
+      { width: "10%", targets: 6 },
+    ],
+    searching: false,
+    paging: false,
+    info: false,
+    // scrollX: true,
+    // scrollCollapse: true,
+    // fixedColumns: true
+  });
+});
+
+$(document).ready(function() {
+  $('#dt22gre').DataTable({
+    order: [ [ 6, "desc" ], [5, "desc"] ],
+    columnDefs: [
+      { width: "30%", targets: 1 },
+      { width: "10%", targets: 2 },
+      { width: "10%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "10%", targets: 5 },
+      { width: "10%", targets: 6 },
+    ],
+    searching: false,
+    paging: false,
+    info: false,
+    // scrollX: true,
+    // scrollCollapse: true,
+    // fixedColumns: true
+  });
+});
+
+$(document).ready(function() {
+  $('#dt22grf').DataTable({
+    order: [ [ 6, "desc" ], [5, "desc"] ],
+    columnDefs: [
+      { width: "30%", targets: 1 },
+      { width: "10%", targets: 2 },
+      { width: "10%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "10%", targets: 5 },
+      { width: "10%", targets: 6 },
+    ],
+    searching: false,
+    paging: false,
+    info: false,
+    // scrollX: true,
+    // scrollCollapse: true,
+    // fixedColumns: true
+  });
+});
+
+$(document).ready(function() {
+  $('#dt22grg').DataTable({
+    order: [ [ 6, "desc" ], [5, "desc"] ],
+    columnDefs: [
+      { width: "30%", targets: 1 },
+      { width: "10%", targets: 2 },
+      { width: "10%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "10%", targets: 5 },
+      { width: "10%", targets: 6 },
+    ],
+    searching: false,
+    paging: false,
+    info: false,
+    // scrollX: true,
+    // scrollCollapse: true,
+    // fixedColumns: true
+  });
+});
+
+$(document).ready(function() {
+  $('#dt22grh').DataTable({
+    order: [ [ 6, "desc" ], [5, "desc"] ],
+    columnDefs: [
+      { width: "30%", targets: 1 },
+      { width: "10%", targets: 2 },
+      { width: "10%", targets: 3 },
+      { width: "10%", targets: 4 },
+      { width: "10%", targets: 5 },
+      { width: "10%", targets: 6 },
+    ],
+    searching: false,
+    paging: false,
+    info: false,
+    // scrollX: true,
+    // scrollCollapse: true,
+    // fixedColumns: true
+  });
+});
+
+
 const output_svg = document.getElementById('DTSoccerGames');
 
 function csv_data(dataPath) {
