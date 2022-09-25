@@ -27,7 +27,7 @@ var score22 = {
     '2022-09-22': '0 Hits for 4 AtBats</br>0 HR, 0 RBI',
     '2022-09-23': '0 Hits for 3 AtBats</br>0 HR, 0 RBI',
     '2022-09-24': '1 Hits for 4 AtBats</br>0 HR, 0 RBI',
-    '2022-09-24': '0 Hits for 4 AtBats</br>0 HR, 0 RBI',
+    '2022-09-25': '0 Hits for 4 AtBats</br>0 HR, 0 RBI',
 };
 var chartData22 = [];
 for (var d in datas22) {
