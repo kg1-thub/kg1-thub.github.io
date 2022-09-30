@@ -8,7 +8,7 @@ var datas22 = {
     '2022-09-27': 0,
     '2022-09-28': 0,
     '2022-09-29': 1,
-    '2022-09-30': -1,
+    '2022-09-30': 1,
     '2022-10-02': -1,
     '2022-10-03': -1,
 };
@@ -31,6 +31,7 @@ var score22 = {
     '2022-09-27': '0 Hits for 3 AtBats</br>0 HR, 0 RBI',
     '2022-09-28': '0 Hits for 3 AtBats</br>0 HR, 0 RBI',
     '2022-09-29': '1 Hits for 5 AtBats</br>0 HR, 0 RBI',
+    '2022-09-30': '1 Hits for 5 AtBats</br>0 HR, 0 RBI',
     //@@TOOLTIP@@
 };
 var chartData22 = [];
