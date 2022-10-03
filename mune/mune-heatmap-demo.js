@@ -33,7 +33,7 @@ var score22 = {
     '2022-09-29': '1 Hits for 5 AtBats</br>0 HR, 0 RBI',
     '2022-09-30': '1 Hits for 3 AtBats</br>0 HR, 0 RBI',
     '2022-10-02': 'Out of the game.',
-    '2022-10-02': '2 Hits for 4 AtBats</br>1 HR, 2 RBI',
+    '2022-10-03': '2 Hits for 4 AtBats</br>1 HR, 2 RBI',
     //@@TOOLTIP@@
 };
 var chartData22 = [];
