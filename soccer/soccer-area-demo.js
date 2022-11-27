@@ -4,9 +4,9 @@ var wcup22_data = {
   // Group B
   'England': [0,3,4], 'Iran': [0,0,3,], 'USA': [0,1,2,],  'Wales': [0,1,1,],
   // Group C
-  'Argentina': [0,0,], 'SaudiArabia': [0,3,3,], 'Mexico': [0,1,],  'Poland': [0,1,4,],
+  'Argentina': [0,0,3,], 'SaudiArabia': [0,3,3,], 'Mexico': [0,1,1,],  'Poland': [0,1,4,],
   // Group D
-  'France': [0,3,], 'Austraria': [0,0,], 'Denmark': [0,1,],  'Tunisia': [0,1,],
+  'France': [0,3,6,], 'Austraria': [0,0,3,], 'Denmark': [0,1,1,],  'Tunisia': [0,1,1,],
   // Group E
   'Spain': [0,3,], 'CostaRica': [0,0,], 'Germany': [0,0,],  'Japan': [0,3,],
   // Group F
