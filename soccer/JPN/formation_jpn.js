@@ -32,57 +32,57 @@ var JPN_MEMBER = [
 
 var play_full = '#140259';
 var play_change = '#2804ae';
-// var JPN_PLAYER = [
-//   {'No':25, 'name': '前田', 'pos':{x:50,y:90,r:15}, 'game':['57\' ▼OUT, ▲IN 浅野'], 'bgcolor':play_full, 'play': 57},
-//   {'No':11, 'name': '久保', 'pos':{x:40,y:70,r:15}, 'game':['45\' ▼OUT, ▲IN 富安'], 'bgcolor':play_full, 'play': 45},
-//   {'No':15, 'name': '鎌田', 'pos':{x:50,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':14, 'name': '伊東', 'pos':{x:60,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':17, 'name': '田中', 'pos':{x:45,y:50,r:15}, 'game':['71\' ▼OUT, ▲IN 堂安'], 'bgcolor':play_full, 'play': 71},
-//   {'No':6,  'name': '遠藤', 'pos':{x:55,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play':90},
-//   {'No':5, 'name': '長友', 'pos':{x:35,y:30,r:15}, 'game':['57\' ▼OUT, ▲IN 三苫'], 'bgcolor':play_full, 'play': 57},
-//   {'No':4, 'name': '板倉', 'pos':{x:55,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':22, 'name': '吉田', 'pos':{x:45,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':19, 'name': '酒井', 'pos':{x:65,y:30,r:15}, 'game':['73\' ▼OUT, ▲IN 南野'], 'bgcolor':play_full, 'play': 73},
-//   {'No':12, 'name': '権田', 'pos':{x:50,y:10,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-// ];
-// var JPN_PLAYER = [
-//   {'No':25, 'name': '前田', 'pos':{x:50,y:90,r:15}, 'game':['57\' ▼OUT, ▲IN 浅野'], 'bgcolor':play_full, 'play': 57},
-//   {'No':16, 'name': '富安', 'pos':{x:40,y:30,r:15}, 'game':['45\' ▼OUT, ▲IN 富安'], 'bgcolor':play_full, 'play': 45},
-//   {'No':15, 'name': '鎌田', 'pos':{x:40,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':14, 'name': '伊東', 'pos':{x:60,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':17, 'name': '田中', 'pos':{x:45,y:50,r:15}, 'game':['71\' ▼OUT, ▲IN 堂安'], 'bgcolor':play_full, 'play': 71},
-//   {'No':6,  'name': '遠藤', 'pos':{x:55,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play':90},
-//   {'No':5, 'name': '長友', 'pos':{x:30,y:40,r:15}, 'game':['57\' ▼OUT, ▲IN 三苫'], 'bgcolor':play_full, 'play': 57},
-//   {'No':4, 'name': '板倉', 'pos':{x:60,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':22, 'name': '吉田', 'pos':{x:50,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':19, 'name': '酒井', 'pos':{x:70,y:40,r:15}, 'game':['73\' ▼OUT, ▲IN 南野'], 'bgcolor':play_full, 'play': 73},
-//   {'No':12, 'name': '権田', 'pos':{x:50,y:10,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-// ];
-// var JPN_PLAYER = [
-//   {'No':18, 'name': '浅野', 'pos':{x:50,y:90,r:15}, 'game':['57\' ▼OUT, ▲IN 浅野'], 'bgcolor':play_full, 'play': 57},
-//   {'No':16, 'name': '富安', 'pos':{x:40,y:30,r:15}, 'game':['45\' ▼OUT, ▲IN 富安'], 'bgcolor':play_full, 'play': 45},
-//   {'No':15, 'name': '鎌田', 'pos':{x:40,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':14, 'name': '伊東', 'pos':{x:60,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':17, 'name': '田中', 'pos':{x:45,y:50,r:15}, 'game':['71\' ▼OUT, ▲IN 堂安'], 'bgcolor':play_full, 'play': 71},
-//   {'No':6,  'name': '遠藤', 'pos':{x:55,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play':90},
-//   {'No':9, 'name': '三苫', 'pos':{x:30,y:40,r:15}, 'game':['57\' ▼OUT, ▲IN 三苫'], 'bgcolor':play_full, 'play': 57},
-//   {'No':4, 'name': '板倉', 'pos':{x:60,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':22, 'name': '吉田', 'pos':{x:50,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-//   {'No':19, 'name': '酒井', 'pos':{x:70,y:40,r:15}, 'game':['73\' ▼OUT, ▲IN 南野'], 'bgcolor':play_full, 'play': 73},
-//   {'No':12, 'name': '権田', 'pos':{x:50,y:10,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-// ];
-var JPN_PLAYER = [
-  {'No':18, 'name': '浅野', 'pos':{x:50,y:90,r:15}, 'game':['57\' ▼OUT 前田, ▲IN','83\' GOAL!'], 'bgcolor':play_full, 'play': 33},
-  {'No':16, 'name': '富安', 'pos':{x:40,y:30,r:15}, 'game':['45\' ▼OUT 久保, ▲IN'], 'bgcolor':play_full, 'play': 45},
-  {'No':15, 'name': '鎌田', 'pos':{x:45,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-  {'No':14, 'name': '伊東', 'pos':{x:70,y:40,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-  {'No':17, 'name': '堂安', 'pos':{x:60,y:70,r:15}, 'game':['71\' ▼OUT 田中, ▲IN','75\' GOAL!'], 'bgcolor':play_full, 'play': 19},
+var JPN_PLAYER_GS1_V1 = [
+  {'No':25, 'name': '前田', 'pos':{x:50,y:90,r:15}, 'game':['57\' ▼OUT, ▲IN 浅野', '82\' GOAL!'], 'bgcolor':play_full, 'play': 57},
+  {'No':11, 'name': '久保', 'pos':{x:40,y:70,r:15}, 'game':['45\' ▼OUT, ▲IN 富安'], 'bgcolor':play_full, 'play': 45},
+  {'No':15, 'name': '鎌田', 'pos':{x:50,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':14, 'name': '伊東', 'pos':{x:60,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':17, 'name': '田中', 'pos':{x:45,y:50,r:15}, 'game':['71\' ▼OUT, ▲IN 堂安', '75\' GOAL!'], 'bgcolor':play_full, 'play': 71},
   {'No':6,  'name': '遠藤', 'pos':{x:55,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play':90},
-  {'No':9, 'name': '三苫', 'pos':{x:30,y:40,r:15}, 'game':['57\' ▼OUT 長友, ▲IN'], 'bgcolor':play_full, 'play': 33},
-  {'No':4, 'name': '板倉', 'pos':{x:60,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-  {'No':22, 'name': '吉田', 'pos':{x:50,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
-  {'No':19, 'name': '南野', 'pos':{x:40,y:70,r:15}, 'game':['73\' ▼OUT 酒井, ▲IN'], 'bgcolor':play_full, 'play': 17},
+  {'No':5, 'name': '長友', 'pos':{x:35,y:30,r:15}, 'game':['57\' ▼OUT, ▲IN 三苫'], 'bgcolor':play_full, 'play': 57},
+  {'No':4, 'name': '板倉', 'pos':{x:55,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':22, 'name': '吉田', 'pos':{x:45,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':19, 'name': '酒井', 'pos':{x:65,y:30,r:15}, 'game':['73\' ▼OUT, ▲IN 南野'], 'bgcolor':play_full, 'play': 73},
   {'No':12, 'name': '権田', 'pos':{x:50,y:10,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+];
+var JPN_PLAYER_GS1_V2 = [
+  {'No':16, 'name': '富安', 'pos':{x:40,y:30,r:15}, 'game':['45\' ▼OUT, ▲IN 富安'], 'bgcolor':play_full, 'play': 45},
+];
+var JPN_PLAYER_GS1_V3 = [
+  {'No':18, 'name': '浅野', 'pos':{x:50,y:90,r:15}, 'game':['57\' ▼OUT, ▲IN', '82\' GOAL!'], 'bgcolor':play_full, 'play': 33},
+  {'No':9, 'name': '三苫', 'pos':{x:30,y:40,r:15}, 'game':['57\' ▼OUT, ▲IN 三苫'], 'bgcolor':play_full, 'play': 33},
+];
+var JPN_PLAYER_GS1_V4 = [
+  {'No':17, 'name': '堂安', 'pos':{x:60,y:70,r:15}, 'game':['71\' ▼OUT 田中, ▲IN','75\' GOAL!'], 'bgcolor':play_full, 'play': 19},
+];
+var JPN_PLAYER_GS1_V5 = [
+  {'No':19, 'name': '南野', 'pos':{x:40,y:70,r:15}, 'game':['73\' ▼OUT 酒井, ▲IN'], 'bgcolor':play_full, 'play': 17},
+];
+var JPN_PLAYER_GS2_V1 = [
+  {'No':25, 'name': '上田', 'pos':{x:50,y:90,r:15}, 'game':['45\' ▼OUT, ▲IN 浅野'], 'bgcolor':play_full, 'play': 45},
+  {'No':24, 'name': '相馬', 'pos':{x:40,y:70,r:15}, 'game':['82\' ▼OUT, ▲IN 南野'], 'bgcolor':play_full, 'play': 82},
+  {'No':15, 'name': '鎌田', 'pos':{x:50,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':14, 'name': '堂安', 'pos':{x:60,y:70,r:15}, 'game':['67\' ▼OUT, ▲IN 伊東'], 'bgcolor':play_full, 'play': 67},
+  {'No':17, 'name': '守田', 'pos':{x:45,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play': 71},
+  {'No':6,  'name': '遠藤', 'pos':{x:55,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play':90},
+  {'No':5, 'name': '長友', 'pos':{x:35,y:30,r:15}, 'game':['45\' ▼OUT, ▲IN 伊藤'], 'bgcolor':play_full, 'play': 45},
+  {'No':4, 'name': '板倉', 'pos':{x:55,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':22, 'name': '吉田', 'pos':{x:45,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':19, 'name': '山根', 'pos':{x:65,y:30,r:15}, 'game':['62\' ▼OUT, ▲IN 三苫'], 'bgcolor':play_full, 'play': 62},
+  {'No':12, 'name': '権田', 'pos':{x:50,y:10,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+];
+var JPN_PLAYER_GS2_V2 = [
+  {'No':25, 'name': '浅野', 'pos':{x:50,y:90,r:15}, 'game':['45\' ▼OUT 上田, ▲IN'], 'bgcolor':play_full, 'play': 45},
+  {'No':5, 'name': '伊藤', 'pos':{x:35,y:30,r:15}, 'game':['45\' ▼OUT 長友, ▲IN'], 'bgcolor':play_full, 'play': 45},
+];
+var JPN_PLAYER_GS2_V3 = [
+  {'No':19, 'name': '三苫', 'pos':{x:65,y:30,r:15}, 'game':['62\' ▼OUT 山根, ▲IN'], 'bgcolor':play_full, 'play': 28},
+];
+var JPN_PLAYER_GS2_V4 = [
+  {'No':19, 'name': '伊東', 'pos':{x:65,y:30,r:15}, 'game':['67\' ▼OUT 堂安, ▲IN'], 'bgcolor':play_full, 'play': 23},
+];
+var JPN_PLAYER_GS2_V5 = [
+  {'No':19, 'name': '南野', 'pos':{x:65,y:30,r:15}, 'game':['82\' ▼OUT 相馬, ▲IN'], 'bgcolor':play_full, 'play': 8},
 ];
 
 
