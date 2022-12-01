@@ -4,13 +4,13 @@ var wcup22_data = {
   // Group B
   'England': [0,3,4,7], 'Iran': [0,0,3,3], 'USA': [0,1,2,5],  'Wales': [0,1,1,1],
   // Group C
-  'Argentina': [0,0,3,], 'SaudiArabia': [0,3,3,], 'Mexico': [0,1,1,],  'Poland': [0,1,4,],
+  'Argentina': [0,0,3,6], 'SaudiArabia': [0,3,3,3], 'Mexico': [0,1,1,4],  'Poland': [0,1,4,4],
   // Group D
-  'France': [0,3,6,], 'Austraria': [0,0,3,], 'Denmark': [0,1,1,],  'Tunisia': [0,1,1,],
+  'France': [0,3,6,6], 'Austraria': [0,0,3,6], 'Denmark': [0,1,1,1],  'Tunisia': [0,1,1,4],
   // Group E
-  'Spain': [0,3,4], 'CostaRica': [0,0,3], 'Germany': [0,0,1],  'Japan': [0,3,3],
+  'Spain': [0,3,4,4], 'CostaRica': [0,0,3,3], 'Germany': [0,0,1,4],  'Japan': [0,3,3,6],
   // Group F
-  'Belgium': [0,3,3], 'Canada': [0,0,0], 'Morocco': [0,1,4],  'Croatia': [0,1,4],
+  'Belgium': [0,3,3,4], 'Canada': [0,0,0,0], 'Morocco': [0,1,4,7],  'Croatia': [0,1,4,5],
   // Group G
   'Brazil': [0,3,6], 'Serbia': [0,0,1], 'Switzerland': [0,3,3],  'Cameroon': [0,0,3],
   // Group H
