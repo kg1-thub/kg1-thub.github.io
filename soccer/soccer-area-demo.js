@@ -12,9 +12,9 @@ var wcup22_data = {
   // Group F
   'Belgium': [0,3,3,4], 'Canada': [0,0,0,0], 'Morocco': [0,1,4,7],  'Croatia': [0,1,4,5],
   // Group G
-  'Brazil': [0,3,6], 'Serbia': [0,0,1], 'Switzerland': [0,3,3],  'Cameroon': [0,0,3],
+  'Brazil': [0,3,6,6], 'Serbia': [0,0,1,1], 'Switzerland': [0,3,3,6],  'Cameroon': [0,0,3,4],
   // Group H
-  'Portugal': [0,3,6], 'Ghana': [0,0,3], 'Uruguay': [0,1,1],  'Korea': [0,1,1],
+  'Portugal': [0,3,6,6], 'Ghana': [0,0,3,3], 'Uruguay': [0,1,1,4],  'Korea': [0,1,1,4],
   // label
   'labels': ['Start', 'GS1', 'GS2', 'GS3'],
 }
