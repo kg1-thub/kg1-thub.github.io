@@ -85,8 +85,8 @@ var JPN_PLAYER_GS2_V5 = [
   {'No':19, 'name': '南野', 'pos':{x:65,y:30,r:15}, 'game':['82\' ▼OUT 相馬, ▲IN'], 'bgcolor':play_full, 'play': 8},
 ];
 
-var JPN_PLAYER = [
-// var JPN_PLAYER_GS3_V1 = [
+// var JPN_PLAYER = [
+var JPN_PLAYER_GS3_V1 = [
   {'No':25, 'name': '前田', 'pos':{x:50,y:90,r:15}, 'game':['57\' ▼OUT, ▲IN 浅野', '82\' GOAL!'], 'bgcolor':play_full, 'play': 57},
   {'No':11, 'name': '久保', 'pos':{x:65,y:70,r:15}, 'game':['45\' ▼OUT, ▲IN 富安'], 'bgcolor':play_full, 'play': 45},
   {'No':15, 'name': '鎌田', 'pos':{x:35,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
@@ -104,6 +104,27 @@ var JPN_PLAYER_GS3_V2 = [
   {'No':5, 'name': '堂安', 'pos':{x:35,y:30,r:15}, 'game':['45\' ▼OUT 長友, ▲IN'], 'bgcolor':play_full, 'play': 45},
 ];
 // asano() 16 tomiyasu 23 endo(tanaka) 42
+
+var JPN_PLAYER = [
+// var JPN_PLAYER_GS3_V1 = [
+  {'No':25, 'name': '前田', 'pos':{x:50,y:80,r:15}, 'game':['57\' ▼OUT, ▲IN 浅野', '82\' GOAL!'], 'bgcolor':play_full, 'play': 57},
+  {'No':11, 'name': '堂安', 'pos':{x:60,y:70,r:15}, 'game':['45\' ▼OUT, ▲IN 富安'], 'bgcolor':play_full, 'play': 45},
+  {'No':15, 'name': '鎌田', 'pos':{x:40,y:70,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':14, 'name': '伊東', 'pos':{x:65,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':17, 'name': '守田', 'pos':{x:45,y:50,r:15}, 'game':['71\' ▼OUT, ▲IN 堂安', '75\' GOAL!'], 'bgcolor':play_full, 'play': 71},
+  {'No':13,  'name': '遠藤', 'pos':{x:55,y:50,r:15}, 'game':[], 'bgcolor':play_full, 'play':90},
+  {'No':5, 'name': '長友', 'pos':{x:35,y:50,r:15}, 'game':['57\' ▼OUT, ▲IN 三苫'], 'bgcolor':play_full, 'play': 57},
+  {'No':3, 'name': '谷口', 'pos':{x:40,y:30,r:15}, 'game':['73\' ▼OUT, ▲IN 南野'], 'bgcolor':play_full, 'play': 73},
+  {'No':22, 'name': '吉田', 'pos':{x:50,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':4, 'name': '富安', 'pos':{x:60,y:30,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+  {'No':12, 'name': '権田', 'pos':{x:50,y:10,r:15}, 'game':[], 'bgcolor':play_full, 'play': 90},
+];
+// var JPN_PLAYER = [
+var JPN_PLAYER_GS3_V1 = [
+  {'No':25, 'name': '浅野', 'pos':{x:50,y:80,r:15}, 'game':['57\' ▼OUT, ▲IN 浅野', '82\' GOAL!'], 'bgcolor':play_full, 'play': 57},
+  {'No':25, 'name': '三苫', 'pos':{x:50,y:80,r:15}, 'game':['57\' ▼OUT, ▲IN 浅野', '82\' GOAL!'], 'bgcolor':play_full, 'play': 57},
+];
+  
 
 // Chart.register(annotationPlugin);
 Chart.register(ChartDataLabels);
