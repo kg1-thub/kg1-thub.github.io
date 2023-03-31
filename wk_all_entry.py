@@ -67,10 +67,11 @@ def create_table_category(series, category):
         table_html += tb+'<tr>\n'
         for i, x in enumerate(stat):
             if x is None:
-                if stat[0] == 'シューメーカー' and i==5:
-                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                else:
-                    table_html += tb+'\t<td>---</td>\n'
+                table_html += tb+'\t<td>---</td>\n'
+                # if stat[0] == 'シューメーカー' and i==5:
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # else:
+                #     table_html += tb+'\t<td>---</td>\n'
             else:
                 table_html += tb+'\t<td>'+str(x).replace('.67)', '.2)').replace('.33)', '.1)')+'</td>\n'
         table_html += tb+'</tr>\n'
@@ -111,85 +112,79 @@ if __name__=='__main__':
 
         catcher = get_catcher_name(int(input('スタメン捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> ')))
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
+        gameid = str(input('SportsNavi ゲームIDを入力してください>'))
 
-        url = 'https://www.giants.jp/G/result/'+tday.strftime('%Y%m%d')+'1/bis/ScoreBook.html'
-        # url = 'https://www.giants.jp/G/result/202203081/bis/ScoreBook.html'
+        url = 'https://baseball.yahoo.co.jp/npb/game/'+gameid+'/top'
         xml = requests.get(url)
         soup = BeautifulSoup(xml.content, 'html.parser')
+        _score = []
+        for _k, news in enumerate(soup.findAll('a', class_='bb-gameTeam__link')):
+            _score.append(news.text)
 
-        for _k, news in enumerate(soup.findAll('h3')):
-            if _k<2:
-                if news.text == '巨人':
-                    k = _k
-                else:
-                    team = news.text
+        _score.append(soup.find('span', class_='bb-gameTeam__homeScore').text)
+        _score.append(soup.find('span', class_='bb-gameTeam__awayScore').text)
 
-        _score = soup.find('p', class_='score')
-        print(_score.text)
-        _score = re.search(r'[0-9]{0,2}[０-９]{0,2}(−)[０-９]{0,2}[0-9]{0,2}', _score.text).group()
-        score = unicodedata.normalize('NFKC', _score.replace('−', '-'))
+        if _score[0] == '巨人':
+            team = _score[1]
+        elif _score[1] == '巨人':
+            team = _score[0]
+        score = _score[2]+'-'+_score[3]
 
-        tables = soup.findAll('div', class_='pitchscore')
+        url = 'https://baseball.yahoo.co.jp/npb/game/'+gameid+'/stats'
+        xml = requests.get(url)
+        soup = BeautifulSoup(xml.content, 'html.parser')
         heatmap_WLD = 0    # (WIN=1, LOSE=-1, DRAW=0)
 
-        for i, table in enumerate(tables):
-            if i == k*2:
-                trows = table.findAll('tr')
-
+        for _k, news in enumerate(soup.findAll('section', class_='bb-modCommon02')):
+            _team = news.find('h1', class_='bb-head03__title')
+            if _team is None:
+                pass
+            elif _team.text == '読売ジャイアンツ':
+                print(_team.text)
                 with open(csvdir+'/catcher_stats'+tday.strftime('%y')+'.csv',mode='a',encoding='shift-jis') as f:
-                    for j, trow in enumerate(trows):
-                        if j == 0:
-                            pass
-                        else:
-                            tdata = [x.text for x in trow.findAll('td')]
-                            wls = tdata[0]
-                            if wls == '●':
-                                tdata[0] = 'L'
-                                heatmap_WLD = -1
-                            elif wls == '○':
-                                tdata[0] = 'W'
-                                heatmap_WLD = 1
-                            elif wls == 'Ｓ':
-                                tdata[0] = 'S'
+                    for _k2, news2 in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
+                        _playerscore = []
+                        for _k3, news3 in enumerate(news2.findAll('td')):
+                            if _k3 == 0:
+                                wls = news3.text
+                                if wls == '勝':
+                                    wls = 'W'
+                                    heatmap_WLD = 1
+                                elif wls == '敗':
+                                    wls = 'L'
+                                    heatmap_WLD = -1
+                                _playerscore.append(wls)
+                            elif _k3 == 2:
+                                pass
                             else:
-                                tdata[0] = ''
+                                _playerscore.append(news3.text.replace('\n', ''))
 
-                            inns = tdata[2]
-                            if '/' in inns:
-                                if ' ' in inns:
-                                    inn, out = inns.split()
-                                    out, _ = out.split('/')
-                                    tdata[2] = inn+'.'+out
-                                else:
-                                    out, _ = inns.split('/')
-                                    tdata[2] = '0.'+out
+                        _playerscore.append(
+                            catcher 
+                                if _k2==0 or fullmask 
+                                else
+                                    get_catcher_name(
+                                        int(input('次の投手 "'+_playerscore[1]+'" の捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
+                                    )
+                        )
+                        _playerscore.append(tday.strftime('%Y/%m/%d'))
+                        _playerscore.append(team)
+                        _playerscore.append('1' if _k2==0 else '0')
+                        _playerscore.append(tday.strftime('%Y')+'RS')
+                        if _k2==0: ## heatmap data
+                            start_catcher = catcher
+                            start_pitcher = _playerscore[1].split(" ")[0]
+                            if start_pitcher=='メルセデス':
+                                start_pitcher='ﾒﾙｾﾃﾞｽ'
+                            elif start_pitcher=='シューメーカー':
+                                start_pitcher='ｼｭｰﾒｰｶｰ'
+                            elif start_pitcher=='アンドリース':
+                                start_pitcher='ｱﾝﾄﾞﾘｰｽ'
 
-                            tdata.append(
-                                catcher 
-                                    if j==1 or fullmask 
-                                    else 
-                                        get_catcher_name(
-                                            int(input('次の投手 "'+tdata[1]+'" の捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
-                                        )
-                            )
-                            tdata.append(tday.strftime('%Y/%m/%d'))
-                            tdata.append(team)
-                            tdata.append('1' if j==1 else '0')
-                            tdata.append(tday.strftime('%Y')+'RS')
-                            if j==1: ## heatmap data
-                                start_catcher = catcher
-                                start_pitcher = tdata[1].replace("　", "")
-                                if start_pitcher=='メルセデス':
-                                    start_pitcher='ﾒﾙｾﾃﾞｽ'
-                                elif start_pitcher=='シューメーカー':
-                                    start_pitcher='ｼｭｰﾒｰｶｰ'
-                                elif start_pitcher=='アンドリース':
-                                    start_pitcher='ｱﾝﾄﾞﾘｰｽ'
+                        print(','.join(_playerscore))
+                        if not fullmask: print()
+                        f.write(','.join(_playerscore)+'\n')
 
-
-                            print(','.join(tdata))
-                            if not fullmask: print()
-                            f.write(','.join(tdata)+'\n')
 
         if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
             nextrunner = True
@@ -510,7 +505,7 @@ if __name__=='__main__':
 
         table_month_html = create_table_category(TODAY.strftime('%Y')+'RS', 'month')
 
-        table_pitcher_html = create_table_category(TODAY.strftime('%Y')+'RS', 'pitcher')
+        # table_pitcher_html = create_table_category(TODAY.strftime('%Y')+'RS', 'pitcher')
 
         today = datetime.date.today().strftime('%Y.%m.%d')
         with open('./assets/data/index.template.html',mode='r',encoding='utf-8') as f1:
@@ -521,7 +516,7 @@ if __name__=='__main__':
                             .replace('@@atag_catcher@@', atag_tweet_html)
                             .replace('@@table_catcher@@', table_html)
                             .replace('@@table_month@@', table_month_html)
-                            .replace('@@table_pitcher@@', table_pitcher_html)
+                            # .replace('@@table_pitcher@@', table_pitcher_html)
                             .replace('@@update_date@@', today)
                     )
 
@@ -529,7 +524,7 @@ if __name__=='__main__':
             with open('./assets/demo/chart-pie-demo.js',mode='w',encoding='utf-8') as f2:
                 for line in f1:
                     f2.write(
-                        line.replace('{pie_data22}', str(pie_data))
+                        line.replace('{pie_data23}', str(pie_data))
                     )
 
         print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'HTML UPDATED!')

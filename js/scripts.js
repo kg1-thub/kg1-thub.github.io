@@ -3,7 +3,7 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
     */
-var years = ['2022', '2021', '2020', '2019', '2018'];
+var years = ['2023', '2022', '2021', '2020', '2019', '2018'];
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -15,20 +15,20 @@ $(document).ready(function(){
 
 function tab_change(year) {
     if (year.length>0) {
-        // var years = ['2022', '2021', '2020', '2019', '2018'];
+        // var years = ['2023', '2022', '2021', '2020', '2019', '2018'];
         for (i=0; i<years.length; i++) {
             if (years[i]==year) {
                 $(".dropdown-toggle")[0].innerText=year;
                 document.getElementById('t'+year).classList.add('active');
                 document.getElementById('d'+year).classList.add('d-none');
-                calmap_scroll_right();
+                // calmap_scroll_right();
             } else {
                 document.getElementById('t'+years[i]).classList.remove('active');
                 document.getElementById('d'+years[i]).classList.remove('d-none');
-                calmap_scroll_right();
+                // calmap_scroll_right();
             }
         };
-        if (year != '2022') {
+        if (year != '2023') {
             downbtn.classList.add('d-none');
         } else {
             downbtn.classList.remove('d-none');
@@ -36,6 +36,13 @@ function tab_change(year) {
     };
 };
 
+document.getElementById('d2022').addEventListener('click', function() {
+    tab_change('2022');
+    var innings22_ctx = document.getElementById('canvas22innings').getContext('2d');
+    window.line22innings = new Chart(innings22_ctx, innings22_ctx_config);
+    var starting_games22_ctx = document.getElementById('canvas22startings').getContext('2d');
+    window.line22startings = new Chart(starting_games22_ctx, starting_games22_ctx_config);
+});
 document.getElementById('d2021').addEventListener('click', function() {
     tab_change('2021');
     var innings21_ctx = document.getElementById('canvas21innings').getContext('2d');
@@ -71,7 +78,7 @@ $(document).ready(function() {
     if (year.includes(years)) {
         tab_change(year);
     }
-    calmap_scroll_right();
+    // calmap_scroll_right();
 });
 
 function get_total_by_row(sample_list) {
@@ -182,7 +189,7 @@ function backToTop() {
 }
 
 function goToGames() {
-    const target = document.getElementById('games22');
+    const target = document.getElementById('games23');
     const targetOffsetTop = window.pageYOffset + target.getBoundingClientRect().top - ($('.sb-topnav').height() + 8 * 2);
     window.scrollTo({
         top: targetOffsetTop,

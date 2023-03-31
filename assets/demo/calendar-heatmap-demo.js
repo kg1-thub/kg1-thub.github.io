@@ -1,6 +1,35 @@
 var squareLength = 18;
 var _colorRange = ['#ECEFF2', '#ff8000'];
 
+var datas23 = {
+    '2023-03-19': 1, //sample
+    '2023-03-31': -1,
+    //@@NEXTGAME@@
+};
+var score23 = {
+    '2023-03-31': 'vs Dragons , 3-6 </br>Start P.ビーディ / C.大城',
+    //@@NEXTSCORE@@
+};
+var chartData23 = [];
+for (var d in datas23) {
+    chartData23.push({
+        date: moment(d, 'YYYY-MM-DD').startOf('day').toDate(),
+        count: datas23[d],
+        score: score23[d],
+    });
+};
+var heatmap23 = calendarHeatmap()
+  .data(chartData23)
+  .startDate('2023-03-20')
+  .endDate('2023-09-26')
+  .selector('#calmap23')
+  .tooltipEnabled(true)
+  .legendEnabled(false)
+  .squareLength(squareLength)
+  .svgWidth('700px')
+  .colorRange(_colorRange);
+heatmap23();  // render the chart
+
 var datas22 = {
     '2022-03-25': 1,
     '2022-03-26': 1,
@@ -145,7 +174,6 @@ var datas22 = {
     '2022-09-25': -1,
     '2022-10-01': -1,
     '2022-10-02': 1,
-    //@@NEXTGAME@@
 };
 var score22 = {
     '2022-03-25': 'vs Dragons , 4-2 </br>Start P.菅野 / C.小林',
@@ -291,7 +319,6 @@ var score22 = {
     '2022-09-25': 'vs Dragons , 7-1 </br>Start P.菅野 / C.大城',
     '2022-10-01': 'vs Baystars , 1-0 </br>Start P.戸郷 / C.大城',
     '2022-10-02': 'vs Baystars , 2-3 </br>Start P.菅野 / C.大城',
-    //@@NEXTSCORE@@
 };
 var chartData22 = [];
 for (var d in datas22) {
