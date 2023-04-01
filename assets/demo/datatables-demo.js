@@ -315,7 +315,7 @@ function makeCSV(records, columns, year) {
       ins_outs[0] += parseInt(records[i][2]);
     }
 
-    if (records[i][17]=='1' && parseFloat(records[i][2])>=6 && parseFloat(records[i][12])<=3)
+    if (records[i][16]=='1' && parseFloat(records[i][2])>=6 && parseFloat(records[i][12])<=3)
     {
       qs += 1;
     }

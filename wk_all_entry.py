@@ -118,8 +118,8 @@ if __name__=='__main__':
         xml = requests.get(url)
         soup = BeautifulSoup(xml.content, 'html.parser')
         _score = []
-        for _k, news in enumerate(soup.findAll('a', class_='bb-gameTeam__link')):
-            _score.append(news.text)
+        for _, score_of_game in enumerate(soup.findAll('a', class_='bb-gameTeam__link')):
+            _score.append(score_of_game.text)
 
         _score.append(soup.find('span', class_='bb-gameTeam__homeScore').text)
         _score.append(soup.find('span', class_='bb-gameTeam__awayScore').text)
@@ -142,11 +142,11 @@ if __name__=='__main__':
             elif _team.text == '読売ジャイアンツ':
                 print(_team.text)
                 with open(csvdir+'/catcher_stats'+tday.strftime('%y')+'.csv',mode='a',encoding='shift-jis') as f:
-                    for _k2, news2 in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
+                    for order_of_pitcher, scores_of_pitcher in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
                         _playerscore = []
-                        for _k3, news3 in enumerate(news2.findAll('td')):
-                            if _k3 == 0:
-                                wls = news3.text
+                        for i, score_of_pitcher in enumerate(scores_of_pitcher.findAll('td')):
+                            if i == 0:
+                                wls = score_of_pitcher.text
                                 if wls == '勝':
                                     wls = 'W'
                                     heatmap_WLD = 1
@@ -154,14 +154,14 @@ if __name__=='__main__':
                                     wls = 'L'
                                     heatmap_WLD = -1
                                 _playerscore.append(wls)
-                            elif _k3 == 2:
+                            elif i == 2:
                                 pass
                             else:
-                                _playerscore.append(news3.text.replace('\n', ''))
+                                _playerscore.append(score_of_pitcher.text.replace('\n', ''))
 
                         _playerscore.append(
                             catcher 
-                                if _k2==0 or fullmask 
+                                if order_of_pitcher==0 or fullmask 
                                 else
                                     get_catcher_name(
                                         int(input('次の投手 "'+_playerscore[1]+'" の捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
@@ -169,9 +169,9 @@ if __name__=='__main__':
                         )
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
                         _playerscore.append(team)
-                        _playerscore.append('1' if _k2==0 else '0')
+                        _playerscore.append('1' if order_of_pitcher==0 else '0')
                         _playerscore.append(tday.strftime('%Y')+'RS')
-                        if _k2==0: ## heatmap data
+                        if order_of_pitcher==0: ## heatmap data
                             start_catcher = catcher
                             start_pitcher = _playerscore[1].split(" ")[0]
                             if start_pitcher=='メルセデス':
