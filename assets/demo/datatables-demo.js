@@ -322,7 +322,7 @@ function makeCSV(records, columns, year) {
 
     ers += parseInt(records[i][12]);
   }
-  console.log(ins_outs);
+
   // divcaption.textContent = "勝-敗-S, 防御率 (イニング)";
   divcaption.textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS`;
   // divtable.appendChild(divcaption);
@@ -370,7 +370,7 @@ function makeCSV(records, columns, year) {
 
   var keyword="";
   if (year='23') {
-    keyword = "03/31" // @@KEYWORD@@
+    keyword = "04/01" // @@KEYWORD@@
   }
 
   $(document).ready(function() {
@@ -468,7 +468,7 @@ function search_today() {
 };
 
 function csvLoad(year) {
-  var cols = ["勝敗S","投手","投球回","投球数","打者","被安打","被本塁打","奪三振","与四球","与死球","ボーク","失点","自責点","捕手","月日","対戦","出場","series"];
+  var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ﾎﾞｰｸ","失点","自責","捕手","月日","対戦","出場","series"];
   // wls,pitcher,innings,pitches,at_bats,hits,homeruns,strikeouts,walks,hit_by_pitch,balks,runs,earned_runs,catcher,day_of_game,vs_team,starting,series
   var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats${year}.csv`;
   fetch(fileurl)
