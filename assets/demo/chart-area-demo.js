@@ -1,7 +1,7 @@
 var ctx23_data = {
   'Giants':   [0,-1, 0],
-  'Tigers':   [0, 1],
-  'Baystars': [0,-1],
+  'Tigers':   [0, 1, 2],
+  'Baystars': [0,-1,-2],
   'Swallows': [0, 1, 2],
   'Dragons':  [0, 1, 0],
   'Carp':     [0,-1,-2],
