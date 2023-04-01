@@ -49,9 +49,11 @@ def get_query_category(sql, series, category):
     cur = conn.cursor()
     if category=='month':
         category1, category2 = "month::integer", "DATE_PART('month', day_of_game) AS month"
+        condition = ""
     else:
         category1, category2 = category, category
-    cur.execute(sql % (category1, category, category2, series, category, category, category))
+        condition = "AND NOT (catcher='大城' AND pitcher='高梨 雄平')"
+    cur.execute(sql % (category1, category, category2, series, condition, category, category, category))
     conn.commit()
     results = cur.fetchall()
     cur.close()
@@ -63,12 +65,14 @@ def create_table_category(series, category):
 
     table_html = ''
     tb = '\t'*11
+    if category == 'pitcher':
+        stats.append(('高梨 雄平', '0-0-0, 99.99 (0.0)', None, None, None, None))
     for stat in stats:
         table_html += tb+'<tr>\n'
         for i, x in enumerate(stat):
             if x is None:
                 table_html += tb+'\t<td>---</td>\n'
-                # if stat[0] == 'シューメーカー' and i==5:
+                # if stat[0] == '高梨 雄平' and i==1:
                 #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 # else:
                 #     table_html += tb+'\t<td>---</td>\n'
@@ -391,8 +395,7 @@ if __name__=='__main__':
                 SUM(earned_runs) er, \
                 sum(floor(innings))+sum(mod(innings,1))*10/3 ins \
                 FROM catcher_stats \
-                WHERE series = '%s' \
-                  AND NOT (catcher='岸田' AND pitcher='シューメーカー' ) \
+                WHERE series = '%s' %s \
                 GROUP BY catcher, win_lose_save, %s \
                 ORDER BY 1, 2 DESC \
             ) tmp \
@@ -505,7 +508,7 @@ if __name__=='__main__':
 
         table_month_html = create_table_category(TODAY.strftime('%Y')+'RS', 'month')
 
-        # table_pitcher_html = create_table_category(TODAY.strftime('%Y')+'RS', 'pitcher')
+        table_pitcher_html = create_table_category(TODAY.strftime('%Y')+'RS', 'pitcher')
 
         today = datetime.date.today().strftime('%Y.%m.%d')
         with open('./assets/data/index.template.html',mode='r',encoding='utf-8') as f1:
@@ -516,7 +519,7 @@ if __name__=='__main__':
                             .replace('@@atag_catcher@@', atag_tweet_html)
                             .replace('@@table_catcher@@', table_html)
                             .replace('@@table_month@@', table_month_html)
-                            # .replace('@@table_pitcher@@', table_pitcher_html)
+                            .replace('@@table_pitcher@@', table_pitcher_html)
                             .replace('@@update_date@@', today)
                     )
 
