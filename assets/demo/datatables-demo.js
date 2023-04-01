@@ -414,7 +414,7 @@ function makeCSV(records, columns, year) {
       }).on('search.dt', function() {
         var table = $(`#dt${year}games`).DataTable();
 
-        var data = table.columns( [1, 3, 9, 13] , {filter:'applied'}).data();
+        var data = table.columns( [1, 3, 13, 17] , {filter:'applied'}).data();
         var wls = [0, 0, 0];
         var ins_outs = [0, 0];
         var ers = 0;
@@ -468,7 +468,7 @@ function search_today() {
 };
 
 function csvLoad(year) {
-  var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ﾎﾞｰｸ","失点","自責","捕手","月日","対戦","出場","series"];
+  var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
   // wls,pitcher,innings,pitches,at_bats,hits,homeruns,strikeouts,walks,hit_by_pitch,balks,runs,earned_runs,catcher,day_of_game,vs_team,starting,series
   var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats${year}.csv`;
   fetch(fileurl)
