@@ -5,11 +5,13 @@ var datas23 = {
     '2023-03-19': 1, //sample
     '2023-03-31': -1,
     '2023-04-01': 1,
+    '2023-04-02': 1,
     //@@NEXTGAME@@
 };
 var score23 = {
     '2023-03-31': 'vs Dragons , 3-6 </br>Start P.ビーディ / C.大城',
     '2023-04-01': 'vs Dragons , 2-0 </br>Start P.グリフィン / C.大城',
+    '2023-04-02': 'vs Dragons , 3-2 </br>Start P.赤星 / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
