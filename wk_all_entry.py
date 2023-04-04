@@ -259,7 +259,7 @@ if __name__=='__main__':
             _team = 'Swallows'
         elif team=='広島':
             _team = 'Carp'
-        elif team=='ＤｅＮＡ':
+        elif team=='DeNA':
             _team = 'Baystars'
         elif team=='西武':
             _team = 'Lions'
