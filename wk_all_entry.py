@@ -52,7 +52,8 @@ def get_query_category(sql, series, category):
         condition = ""
     else:
         category1, category2 = category, category
-        condition = "AND NOT (catcher='大城' AND pitcher='高梨 雄平')"
+        condition = ""
+        # condition = "AND NOT (catcher='大城' AND pitcher='高梨 雄平')"
     cur.execute(sql % (category1, category, category2, series, condition, category, category, category))
     conn.commit()
     results = cur.fetchall()
@@ -71,11 +72,11 @@ def create_table_category(series, category):
         table_html += tb+'<tr>\n'
         for i, x in enumerate(stat):
             if x is None:
-                # table_html += tb+'\t<td>---</td>\n'
-                if stat[0] == '高梨 雄平' and i==1:
-                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                else:
-                    table_html += tb+'\t<td>---</td>\n'
+                table_html += tb+'\t<td>---</td>\n'
+                # if stat[0] == '高梨 雄平' and i==1:
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # else:
+                #     table_html += tb+'\t<td>---</td>\n'
             else:
                 table_html += tb+'\t<td>'+str(x).replace('.67)', '.2)').replace('.33)', '.1)')+'</td>\n'
         table_html += tb+'</tr>\n'
