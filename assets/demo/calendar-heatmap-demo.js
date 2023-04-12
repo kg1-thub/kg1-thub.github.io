@@ -13,6 +13,7 @@ var datas23 = {
     '2023-04-08': -1,
     '2023-04-09': -1,
     '2023-04-11': 1,
+    '2023-04-12': -1,
     //@@NEXTGAME@@
 };
 var score23 = {
@@ -26,6 +27,7 @@ var score23 = {
     '2023-04-08': 'vs Carp , 6-3 </br>Start P.グリフィン / C.大城',
     '2023-04-09': 'vs Carp , 4-2 </br>Start P.赤星 / C.大城',
     '2023-04-11': 'vs Tigers , 7-1 </br>Start P.戸郷 / C.大城',
+    '2023-04-12': 'vs Tigers , 1-2 </br>Start P.メンデス / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
