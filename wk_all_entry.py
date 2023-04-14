@@ -133,6 +133,7 @@ if __name__=='__main__':
             team = _score[1]
         elif _score[1] == '巨人':
             team = _score[0]
+        print(team)
         score = _score[2]+'-'+_score[3]
 
         url = 'https://baseball.yahoo.co.jp/npb/game/'+gameid+'/stats'
