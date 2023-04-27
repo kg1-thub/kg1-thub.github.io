@@ -160,6 +160,9 @@ if __name__=='__main__':
                                     wls = 'L'
                                     heatmap_WLD = -1
                                 _playerscore.append(wls)
+                            elif i == 1:
+                                _playerscore.append(score_of_pitcher.text.replace('\n', '').replace('\ufa11', '\u5d0e'))
+                                # Replace 﨑('\ufa11') → 崎(\u5d0e) To avoid shift_jis encoding error.
                             elif i == 2:
                                 pass
                             else:
@@ -189,9 +192,7 @@ if __name__=='__main__':
 
                         print(','.join(_playerscore))
                         if not fullmask: print()
-                        # if '\ufa11' in _playerscore: _playerscore.replace('\ufa11', '﨑')
-                        # f.write(','.join(_playerscore)+'\n')
-
+                        f.write(','.join(_playerscore)+'\n')
 
         if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
             nextrunner = True
