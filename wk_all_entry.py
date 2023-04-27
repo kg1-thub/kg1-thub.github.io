@@ -189,7 +189,8 @@ if __name__=='__main__':
 
                         print(','.join(_playerscore))
                         if not fullmask: print()
-                        f.write(','.join(_playerscore)+'\n')
+                        # if '\ufa11' in _playerscore: _playerscore.replace('\ufa11', '﨑')
+                        # f.write(','.join(_playerscore)+'\n')
 
 
         if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
