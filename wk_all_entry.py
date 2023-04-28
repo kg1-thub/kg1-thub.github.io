@@ -161,8 +161,13 @@ if __name__=='__main__':
                                     heatmap_WLD = -1
                                 _playerscore.append(wls)
                             elif i == 1:
-                                _playerscore.append(score_of_pitcher.text.replace('\n', '').replace('\ufa11', '\u5d0e'))
-                                # Replace 﨑('\ufa11') → 崎(\u5d0e) To avoid shift_jis encoding error.
+                                _playerscore.append(
+                                    score_of_pitcher.text.replace('\n', '')
+                                        .replace('\ufa11', '\u5d0e')
+                                        .replace('\u9ad9', '\u9ad8')
+                                    )
+                                    # Replace 﨑('\ufa11') → 崎(\u5d0e) To avoid shift_jis encoding error.
+                                    # Replace 髙('\u9ad9') → 高(\u9ad8) To avoid shift_jis encoding error.
                             elif i == 2:
                                 pass
                             else:
