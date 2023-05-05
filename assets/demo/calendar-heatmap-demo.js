@@ -32,6 +32,9 @@ var datas23 = {
     '2023-04-29': 1,
     '2023-04-30': -1,
     '2023-05-02': -1,
+    '2023-05-03': 1,
+    '2023-05-04': 1,
+    '2023-05-05': -1,
     //@@NEXTGAME@@
 };
 var score23 = {
@@ -64,6 +67,9 @@ var score23 = {
     '2023-04-29': 'vs Carp , 4-3 </br>Start P.グリフィン / C.大城',
     '2023-04-30': 'vs Carp , 4-11 </br>Start P.ビーディ / C.大城',
     '2023-05-02': 'vs Swallows , 5-7 </br>Start P.戸郷 / C.大城',
+    '2023-05-03': 'vs Swallows , 8-7 </br>Start P.高橋 / C.大城',
+    '2023-05-04': 'vs Swallows , 8-7 </br>Start P.山崎 / C.小林',
+    '2023-05-05': 'vs Dragons , 8-3 </br>Start P.横川 / C.山瀬',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
