@@ -308,17 +308,17 @@ var innings23_ctx_config = {
           data: innings23.p[1],
           fill: true
       }, {
-          label: '岸田',
+          label: '山瀬',
           lineTension: 0,
-          borderColor: window.chartColors.green,
-          backgroundColor: window.chartColors.green,
+          borderColor: window.chartColors.red,
+          backgroundColor: window.chartColors.red,
           data: innings23.p[2],
           fill: true
       }, {
           label: 'その他',
           lineTension: 0,
-          borderColor: window.chartColors.red,
-          backgroundColor: window.chartColors.red,
+          borderColor: window.chartColors.green,
+          backgroundColor: window.chartColors.green,
           data: innings23.p[3],
           fill: true
     }]
@@ -344,17 +344,17 @@ var starting_games23_ctx_config = {
           data: starting_games23.p[1],
           fill: true
       }, {
-          label: '岸田',
+          label: '山瀬',
           lineTension: 0,
-          borderColor: window.chartColors.green,
-          backgroundColor: window.chartColors.green,
+          borderColor: window.chartColors.red,
+          backgroundColor: window.chartColors.red,
           data: starting_games23.p[2],
           fill: true
       }, {
           label: 'その他',
           lineTension: 0,
-          borderColor: window.chartColors.red,
-          backgroundColor: window.chartColors.red,
+          borderColor: window.chartColors.green,
+          backgroundColor: window.chartColors.green,
           data: starting_games23.p[3],
           fill: true
       }]
@@ -799,10 +799,10 @@ var ctx23 = document.getElementById("pie23innings");
 var pie23innings = new Chart(ctx23, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "岸田", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: total_innings23,
-      backgroundColor: ['#ffc107', '#007bff', '#28a745', '#dc3545'],
+      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
     }],
   },
   options: {
@@ -822,10 +822,10 @@ var ctx23v2 = document.getElementById("pie23startings");
 var pie23startings = new Chart(ctx23v2, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "岸田", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: total_starting_games23,
-      backgroundColor: ['#ffc107', '#007bff', '#28a745', '#dc3545'],
+      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
     }],
   },
   options: {
@@ -845,10 +845,10 @@ var ctx23v3 = document.getElementById("pie23stolenbases");
 var pie23stolenbases = new Chart(ctx23v3, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "岸田", "その他"],
+    labels: ["大城", "小林", "山瀬", "その他"],
     datasets: [{
       data: stolen_bases23,
-      backgroundColor: ['#ffc107', '#007bff', '#28a745', '#dc3545'],
+      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
     }],
   },
   options: {
@@ -1236,15 +1236,15 @@ var myLineChart23 = new Chart(ctx23, {
         data: pie_data23.Winning_games[1],
       },
       {
-        label: "岸田",
-        backgroundColor: "#28a745",
-        borderColor: "#28a745",
+        label: "山瀬",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
         data: pie_data23.Winning_games[2],
       },
       {
         label: "その他",
-        backgroundColor: "#dc3545",
-        borderColor: "#dc3545",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
         data: pie_data23.Winning_games[3],
       },
     ],
