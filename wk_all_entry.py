@@ -261,6 +261,7 @@ if __name__=='__main__':
 
         print('CSV UPDATED!')
         print()
+
         # CALENDER-HEATMAP UPDATE
         CALENDERHEATMAP = './assets/demo/calendar-heatmap-demo.js'
         _team = ''
