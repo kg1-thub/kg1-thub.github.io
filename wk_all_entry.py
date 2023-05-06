@@ -199,6 +199,7 @@ if __name__=='__main__':
                         if not fullmask: print()
                         f.write(','.join(_playerscore)+'\n')
 
+        print()
         if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
             nextrunner = True
             while nextrunner:
@@ -232,8 +233,9 @@ if __name__=='__main__':
                     print()
                     f.write(','.join(sdata)+'\n')
 
-                nextrunner = int(input('  他にも敵チームの盗塁企図ある?(1:YES, 0:NO)> '))
+                nextrunner = int(input('  他にも敵チームの盗塁企図あり?(1:YES, 0:NO)> '))
 
+        print()
         if int(input('巨人にバッテリーエラーあり？(1:YES, 0:NO)> ')):
             nextbattery = True
             while nextbattery:
@@ -255,8 +257,10 @@ if __name__=='__main__':
                     print()
                     f.write(','.join(pdata)+'\n')
 
-                nextbattery = int(input('  他にも巨人にバッテリーエラーある?(1:YES, 0:NO)> '))
+                nextbattery = int(input('  他にも巨人にバッテリーエラーあり?(1:YES, 0:NO)> '))
 
+        print('CSV UPDATED!')
+        print()
         # CALENDER-HEATMAP UPDATE
         CALENDERHEATMAP = './assets/demo/calendar-heatmap-demo.js'
         _team = ''
@@ -309,9 +313,8 @@ if __name__=='__main__':
                     content += line
         with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
             writer.write(content)
-        print('DATATABLESDEMO SEARCH KEYWORD UPDATED.')
+        print('DATATABLES-DEMO SEARCH KEYWORD UPDATED.')
 
-        print('CSV UPDATED!')
         print()
 
     if make_html:
