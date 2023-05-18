@@ -44,6 +44,7 @@ var datas23 = {
     '2023-05-14': -1,
     '2023-05-16': 1,
     '2023-05-17': 1,
+    '2023-05-18': 1,
     //@@NEXTGAME@@
 };
 var score23 = {
@@ -88,6 +89,7 @@ var score23 = {
     '2023-05-14': 'vs Carp , 2-7 </br>Start P.赤星 / C.大城',
     '2023-05-16': 'vs Swallows , 8-9 </br>Start P.戸郷 / C.大城',
     '2023-05-17': 'vs Swallows , 4-5 </br>Start P.山崎 / C.大城',
+    '2023-05-18': 'vs Swallows , 3-6 </br>Start P.横川 / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
