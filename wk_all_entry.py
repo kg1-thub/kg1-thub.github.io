@@ -52,8 +52,8 @@ def get_query_category(sql, series, category):
         condition = ""
     else:
         category1, category2 = category, category
-        # condition = ""
-        condition = "AND NOT (catcher='大城' AND pitcher='平内 龍太')"
+        condition = ""
+        # condition = "AND NOT (catcher='大城' AND pitcher='平内 龍太')"
     cur.execute(sql % (category1, category, category2, series, condition, category, category, category))
     conn.commit()
     results = cur.fetchall()
