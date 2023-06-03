@@ -57,6 +57,7 @@ var datas23 = {
     '2023-05-31': 1,
     '2023-06-01': 1,
     '2023-06-02': -1,
+    '2023-06-03': 1,
     //@@NEXTGAME@@
 };
 var score23 = {
@@ -114,6 +115,7 @@ var score23 = {
     '2023-05-31': 'vs Lotte , 4-7 </br>Start P.戸郷 / C.大城',
     '2023-06-01': 'vs Lotte , 2-3 </br>Start P.山崎 / C.大城',
     '2023-06-02': 'vs Fighters , 2-8 </br>Start P.横川 / C.大城',
+    '2023-06-03': 'vs Fighters , 3-2 </br>Start P.グリフィン / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
