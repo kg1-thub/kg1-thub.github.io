@@ -65,6 +65,7 @@ var datas23 = {
     '2023-06-09': -1,
     '2023-06-10': 1,
     '2023-06-11': 1,
+    '2023-06-13': 1,
     //@@NEXTGAME@@
 };
 var score23 = {
@@ -130,6 +131,7 @@ var score23 = {
     '2023-06-09': 'vs Softbank , 5-1 </br>Start P.横川 / C.岸田',
     '2023-06-10': 'vs Softbank , 6-10 </br>Start P.今村 / C.大城',
     '2023-06-11': 'vs Softbank , 2-4 </br>Start P.菅野 / C.大城',
+    '2023-06-13': 'vs Lions , 3-0 </br>Start P.メンデス / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
