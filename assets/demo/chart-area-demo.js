@@ -178,7 +178,7 @@ const illabel23 = {
     color: 'black',
     content: 'INTERLEAGUE PLAY',
     enabled: true,
-    position: 'end',
+    position: 'start',
     font: {
       size: 12
     }
