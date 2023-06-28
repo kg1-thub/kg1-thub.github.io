@@ -74,6 +74,7 @@ var datas23 = {
     '2023-06-23': 1,
     '2023-06-24': -1,
     '2023-06-25': -1,
+    '2023-06-28': -1,
     //@@NEXTGAME@@
 };
 var score23 = {
@@ -148,6 +149,7 @@ var score23 = {
     '2023-06-23': 'vs Carp , 3-5 </br>Start P.井上 / C.大城',
     '2023-06-24': 'vs Carp , 3-1 </br>Start P.メンデス / C.大城',
     '2023-06-25': 'vs Carp , 3-2 </br>Start P.山崎 / C.大城',
+    '2023-06-28': 'vs Swallows , 0-6 </br>Start P.グリフィン / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
