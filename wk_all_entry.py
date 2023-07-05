@@ -117,7 +117,19 @@ if __name__=='__main__':
 
         catcher = get_catcher_name(int(input('スタメン捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> ')))
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
-        gameid = str(input('SportsNavi ゲームIDを入力してください>'))
+
+        # get yahoo sports gameid
+        _game_calender = 'https://baseball.yahoo.co.jp/npb/teams/1/schedule?month=' + tday.strftime('%Y-%m')
+        xml = requests.get(_game_calender)
+        soup = BeautifulSoup(xml.content, 'html.parser')
+        for x in soup.findAll('div', class_='bb-calendarTable__wrap'):
+            d = x.find('p', class_='bb-calendarTable__date')
+            if (d is not None):
+                if (int(d.text) == int(tday.strftime('%e'))):
+                    _game = x.find('a', class_='bb-calendarTable__status')
+                    match = re.search(r'/game/(\d+)/', str(_game))
+                    if match:
+                        gameid = match.group(1)
 
         url = 'https://baseball.yahoo.co.jp/npb/game/'+gameid+'/top'
         xml = requests.get(url)

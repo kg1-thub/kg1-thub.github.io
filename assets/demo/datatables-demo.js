@@ -370,7 +370,7 @@ function makeCSV(records, columns, year) {
 
   var keyword="";
   if (year='23') {
-    keyword = "07/04" // @@KEYWORD@@
+    keyword = "07/05" // @@KEYWORD@@
   }
 
   $(document).ready(function() {
