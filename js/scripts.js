@@ -21,11 +21,11 @@ function tab_change(year) {
                 $(".dropdown-toggle")[0].innerText=year;
                 document.getElementById('t'+year).classList.add('active');
                 document.getElementById('d'+year).classList.add('d-none');
-                // calmap_scroll_right();
+                calmap_scroll_right();
             } else {
                 document.getElementById('t'+years[i]).classList.remove('active');
                 document.getElementById('d'+years[i]).classList.remove('d-none');
-                // calmap_scroll_right();
+                calmap_scroll_right();
             }
         };
         if (year != '2023') {
@@ -78,7 +78,7 @@ $(document).ready(function() {
     if (year.includes(years)) {
         tab_change(year);
     }
-    // calmap_scroll_right();
+    calmap_scroll_right();
 });
 
 function get_total_by_row(sample_list) {
