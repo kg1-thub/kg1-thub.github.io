@@ -99,6 +99,7 @@ var datas23 = {
     '2023-07-30': 1,
     '2023-08-01': -1,
     '2023-08-02': 1,
+    '2023-08-03': 1,
     //@@NEXTGAME@@
 };
 var score23 = {
@@ -198,6 +199,7 @@ var score23 = {
     '2023-07-30': 'vs Dragons , 4-0 </br>Start P.メンデス / C.岸田',
     '2023-08-01': 'vs Swallows , 0-1 </br>Start P.菅野 / C.大城',
     '2023-08-02': 'vs Swallows , 9-2 </br>Start P.グリフィン / C.大城',
+    '2023-08-03': 'vs Swallows , 2-1 </br>Start P.戸郷 / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
