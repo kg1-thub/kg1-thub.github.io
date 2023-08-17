@@ -163,6 +163,7 @@ if __name__=='__main__':
                     for order_of_pitcher, scores_of_pitcher in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
                         _playerscore = []
                         for i, score_of_pitcher in enumerate(scores_of_pitcher.findAll('td')):
+                            print(i, score_of_pitcher)
                             if i == 0:
                                 wls = score_of_pitcher.text
                                 if wls == '勝':
