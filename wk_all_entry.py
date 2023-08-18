@@ -154,16 +154,14 @@ if __name__=='__main__':
         heatmap_WLD = 0    # (WIN=1, LOSE=-1, DRAW=0)
 
         for _k, news in enumerate(soup.findAll('section', class_='bb-modCommon02')):
-            _team = news.find('h1', class_='bb-head03__title')
+            _team = news.find('h3', class_='bb-head02__title')
             if _team is None:
                 pass
             elif _team.text == '読売ジャイアンツ':
-                print(_team.text)
                 with open(csvdir+'/catcher_stats'+tday.strftime('%y')+'.csv',mode='a',encoding='shift-jis') as f:
                     for order_of_pitcher, scores_of_pitcher in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
                         _playerscore = []
                         for i, score_of_pitcher in enumerate(scores_of_pitcher.findAll('td')):
-                            print(i, score_of_pitcher)
                             if i == 0:
                                 wls = score_of_pitcher.text
                                 if wls == '勝':
