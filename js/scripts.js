@@ -42,6 +42,7 @@ document.getElementById('d2022').addEventListener('click', function() {
     window.line22innings = new Chart(innings22_ctx, innings22_ctx_config);
     var starting_games22_ctx = document.getElementById('canvas22startings').getContext('2d');
     window.line22startings = new Chart(starting_games22_ctx, starting_games22_ctx_config);
+    csvLoad('22');
 });
 document.getElementById('d2021').addEventListener('click', function() {
     tab_change('2021');

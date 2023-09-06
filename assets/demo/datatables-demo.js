@@ -370,10 +370,8 @@ function makeCSV(records, columns, year) {
 
   var keyword="";
   if (year='23') {
-    keyword = "09/05" // @@KEYWORD@@
-  }
-
-  $(document).ready(function() {
+    keyword = "09/06"; // @@KEYWORD@@
+    $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
         order: [[ 0, "asc" ]],
         columnDefs: [
@@ -453,7 +451,86 @@ function makeCSV(records, columns, year) {
           document.getElementById(`dt${year}gamescaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
         }
       })
-  });
+    });
+  // } else {
+  //   $(document).ready(function() {
+  //     $(`#dt${year}games`).DataTable({
+  //       order: [[ 0, "asc" ]],
+  //       columnDefs: [
+  //         { visible: false, targets: 0 },
+  //         { width: "5%", targets: 1 },
+  //         { width: "9%", targets: 2 },
+  //         { width: "6%", targets: 3 },
+  //         { width: "5%", targets: 4 },
+  //         { width: "5%", targets: 5 },
+  //         { width: "5%", targets: 6 },
+  //         { width: "5%", targets: 7 },
+  //         { width: "5%", targets: 8 },
+  //         { width: "5%", targets: 9 },
+  //         { width: "5%", targets: 10 },
+  //         { visible: false, targets: 11 },
+  //         { width: "5%", targets: 12 },
+  //         { width: "5%", targets: 13 },
+  //         { visible: false, targets: 14 },
+  //       ],
+  //       // dom: 'frtiQlp',
+  //       dom: '<"float-left"f>rt<"float-left"p>',
+  //       searching: true,
+  //       search: {
+  //         regex: true,
+  //         search: keyword
+  //       },
+  //       paging: true,
+  //       info: false,
+  //       // language: {
+  //       //   searchPlaceholder: "search keyword"
+  //       // }
+  //       lengthMenu: [ 10, 30, 50 ],
+  //       mark: true,
+  //     }).on('search.dt', function() {
+  //       var table = $(`#dt${year}games`).DataTable();
+
+  //       var data = table.columns( [1, 3, 13] , {filter:'applied'}).data();
+  //       var wls = [0, 0, 0];
+  //       var ins_outs = [0, 0];
+  //       var ers = 0;
+  //       var qs = 0;
+  //       var st = 0
+
+  //       for (let i=0; i<data[0].length; i++) {
+  //         if (data[0][i]=='W') {
+  //           wls[0] += 1;
+  //         } else if (data[0][i]=='L') {
+  //           wls[1] += 1;
+  //         } else if (data[0][i]=='S') {
+  //           wls[2] += 1;
+  //         }
+
+  //         if (data[1][i].includes('.')) {
+  //           var _ins_outs = data[1][i].split('.');
+  //           ins_outs[0] += parseInt(_ins_outs[0]);
+  //           ins_outs[1] += parseInt(_ins_outs[1]);
+  //         } else {
+  //           ins_outs[0] += parseInt(data[1][i]);
+  //         }
+
+  //         if (data[3][i]=='先発') {
+  //           st += 1;
+  //           if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3) {
+  //             qs += 1;
+  //           }
+  //         }
+
+  //         ers += parseInt(data[2][i]);
+  //       }
+  //       if (st==0){
+  //         document.getElementById(`dt${year}gamescaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+  //       } else {
+  //         document.getElementById(`dt${year}gamescaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
+  //       }
+  //     })
+  //   });
+  }
 };
 
 function search_keyword(keyword) {
@@ -468,7 +545,11 @@ function search_today() {
 };
 
 function csvLoad(year) {
-  var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
+  if (year=="23"){
+    var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
+  // } else {
+  //   var cols = ["勝敗S","投手","投球回","打者","被安","三振","四球","失点","自責","捕手","月日","対戦","出場","series"];
+  }
   // wls,pitcher,innings,pitches,at_bats,hits,homeruns,strikeouts,walks,hit_by_pitch,balks,runs,earned_runs,catcher,day_of_game,vs_team,starting,series
   var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats${year}.csv`;
   fetch(fileurl)
