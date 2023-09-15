@@ -135,6 +135,7 @@ var datas23 = {
     '2023-09-12': -1,
     '2023-09-13': -1,
     '2023-09-14': -1,
+    '2023-09-15': 1,
     //@@NEXTGAME@@
 };
 var score23 = {
@@ -270,6 +271,7 @@ var score23 = {
     '2023-09-12': 'vs Tigers , 1-0 </br>Start P.山崎 / C.大城',
     '2023-09-13': 'vs Tigers , 4-0 </br>Start P.横川 / C.大城',
     '2023-09-14': 'vs Tigers , 4-3 </br>Start P.赤星 / C.岸田',
+    '2023-09-15': 'vs Dragons , 0-7 </br>Start P.戸郷 / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData23 = [];
