@@ -370,7 +370,7 @@ function makeCSV(records, columns, year) {
 
   var keyword="";
   if (year='23') {
-    keyword = "09/16"; // @@KEYWORD@@
+    keyword = "09/17"; // @@KEYWORD@@
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
         order: [[ 0, "asc" ]],
