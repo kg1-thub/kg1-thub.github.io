@@ -305,7 +305,7 @@ for (var d in datas23) {
 var heatmap23 = calendarHeatmap()
   .data(chartData23)
   .startDate('2023-03-20')
-  .endDate('2023-09-26')
+  .endDate('2023-10-08')
   .selector('#calmap23')
   .tooltipEnabled(true)
   .legendEnabled(false)
