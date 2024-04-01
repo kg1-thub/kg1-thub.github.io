@@ -606,12 +606,14 @@ function csvLoad(year) {
   fetch(fileurl)
   .then(res => res.blob()) // Gets the response and returns it as a blob
   .then(blob => {
+      console.log("LOAD TABLE");
       var file = blob;
       var reader = new FileReader();
       reader.readAsText(file, 'Shift_JIS');
       reader.onload = function(event) {
           var textdata = event.target.result;
           var tmp = textdata.split("\n");
+          console.log(tmp);
           // var cols = tmp[0].split(",");
           var records = [];
           for (var i = 0; i < tmp.length-2; i++) {
