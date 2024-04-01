@@ -3,7 +3,7 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
     */
-var years = ['2023', '2022', '2021', '2020', '2019', '2018'];
+var years = ['2024', '2023', '2022', '2021', '2020', '2019', '2018'];
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -28,7 +28,7 @@ function tab_change(year) {
                 calmap_scroll_right();
             }
         };
-        if (year != '2023') {
+        if (year != '2024') {
             downbtn.classList.add('d-none');
         } else {
             downbtn.classList.remove('d-none');
@@ -36,6 +36,14 @@ function tab_change(year) {
     };
 };
 
+document.getElementById('d2023').addEventListener('click', function() {
+    tab_change('2023');
+    var innings23_ctx = document.getElementById('canvas23innings').getContext('2d');
+    window.line23innings = new Chart(innings23_ctx, innings23_ctx_config);
+    var starting_games23_ctx = document.getElementById('canvas23startings').getContext('2d');
+    window.line23startings = new Chart(starting_games23_ctx, starting_games23_ctx_config);
+    csvLoad('23');
+});
 document.getElementById('d2022').addEventListener('click', function() {
     tab_change('2022');
     var innings22_ctx = document.getElementById('canvas22innings').getContext('2d');
@@ -190,7 +198,7 @@ function backToTop() {
 }
 
 function goToGames() {
-    const target = document.getElementById('games23');
+    const target = document.getElementById('games24');
     const targetOffsetTop = window.pageYOffset + target.getBoundingClientRect().top - ($('.sb-topnav').height() + 8 * 2);
     window.scrollTo({
         top: targetOffsetTop,

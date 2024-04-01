@@ -281,7 +281,58 @@ $(document).ready(function() {
   });
 });
 
-// dt23games
+$(document).ready(function() {
+  $('#dt24catcher').DataTable({
+    order: [ [ 1, "desc" ] ],
+    columnDefs: [
+      { width: "8%", targets: 2 },
+      { width: "8%", targets: 3 },
+      { width: "8%", targets: 4 },
+      { width: "8%", targets: 5 },
+      { width: "8%", targets: 6 },
+      { width: "8%", targets: 7 },
+      { width: "8%", targets: 9 },
+      { width: "8%", targets: 10 },
+      { width: "8%", targets: 11 }
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
+
+$(document).ready(function() {
+  $('#dt24month').DataTable({
+    order: [ [ 0, "asc" ] ],
+    columnDefs: [
+      // { width: "17%", targets: 1 },
+      // { width: "17%", targets: 2 },
+      // { width: "17%", targets: 3 },
+      // { width: "11%", targets: 4 },
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
+
+$(document).ready(function() {
+  $('#dt24pitcher').DataTable({
+    // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
+    order: [[ 1, "desc" ]],
+    columnDefs: [
+      // { width: "22%", targets: 1 },
+      // { width: "22%", targets: 2 },
+      // { width: "22%", targets: 3 },
+      // { width: "22%", targets: 4 },
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
+
+// dt24games
 function makeCSV(records, columns, year) {
   const divtable = document.getElementById(`dt${year}games`);
   const divcaption = document.getElementById(`dt${year}gamescaption`);
@@ -369,8 +420,8 @@ function makeCSV(records, columns, year) {
   }
 
   var keyword="";
-  if (year='23') {
-    keyword = "10/04"; // @@KEYWORD@@
+  if (year == '24') {
+    keyword = "03/31"; // @@KEYWORD@@
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
         order: [[ 0, "asc" ]],
@@ -534,18 +585,18 @@ function makeCSV(records, columns, year) {
 };
 
 function search_keyword(keyword) {
-  var table = $('#dt23games').DataTable();
+  var table = $('#dt24games').DataTable();
   table.search( keyword ).draw();
 };
 
 function search_today() {
   var today=new Date(); 
-  var table = $('#dt23games').DataTable();
+  var table = $('#dt24games').DataTable();
   table.search( ('0'+String(today.getMonth()+1)).slice(-2)+"/"+('0'+String(today.getDate())).slice(-2) ).draw();
 };
 
 function csvLoad(year) {
-  if (year=="23"){
+  if (year == "24"){
     var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
   // } else {
   //   var cols = ["勝敗S","投手","投球回","打者","被安","三振","四球","失点","自責","捕手","月日","対戦","出場","series"];
@@ -590,5 +641,6 @@ window.onload = function() {
 
 {
   // csvLoad('22');
-  csvLoad('23');
+  // csvLoad('23');
+  csvLoad('24');
 }

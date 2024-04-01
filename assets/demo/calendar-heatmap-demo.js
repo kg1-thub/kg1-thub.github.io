@@ -1,6 +1,40 @@
 var squareLength = 18;
 var _colorRange = ['#ECEFF2', '#ff8000'];
 
+// 2024
+var datas24 = {
+    '2024-03-29': 1,
+    '2024-03-30': 1,
+    '2024-03-31': -1,
+    //@@NEXTGAME@@
+};
+var score24 = {
+    '2024-03-29': 'vs Tigers , 4-0 </br>Start P.戸郷 / C.大城',
+    '2024-03-30': 'vs Tigers , 5-0 </br>Start P.グリフィン / C.大城',
+    '2024-03-31': 'vs Tigers , 0-5 </br>Start P.高橋 / C.大城',
+    //@@NEXTSCORE@@
+};
+var chartData24 = [];
+for (var d in datas24) {
+    chartData24.push({
+        date: moment(d, 'YYYY-MM-DD').startOf('day').toDate(),
+        count: datas24[d],
+        score: score24[d],
+    });
+};
+var heatmap24 = calendarHeatmap()
+  .data(chartData24)
+  .startDate('2024-03-29')
+  .endDate('2024-10-08')
+  .selector('#calmap24')
+  .tooltipEnabled(true)
+  .legendEnabled(false)
+  .squareLength(squareLength)
+  .svgWidth('700px')
+  .colorRange(_colorRange);
+heatmap24();  // render the chart
+
+// 2023
 var datas23 = {
     '2023-03-19': 0, //sample
     '2023-03-31': -1,
@@ -149,7 +183,6 @@ var datas23 = {
     '2023-10-01': 1,
     '2023-10-03': 1,
     '2023-10-04': 1,
-    //@@NEXTGAME@@
 };
 var score23 = {
     '2023-03-31': 'vs Dragons , 3-6 </br>Start P.ビーディ / C.大城',
@@ -298,7 +331,6 @@ var score23 = {
     '2023-10-01': 'vs Swallows , 1-0 </br>Start P.グリフィン / C.岸田',
     '2023-10-03': 'vs Dragons , 1-3 </br>Start P.赤星 / C.大城',
     '2023-10-04': 'vs Baystars , 1-0 </br>Start P.山崎 / C.大城',
-    //@@NEXTSCORE@@
 };
 var chartData23 = [];
 for (var d in datas23) {

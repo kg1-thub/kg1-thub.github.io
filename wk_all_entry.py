@@ -547,7 +547,7 @@ if __name__=='__main__':
             with open('./assets/demo/chart-pie-demo.js',mode='w',encoding='utf-8') as f2:
                 for line in f1:
                     f2.write(
-                        line.replace('{pie_data23}', str(pie_data))
+                        line.replace('{_pie_data}', str(pie_data))
                     )
 
         print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'HTML UPDATED!')

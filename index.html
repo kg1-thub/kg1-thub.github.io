@@ -70,9 +70,10 @@
                         </div>
                     </li> -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">2023</a>
+                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">2024</a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
-                            <a class="dropdown-item d-none" href="" id="d2023">2023</a>
+                            <a class="dropdown-item d-none" href="" id="d2024">2024</a>
+                            <a class="dropdown-item" href="#2023" id="d2023">2023</a>
                             <a class="dropdown-item" href="#2022" id="d2022">2022</a>
                             <a class="dropdown-item" href="#2021" id="d2021">2021</a>
                             <a class="dropdown-item" href="#2020" id="d2020">2020</a>
@@ -90,7 +91,7 @@
                     <div class="sharebtns col-xs-1 col-sm-4 pull-right">
                     <div class="sharebtns pull-right">
                         <div class="twitterbtn">
-							<a href="http://twitter.com/share?url=kg1-thub.github.io&text=2023巨人捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A大城, 62-62-22, 3.28 (1060.0)%0D%0A岸田, 8-5-6, 3.03 (151.1)%0D%0A小林, 1-2-3, 5.28 (46.0)%0D%0A山瀬, 0-1-0, 8.53 (19.0)%0D%0A&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">
+							<a href="http://twitter.com/share?url=kg1-thub.github.io&text=2024巨人捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A大城, 2-1-0, 1.67 (27.0)%0D%0A&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">
                                 <img src="assets/img/Twitter_Social_Icon_Rounded_Square_White.png" width="25" height="25">
                             </a>
                         </div>
@@ -2912,10 +2913,8 @@
 
             </div>
 
-
-            <div class="container-fluid tab-pane active" id="t2023">
+            <div class="container-fluid tab-pane" id="t2023">
                 <div class="row">
-
                     <div class="col-md-8 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
                             <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>League/Team/貯金推移</div>
@@ -2950,7 +2949,7 @@
                 <script src="https://adm.shinobi.jp/o/7be2db876c5227f40ce4a585fd0a6dd9"></script>
                 <!-- admax -->
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-sm p-1">
                         <div class="card mb-1" id="games23">
                             <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Pitcher/ゲーム成績
@@ -2972,7 +2971,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- admax -->
                 <script src="https://adm.shinobi.jp/o/7be2db876c5227f40ce4a585fd0a6dd9"></script>
@@ -3521,6 +3520,361 @@
                 <!-- <script src="https://adm.shinobi.jp/o/8eda2143802ac117df64c7c8ee7bde8a"></script> -->
                 <!-- admax -->
                 <!-- Advertisement area 3 END-->
+            </div>
+
+            <div class="container-fluid tab-pane active" id="t2024">
+                <div class="row">
+
+                    <div class="col-md-8 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>League/Team/貯金推移</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart24" width="100%" height="60vh"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-th mr-1" style="width: 17px;"></i>Giants/Team/勝敗マップ</div>
+                            <div class="row pt-1">
+                                <div style="background-color: #ff8000; width: 12px; height: 12px; border-radius: 30%;margin-left: 40px; margin-right: 1px;" class="my-auto"></div>
+                                <div>Win</div>
+                                <div style="background-color: rgb(247, 172, 97); width: 12px; height: 12px; border-radius: 30%;margin-left: 8px; margin-right: 1px;" class="my-auto"></div>
+                                <div>Draw</div>
+                                <div style="background-color: rgb(240, 217, 194); width: 12px; height: 12px; border-radius: 30%;margin-left: 8px; margin-right: 1px;" class="my-auto"></div>
+                                <div>Lose</div>
+                            </div>
+                            <div class="card-body mx-auto pr-0 pl-2 pt-2 pb-0" style="overflow-x: auto; width: 100%;">
+                                <div id="calmap24"></div>
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-column mr-1" style="width: 17px;"></i>Giants/Team/月別勝利数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1">
+                                <canvas id="bar24wins" width="100%" height="60vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- admax -->
+                <script src="https://adm.shinobi.jp/o/7be2db876c5227f40ce4a585fd0a6dd9"></script>
+                <!-- admax -->
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1" id="games24">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Pitcher/ゲーム成績
+                                <div class="float-right">
+                                    <button class="badge badge-pill badge-secondary" onclick="search_today()"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>今日</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword('先発')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>先発</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword('交代')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>交代</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword('大城')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>大城</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword('小林')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>小林</button>
+                                 </div>
+                            </div>
+                            <div class="card-body pl-1 pr-1 pb-0 pt-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt23games"
+                                     width="100%" cellspacing="0">
+                                        <caption id="dt24gamescaption"></caption>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- admax -->
+                <script src="https://adm.shinobi.jp/o/7be2db876c5227f40ce4a585fd0a6dd9"></script>
+                <!-- admax -->
+
+                <div class="row">
+                    <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Giants/Catcher/守備イニング</div>
+                            <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
+                                <canvas id="pie24innings"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Giants/Catcher/先発試合数</div>
+                            <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
+                                <canvas id="pie24startings"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Giants/Catcher/許盗塁数</div>
+                            <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
+                                <canvas id="pie24stolenbases"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>Giants/Catcher/月別守備イニング
+                                <button id="redraw_canvas24innings" class="badge badge-secondary">Redraw</button>
+                            </div>
+                            <div style="width:100%;">
+                                <canvas id="canvas24innings"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>Giants/Catcher/月別先発試合
+                                <button id="redraw_canvas24startings" class="badge badge-secondary">Redraw</button>
+                            </div>
+                            <div style="width:100%;">
+                                <canvas id="canvas24startings"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advertisement area 1 START -->
+                <div class="row">
+                    <a href="https://www.smbc-card.com/olentry/affiliate/online_entry.do?bno=03400493191" rel="nofollow" class="mx-auto d-block" onClick="ga('send', 'event', 'sp', 'tel', 'test');">
+                        <img border="0" width="800px" height="" alt="" src="./assets/img/smbc-card.png" class="mx-auto d-block" style="max-width: 100%;"></a>
+                </div>
+                <!-- <div class="row">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A7XWMQ+39FI+1TIYU9" rel="nofollow">
+                        <img border="0" width="300" height="250" alt="" src="https://www29.a8.net/svt/bgt?aid=220520897618&wid=001&eno=01&mid=s00000015219011006000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=3NAJ0H+A7XWMQ+39FI+1TIYU9" alt="">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A6R1F6+4TIO+5ZMCH" rel="nofollow">
+                        <img border="0" width="300" height="250" alt="" src="https://www26.a8.net/svt/bgt?aid=220520897616&wid=001&eno=01&mid=s00000022488001006000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=3NAJ0H+A6R1F6+4TIO+5ZMCH" alt="">
+                </div> -->
+                <!-- admax -->
+                <!-- <script src="https://adm.shinobi.jp/o/8eda2143802ac117df64c7c8ee7bde8a"></script> -->
+                <!-- admax -->
+                <!-- Advertisement area 1 END-->
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Catcher/シーズン成績</div>
+                            <div class="card-body pl-1 pr-1 pb-0 pt-0">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt24catcher" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>捕手</th>
+                                                <th>イニング</th>
+                                                <th>勝</th>
+                                                <th>敗</th>
+                                                <th>S</th>
+                                                <th>先発数</th>
+                                                <th>失点</th>
+                                                <th>自責点</th>
+                                                <th>防御率</th>
+                                                <th>盗塁企図</th>
+                                                <!-- <th data-toggle="tooltip" title="当サイトでは、守備に就いているときの盗塁数を単純集計しています">許盗塁</th> -->
+                                                <th>許盗塁</th>
+                                                <!-- <th data-toggle="tooltip" title="当サイトでは、守備に就いているときの盗塁死を単純集計しています">盗塁刺</th> -->
+                                                <th>盗塁刺</th>
+                                                <!-- <th data-toggle="tooltip" title="当サイトでは、守備に就いているときの許盗塁・盗塁死の数から単純計算しています">阻止率</th> -->
+                                                <th>阻止率</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											<tr>
+												<td>大城</td>
+												<td>27.0</td>
+												<td>2</td>
+												<td>1</td>
+												<td>0</td>
+												<td>3</td>
+												<td>5</td>
+												<td>5</td>
+												<td>1.67</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>---</td>
+											</tr>
+										</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Catcher/月別成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt24month" width="100%" cellspacing="0">
+                                        <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>月</th>
+                                                <th>大城</th>
+                                                <th>小林</th>
+                                                <th>山瀬</th>
+                                                <th>岸田</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											<tr>
+												<td>3</td>
+												<td>2-1-0, 1.67 (27)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+										</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Advertisement area 2 -->
+                <!-- <div class="row">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3BK7WJ+9RV7AQ+4K38+5Z6WX" rel="nofollow" class="mx-auto d-block">
+                        <img border="0" width="100%" height="" alt="" src="https://www20.a8.net/svt/bgt?aid=200817667591&wid=001&eno=01&mid=s00000021266001004000&mc=1" class="mx-auto d-block"></a>
+                        <img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=3BK7WJ+9RV7AQ+4K38+5Z6WX" alt="">
+                </div> -->
+                <div class="row">
+                    <a href="https://www.smbc-card.com/olentry/affiliate/online_entry.do?bno=03400493191" rel="nofollow" class="mx-auto d-block" onClick="ga('send', 'event', 'sp', 'tel', 'test');">
+                        <img border="0" width="800px" height="" alt="" src="./assets/img/smbc-card.png" class="mx-auto d-block" style="max-width: 100%;"></a>
+                </div>
+                <!-- Advertisement area 2 -->
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Catcher/投手別成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt24pitcher" width="100%" cellspacing="0">
+                                        <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>投手</th>
+                                                <th>大城</th>
+                                                <th>小林</th>
+                                                <th>山瀬</th>
+                                                <th>岸田</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											<tr>
+												<td>グリフィン</td>
+												<td>1-0-0, 0.00 (6.1)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>ケラー</td>
+												<td>0-0-0, 0.00 (0.1)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>バルドナード</td>
+												<td>0-0-0, 0.00 (2)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>中川 皓太</td>
+												<td>0-1-0, 16.20 (1.2)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>堀田 賢慎</td>
+												<td>0-0-0, 0.00 (1)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>大勢</td>
+												<td>0-0-0, 0.00 (1)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>戸郷 翔征</td>
+												<td>1-0-0, 0.00 (6)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>松井 颯</td>
+												<td>0-0-0, 18.00 (1)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>西舘 勇陽</td>
+												<td>0-0-0, 0.00 (1.2)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>高橋 礼</td>
+												<td>0-0-0, 0.00 (6)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+										</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advertisement area 2 START -->
+                <div class="row">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3BI37S+6XGN8Y+3250+6MROH" rel="nofollow">
+                        <img border="0" width="300" height="250" alt="" src="https://www25.a8.net/svt/bgt?aid=200718280419&wid=001&eno=01&mid=s00000014274001114000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=3BI37S+6XGN8Y+3250+6MROH" alt="">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A36FSI+3NEK+BYLJL" rel="nofollow">
+                        <img border="0" width="300" height="250" alt="" src="https://www22.a8.net/svt/bgt?aid=220520897610&wid=001&eno=01&mid=s00000017030002009000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www13.a8.net/0.gif?a8mat=3NAJ0H+A36FSI+3NEK+BYLJL" alt="">
+                </div>
+                <!-- admax -->
+                <!-- <script src="https://adm.shinobi.jp/o/8eda2143802ac117df64c7c8ee7bde8a"></script> -->
+                <!-- admax -->
+                <!-- Advertisement area 2 END-->
+
+                <!-- Advertisement area 3 START -->
+                <div class="row">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A7XWMQ+39FI+1TIYU9" rel="nofollow">
+                        <img border="0" width="300" height="250" alt="" src="https://www29.a8.net/svt/bgt?aid=220520897618&wid=001&eno=01&mid=s00000015219011006000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=3NAJ0H+A7XWMQ+39FI+1TIYU9" alt="">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A6R1F6+4TIO+5ZMCH" rel="nofollow">
+                        <img border="0" width="300" height="250" alt="" src="https://www26.a8.net/svt/bgt?aid=220520897616&wid=001&eno=01&mid=s00000022488001006000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=3NAJ0H+A6R1F6+4TIO+5ZMCH" alt="">
+                </div>
+                <!-- admax -->
+                <!-- <script src="https://adm.shinobi.jp/o/8eda2143802ac117df64c7c8ee7bde8a"></script> -->
+                <!-- admax -->
+                <!-- Advertisement area 3 END-->
 
             </div>
 
@@ -3535,7 +3889,7 @@
             <footer class="py-3 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Updated 2023.10.04</div>
+                        <div class="text-muted">Updated 2024.04.01</div>
                         <div>
                             <a href="https://kg1-thub.github.io">DASHBOARD</a>
                             &middot;
