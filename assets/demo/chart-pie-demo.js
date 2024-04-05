@@ -4,7 +4,7 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data24 = {'Catcher': ['大城', '小林', '山瀬', 'その他'], 'stolen_bases': [0, 0, 0, 0], 'Defense_inning': [[27.0, 18.0, 0, 0, 0, 0, 0, 0], [0, 9.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[3, 2, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[2, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
+var pie_data24 = {'Catcher': ['大城', '小林', '山瀬', 'その他'], 'stolen_bases': [1, 0, 0, 0], 'Defense_inning': [[27.0, 27.0, 0, 0, 0, 0, 0, 0], [0, 9.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[3, 3, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[2, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
 var innings24 = pie_data24.Defense_inning;
 var starting_games24 = pie_data24.Starting_games;
 var stolen_bases24 = pie_data24.stolen_bases;
