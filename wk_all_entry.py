@@ -2,7 +2,6 @@ import requests
 import datetime
 from bs4 import BeautifulSoup
 import re
-import unicodedata
 import psycopg2
 from decimal import Decimal, ROUND_HALF_UP
 
@@ -98,16 +97,22 @@ if __name__=='__main__':
     print('  0: CSV登録 & html生成')
     print('  1: CSV登録')
     print('  2: html生成')
+    print('  3: チーム勝敗取り込み')
     task = int(input('番号を入力してください> '))
 
     entry_csv = True
     make_html = True
+    entry_wl = False
     TODAY = datetime.datetime.today()
 
     if task==1:
         make_html = False
     elif task==2:
         entry_csv = False
+    elif task==3:
+        entry_wl = True
+        entry_csv = False
+        make_html = False
 
     if entry_csv:
 
@@ -551,4 +556,65 @@ if __name__=='__main__':
                     )
 
         print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'HTML UPDATED!')
+        print()
+
+    if not entry_wl:
+        entry_wl = int(input('今日の勝敗を取り込む？(1:YES, 0:NO)> '))
+
+    if entry_wl:
+        url = 'https://baseball.yahoo.co.jp/npb/standings/'
+        xml = requests.get(url)
+        soup = BeautifulSoup(xml.content, 'html.parser')
+        _score = []
+        standing = soup.find('section', class_='bb-modCommon03')
+        # G,T,B,S,D,C
+        wl_teams = [0, 0, 0, 0, 0, 0]
+        for _, table in enumerate(standing.findAll('tbody')):
+            for _, rec in enumerate(table.findAll('tr')):
+                team = ''
+                _team = 0
+                _wl = 0
+                for i, td in enumerate(rec.findAll('td', class_='bb-rankTable__data')):
+                    if i == 1:
+                        team = td.text.replace('\n', '')
+                        if team == '巨人':
+                            _team = 0
+                        elif team == '阪神':
+                            _team = 1
+                        elif team == 'DeNA':
+                            _team = 2
+                        elif team == 'ヤクルト':
+                            _team = 3
+                        elif team == '中日':
+                            _team = 4
+                        elif team == '広島':
+                            _team = 5
+                    if i == 3:
+                        _wl = int(td.text)
+                    if i == 4:
+                        _wl -= int(td.text)
+                        wl_teams[_team] = _wl
+                        break
+            print(wl_teams)
+
+        # STANDINGAREADEMO UPDATE
+        STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
+        with open(STANDINGAREADEMO,mode='r',encoding='utf-8') as reader:
+            lines = reader.readlines()
+            content = ''
+            for line in lines:
+                if '//wl_' in line:
+                    content += line\
+                        .replace('//wl_Giants', str(wl_teams[0])+',//wl_Giants')\
+                        .replace('//wl_Tigers', str(wl_teams[1])+',//wl_Tigers')\
+                        .replace('//wl_Baystars', str(wl_teams[2])+',//wl_Baystars')\
+                        .replace('//wl_Swallows', str(wl_teams[3])+',//wl_Swallows')\
+                        .replace('//wl_Dragons', str(wl_teams[4])+',//wl_Dragons')\
+                        .replace('//wl_Carp', str(wl_teams[5])+',//wl_Carp')
+                else:
+                    content += line
+        with open(STANDINGAREADEMO,mode='w',encoding='utf-8') as writer:
+            writer.write(content)
+
+        print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'STANDINGS UPDATED!')
         print()
