@@ -18,6 +18,7 @@ var datas24 = {
     '2024-04-13': 1,
     '2024-04-14': 1,
     '2024-04-16': 0,
+    '2024-04-17': -1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -36,6 +37,7 @@ var score24 = {
     '2024-04-13': 'vs Carp , 3-2 </br>Start P.堀田 / C.岸田',
     '2024-04-14': 'vs Carp , 2-1 </br>Start P.高橋 / C.小林',
     '2024-04-16': 'vs Tigers , 1-1 </br>Start P.山崎 / C.岸田',
+    '2024-04-17': 'vs Tigers , 2-0 </br>Start P.赤星 / C.岸田',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
