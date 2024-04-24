@@ -398,8 +398,8 @@ if __name__=='__main__':
             %s, \
             MAX(CASE tmp2.catcher WHEN '大城' THEN tmp2.wls ELSE NULL END) 大城, \
             MAX(CASE tmp2.catcher WHEN '小林' THEN tmp2.wls ELSE NULL END) 小林, \
-            MAX(CASE tmp2.catcher WHEN '山瀬' THEN tmp2.wls ELSE NULL END) 山瀬, \
-            MAX(CASE tmp2.catcher WHEN '岸田' THEN tmp2.wls ELSE NULL END) 岸田 \
+            MAX(CASE tmp2.catcher WHEN '岸田' THEN tmp2.wls ELSE NULL END) 岸田, \
+            MAX(CASE tmp2.catcher WHEN '山瀬' THEN tmp2.wls ELSE NULL END) 山瀬 \
             FROM \
             ( \
             SELECT \
@@ -467,7 +467,7 @@ if __name__=='__main__':
             atag_tweet_html += str(catcher_stat[8])+' ('+str(float(catcher_stat[1])).replace('.67', '.2').replace('.33', '.1')+')%0D%0A'
         atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
 
-        pie_data = {'Catcher':['大城', '小林', '山瀬', 'その他'],
+        pie_data = {'Catcher':['大城', '小林', '岸田', 'その他'],
                     'stolen_bases':[0,0,0,0],
                     'Defense_inning':[
                         [0,0,0,0,0,0,0,0],
@@ -490,7 +490,7 @@ if __name__=='__main__':
 
         for stat in catcher_stats[1:]:
             # pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
-            if stat[0] in ['大城', '小林', '山瀬']:
+            if stat[0] in ['大城', '小林', '岸田']:
                 pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
             else:
                 pie_data['stolen_bases'][pie_data['Catcher'].index('その他')] += stat[10]
@@ -522,7 +522,7 @@ if __name__=='__main__':
         area_datas = get_query2(sql_month_stats, TODAY.strftime('%Y')+'RS')
 
         for x in area_datas:
-            if x[1] in ['大城', '小林', '山瀬']:
+            if x[1] in ['大城', '小林', '岸田']:
                 pie_data['Starting_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[2]
                 pie_data['Defense_inning'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[3]
                 pie_data['Winning_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[4] or 0

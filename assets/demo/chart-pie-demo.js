@@ -4,7 +4,7 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data24 = {'Catcher': ['大城', '小林', '山瀬', 'その他'], 'stolen_bases': [1, 3, 0, 1], 'Defense_inning': [[27.0, 76.0, 0, 0, 0, 0, 0, 0], [0, 52.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 34.0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[3, 8, 0, 0, 0, 0, 0, 0], [0, 6, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[2, 2, 0, 0, 0, 0, 0, 0], [0, 4, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 2, 0, 0, 0, 0, 0, 0]]};
+var pie_data24 = {'Catcher': ['大城', '小林', '岸田', 'その他'], 'stolen_bases': [1, 3, 1, 0], 'Defense_inning': [[27.0, 76.0, 0, 0, 0, 0, 0, 0], [0, 52.0, 0, 0, 0, 0, 0, 0], [0, 34.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[3, 8, 0, 0, 0, 0, 0, 0], [0, 6, 0, 0, 0, 0, 0, 0], [0, 4, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[2, 2, 0, 0, 0, 0, 0, 0], [0, 4, 0, 0, 0, 0, 0, 0], [0, 2, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
 var innings24 = pie_data24.Defense_inning;
 var starting_games24 = pie_data24.Starting_games;
 var stolen_bases24 = pie_data24.stolen_bases;
@@ -318,17 +318,17 @@ var innings24_ctx_config = {
           data: innings24.p[1],
           fill: true
       }, {
+          label: '岸田',
+          lineTension: 0,
+          borderColor: window.chartColors.green,
+          backgroundColor: window.chartColors.green,
+          data: innings24.p[2],
+          fill: true
+      }, {
           label: '山瀬',
           lineTension: 0,
           borderColor: window.chartColors.red,
           backgroundColor: window.chartColors.red,
-          data: innings24.p[2],
-          fill: true
-      }, {
-          label: 'その他',
-          lineTension: 0,
-          borderColor: window.chartColors.green,
-          backgroundColor: window.chartColors.green,
           data: innings24.p[3],
           fill: true
     }]
@@ -354,17 +354,17 @@ var starting_games24_ctx_config = {
           data: starting_games24.p[1],
           fill: true
       }, {
+          label: '岸田',
+          lineTension: 0,
+          borderColor: window.chartColors.green,
+          backgroundColor: window.chartColors.green,
+          data: starting_games24.p[2],
+          fill: true
+      }, {
           label: '山瀬',
           lineTension: 0,
           borderColor: window.chartColors.red,
           backgroundColor: window.chartColors.red,
-          data: starting_games24.p[2],
-          fill: true
-      }, {
-          label: 'その他',
-          lineTension: 0,
-          borderColor: window.chartColors.green,
-          backgroundColor: window.chartColors.green,
           data: starting_games24.p[3],
           fill: true
       }]
@@ -893,10 +893,10 @@ var ctx24 = document.getElementById("pie24innings");
 var pie24innings = new Chart(ctx24, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "山瀬", "その他"],
+    labels: ["大城", "小林", "岸田", "山瀬"],
     datasets: [{
       data: total_innings24,
-      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
+      backgroundColor: ['#ffc107', '#007bff', '#28a745', '#dc3545'],
     }],
   },
   options: {
@@ -916,10 +916,10 @@ var ctx24v2 = document.getElementById("pie24startings");
 var pie24startings = new Chart(ctx24v2, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "山瀬", "その他"],
+    labels: ["大城", "小林", "岸田", "山瀬"],
     datasets: [{
       data: total_starting_games24,
-      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
+      backgroundColor: ['#ffc107', '#007bff', '#28a745', '#dc3545'],
     }],
   },
   options: {
@@ -939,10 +939,10 @@ var ctx24v3 = document.getElementById("pie24stolenbases");
 var pie24stolenbases = new Chart(ctx24v3, {
   type: 'pie',
   data: {
-    labels: ["大城", "小林", "山瀬", "その他"],
+    labels: ["大城", "小林", "岸田", "山瀬"],
     datasets: [{
       data: stolen_bases24,
-      backgroundColor: ['#ffc107', '#007bff', '#dc3545', '#28a745'],
+      backgroundColor: ['#ffc107', '#007bff', '#28a745', '#dc3545'],
     }],
   },
   options: {
@@ -1400,15 +1400,15 @@ var myLineChart24 = new Chart(ctx24, {
         data: pie_data24.Winning_games[1],
       },
       {
-        label: "山瀬",
-        backgroundColor: "#dc3545",
-        borderColor: "#dc3545",
+        label: "岸田",
+        backgroundColor: "#28a745",
+        borderColor: "#28a745",
         data: pie_data24.Winning_games[2],
       },
       {
-        label: "その他",
-        backgroundColor: "#28a745",
-        borderColor: "#28a745",
+        label: "山瀬",
+        backgroundColor: "#dc3545",
+        borderColor: "#dc3545",
         data: pie_data24.Winning_games[3],
       },
     ],
