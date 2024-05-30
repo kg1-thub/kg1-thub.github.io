@@ -599,19 +599,19 @@ if __name__=='__main__':
 
         # STANDINGAREADEMO UPDATE
         STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
-        _rjust = 2
+        _rjust = 3
         with open(STANDINGAREADEMO,mode='r',encoding='utf-8') as reader:
             lines = reader.readlines()
             content = ''
             for line in lines:
                 if '//wl_' in line:
                     content += line\
-                        .replace('//wl_Giants', str(wl_teams[0]).rjust(_rjust)+',//wl_Giants')\
-                        .replace('//wl_Tigers', str(wl_teams[1]).rjust(_rjust)+',//wl_Tigers')\
-                        .replace('//wl_Baystars', str(wl_teams[2]).rjust(_rjust)+',//wl_Baystars')\
-                        .replace('//wl_Swallows', str(wl_teams[3]).rjust(_rjust)+',//wl_Swallows')\
-                        .replace('//wl_Dragons', str(wl_teams[4]).rjust(_rjust)+',//wl_Dragons')\
-                        .replace('//wl_Carp', str(wl_teams[5]).rjust(_rjust)+',//wl_Carp')
+                        .replace('//wl_Giants',     str(wl_teams[0]).rjust(_rjust)+',//wl_Giants')\
+                        .replace('//wl_Tigers',     str(wl_teams[1]).rjust(_rjust)+',//wl_Tigers')\
+                        .replace('//wl_Baystars',   str(wl_teams[2]).rjust(_rjust)+',//wl_Baystars')\
+                        .replace('//wl_Swallows',   str(wl_teams[3]).rjust(_rjust)+',//wl_Swallows')\
+                        .replace('//wl_Dragons',    str(wl_teams[4]).rjust(_rjust)+',//wl_Dragons')\
+                        .replace('//wl_Carp',       str(wl_teams[5]).rjust(_rjust)+',//wl_Carp')
                 else:
                     content += line
         with open(STANDINGAREADEMO,mode='w',encoding='utf-8') as writer:
