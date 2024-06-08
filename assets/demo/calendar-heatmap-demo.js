@@ -61,6 +61,7 @@ var datas24 = {
     '2024-06-05': -1,
     '2024-06-06': 1,
     '2024-06-07': -1,
+    '2024-06-08': -1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -122,6 +123,7 @@ var score24 = {
     '2024-06-05': 'vs Lotte , 3-4 </br>Start P.堀田 / C.岸田',
     '2024-06-06': 'vs Lotte , 7-4 </br>Start P.井上 / C.大城',
     '2024-06-07': 'vs Orix , 0-2 </br>Start P.戸郷 / C.岸田',
+    '2024-06-08': 'vs Orix , 0-5 </br>Start P.グリフィン / C.大城',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
