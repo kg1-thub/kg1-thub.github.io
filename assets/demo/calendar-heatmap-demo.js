@@ -66,6 +66,7 @@ var datas24 = {
     '2024-06-11': -1,
     '2024-06-12': -1,
     '2024-06-13': -1,
+    '2024-06-14': 1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -132,6 +133,7 @@ var score24 = {
     '2024-06-11': 'vs Eagles , 7-6 </br>Start P.山崎 / C.岸田',
     '2024-06-12': 'vs Eagles , 5-4 </br>Start P.堀田 / C.岸田',
     '2024-06-13': 'vs Eagles , 3-0 </br>Start P.井上 / C.岸田',
+    '2024-06-14': 'vs Fighters , 2-7 </br>Start P.戸郷 / C.岸田',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
