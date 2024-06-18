@@ -303,7 +303,7 @@ const ilperiod24 = {
   borderWidth: 1,
   cornerRadius: 4,
   xMin: 51,
-  xMax: 73,
+  xMax: 70,
 };
 
 const illabel22 = {
