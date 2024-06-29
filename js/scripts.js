@@ -185,7 +185,8 @@ function scrollFunction() {
 };
 
 topbtn.addEventListener("click", backToTop);
-downbtn.addEventListener("click", goToGames);
+// downbtn.addEventListener("click", goToGames);
+downbtn.addEventListener("click", goToDown);
 
 // When the user clicks on the button, scroll to the top of the document
 function backToTop() {
@@ -202,6 +203,13 @@ function goToGames() {
     const targetOffsetTop = window.pageYOffset + target.getBoundingClientRect().top - ($('.sb-topnav').height() + 8 * 2);
     window.scrollTo({
         top: targetOffsetTop,
+        behavior: "smooth"
+    });
+}
+
+function goToDown() {
+    window.scrollBy({
+        top: window.innerHeight*0.9,
         behavior: "smooth"
     });
 }
