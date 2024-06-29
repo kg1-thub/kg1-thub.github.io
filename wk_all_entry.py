@@ -295,11 +295,11 @@ if __name__=='__main__':
         elif team=='楽天':
             _team = 'Eagles'
         elif team=='オリックス':
-            _team = 'Orix'
+            _team = 'Buffaloes'
         elif team=='ソフトバンク':
-            _team = 'Softbank'
+            _team = 'Hawks'
         elif team=='ロッテ':
-            _team = 'Lotte'
+            _team = 'Marines'
         elif team=='日本ハム':
             _team = 'Fighters'
 
