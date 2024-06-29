@@ -209,7 +209,7 @@ function goToGames() {
 
 function goToDown() {
     window.scrollBy({
-        top: window.innerHeight*0.9,
+        top: window.innerHeight*1.2,
         behavior: "smooth"
     });
 }
