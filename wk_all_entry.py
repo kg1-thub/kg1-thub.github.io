@@ -461,11 +461,13 @@ if __name__=='__main__':
             table_html += tb + '</tr>\n'
         table_html = table_html[:-1]
 
-        atag_tweet_html = '\t'*7 + '<a href="http://twitter.com/share?url=kg1-thub.github.io&text='+TODAY.strftime('%Y')+'巨人捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A'
+        # atag_tweet_html = '\t'*7 + '<a href="http://twitter.com/share?url=kg1-thub.github.io&text='+TODAY.strftime('%Y')+'巨人捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A'
+        atag_tweet_html = '\t'*7 + '<a href="http://twitter.com/share?text='+TODAY.strftime('%Y')+'巨人捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A'
         for catcher_stat in catcher_stats[1:]:
             atag_tweet_html += catcher_stat[0]+', '+str(catcher_stat[2])+'-'+str(catcher_stat[3])+'-'+str(catcher_stat[4])+', '
             atag_tweet_html += str(catcher_stat[8])+' ('+str(float(catcher_stat[1])).replace('.67', '.2').replace('.33', '.1')+')%0D%0A'
-        atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
+        # atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
+        atag_tweet_html += '%23giants%0D%0Akg1-thub.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">'
 
         pie_data = {'Catcher':['大城', '小林', '岸田', 'その他'],
                     'stolen_bases':[0,0,0,0],
