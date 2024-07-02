@@ -34,7 +34,7 @@ function clickSpin(times, target_hits, answer_key){
     }
 
     let answers = [];
-    let texts = "http://twitter.com/share?url=https://kg1-thub.github.io/games/&text=";
+    let texts = "http://twitter.com/share?text=";
     let endflg=0;
 
     for (let j=1; j<hits+1; j++){
@@ -302,7 +302,7 @@ function reloadHits(target_hits){
                 }
                 texts += '%0D%0A';
             }
-            texts += `&hashtags=${target_hits}HITS`;
+            texts += `%23${target_hits}HITS%0D%0Akg1-thub.github.io/games/`;
 
             playinterval = setInterval(() => {
                 if(k==marks.length){
