@@ -319,20 +319,6 @@ if __name__=='__main__':
             writer.write(content)
         print('CALENDER-HEATMAP UPDATED.')
 
-        # DATATABLESDEMO SEARCH KEYWORD UPDATE
-        DATATABLESDEMO = './assets/demo/datatables-demo-t.js'
-        with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
-            lines = reader.readlines()
-            content = ''
-            for line in lines:
-                if '@@KEYWORD@@' in line:
-                    content += '    keyword = "'+tday.strftime('%m/%d')+'"; // @@KEYWORD@@\n'
-                else:
-                    content += line
-        with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
-            writer.write(content)
-        print('DATATABLES-DEMO SEARCH KEYWORD UPDATED.')
-
     if make_html:
     # if False:
 
