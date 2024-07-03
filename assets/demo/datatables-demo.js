@@ -595,14 +595,14 @@ function search_today() {
   table.search( ('0'+String(today.getMonth()+1)).slice(-2)+"/"+('0'+String(today.getDate())).slice(-2) ).draw();
 };
 
-function csvLoad(year) {
+function csvLoad(year, team_initial="") {
   if (year == "24"){
     var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
   // } else {
   //   var cols = ["勝敗S","投手","投球回","打者","被安","三振","四球","失点","自責","捕手","月日","対戦","出場","series"];
   }
   // wls,pitcher,innings,pitches,at_bats,hits,homeruns,strikeouts,walks,hit_by_pitch,balks,runs,earned_runs,catcher,day_of_game,vs_team,starting,series
-  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats${year}.csv`;
+  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats${year}${team_initial}.csv`;
   fetch(fileurl)
   .then(res => res.blob()) // Gets the response and returns it as a blob
   .then(blob => {
@@ -641,8 +641,8 @@ window.onload = function() {
 //   csvLoad('21');
 // });
 
-{
-  // csvLoad('22');
-  // csvLoad('23');
-  csvLoad('24');
-}
+// {
+//   // csvLoad('22');
+//   // csvLoad('23');
+//   csvLoad('24');
+// }
