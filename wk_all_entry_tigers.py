@@ -551,6 +551,7 @@ if __name__=='__main__':
                             .replace('@@table_pitcher@@', table_pitcher_html)
                             .replace('@@update_date@@', today)
                             .replace('@@team@@', 'Tigers')
+                            .replace('@@team_lower@@', 'tigers')
                             .replace('@@team_jp@@', '阪神')
                             .replace('@@i@@', 't')
                             .replace('@@color_win@@', '#fcc800')

@@ -553,6 +553,7 @@ if __name__=='__main__':
                             .replace('@@table_pitcher@@', table_pitcher_html)
                             .replace('@@update_date@@', today)
                             .replace('@@team@@', 'Carp')
+                            .replace('@@team_lower@@', 'carp')
                             .replace('@@team_jp@@', '広島')
                             .replace('@@i@@', 'c')
                             .replace('@@color_win@@', '#F1533A')
