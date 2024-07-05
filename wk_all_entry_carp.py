@@ -542,6 +542,7 @@ if __name__=='__main__':
                             .replace('@@team_lower@@', 'carp')
                             .replace('@@team_jp@@', '広島')
                             .replace('@@i@@', 'c')
+                            .replace('@@title_color@@', '')
                             .replace('@@color_win@@', '#F1533A')
                             .replace('@@color_draw@@', 'rgb(239, 145, 132)')
                             .replace('@@color_lose@@', 'rgb(237, 208, 205)')

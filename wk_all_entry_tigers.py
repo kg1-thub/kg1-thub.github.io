@@ -540,6 +540,7 @@ if __name__=='__main__':
                             .replace('@@team_lower@@', 'tigers')
                             .replace('@@team_jp@@', '阪神')
                             .replace('@@i@@', 't')
+                            .replace('@@title_color@@', 'color: black;')
                             .replace('@@color_win@@', '#fcc800')
                             .replace('@@color_draw@@', 'rgb(246, 216, 97)')
                             .replace('@@color_lose@@', 'rgb(239, 231, 194)')
