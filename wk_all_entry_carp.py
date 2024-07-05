@@ -457,7 +457,7 @@ if __name__=='__main__':
             atag_tweet_html += catcher_stat[0]+', '+str(catcher_stat[2])+'-'+str(catcher_stat[3])+'-'+str(catcher_stat[4])+', '
             atag_tweet_html += str(catcher_stat[8])+' ('+str(float(catcher_stat[1])).replace('.67', '.2').replace('.33', '.1')+')%0D%0A'
         # atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
-        atag_tweet_html += '%23carp%0D%0Akg1-thub.github.io/carp/" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">'
+        atag_tweet_html += '%23carp%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2Fcarp%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">'
 
         pie_data = {'Catcher':['坂倉', '會澤', '石原', 'その他'],
                     'stolen_bases':[0,0,0,0],
