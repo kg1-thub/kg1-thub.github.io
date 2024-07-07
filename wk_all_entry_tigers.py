@@ -549,7 +549,7 @@ if __name__=='__main__':
                             .replace('@@catcher2@@', '長坂')
                     )
 
-        with open('./assets/data/chart-pie-demo.template-c.js',mode='r',encoding='utf-8') as f1:
+        with open('./assets/data/chart-pie-demo.template-team.js',mode='r',encoding='utf-8') as f1:
             with open('./assets/demo/chart-pie-demo-t.js',mode='w',encoding='utf-8') as f2:
                 for line in f1:
                     f2.write(
