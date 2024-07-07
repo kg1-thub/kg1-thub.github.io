@@ -526,7 +526,7 @@ if __name__=='__main__':
         table_pitcher_html = create_table_category(TODAY.strftime('%Y')+'RS', 'pitcher')
 
         today = datetime.date.today().strftime('%Y.%m.%d')
-        with open('./assets/data/index.template-c.html',mode='r',encoding='utf-8') as f1:
+        with open('./assets/data/index.template-team.html',mode='r',encoding='utf-8') as f1:
             with open('./tigers/index.html',mode='w',encoding='utf-8') as f2:
                 for line in f1:
                     f2.write(
