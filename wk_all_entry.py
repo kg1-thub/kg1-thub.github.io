@@ -601,7 +601,7 @@ if __name__=='__main__':
 
         # STANDINGAREADEMO UPDATE
         STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
-        _rjust = 2
+        _rjust = 3
         with open(STANDINGAREADEMO,mode='r',encoding='utf-8') as reader:
             lines = reader.readlines()
             content = ''
