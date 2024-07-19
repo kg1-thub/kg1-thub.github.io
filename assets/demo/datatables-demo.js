@@ -333,7 +333,7 @@ $(document).ready(function() {
 });
 
 // dt24games
-function makeCSV(records, columns, year) {
+function makeCSV(records, columns, year, keyword) {
   const divtable = document.getElementById(`dt${year}games`);
   const divcaption = document.getElementById(`dt${year}gamescaption`);
   // const divcaption = document.createElement("caption");
@@ -419,9 +419,9 @@ function makeCSV(records, columns, year) {
       }
   }
 
-  var keyword="";
+  // var keyword=KW;
   if (year == '24') {
-    keyword = "07/19"; // @@KEYWORD@@
+    // keyword = "07/19"; // @@KEYWORD@@
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
         order: [[ 0, "asc" ]],
@@ -595,7 +595,7 @@ function search_today() {
   table.search( ('0'+String(today.getMonth()+1)).slice(-2)+"/"+('0'+String(today.getDate())).slice(-2) ).draw();
 };
 
-function csvLoad(year, team_initial="") {
+function csvLoad(year, keyword, team_initial="") {
   if (year == "24"){
     var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
   // } else {
@@ -620,7 +620,7 @@ function csvLoad(year, team_initial="") {
               var row_data = tmp[i+1];
               records[i] = row_data.split(",");
           }
-          makeCSV(records, cols, year);
+          makeCSV(records, cols, year, keyword);
       };
       reader.onerror = function() {
           alert("エラー：ファイルをロードできません。");

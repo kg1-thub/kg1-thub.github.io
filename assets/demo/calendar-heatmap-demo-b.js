@@ -90,6 +90,10 @@ var datas24 = {
     '2024-07-14': 1,
     '2024-07-15': 1,
     '2024-07-17': -1,
+    '2024-07-19': 1,
+    '2024-07-19': 1,
+    '2024-07-19': 1,
+    '2024-07-19': 1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -180,6 +184,10 @@ var score24 = {
     '2024-07-14': 'vs Giants , 0-6 </br>Start P.ケイ / C.山本',
     '2024-07-15': 'vs Carp , 6-1 </br>Start P.濱口 / C.山本',
     '2024-07-17': 'vs Carp , 0-3 </br>Start P.東 / C.山本',
+    '2024-07-19': 'vs Swallows , 7-8 </br>Start P.ジャクソン / C.山本',
+    '2024-07-19': 'vs Swallows , 7-8 </br>Start P.ジャクソン / C.山本',
+    '2024-07-19': 'vs Swallows , 7-8 </br>Start P.ジャクソン / C.山本',
+    '2024-07-19': 'vs Swallows , 7-8 </br>Start P.ジャクソン / C.山本',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];

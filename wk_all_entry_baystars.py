@@ -170,10 +170,10 @@ if __name__=='__main__':
         # print(_score)
         # if _score[0] == team_jp:
         if _score[0] == 'DeNA':
-            team = _score[1]
+            _team0 = _score[1]
         # elif _score[1] == team_jp:
         elif _score[1] == 'DeNA':
-            team = _score[0]
+            _team0 = _score[0]
         score = _score[2]+'-'+_score[3]
 
         url = 'https://baseball.yahoo.co.jp/npb/game/'+gameid+'/stats'
@@ -258,7 +258,7 @@ if __name__=='__main__':
                     stolen_bases = 1 - caught_stealing
 
                 sdata = []
-                sdata.append(team)
+                sdata.append(_team0)
                 sdata.append(runner)
                 sdata.append(team_jp)
                 sdata.append(catcher)
@@ -304,29 +304,29 @@ if __name__=='__main__':
         # CALENDER-HEATMAP UPDATE
         CALENDERHEATMAP = f'./assets/demo/calendar-heatmap-demo-{team_i}.js'
         _team = ''
-        if team=='阪神':
+        if _team0=='阪神':
             _team = 'Tigers'
-        elif team=='中日':
+        elif _team0=='中日':
             _team = 'Dragons'
-        elif team=='ヤクルト':
+        elif _team0=='ヤクルト':
             _team = 'Swallows'
-        elif team=='広島':
+        elif _team0=='広島':
             _team = 'Carp'
-        elif team=='DeNA':
+        elif _team0=='DeNA':
             _team = 'Baystars'
-        elif team=='巨人':
+        elif _team0=='巨人':
             _team = 'Giants'
-        elif team=='西武':
+        elif _team0=='西武':
             _team = 'Lions'
-        elif team=='楽天':
+        elif _team0=='楽天':
             _team = 'Eagles'
-        elif team=='オリックス':
+        elif _team0=='オリックス':
             _team = 'Buffaloes'
-        elif team=='ソフトバンク':
+        elif _team0=='ソフトバンク':
             _team = 'Hawks'
-        elif team=='ロッテ':
+        elif _team0=='ロッテ':
             _team = 'Marines'
-        elif team=='日本ハム':
+        elif _team0=='日本ハム':
             _team = 'Fighters'
 
         with open(CALENDERHEATMAP,mode='r',encoding='utf-8') as reader:
@@ -342,6 +342,22 @@ if __name__=='__main__':
         with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:
             writer.write(content)
         print('CALENDER-HEATMAP UPDATED.')
+
+        # DATATABLESDEMO SEARCH KEYWORD UPDATE
+        DATATABLESDEMO = f'./assets/demo/datatables-demo{_y}{team_i}.js'
+        print(DATATABLESDEMO)
+        with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
+            lines = reader.readlines()
+            content = ''
+            for line in lines:
+                if '@@KEYWORD@@' in line:
+                    # content += '    keyword = "'+tday.strftime('%m/%d')+'"; // @@KEYWORD@@\n'
+                    content += "    '"+tday.strftime('%m/%d')+"', // @@KEYWORD@@\n"
+                else:
+                    content += line
+        with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
+            writer.write(content)
+        print('DATATABLES-DEMO SEARCH KEYWORD UPDATED.')
 
     if make_html:
     # if False:
