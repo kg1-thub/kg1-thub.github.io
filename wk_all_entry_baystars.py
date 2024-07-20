@@ -141,7 +141,7 @@ if __name__=='__main__':
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
 
         # get yahoo sports gameid
-        _game_calender = f'https://baseball.yahoo.co.jp/npb/teams/{num}/schedule?month={tday.strftime('%Y-%m')}'
+        _game_calender = f'https://baseball.yahoo.co.jp/npb/teams/{num}/schedule?month='+tday.strftime('%Y-%m')
         xml = requests.get(_game_calender)
         soup = BeautifulSoup(xml.content, 'html.parser')
         for x in soup.findAll('div', class_='bb-calendarTable__wrap'):
