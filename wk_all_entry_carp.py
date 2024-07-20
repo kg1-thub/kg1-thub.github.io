@@ -202,7 +202,7 @@ if __name__=='__main__':
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
                         _playerscore.append(team)
                         _playerscore.append('1' if order_of_pitcher==0 else '0')
-                        _playerscore.append(tday.strftime('%Y')+'RS')
+                        _playerscore.append(f'{_Y}RS')
                         if order_of_pitcher==0: ## heatmap data
                             start_catcher = catcher
                             start_pitcher = _playerscore[1].split(" ")[0]
@@ -244,8 +244,8 @@ if __name__=='__main__':
                 sdata.append(tday.strftime('%Y-%m-%d'))
                 sdata.append(str(stolen_bases))
                 sdata.append(str(caught_stealing))
-                sdata.append(tday.strftime('%Y')+'RS')
-                with open(csvdir+'/stolen_stats'+tday.strftime('%y')+'c.csv',mode='a',encoding='shift-jis') as f:
+                sdata.append(f'{_Y}RS')
+                with open(csvdir+f'/stolen_stats{_y}c.csv',mode='a',encoding='shift-jis') as f:
                     # o_team,runner,d_team,catcher,pitcher,day_of_game,stolen_bases,caught_stealing,series
                     print(','.join(sdata))
                     print()
@@ -268,8 +268,8 @@ if __name__=='__main__':
                 pdata.append(tday.strftime('%Y-%m-%d'))
                 pdata.append(str(int(input('    ワイルドピッチは何回?> '))))
                 pdata.append(str(int(input('    パスボールは何回?> '))))
-                pdata.append(tday.strftime('%Y')+'RS')
-                with open(csvdir+'/pitch_stats'+tday.strftime('%y')+'c.csv',mode='a',encoding='shift-jis') as f:
+                pdata.append(f'{_Y}RS')
+                with open(csvdir+f'/pitch_stats{_y}c.csv',mode='a',encoding='shift-jis') as f:
                     # catcher,pitcher,day_of_game,wild_pitch,passed_ball,series
                     print(','.join(pdata))
                     print()
@@ -322,7 +322,7 @@ if __name__=='__main__':
         print('CALENDER-HEATMAP UPDATED.')
 
         # DATATABLESDEMO SEARCH KEYWORD UPDATE
-        DATATABLESDEMO = './assets/demo/datatables-demo'+tday.strftime('%y')+'c.js'
+        DATATABLESDEMO = f'./assets/demo/datatables-demo{_y}c.js'
         with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
             lines = reader.readlines()
             content = ''
@@ -337,10 +337,9 @@ if __name__=='__main__':
         print('DATATABLES-DEMO SEARCH KEYWORD UPDATED.')
 
     if make_html:
-    # if False:
 
-        replace_table('catcher_stats', 'catcher_stats'+TODAY.strftime('%y')+'c.csv')
-        replace_table('stolen_stats', 'stolen_stats'+TODAY.strftime('%y')+'c.csv')
+        replace_table('catcher_stats', f'catcher_stats{_y}c.csv')
+        replace_table('stolen_stats', f'stolen_stats{_y}c.csv')
 
         sql_v3 = "\
             SELECT \
@@ -437,7 +436,7 @@ if __name__=='__main__':
             ;"
         # l.395, division by zero error 回避の暫定対応
 
-        stats = get_query(sql_v3, TODAY.strftime('%Y')+'RS')
+        stats = get_query(sql_v3, f'{_Y}RS')
         catcher_stats = []
         catcher_stats.append(['捕手', 'イニング', '勝', '敗', 'S', '先発数', '失点', '自責点', '防御率', '盗塁企図', '許盗塁', '盗塁刺', '阻止率'])
 
@@ -466,8 +465,7 @@ if __name__=='__main__':
             table_html += tb + '</tr>\n'
         table_html = table_html[:-1]
 
-        # atag_tweet_html = '\t'*7 + '<a href="http://twitter.com/share?url=kg1-thub.github.io&text='+TODAY.strftime('%Y')+'巨人捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A'
-        atag_tweet_html = '\t'*7 + '<a href="http://twitter.com/share?text='+TODAY.strftime('%Y')+'広島捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A'
+        atag_tweet_html = '\t'*7 + f'<a href="http://twitter.com/share?text={_Y}広島捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A'
         for catcher_stat in catcher_stats[1:]:
             atag_tweet_html += catcher_stat[0]+', '+str(catcher_stat[2])+'-'+str(catcher_stat[3])+'-'+str(catcher_stat[4])+', '
             atag_tweet_html += str(catcher_stat[8])+' ('+str(float(catcher_stat[1])).replace('.67', '.2').replace('.33', '.1')+')%0D%0A'
@@ -526,7 +524,7 @@ if __name__=='__main__':
             ON tmp.month = wins.month and tmp.catcher=wins.catcher\
             ;"
 
-        area_datas = get_query2(sql_month_stats, TODAY.strftime('%Y')+'RS')
+        area_datas = get_query2(sql_month_stats, f'{_Y}RS')
 
         for x in area_datas:
             if x[1] in ['坂倉', '會澤', '石原']:
@@ -538,9 +536,9 @@ if __name__=='__main__':
                 pie_data['Defense_inning'][pie_data['Catcher'].index('その他')][x[0]-3] += x[3]
                 pie_data['Winning_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[4] or 0
 
-        table_month_html = create_table_category(TODAY.strftime('%Y')+'RS', 'month')
+        table_month_html = create_table_category(f'{_Y}RS', 'month')
 
-        table_pitcher_html = create_table_category(TODAY.strftime('%Y')+'RS', 'pitcher')
+        table_pitcher_html = create_table_category(f'{_Y}RS', 'pitcher')
 
         today = datetime.date.today().strftime('%Y.%m.%d')
         with open('./assets/data/index.template-team.html',mode='r',encoding='utf-8') as f1:
