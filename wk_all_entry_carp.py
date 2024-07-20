@@ -103,6 +103,8 @@ if __name__=='__main__':
     make_html = True
     entry_wl = False
     TODAY = datetime.datetime.today()
+    _y = TODAY.strftime('%y')
+    _Y = TODAY.strftime('%Y')
 
     if task==1:
         make_html = False
@@ -118,9 +120,7 @@ if __name__=='__main__':
 
         tday = datetime.datetime.today() \
                 if int(input('今日の試合? (1:YES, 0:NO)> ')) \
-                else datetime.datetime(int(TODAY.strftime('%Y')), int(input('  月> ')), int(input('  日> ')))
-        # print('次の試合！')
-        # tday = datetime.datetime(int(TODAY.strftime('%Y')), int(input('  月> ')), int(input('  日> ')))
+                else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
 
         catcher = get_catcher_name(int(input('スタメン捕手 (0:坂倉, 1:會澤, 2:石原, 3:その他)> ')))
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
@@ -165,7 +165,7 @@ if __name__=='__main__':
             if _team is None:
                 pass
             elif _team.text == '広島東洋カープ':
-                with open(csvdir+'/catcher_stats'+tday.strftime('%y')+'c.csv',mode='a',encoding='shift-jis') as f:
+                with open(csvdir+f'/catcher_stats{_y}c.csv',mode='a',encoding='shift-jis') as f:
                     for order_of_pitcher, scores_of_pitcher in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
                         _playerscore = []
                         for i, score_of_pitcher in enumerate(scores_of_pitcher.findAll('td')):
@@ -322,7 +322,7 @@ if __name__=='__main__':
         print('CALENDER-HEATMAP UPDATED.')
 
         # DATATABLESDEMO SEARCH KEYWORD UPDATE
-        DATATABLESDEMO = './assets/demo/datatables-demo'+{tday.strftime('%y')}+'c.js'
+        DATATABLESDEMO = './assets/demo/datatables-demo'+tday.strftime('%y')+'c.js'
         with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
             lines = reader.readlines()
             content = ''

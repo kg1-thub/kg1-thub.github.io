@@ -320,7 +320,7 @@ if __name__=='__main__':
         print('CALENDER-HEATMAP UPDATED.')
 
         # DATATABLESDEMO SEARCH KEYWORD UPDATE
-        DATATABLESDEMO = './assets/demo/datatables-demo'+{tday.strftime('%y')}+'t.js'
+        DATATABLESDEMO = './assets/demo/datatables-demo'+tday.strftime('%y')+'t.js'
         with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
             lines = reader.readlines()
             content = ''
