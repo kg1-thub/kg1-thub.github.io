@@ -157,7 +157,7 @@ if __name__=='__main__':
                         gameid = match.group(1)
 
         print('gameid:'+gameid)
-        url = 'https://baseball.yahoo.co.jp/npb/game/'+gameid+'/top'
+        url = f'https://baseball.yahoo.co.jp/npb/game/{gameid}/top'
         xml = requests.get(url)
         soup = BeautifulSoup(xml.content, 'html.parser')
         _score = []
@@ -170,13 +170,13 @@ if __name__=='__main__':
         # print(_score)
         # if _score[0] == team_jp:
         if _score[0] == 'DeNA':
-            _team0 = _score[1]
+            vsteam = _score[1]
         # elif _score[1] == team_jp:
         elif _score[1] == 'DeNA':
-            _team0 = _score[0]
+            vsteam = _score[0]
         score = _score[2]+'-'+_score[3]
 
-        url = 'https://baseball.yahoo.co.jp/npb/game/'+gameid+'/stats'
+        url = f'https://baseball.yahoo.co.jp/npb/game/{gameid}/stats'
         xml = requests.get(url)
         soup = BeautifulSoup(xml.content, 'html.parser')
         heatmap_WLD = 0    # (WIN=1, LOSE=-1, DRAW=0)
@@ -258,7 +258,7 @@ if __name__=='__main__':
                     stolen_bases = 1 - caught_stealing
 
                 sdata = []
-                sdata.append(_team0)
+                sdata.append(vsteam)
                 sdata.append(runner)
                 sdata.append(team_jp)
                 sdata.append(catcher)
@@ -304,29 +304,29 @@ if __name__=='__main__':
         # CALENDER-HEATMAP UPDATE
         CALENDERHEATMAP = f'./assets/demo/calendar-heatmap-demo-{team_i}.js'
         _team = ''
-        if _team0=='阪神':
+        if vsteam=='阪神':
             _team = 'Tigers'
-        elif _team0=='中日':
+        elif vsteam=='中日':
             _team = 'Dragons'
-        elif _team0=='ヤクルト':
+        elif vsteam=='ヤクルト':
             _team = 'Swallows'
-        elif _team0=='広島':
+        elif vsteam=='広島':
             _team = 'Carp'
-        elif _team0=='DeNA':
+        elif vsteam=='DeNA':
             _team = 'Baystars'
-        elif _team0=='巨人':
+        elif vsteam=='巨人':
             _team = 'Giants'
-        elif _team0=='西武':
+        elif vsteam=='西武':
             _team = 'Lions'
-        elif _team0=='楽天':
+        elif vsteam=='楽天':
             _team = 'Eagles'
-        elif _team0=='オリックス':
+        elif vsteam=='オリックス':
             _team = 'Buffaloes'
-        elif _team0=='ソフトバンク':
+        elif vsteam=='ソフトバンク':
             _team = 'Hawks'
-        elif _team0=='ロッテ':
+        elif vsteam=='ロッテ':
             _team = 'Marines'
-        elif _team0=='日本ハム':
+        elif vsteam=='日本ハム':
             _team = 'Fighters'
 
         with open(CALENDERHEATMAP,mode='r',encoding='utf-8') as reader:
