@@ -31,6 +31,7 @@ var ctx24_data = {
     '06/01','06/02','06/04','06/05','06/06','06/07','06/08','06/09','06/11','06/12','06/13','06/14','06/15','06/16',
     '06/18','06/21','06/22','06/23','06/25','06/26','06/27','06/28','06/29','06/30','07/02','07/03','07/04','07/05',
     '07/06','07/07','07/09','07/10','07/11','07/12','07/13','07/14','07/15','07/16','07/17','07/19','07/20','07/21',
+    '07/26','07/27','07/28','07/30','07/31','08/01','08/02','08/03','08/04',
   ],
 };
 
@@ -48,7 +49,7 @@ const illabel24 = {
   scaleID: 'x',
   borderWidth: 0,
   borderColor: 'rgba(255,182,193,0)',
-  value: 56,
+  value: 58,
   label: {
     // rotation: 270,
     // backgroundColor: 'pink',
@@ -71,6 +72,27 @@ const ilperiod24 = {
   cornerRadius: 4,
   xMin: 51,
   xMax: 70,
+};
+
+const asbreak24 = {
+  type: 'line',
+  scaleID: 'x',
+  borderWidth: 2,
+  borderColor: 'rgba(0,128,0,0.7)',
+  value: 97,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'rgba(0,0,0,0.0)',
+    color: 'green',
+    content: 'ALL-STAR GAME BREAK',
+    padding: 1,
+    enabled: true,
+    position: 'start',
+    textAlign: 'start',
+    font: {
+      size: 10
+    }
+  }
 };
 
 // Area Chart 2024
@@ -192,6 +214,7 @@ var myLineChart24 = new Chart(ctx24, {
           zero,
           ilperiod24,
           illabel24,
+          asbreak24,
           // champ24
         },
       },
