@@ -74,6 +74,9 @@ def set_team_param(_num):
         catcher1 = '會澤'
         catcher2 = '石原'
         catchers = [catcher0, catcher1, catcher2]
+    # if _num == 2: swallows
+    # if _num == 4: dragons
+
 
 TODAY = datetime.datetime.today()
 _y = TODAY.strftime('%y')
@@ -283,7 +286,7 @@ if __name__=='__main__':
                                     )
                         )
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
-                        _playerscore.append(team)
+                        _playerscore.append(vsteam)
                         _playerscore.append('1' if order_of_pitcher==0 else '0')
                         _playerscore.append(f'{_Y}RS')
                         if order_of_pitcher==0: ## heatmap data
