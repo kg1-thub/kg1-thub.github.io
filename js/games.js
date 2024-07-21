@@ -302,7 +302,7 @@ function reloadHits(target_hits){
                 }
                 texts += '%0D%0A';
             }
-            texts += `%23${target_hits}HITS%0D%0Akg1-thub.github.io/games/`;
+            texts += `%23${target_hits}HITS%0D%0Ahttps://kg1-thub.github.io/games/`;
 
             playinterval = setInterval(() => {
                 if(k==marks.length){
