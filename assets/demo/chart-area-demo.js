@@ -49,13 +49,13 @@ const illabel24 = {
   scaleID: 'x',
   borderWidth: 0,
   borderColor: 'rgba(255,182,193,0)',
-  value: 58,
+  value: 60,
   label: {
     // rotation: 270,
     // backgroundColor: 'pink',
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'black',
-    content: 'INTERLEAGUE',
+    content: ['INTERLEAGUE','PLAY'],
     enabled: true,
     position: 'end',
     font: {
@@ -84,11 +84,11 @@ const asbreak24 = {
     // rotation: 270,
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'green',
-    content: 'ALL-STAR GAME\nBREAK',
+    content: ['ALL-STAR GAME', 'BREAK'],
     padding: 1,
     enabled: true,
     position: 'start',
-    textAlign: 'start',
+    textAlign: 'center',
     font: {
       size: 10
     }
