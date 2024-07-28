@@ -171,7 +171,7 @@ def get_query2(sql, series):
 
 if __name__=='__main__':
     print('どのチームにしますか?')
-    print('  3: 横浜, 5: 阪神, 6: 広島')
+    print('  3:横浜, 5:阪神, 6:広島')
     set_team_param(int(input('番号を入力してください> ')))
 
     print('どのタスクを行いますか?')
@@ -202,7 +202,10 @@ if __name__=='__main__':
                 if int(input('今日の試合? (1:YES, 0:NO)> ')) \
                 else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
 
-        catcher = get_catcher_name(int(input(f'スタメン捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, 3:その他)> ')), catchers)
+        q_catcher = f'スタメン捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, 3:{catchers[3]}), 4:その他)> ' \
+                    if len(catchers) > 3 \
+                    else f'スタメン捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, 3:その他)> '
+        catcher = get_catcher_name(int(input(q_catcher)), catchers)
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
 
         # get yahoo sports gameid
