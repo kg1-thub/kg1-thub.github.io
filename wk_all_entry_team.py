@@ -202,9 +202,10 @@ if __name__=='__main__':
                 if int(input('今日の試合? (1:YES, 0:NO)> ')) \
                 else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
 
-        q_catcher = f'スタメン捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, 3:{catchers[3]}), 4:その他)> ' \
-                    if len(catchers) > 3 \
-                    else f'スタメン捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, 3:その他)> '
+        q_catcher = f'スタメン捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, '
+        q_catcher += f'3:{catchers[3]}), 4:その他)> ' \
+                        if len(catchers) > 3 \
+                        else f'3:その他)> '
         catcher = get_catcher_name(int(input(q_catcher)), catchers)
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
 
@@ -283,10 +284,7 @@ if __name__=='__main__':
                             catcher 
                                 if order_of_pitcher==0 or fullmask 
                                 else
-                                    get_catcher_name(
-                                        int(input(f'次の投手 "{_playerscore[1]}" の捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, 3:その他)> ')),
-                                        catchers
-                                    )
+                                    get_catcher_name(int(input(q_catcher)), catchers)
                         )
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
                         _playerscore.append(vsteam)
@@ -306,10 +304,7 @@ if __name__=='__main__':
             while nextrunner:
                 runner = input('  走者> ')
                 if not fullmask:
-                    catcher = get_catcher_name(
-                                    int(input(f'  捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, 3:その他)> ')),
-                                    catchers
-                            )
+                    catcher = get_catcher_name(int(input(q_catcher)), catchers)
                 pitcher = input('  投手> ')
 
                 caught_stealing = int(input('  盗塁企図の結果は？(0:許盗塁, 1:盗塁刺, 2:複数回)> '))
@@ -342,10 +337,7 @@ if __name__=='__main__':
             nextbattery = True
             while nextbattery:
                 if not fullmask:
-                    catcher = get_catcher_name(
-                                    int(input(f'  捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, 3:その他)> ')),
-                                    catchers
-                            )
+                    catcher = get_catcher_name(int(input(q_catcher)), catchers)
                 pitcher = input('  投手> ')
                 pdata = []
                 pdata.append(catcher)
@@ -669,4 +661,3 @@ if __name__=='__main__':
 
         print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'HTML UPDATED!')
         print()
-
