@@ -203,7 +203,7 @@ if __name__=='__main__':
                 else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
 
         q_catcher = f'スタメン捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, '
-        q_catcher += f'3:{catchers[3]}), 4:その他)> ' \
+        q_catcher += f'3:{catchers[3]}, 4:その他)> ' \
                         if len(catchers) > 3 \
                         else f'3:その他)> '
         catcher = get_catcher_name(int(input(q_catcher)), catchers)
