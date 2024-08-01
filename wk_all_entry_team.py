@@ -202,11 +202,11 @@ if __name__=='__main__':
                 if int(input('今日の試合? (1:YES, 0:NO)> ')) \
                 else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
 
-        q_catcher = f'スタメン捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, '
+        q_catcher = f'捕手 (0:{catchers[0]}, 1:{catchers[1]}, 2:{catchers[2]}, '
         q_catcher += f'3:{catchers[3]}, 4:その他)> ' \
                         if len(catchers) > 3 \
                         else f'3:その他)> '
-        catcher = get_catcher_name(int(input(q_catcher)), catchers)
+        catcher = get_catcher_name(int(input('スタメン'+q_catcher)), catchers)
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
 
         # get yahoo sports gameid
@@ -284,7 +284,7 @@ if __name__=='__main__':
                             catcher 
                                 if order_of_pitcher==0 or fullmask 
                                 else
-                                    get_catcher_name(int(input(q_catcher)), catchers)
+                                    get_catcher_name(int(input(f'次の投手 "{_playerscore[1]}" の{q_catcher}')), catchers)
                         )
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
                         _playerscore.append(vsteam)
