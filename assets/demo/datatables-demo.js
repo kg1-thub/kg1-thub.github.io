@@ -613,7 +613,7 @@ function csvLoad(year, keyword, team_initial="") {
       reader.onload = function(event) {
           var textdata = event.target.result;
           var tmp = textdata.split("\n");
-          console.log(tmp);
+          // console.log(tmp);
           // var cols = tmp[0].split(",");
           var records = [];
           for (var i = 0; i < tmp.length-2; i++) {
