@@ -128,12 +128,6 @@ var starting_games24_ctx_config = {
   options: options_prm
 };
 
-// window.addEventListener('load', function(){
-//   var innings24_ctx = document.getElementById('canvas24innings').getContext('2d');
-//   window.line24innings = new Chart(innings24_ctx, innings24_ctx_config);
-//   var starting_games24_ctx = document.getElementById('canvas24startings').getContext('2d');
-//   window.line24startings = new Chart(starting_games24_ctx, starting_games24_ctx_config);
-// });
 var innings24_ctx = document.getElementById('canvas24innings').getContext('2d');
 var line24innings = new Chart(innings24_ctx, innings24_ctx_config);
 var starting_games24_ctx = document.getElementById('canvas24startings').getContext('2d');
