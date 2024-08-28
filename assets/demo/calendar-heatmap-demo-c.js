@@ -115,6 +115,7 @@ var datas24 = {
     '2024-08-24': 1,
     '2024-08-25': -1,
     '2024-08-27': -1,
+    '2024-08-28': 1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -230,6 +231,7 @@ var score24 = {
     '2024-08-24': 'vs Tigers , 2-1 </br>Start P.大瀬良 / C.會澤',
     '2024-08-25': 'vs Tigers , 5-7 </br>Start P.森 / C.石原',
     '2024-08-27': 'vs Dragons , 2-1 </br>Start P.森下 / C.會澤',
+    '2024-08-28': 'vs Dragons , 1-2 </br>Start P.床田 / C.坂倉',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
