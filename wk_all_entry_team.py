@@ -75,9 +75,55 @@ def set_team_param(_num):
         catcher1 = '會澤'
         catcher2 = '石原'
         catchers = [catcher0, catcher1, catcher2]
-    # if _num == 2: swallows
-    # if _num == 4: dragons
-
+    if _num == 2:
+        num = 2
+        Team = 'Swallows'
+        team = 'swallows'
+        team_jp = 'ヤクルト'
+        team_jp2 = team_jp
+        team_jp_full = '東京ヤクルトスワローズ'
+        team_i = 's'
+        title_color = ''
+        color_win = '#066163'
+        color_draw = 'rgb(98, 154, 146)'
+        color_lose = 'rgb(190, 211, 213)'
+        catcher0 = '中村'
+        catcher1 = '松本直'
+        catcher2 = '内山'
+        # catcher3 = '西田'
+        catchers = [catcher0, catcher1, catcher2]
+    if _num == 4:
+        num = 4
+        Team = 'Dragons'
+        team = 'dragons'
+        team_jp = '中日'
+        team_jp2 = team_jp
+        team_jp_full = '中日ドラゴンズ'
+        team_i = 'd'
+        title_color = ''
+        color_win = '#6F3BC8'
+        color_draw = 'rgb(161, 131, 217)'
+        color_lose = 'rgb(211, 203, 234)'
+        catcher0 = '木下'
+        catcher1 = '宇佐見'
+        catcher2 = '加藤匠'
+        catchers = [catcher0, catcher1, catcher2]
+    if _num == 12:
+        num = 12
+        Team = 'Hawks'
+        team = 'hawks'
+        team_jp = 'ソフトバンク'
+        team_jp2 = team_jp
+        team_jp_full = '福岡ソフトバンクホークス'
+        team_i = 'h'
+        title_color = ''
+        color_win = '#383838'
+        color_draw = 'rgb(239, 145, 132)'
+        color_lose = 'rgb(237, 208, 205)'
+        catcher0 = '甲斐'
+        catcher1 = '海野'
+        catcher2 = '嶺井'
+        catchers = [catcher0, catcher1, catcher2]
 
 TODAY = datetime.datetime.today()
 _y = TODAY.strftime('%y')
@@ -131,6 +177,11 @@ def get_query_category(sql, series, category):
         category1, category2 = category, category
         condition = ""
         # condition = "AND NOT (catcher='大城' AND pitcher='平内 龍太')"
+        if num == 2 and category == 'pitcher':
+            condition = "AND ( NOT (catcher='西田' AND pitcher='木澤 尚文') AND NOT (catcher='内山' AND pitcher='山野 太一') )"
+        if num == 4 and category == 'pitcher':
+            condition = "AND NOT (catcher='宇佐見' AND pitcher='田島 慎二')"
+
     cur.execute(sql % (category1, category, category2, series, condition, category, category, category))
     conn.commit()
     results = cur.fetchall()
@@ -143,13 +194,26 @@ def create_table_category(series, category):
 
     table_html = ''
     tb = '\t'*11
-    # if category == 'pitcher':
-    #     stats.append(('高梨 雄平', '0-0-0, 99.99 (0.0)', None, None, None, None))
+    if category == 'pitcher' and num == 4:
+        stats.append(('田島 慎二', None, None, None))
     for stat in stats:
         table_html += tb+'<tr>\n'
         for i, x in enumerate(stat):
+            # print(i, stat)
             if x is None:
-                table_html += tb+'\t<td>---</td>\n'
+                # table_html += tb+'\t<td>---</td>\n'
+                if stat[0] == '山野 太一' and i==3:
+                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
+                elif stat[0] == '田島 慎二' and i==2:
+                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                else:
+                    table_html += tb+'\t<td>---</td>\n'
+                # table_html += tb+'\t<td>---</td>\n'
+                # if stat[0] == '高梨 雄平' and i==1:
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # else:
+                #     table_html += tb+'\t<td>---</td>\n'
+                    # table_html += tb+'\t<td>---</td>\n'
                 # if stat[0] == '高梨 雄平' and i==1:
                 #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 # else:
@@ -172,7 +236,8 @@ def get_query2(sql, series):
 
 if __name__=='__main__':
     print('どのチームにしますか?')
-    print('  3:横浜, 5:阪神, 6:広島')
+    print('  2:ヤクルト, 3:横浜, 4:中日, 5:阪神, 6:広島')
+    print('  12:ソフトバンク')
     set_team_param(int(input('番号を入力してください> ')))
 
     print('どのタスクを行いますか?')
@@ -253,6 +318,7 @@ if __name__=='__main__':
             if _team is None:
                 pass
             elif _team.text == team_jp_full:
+                _batteries = []
                 with open(csvdir+f'/catcher_stats{_y}{team_i}.csv',mode='a',encoding='shift-jis') as f:
                     for order_of_pitcher, scores_of_pitcher in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
                         _playerscore = []
@@ -298,15 +364,19 @@ if __name__=='__main__':
                         print(','.join(_playerscore))
                         if not fullmask: print()
                         f.write(','.join(_playerscore)+'\n')
+                        _batteries.append([_playerscore[1], _playerscore[13], _playerscore[2]])
 
         print()
         if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
             nextrunner = True
             while nextrunner:
                 runner = input('  走者> ')
+                for i, x in enumerate(_batteries):
+                    print(i, x)
+                _j = int(input('  対象バッテリーの番号> '))
+                pitcher = _batteries[_j][0]
                 if not fullmask:
-                    catcher = get_catcher_name(int(input(q_catcher)), catchers)
-                pitcher = input('  投手> ')
+                    catcher = _batteries[_j][1]
 
                 caught_stealing = int(input('  盗塁企図の結果は？(0:許盗塁, 1:盗塁刺, 2:複数回)> '))
                 if caught_stealing > 1:
@@ -337,9 +407,13 @@ if __name__=='__main__':
         if int(input(f'{team_jp}にバッテリーエラーあり？(1:YES, 0:NO)> ')):
             nextbattery = True
             while nextbattery:
+                for i, x in enumerate(_batteries):
+                    print(i, x)
+                _j = int(input('  対象バッテリーの番号> '))
+                pitcher = _batteries[_j][0]
                 if not fullmask:
-                    catcher = get_catcher_name(int(input(q_catcher)), catchers)
-                pitcher = input('  投手> ')
+                    catcher = _batteries[_j][1]
+
                 pdata = []
                 pdata.append(catcher)
                 pdata.append(pitcher)
@@ -507,7 +581,7 @@ if __name__=='__main__':
                 SUM(earned_runs) er, \
                 sum(floor(innings))+sum(mod(innings,1))*10/3 ins \
                 FROM catcher_stats \
-                WHERE series = '%s' %s \
+                WHERE series = '%s' %s  \
                 GROUP BY catcher, win_lose_save, %s \
                 ORDER BY 1, 2 DESC \
             ) tmp \
