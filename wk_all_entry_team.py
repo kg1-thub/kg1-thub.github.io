@@ -116,13 +116,29 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '福岡ソフトバンクホークス'
         team_i = 'h'
-        title_color = ''
-        color_win = '#383838'
-        color_draw = 'rgb(239, 145, 132)'
-        color_lose = 'rgb(237, 208, 205)'
+        title_color = 'color: black;'
+        color_win = '#fcc800'
+        color_draw = 'rgb(246, 216, 97)'
+        color_lose = 'rgb(239, 231, 194)'
         catcher0 = '甲斐'
         catcher1 = '海野'
         catcher2 = '嶺井'
+        catchers = [catcher0, catcher1, catcher2]
+    if _num == 10:
+        num = 376
+        Team = 'Eagles'
+        team = 'eagles'
+        team_jp = '楽天'
+        team_jp2 = team_jp
+        team_jp_full = '東北楽天ゴールデンイーグルス'
+        team_i = 'e'
+        title_color = ''
+        color_win = '#870011'
+        color_draw = 'rgb(175, 96, 107)'
+        color_lose = 'rgb(216, 191, 197)'
+        catcher0 = '太田'
+        catcher1 = '石原'
+        catcher2 = '田中貴'
         catchers = [catcher0, catcher1, catcher2]
 
 TODAY = datetime.datetime.today()
@@ -178,7 +194,7 @@ def get_query_category(sql, series, category):
         condition = ""
         # condition = "AND NOT (catcher='大城' AND pitcher='平内 龍太')"
         if num == 2 and category == 'pitcher':
-            condition = "AND ( NOT (catcher='西田' AND pitcher='木澤 尚文') AND NOT (catcher='内山' AND pitcher='山野 太一') )"
+            condition = "AND NOT (catcher='西田' AND pitcher='木澤 尚文')"
         if num == 4 and category == 'pitcher':
             condition = "AND NOT (catcher='宇佐見' AND pitcher='田島 慎二')"
 
@@ -202,9 +218,7 @@ def create_table_category(series, category):
             # print(i, stat)
             if x is None:
                 # table_html += tb+'\t<td>---</td>\n'
-                if stat[0] == '山野 太一' and i==3:
-                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
-                elif stat[0] == '田島 慎二' and i==2:
+                if stat[0] == '田島 慎二' and i==2:
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 else:
                     table_html += tb+'\t<td>---</td>\n'
@@ -237,7 +251,7 @@ def get_query2(sql, series):
 if __name__=='__main__':
     print('どのチームにしますか?')
     print('  2:ヤクルト, 3:横浜, 4:中日, 5:阪神, 6:広島')
-    print('  12:ソフトバンク')
+    print('  10:楽天, 12:ソフトバンク')
     set_team_param(int(input('番号を入力してください> ')))
 
     print('どのタスクを行いますか?')
