@@ -140,6 +140,38 @@ def set_team_param(_num):
         catcher1 = '石原'
         catcher2 = '田中貴'
         catchers = [catcher0, catcher1, catcher2]
+    if _num == 8:
+        num = 8
+        Team = 'Fighters'
+        team = 'fighters'
+        team_jp = '日本ハム'
+        team_jp2 = team_jp
+        team_jp_full = '北海道日本ハムファイターズ'
+        team_i = 'f'
+        title_color = ''
+        color_win = '#006298'
+        color_draw = 'rgb(94, 154, 188)'
+        color_lose = 'rgb(189, 211, 224)'
+        catcher0 = '田宮'
+        catcher1 = '伏見'
+        catcher2 = '清水'
+        catchers = [catcher0, catcher1, catcher2]
+    if _num == 9:
+        num = 9
+        Team = 'Marines'
+        team = 'marines'
+        team_jp = 'ロッテ'
+        team_jp2 = team_jp
+        team_jp_full = '千葉ロッテマリーンズ'
+        team_i = 'm'
+        title_color = ''
+        color_win = '#124076'
+        color_draw = 'rgb(239, 145, 132)'
+        color_lose = 'rgb(237, 208, 205)'
+        catcher0 = '佐藤'
+        catcher1 = '田村'
+        catcher2 = '柿沼'
+        catchers = [catcher0, catcher1, catcher2]
 
 TODAY = datetime.datetime.today()
 _y = TODAY.strftime('%y')
@@ -197,7 +229,8 @@ def get_query_category(sql, series, category):
             condition = "AND NOT (catcher='西田' AND pitcher='木澤 尚文')"
         if num == 4 and category == 'pitcher':
             condition = "AND NOT (catcher='宇佐見' AND pitcher='田島 慎二')"
-
+        if num == 376 and category == 'pitcher':
+            condition = "AND (NOT (catcher='堀内' AND pitcher='松井 友飛') AND NOT (catcher='太田' AND pitcher='小孫 竜二'))"
     cur.execute(sql % (category1, category, category2, series, condition, category, category, category))
     conn.commit()
     results = cur.fetchall()
@@ -220,6 +253,10 @@ def create_table_category(series, category):
                 # table_html += tb+'\t<td>---</td>\n'
                 if stat[0] == '田島 慎二' and i==2:
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                elif stat[0] == '松井 友飛' and i==3:
+                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                elif stat[0] == '小孫 竜二' and i==1:
+                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 else:
                     table_html += tb+'\t<td>---</td>\n'
                 # table_html += tb+'\t<td>---</td>\n'
@@ -251,7 +288,7 @@ def get_query2(sql, series):
 if __name__=='__main__':
     print('どのチームにしますか?')
     print('  2:ヤクルト, 3:横浜, 4:中日, 5:阪神, 6:広島')
-    print('  10:楽天, 12:ソフトバンク')
+    print('  8:日ハム, 9:ロッテ, 10:楽天, 12:ソフトバンク')
     set_team_param(int(input('番号を入力してください> ')))
 
     print('どのタスクを行いますか?')

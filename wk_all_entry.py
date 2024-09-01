@@ -165,6 +165,7 @@ if __name__=='__main__':
             if _team is None:
                 pass
             elif _team.text == '読売ジャイアンツ':
+                _batteries = []
                 with open(csvdir+f'/catcher_stats{_y}.csv',mode='a',encoding='shift-jis') as f:
                     for order_of_pitcher, scores_of_pitcher in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
                         _playerscore = []
@@ -216,17 +217,24 @@ if __name__=='__main__':
                         print(','.join(_playerscore))
                         if not fullmask: print()
                         f.write(','.join(_playerscore)+'\n')
+                        _batteries.append([_playerscore[1], _playerscore[13], _playerscore[2]])
 
         print()
         if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
             nextrunner = True
             while nextrunner:
                 runner = input('  走者> ')
+                # if not fullmask:
+                #     catcher = get_catcher_name(
+                #                     int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
+                #             )
+                # pitcher = input('  投手> ')
+                for i, x in enumerate(_batteries):
+                    print(i, x)
+                _j = int(input('  対象バッテリーの番号> '))
+                pitcher = _batteries[_j][0]
                 if not fullmask:
-                    catcher = get_catcher_name(
-                                    int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
-                            )
-                pitcher = input('  投手> ')
+                    catcher = _batteries[_j][1]
 
                 caught_stealing = int(input('  盗塁企図の結果は？(0:許盗塁, 1:盗塁刺, 2:複数回)> '))
                 if caught_stealing > 1:
@@ -257,11 +265,18 @@ if __name__=='__main__':
         if int(input('巨人にバッテリーエラーあり？(1:YES, 0:NO)> ')):
             nextbattery = True
             while nextbattery:
+                # if not fullmask:
+                #     catcher = get_catcher_name(
+                #                     int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
+                #             )
+                # pitcher = input('  投手> ')
+                for i, x in enumerate(_batteries):
+                    print(i, x)
+                _j = int(input('  対象バッテリーの番号> '))
+                pitcher = _batteries[_j][0]
                 if not fullmask:
-                    catcher = get_catcher_name(
-                                    int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
-                            )
-                pitcher = input('  投手> ')
+                    catcher = _batteries[_j][1]
+
                 pdata = []
                 pdata.append(catcher)
                 pdata.append(pitcher)
