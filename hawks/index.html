@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <!-- <script data-ad-client="ca-pub-1993395319769113" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:url" content="https://kg1-thub.github.io/hawks/" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Hawks/Catcher/Score" />
+		<meta property="og:description" content="ソフトバンク/捕手/スコア・成績をビジュアル化" />
+		<meta property="og:image" content="https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/img/screen_sample.png" />
+        <meta name="twitter:card" content="summary" />
+
+        <meta name="description" content="Hawks/Catcher/Score (ソフトバンク/捕手/スコア・成績)をビジュアル化. Hawksの捕手に関する成績・記録を集計し、グラフ、チャート、テーブルにまとめています. ソフトバンク 捕手 スコア プロ野球 キャッチャー 成績" />
+        <meta name="keywords" content="Hawks Catcher Score ソフトバンク 捕手 スコア プロ野球 キャッチャー 成績" />
+        <meta name="author" content="kg1" />
+        <title>Hawks/Catcher/Score</title>
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+        <script src="../js/utils.js"></script>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1993395319769113"
+        crossorigin="anonymous"></script>
+
+        <style>
+            canvas {
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+        </style>
+
+        <!-- calendar-heatmap -->
+        <link rel="stylesheet" type="text/css" href="../css/calendar-heatmap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+        <script src="../js/calendar-heatmap.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147259112-3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-147259112-3');
+        </script>
+        <link rel="icon" href="../assets/img/map_pin_shadow.ico">
+    </head>
+
+    <body class="sb-nav-fixed pt-5">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color: #fcc800;">
+            <a class="navbar-brand" href="https://kg1-thub.github.io/hawks/" style="color: black;">Hawks/Catcher/Score</a>
+            <nav class="nav">
+                <ul class="navbar-nav">
+                    <!-- <li class="nav-item dropdown active">
+                        <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nav-dropdown-About">About <b class="caret"></b></a>
+                        <div class="dropdown-menu" aria-labelledby="nav-dropdown-About">
+                            <a href="catcher-stats/" class="dropdown-item">AboutSite</a>
+                            <a href="catchet-stats/about/privacy-policy/" class="dropdown-item">PrivacyPolicy</a>
+                            <a href="https://forms.gle/f5mB854NhKq3hHq48" class="dropdown-item">Contact</a>
+                        </div>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">2024</a>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item d-none" href="" id="d2024">2024</a>
+                            <a class="dropdown-item d-none" href="#2023" id="d2023">2023</a>
+                            <a class="dropdown-item d-none" href="#2022" id="d2022">2022</a>
+                            <a class="dropdown-item d-none" href="#2021" id="d2021">2021</a>
+                            <a class="dropdown-item d-none" href="#2020" id="d2020">2020</a>
+                            <a class="dropdown-item d-none" href="#2019" id="d2019">2019</a>
+                            <a class="dropdown-item d-none" href="#2018" id="d2018">2018</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="catcher-stats/" class="dropdown-item">AboutSite</a>
+                            <a href="https://forms.gle/f5mB854NhKq3hHq48" class="dropdown-item">Contact</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="share container">
+                <div class="row float-right">
+                    <div class="sharebtns col-xs-1 col-sm-4 pull-right">
+                    <div class="sharebtns pull-right">
+                        <div class="twitterbtn">
+							<a href="http://twitter.com/share?text=2024ソフトバンク捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A甲斐, 56-24-28, 2.51 (749.2)%0D%0A海野, 18-17-7, 2.65 (305.1)%0D%0A嶺井, 0-0-0, 2.57 (7.0)%0D%0A%23hawks%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2Fhawks%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">
+                                <!-- <i class="fa-brands fa-square-x-twitter"></i> -->
+                                <!-- <span class="fa-brands fa-square-x-twitter"></span> -->
+                                <img src="../assets/img/Twitter_Social_Icon_Rounded_Square_White.png" width="25" height="25">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2018">2018</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2019">2019</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#t2020">2020</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2021">2021</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2022">2022</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2023">2023</a>
+            </li>
+        </ul> -->
+
+        <!-- Tab panes -->
+        <div class="tab-content p-1">
+
+            <div class="container-fluid tab-pane active" id="t2024">
+                <div id="giants_link">
+                    <div class="pt-1" style="display: inline-flex;">
+                        <a href="https://kg1-thub.github.io/" target="_blank" rel="noopener noreferrer">
+                            <p class="mb-0">
+                                <i class="fa-solid fa-circle-info" style="color: rgb(220, 147, 11); width: 17px;"></i>
+                                読売ジャイアンツ 捕手別投手成績👈
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div id="carp_link">
+                    <div class="" style="display: inline-flex;">
+                        <a href="https://kg1-thub.github.io/carp/" target="_blank" rel="noopener noreferrer">
+                            <p class="mb-0">
+                                <i class="fa-solid fa-circle-info" style="color: red; width: 17px;"></i>
+                                広島東洋カープ 捕手別投手成績👈
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div id="tigers_link">
+                    <div class="" style="display: inline-flex;">
+                        <a href="https://kg1-thub.github.io/tigers/" target="_blank" rel="noopener noreferrer">
+                            <p class="mb-0">
+                                <i class="fa-solid fa-circle-info" style="color: #a0522d; width: 17px;"></i>
+                                阪神タイガース 捕手別投手成績👈
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div id="baystars_link">
+                    <div class="" style="display: inline-flex;">
+                        <a href="https://kg1-thub.github.io/baystars/" target="_blank" rel="noopener noreferrer">
+                            <p class="mb-1">
+                                <i class="fa-solid fa-circle-info" style="color: #008DDA; width: 17px;"></i>
+                                横浜DeNAベイスターズ 捕手別投手成績👈
+                            </p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>League/Team/貯金推移</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart24" width="100%" height="60vh"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-th mr-1" style="width: 17px;"></i>Hawks/Team/勝敗マップ</div>
+                            <div class="row pt-1">
+                                <div style="background-color: #fcc800; width: 12px; height: 12px; border-radius: 30%;margin-left: 40px; margin-right: 1px;" class="my-auto"></div>
+                                <div>Win</div>
+                                <div style="background-color: rgb(246, 216, 97); width: 12px; height: 12px; border-radius: 30%;margin-left: 8px; margin-right: 1px;" class="my-auto"></div>
+                                <div>Draw</div>
+                                <div style="background-color: rgb(239, 231, 194); width: 12px; height: 12px; border-radius: 30%;margin-left: 8px; margin-right: 1px;" class="my-auto"></div>
+                                <div>Lose</div>
+                            </div>
+                            <div class="card-body mx-auto pr-0 pl-2 pt-2 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
+                                <div id="calmap24"></div>
+                            </div>
+                        </div>
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-column mr-1" style="width: 17px;"></i>Hawks/Team/月別勝利数</div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1">
+                                <canvas id="bar24wins" width="100%" height="60vh"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1" id="games24">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Hawks/Pitcher/ゲーム成績
+                                <div class="float-right">
+                                    <button class="badge badge-pill badge-secondary" onclick="search_today()"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>今日</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword('先発')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>先発</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword('交代')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>交代</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword('甲斐')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>甲斐</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword('海野')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>海野</button>
+                                 </div>
+                            </div>
+                            <div class="card-body pl-1 pr-1 pb-0 pt-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt24games"
+                                     width="100%" cellspacing="0">
+                                        <caption id="dt24gamescaption"></caption>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Hawks/Catcher/守備イニング</div>
+                            <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
+                                <canvas id="pie24innings"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Hawks/Catcher/先発試合数</div>
+                            <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
+                                <canvas id="pie24startings"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Hawks/Catcher/許盗塁数</div>
+                            <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
+                                <canvas id="pie24stolenbases"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>Hawks/Catcher/月別守備イニング
+                                <button id="redraw_canvas24innings" class="badge badge-secondary">Redraw</button>
+                            </div>
+                            <div style="width:100%;">
+                                <canvas id="canvas24innings"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>Hawks/Catcher/月別先発試合
+                                <button id="redraw_canvas24startings" class="badge badge-secondary">Redraw</button>
+                            </div>
+                            <div style="width:100%;">
+                                <canvas id="canvas24startings"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Hawks/Catcher/シーズン成績</div>
+                            <div class="card-body pl-1 pr-1 pb-0 pt-0">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt24catcher" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>捕手</th>
+                                                <th>イニング</th>
+                                                <th>勝</th>
+                                                <th>敗</th>
+                                                <th>S</th>
+                                                <th>先発数</th>
+                                                <th>失点</th>
+                                                <th>自責点</th>
+                                                <th>防御率</th>
+                                                <th>盗塁企図</th>
+                                                <!-- <th data-toggle="tooltip" title="当サイトでは、守備に就いているときの盗塁数を単純集計しています">許盗塁</th> -->
+                                                <th>許盗塁</th>
+                                                <!-- <th data-toggle="tooltip" title="当サイトでは、守備に就いているときの盗塁死を単純集計しています">盗塁刺</th> -->
+                                                <th>盗塁刺</th>
+                                                <!-- <th data-toggle="tooltip" title="当サイトでは、守備に就いているときの許盗塁・盗塁死の数から単純計算しています">阻止率</th> -->
+                                                <th>阻止率</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											<tr>
+												<td>甲斐</td>
+												<td>749.2</td>
+												<td>56</td>
+												<td>24</td>
+												<td>28</td>
+												<td>83</td>
+												<td>229</td>
+												<td>209</td>
+												<td>2.51</td>
+												<td>66</td>
+												<td>47</td>
+												<td>19</td>
+												<td>0.288</td>
+											</tr>
+											<tr>
+												<td>海野</td>
+												<td>305.1</td>
+												<td>18</td>
+												<td>17</td>
+												<td>7</td>
+												<td>35</td>
+												<td>95</td>
+												<td>90</td>
+												<td>2.65</td>
+												<td>19</td>
+												<td>13</td>
+												<td>6</td>
+												<td>0.316</td>
+											</tr>
+											<tr>
+												<td>嶺井</td>
+												<td>7.0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>2</td>
+												<td>2</td>
+												<td>2.57</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>---</td>
+											</tr>
+										</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Hawks/Catcher/月別成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt24month" width="100%" cellspacing="0">
+                                        <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>月</th>
+                                                <th>甲斐</th>
+                                                <th>海野</th>
+                                                <th>嶺井</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											<tr>
+												<td>3</td>
+												<td>1-1-2, 1.80 (20)</td>
+												<td>1-0-0, 1.50 (6)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>4</td>
+												<td>12-4-5, 2.44 (162.1)</td>
+												<td>4-1-1, 1.36 (53)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>5</td>
+												<td>9-4-3, 1.92 (136)</td>
+												<td>4-5-2, 1.89 (62)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>6</td>
+												<td>10-3-4, 2.43 (122)</td>
+												<td>7-2-3, 2.85 (79)</td>
+												<td>0-0-0, 2.57 (7)</td>
+											</tr>
+											<tr>
+												<td>7</td>
+												<td>10-4-6, 2.13 (122.1)</td>
+												<td>1-6-1, 3.94 (64)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>8</td>
+												<td>13-8-8, 3.44 (178)</td>
+												<td>1-3-0, 3.27 (41.1)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>9</td>
+												<td>1-0-0, 2.00 (9)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+										</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Advertisement area 2 -->
+                <div class="row">
+                    <a href="https://px.a8.net/svt/ejp?a8mat=3BI2FI+CONHRM+461Y+6DRLT" rel="nofollow" class="mx-auto d-block" onClick="ga('send', 'event', 'sp', 'tel', 'test');">
+                        <img border="0" width="800px" height="" alt="" src="./assets/img/skyperfect_tv2.jpg" class="mx-auto d-block" style="max-width: 100%;"></a>
+                </div>
+                <!-- Advertisement area 2 -->
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1">
+                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Hawks/Catcher/投手別成績</div>
+                            <div class="card-body p-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt24pitcher" width="100%" cellspacing="0">
+                                        <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>投手</th>
+                                                <th>甲斐</th>
+                                                <th>海野</th>
+                                                <th>嶺井</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											<tr>
+												<td>オスナ</td>
+												<td>0-0-14, 4.50 (22)</td>
+												<td>0-2-6, 2.45 (7.1)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>スチュワート・ジュニア</td>
+												<td>8-2-0, 1.90 (80.2)</td>
+												<td>0-1-0, 2.49 (21.2)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>ヘルナンデス</td>
+												<td>2-2-0, 2.17 (29)</td>
+												<td>1-0-0, 3.27 (11)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>モイネロ</td>
+												<td>10-4-0, 1.65 (142)</td>
+												<td>---</td>
+												<td>0-0-0, 0.00 (1)</td>
+											</tr>
+											<tr>
+												<td>三浦 瑞樹</td>
+												<td>0-0-0, 0.00 (2)</td>
+												<td>0-0-0, 0.00 (2)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>中村 亮太</td>
+												<td>0-0-0, 18.00 (1)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>又吉 克樹</td>
+												<td>0-1-0, 4.18 (23.2)</td>
+												<td>0-0-0, 3.27 (11)</td>
+												<td>0-0-0, 0.00 (1)</td>
+											</tr>
+											<tr>
+												<td>和田 毅</td>
+												<td>1-0-0, 7.20 (5)</td>
+												<td>1-2-0, 3.20 (19.2)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>大山 凌</td>
+												<td>1-0-0, 1.65 (16.1)</td>
+												<td>0-0-0, 2.08 (4.1)</td>
+												<td>0-0-0, 0.00 (2)</td>
+											</tr>
+											<tr>
+												<td>大津 亮介</td>
+												<td>0-1-0, 9.00 (4)</td>
+												<td>6-6-0, 2.89 (96.2)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>大関 友久</td>
+												<td>2-0-0, 3.00 (27)</td>
+												<td>5-3-0, 2.33 (77.1)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>尾形 崇斗</td>
+												<td>0-0-0, 9.00 (3)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>岩井 俊介</td>
+												<td>0-0-0, 0.00 (2)</td>
+												<td>0-0-0, 0.00 (2)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>有原 航平</td>
+												<td>11-6-0, 2.68 (144.2)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>杉山 一樹</td>
+												<td>3-0-0, 1.00 (27)</td>
+												<td>1-0-0, 2.79 (9.2)</td>
+												<td>0-0-0, 18.00 (1)</td>
+											</tr>
+											<tr>
+												<td>村田 賢一</td>
+												<td>0-0-0, 18.00 (1)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>東浜 巨</td>
+												<td>3-2-0, 3.12 (52)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>松本 晴</td>
+												<td>1-1-0, 3.86 (9.1)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>松本 裕樹</td>
+												<td>1-1-13, 1.73 (41.2)</td>
+												<td>1-1-1, 10.80 (5)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>津森 宥紀</td>
+												<td>3-0-0, 1.69 (26.2)</td>
+												<td>1-2-0, 2.31 (11.2)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>澤柳 亮太郎</td>
+												<td>2-1-0, 5.68 (6.1)</td>
+												<td>0-0-0, 0.00 (4.1)</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>田浦 文丸</td>
+												<td>0-0-0, 6.75 (1.1)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>石川 柊太</td>
+												<td>4-2-0, 2.64 (44.1)</td>
+												<td>---</td>
+												<td>---</td>
+											</tr>
+											<tr>
+												<td>藤井 皓哉</td>
+												<td>2-1-1, 1.87 (24)</td>
+												<td>0-0-0, 1.93 (14)</td>
+												<td>0-0-0, 0.00 (2)</td>
+											</tr>
+											<tr>
+												<td>長谷川 威展</td>
+												<td>2-0-0, 3.95 (13.2)</td>
+												<td>2-0-0, 0.00 (7.2)</td>
+												<td>---</td>
+											</tr>
+										</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- fixed btn -->
+            <button type="button" id="top-btn" class="btn btn-sm btn-floating btn-secondary" style="position: fixed; bottom: 20%; right: 40px; display: none; opacity: 70%; border-radius: 100%; width: 31px; height: 31px;">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+            <button type="button" id="down-btn" class="btn btn-sm btn-floating btn-secondary" style="position: fixed; bottom: 20%; right: 5px; display: block; opacity: 70%; border-radius: 100%; width: 31px; height: 31px;">
+                <i class="fa-solid fa-arrow-down"></i>
+            </button>
+
+            <footer class="py-3 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Updated 2024.09.01</div>
+                        <div>
+                            <a href="https://kg1-thub.github.io/hawks/">DASHBOARD</a>
+                            &middot;
+                            <a href="https://kg1-thub.github.io/catcher-stats/">About Site</a>
+                            &middot;
+                            <a href="https://kg1-thub.github.io/links/">Link</a>
+                            &middot;
+                            <a href="https://forms.gle/f5mB854NhKq3hHq48">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/1.0.2/chartjs-plugin-annotation.min.js" integrity="sha512-FuXN8O36qmtA+vRJyRoAxPcThh/1KJJp7WSRnjCpqA+13HYGrSWiyzrCHalCWi42L5qH1jt88lX5wy5JyFxhfQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-pie-demo-h.js"></script>
+        <script src="../assets/demo/calendar-heatmap-demo-h.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js)"></script>
+        <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
+        <script src="../assets/demo/datatables-demo.js"></script>
+        <script src="../assets/demo/datatables-demo24h.js"></script>
+    </body>
+</html>
