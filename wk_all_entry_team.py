@@ -172,6 +172,23 @@ def set_team_param(_num):
         catcher1 = '田村'
         catcher2 = '柿沼'
         catchers = [catcher0, catcher1, catcher2]
+    if _num == 11:
+        num = 11
+        Team = 'Buffaloes'
+        team = 'buffaloes'
+        team_jp = 'オリックス'
+        team_jp2 = team_jp
+        team_jp_full = 'オリックス・バファローズ'
+        team_i = 'o'
+        title_color = ''
+        color_win = '#383838'
+        color_draw = 'rgb(239, 145, 132)'
+        color_lose = 'rgb(237, 208, 205)'
+        catcher0 = '森'
+        catcher1 = '若月'
+        catcher2 = '石川'
+        catcher3 = '福永'
+        catchers = [catcher0, catcher1, catcher2, catcher3]
 
 TODAY = datetime.datetime.today()
 _y = TODAY.strftime('%y')
@@ -288,7 +305,7 @@ def get_query2(sql, series):
 if __name__=='__main__':
     print('どのチームにしますか?')
     print('  2:ヤクルト, 3:横浜, 4:中日, 5:阪神, 6:広島')
-    print('  8:日ハム, 9:ロッテ, 10:楽天, 12:ソフトバンク')
+    print('  8:日ハム, 9:ロッテ, 10:楽天, 11:オリックス, 12:ソフトバンク')
     set_team_param(int(input('番号を入力してください> ')))
 
     print('どのタスクを行いますか?')
@@ -748,9 +765,10 @@ if __name__=='__main__':
         table_pitcher_html = create_table_category(f'{_Y}RS', 'pitcher')
 
         today = datetime.date.today().strftime('%Y.%m.%d')
-        INDEX_TEMPLATE = './assets/data/index.template-team4.html' \
+        p = 'p' if num > 6 else ''
+        INDEX_TEMPLATE = f'./assets/data/index.template-{p}team4.html' \
                             if len(catchers)>3 \
-                            else './assets/data/index.template-team.html'
+                            else f'./assets/data/index.template-{p}team.html'
         with open(INDEX_TEMPLATE, mode='r',encoding='utf-8') as f1:
             with open(f'./{team}/index.html',mode='w',encoding='utf-8') as f2:
                 for line in f1:
