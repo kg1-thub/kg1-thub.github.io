@@ -1,5 +1,5 @@
 var squareLength = 18;
-var _colorRange = ['#ECEFF2', '#52D3D8'];
+var _colorRange = ['#ECEFF2', '#176B87'];
 
 // 2024
 var datas24 = {
@@ -121,6 +121,7 @@ var datas24 = {
     '2024-08-30': -1,
     '2024-08-31': 1,
     '2024-09-01': 1,
+    '2024-09-03': -1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -242,6 +243,7 @@ var score24 = {
     '2024-08-30': 'vs Fighters , 2-5 </br>Start P.松本 / C.古賀',
     '2024-08-31': 'vs Fighters , 2-1 </br>Start P.今井 / C.古賀',
     '2024-09-01': 'vs Fighters , 6-5 </br>Start P.武内 / C.炭谷',
+    '2024-09-03': 'vs Buffaloes , 3-2 </br>Start P.高橋 / C.柘植',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];

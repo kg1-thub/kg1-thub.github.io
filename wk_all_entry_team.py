@@ -198,9 +198,9 @@ def set_team_param(_num):
         team_jp_full = '埼玉西武ライオンズ'
         team_i = 'l'
         title_color = ''
-        color_win = '#52D3D8'
-        color_draw = 'rgb(239, 145, 132)'
-        color_lose = 'rgb(237, 208, 205)'
+        color_win = '#176B87'
+        color_draw = 'rgb(108, 160, 178)'
+        color_lose = 'rgb(193, 213, 221)'
         catcher0 = '古賀'
         catcher1 = '炭谷'
         catcher2 = '古市'
@@ -262,6 +262,8 @@ def get_query_category(sql, series, category):
             condition = "AND NOT (catcher='西田' AND pitcher='木澤 尚文')"
         if num == 4 and category == 'pitcher':
             condition = "AND NOT (catcher='宇佐見' AND pitcher='田島 慎二')"
+        if num == 7 and category == 'pitcher':
+            condition = "AND NOT (catcher='古市' AND pitcher='ヤン')"
         if num == 376 and category == 'pitcher':
             condition = "AND (NOT (catcher='堀内' AND pitcher='松井 友飛') AND NOT (catcher='太田' AND pitcher='小孫 竜二'))"
     cur.execute(sql % (category1, category, category2, series, condition, category, category, category))
