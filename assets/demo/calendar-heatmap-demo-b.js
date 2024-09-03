@@ -124,6 +124,7 @@ var datas24 = {
     '2024-08-25': 1,
     '2024-08-27': 1,
     '2024-08-28': 1,
+    '2024-09-03': 1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -248,6 +249,7 @@ var score24 = {
     '2024-08-25': 'vs Swallows , 4-10 </br>Start P.ケイ / C.山本',
     '2024-08-27': 'vs Tigers , 10-4 </br>Start P.大貫 / C.山本',
     '2024-08-28': 'vs Tigers , 3-2 </br>Start P.東 / C.山本',
+    '2024-09-03': 'vs Carp , 5-1 </br>Start P.東 / C.山本',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
@@ -260,7 +262,7 @@ for (var d in datas24) {
 };
 var heatmap24 = calendarHeatmap()
   .data(chartData24)
-  .startDate('2024-03-29')
+  .startDate('2024-03-22')
   .endDate('2024-10-08')
   .selector('#calmap24')
   .tooltipEnabled(true)

@@ -193,8 +193,23 @@ def set_team_param(_num):
         catcher2 = '石川'
         catcher3 = '福永'
         catchers = [catcher0, catcher1, catcher2, catcher3]
-    # 11 olix
-    # 7 lions
+    if _num == 7:
+        num = 7
+        Team = 'Lions'
+        team = 'lions'
+        team_jp = '西武'
+        team_jp2 = team_jp
+        team_jp_full = '埼玉西武ライオンズ'
+        team_i = 'l'
+        title_color = ''
+        color_win = '#52D3D8'
+        color_draw = 'rgb(239, 145, 132)'
+        color_lose = 'rgb(237, 208, 205)'
+        catcher0 = '古賀'
+        catcher1 = '炭谷'
+        catcher2 = '古市'
+        catcher3 = '柘植'
+        catchers = [catcher0, catcher1, catcher2, catcher3]
 
 TODAY = datetime.datetime.today()
 _y = TODAY.strftime('%y')
@@ -291,8 +306,8 @@ if __name__=='__main__':
     # print('どのチームにしますか?')
     # print('  3:横浜, 5:阪神, 6:広島')
     # set_team_param(int(input('番号を入力してください> ')))
-    set_team_param(11)
-    print('オリックス')
+    set_team_param(7)
+    print('ライオンズ')
 
     # print('どのタスクを行いますか?')
     # print('  0: CSV登録 & html生成')
@@ -552,6 +567,7 @@ if __name__=='__main__':
         with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
             writer.write(content)
         print('DATATABLES-DEMO SEARCH KEYWORD UPDATED.')
+        print()
 
     if make_html:
     # if False:

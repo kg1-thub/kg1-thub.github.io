@@ -256,7 +256,7 @@ for (var d in datas24) {
 };
 var heatmap24 = calendarHeatmap()
   .data(chartData24)
-  .startDate('2024-03-29')
+  .startDate('2024-03-22')
   .endDate('2024-10-08')
   .selector('#calmap24')
   .tooltipEnabled(true)
