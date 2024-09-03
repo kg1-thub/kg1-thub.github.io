@@ -203,7 +203,7 @@ def set_team_param(_num):
         color_lose = 'rgb(193, 213, 221)'
         catcher0 = '古賀'
         catcher1 = '炭谷'
-        catcher2 = '古市'
+        catcher2 = '柘植'
         catchers = [catcher0, catcher1, catcher2]
 
 TODAY = datetime.datetime.today()
