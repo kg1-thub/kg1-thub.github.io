@@ -189,6 +189,22 @@ def set_team_param(_num):
         catcher2 = '石川'
         catcher3 = '福永'
         catchers = [catcher0, catcher1, catcher2, catcher3]
+    if _num == 7:
+        num = 7
+        Team = 'Lions'
+        team = 'lions'
+        team_jp = '西武'
+        team_jp2 = team_jp
+        team_jp_full = '埼玉西武ライオンズ'
+        team_i = 'l'
+        title_color = ''
+        color_win = '#52D3D8'
+        color_draw = 'rgb(239, 145, 132)'
+        color_lose = 'rgb(237, 208, 205)'
+        catcher0 = '古賀'
+        catcher1 = '炭谷'
+        catcher2 = '古市'
+        catchers = [catcher0, catcher1, catcher2]
 
 TODAY = datetime.datetime.today()
 _y = TODAY.strftime('%y')
@@ -305,7 +321,7 @@ def get_query2(sql, series):
 if __name__=='__main__':
     print('どのチームにしますか?')
     print('  2:ヤクルト, 3:横浜, 4:中日, 5:阪神, 6:広島')
-    print('  8:日ハム, 9:ロッテ, 10:楽天, 11:オリックス, 12:ソフトバンク')
+    print('  7:西武, 8:日ハム, 9:ロッテ, 10:楽天, 11:オリックス, 12:ソフトバンク')
     set_team_param(int(input('番号を入力してください> ')))
 
     print('どのタスクを行いますか?')
