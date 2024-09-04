@@ -802,7 +802,6 @@ if __name__=='__main__':
                             .replace('@@catcher1@@', catchers[1])
                             .replace('@@catcher2@@', catchers[2])
                             .replace('@@catcher3@@', catchers[3] if len(catchers) > 3 else '')
-                            .replace(f'id="{team}_link"', f'id="{team}_link" class="d-none"')
                     )
 
         with open('./assets/data/chart-pie-demo.template-team.js',mode='r',encoding='utf-8') as f1:
