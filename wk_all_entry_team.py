@@ -91,7 +91,8 @@ def set_team_param(_num):
         catcher1 = '松本直'
         catcher2 = '内山'
         # catcher3 = '西田'
-        catchers = [catcher0, catcher1, catcher2]
+        # catcher4 = '鈴木'
+        catchers = [catcher0, catcher1, catcher2] #, catcher3, catcher4]
     if _num == 4:
         num = 4
         Team = 'Dragons'
@@ -639,9 +640,17 @@ if __name__=='__main__':
             "
 
         _sql_cat = ""
-        for (i, _c) in enumerate(catchers):
+        if len(catchers) <= 4:
+            for (i, _c) in enumerate(catchers):
+                _sql_cat += f", \
+                MAX(CASE tmp2.catcher WHEN '{_c}' THEN tmp2.wls ELSE NULL END) {_c} "
+        else:
             _sql_cat += f", \
-            MAX(CASE tmp2.catcher WHEN '{_c}' THEN tmp2.wls ELSE NULL END) {_c} "
+            MAX(CASE tmp2.catcher WHEN '{catchers[0]}' THEN tmp2.wls ELSE NULL END) {catchers[0]}, \
+            MAX(CASE tmp2.catcher WHEN '{catchers[1]}' THEN tmp2.wls ELSE NULL END) {catchers[1]}, \
+            MAX(CASE tmp2.catcher WHEN '{catchers[2]}' THEN tmp2.wls ELSE NULL END) {catchers[2]}, \
+            MAX(CASE WHEN tmp2.catcher NOT IN ('{catchers[0]}','{catchers[1]}','{catchers[2]}') THEN tmp2.wls ELSE NULL END) 'その他', \
+            "
 
         sql_cat = " \
             SELECT \
