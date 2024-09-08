@@ -90,9 +90,7 @@ def set_team_param(_num):
         catcher0 = '中村'
         catcher1 = '松本直'
         catcher2 = '内山'
-        # catcher3 = '西田'
-        # catcher4 = '鈴木'
-        catchers = [catcher0, catcher1, catcher2] #, catcher3, catcher4]
+        catchers = [catcher0, catcher1, catcher2]
     if _num == 4:
         num = 4
         Team = 'Dragons'
@@ -640,17 +638,9 @@ if __name__=='__main__':
             "
 
         _sql_cat = ""
-        if len(catchers) <= 4:
-            for (i, _c) in enumerate(catchers):
-                _sql_cat += f", \
-                MAX(CASE tmp2.catcher WHEN '{_c}' THEN tmp2.wls ELSE NULL END) {_c} "
-        else:
+        for (i, _c) in enumerate(catchers):
             _sql_cat += f", \
-            MAX(CASE tmp2.catcher WHEN '{catchers[0]}' THEN tmp2.wls ELSE NULL END) {catchers[0]}, \
-            MAX(CASE tmp2.catcher WHEN '{catchers[1]}' THEN tmp2.wls ELSE NULL END) {catchers[1]}, \
-            MAX(CASE tmp2.catcher WHEN '{catchers[2]}' THEN tmp2.wls ELSE NULL END) {catchers[2]}, \
-            MAX(CASE WHEN tmp2.catcher NOT IN ('{catchers[0]}','{catchers[1]}','{catchers[2]}') THEN tmp2.wls ELSE NULL END) 'その他', \
-            "
+            MAX(CASE tmp2.catcher WHEN '{_c}' THEN tmp2.wls ELSE NULL END) {_c} "
 
         sql_cat = " \
             SELECT \
@@ -778,7 +768,7 @@ if __name__=='__main__':
         area_datas = get_query2(sql_month_stats, f'{_Y}RS')
 
         for x in area_datas:
-            if x[1] in catchers:
+            if x[1] in catchers[:3]:
                 pie_data['Starting_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[2]
                 pie_data['Defense_inning'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[3]
                 pie_data['Winning_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[4] or 0
