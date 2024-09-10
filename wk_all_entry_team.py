@@ -768,7 +768,7 @@ if __name__=='__main__':
         area_datas = get_query2(sql_month_stats, f'{_Y}RS')
 
         for x in area_datas:
-            if x[1] in catchers[:3]:
+            if x[1] in catchers:
                 pie_data['Starting_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[2]
                 pie_data['Defense_inning'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[3]
                 pie_data['Winning_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[4] or 0
