@@ -137,7 +137,7 @@ def set_team_param(_num):
         color_lose = 'rgb(216, 191, 197)'
         catcher0 = '太田'
         catcher1 = '石原'
-        catcher2 = '田中貴'
+        catcher2 = '安田'
         catchers = [catcher0, catcher1, catcher2]
     if _num == 8:
         num = 8
