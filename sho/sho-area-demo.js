@@ -852,7 +852,7 @@ var sho24hrs = new Chart(ctx_sho24hrs, {
         }
       }
     },
-    responsive: false,
+    responsive: true,
   }
 });
 
