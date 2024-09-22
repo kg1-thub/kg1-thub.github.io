@@ -771,6 +771,7 @@ var sho24_data = {'hits': [0,
     '2024-09-19',
     '2024-09-20',
     '2024-09-21',
+    //@@TODAY@@
   ],
 }
 
@@ -851,7 +852,7 @@ var sho24hrs = new Chart(ctx_sho24hrs, {
         }
       }
     },
-    responsive: true,
+    responsive: false,
   }
 });
 

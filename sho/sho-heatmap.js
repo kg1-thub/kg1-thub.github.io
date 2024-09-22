@@ -167,7 +167,7 @@ function calendarHeatmap() {
       var svg = d3.select(chart.selector())
         .style('position', 'relative')
         .append('svg')
-        .attr('height', '250px')
+        .attr('height', '200px')
         .attr('class', 'calendar-heatmap')
         .style('padding', '7px')
         .style('width', SVG_WIDTH)

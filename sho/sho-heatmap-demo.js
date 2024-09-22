@@ -335,6 +335,6 @@ var heatmap24 = calendarHeatmap()
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-  .svgWidth('800px')
+  .svgWidth('750px')
   .colorRange(_colorRange);
 heatmap24();  // render the chart
