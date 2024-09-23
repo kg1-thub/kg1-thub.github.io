@@ -812,6 +812,67 @@ const ilperiod22 = {
   xMax: 69,
 };
 
+const closed24 = {
+  type: 'line',
+  scaleID: 'x',
+  borderWidth: 2,
+  borderColor: 'rgba(0,128,0,0.3)',
+  value: 60,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'rgba(0,0,0,0.0)',
+    color: 'green',
+    content: ["Investigation closed, MLB.", "Into Ippei Mizutani."],
+    padding: 1,
+    enabled: true,
+    position: 'start',
+    textAlign: 'start',
+    font: {
+      size: 9
+    }
+  }
+};
+const shoday24 = {
+  type: 'line',
+  scaleID: 'x',
+  borderWidth: 2,
+  borderColor: 'rgba(0,128,0,0.3)',
+  value: 45,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'rgba(0,0,0,0.0)',
+    color: 'green',
+    content: ["Shohei Ohtani Day."],
+    padding: 1,
+    enabled: true,
+    position: 'start',
+    textAlign: 'right',
+    font: {
+      size: 9
+    }
+  }
+};
+const break24 = {
+  type: 'line',
+  scaleID: 'x',
+  borderWidth: 2,
+  borderColor: 'rgba(0,128,0,0.3)',
+  value: 94,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'rgba(0,0,0,0.0)',
+    color: 'green',
+    content: ["All-Star Game break."],
+    padding: 1,
+    enabled: true,
+    position: 'start',
+    textAlign: 'start',
+    font: {
+      size: 9
+    }
+  }
+};
+
 // Area Chart 2022
 var ctx_sho24hrs = document.getElementById("sho24hrs");
 var sho24hrs = new Chart(ctx_sho24hrs, {
@@ -860,6 +921,9 @@ var sho24hrs = new Chart(ctx_sho24hrs, {
             radius: 5,
             backgroundColor: 'rgba(255, 99, 132, 0.25)'
           },
+          closed24,
+          shoday24,
+          break24,
           // zero,
           // ilperiod22,
           // illabel22,
