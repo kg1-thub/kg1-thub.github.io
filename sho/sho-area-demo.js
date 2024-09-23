@@ -846,6 +846,20 @@ var sho24hrs = new Chart(ctx_sho24hrs, {
       autocplors: false,
       annotation: {
         annotations: {
+          point1: {
+            type: 'point',
+            xValue: 150,
+            yValue: 51,
+            radius: 5,
+            backgroundColor: 'rgba(255, 99, 132, 0.25)'
+          },
+          point2: {
+            type: 'point',
+            xValue: 126,
+            yValue: 40,
+            radius: 5,
+            backgroundColor: 'rgba(255, 99, 132, 0.25)'
+          },
           // zero,
           // ilperiod22,
           // illabel22,
