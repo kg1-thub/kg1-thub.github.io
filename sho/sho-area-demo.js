@@ -153,6 +153,7 @@ var sho24_data = {'hits': [0,
   179, 
   180,
 184,
+185,
 //@@HITS@@
   ], 
   'hrs': [0,
@@ -310,6 +311,7 @@ var sho24_data = {'hits': [0,
     52, 
     52,
 53,
+53,
 //@@HRS@@
   ],
   'sbs': [0,
@@ -465,6 +467,7 @@ var sho24_data = {'hits': [0,
     51,
     52,
     53,
+55,
 55,
 //@@SBS@@
   ], 
@@ -622,6 +625,7 @@ var sho24_data = {'hits': [0,
     122,
     122,
 123,
+123,
 //@@RBIS@@
   ], 
   'labels': ['Start',
@@ -778,6 +782,7 @@ var sho24_data = {'hits': [0,
     '2024-09-20',
     '2024-09-21',
 '2024-09-22',
+'2024-09-24',
 //@@TODAY@@
   ],
 }
@@ -820,9 +825,10 @@ const closed24 = {
   value: 60,
   label: {
     // rotation: 270,
+    // display: (ctx) => ctx.hovered,
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'green',
-    content: ["Investigation closed, MLB.", "Into Ippei Mizutani."],
+    content: ["Investigation closed, MLB.", "into fraud by Ippei Mizuhara."],
     padding: 1,
     enabled: true,
     position: 'start',
@@ -830,7 +836,16 @@ const closed24 = {
     font: {
       size: 9
     }
-  }
+  },
+  // enter(ctx, event) {
+  //   ctx.hovered = true;
+  //   ctx.hoverPosition = (event.x / ctx.chart.chartArea.width * 100) + '%';
+  //   ctx.chart.update();
+  // },
+  // leave(ctx, event) {
+  //   ctx.hovered = false;
+  //   ctx.chart.update();
+  // }
 };
 const shoday24 = {
   type: 'line',
@@ -872,7 +887,92 @@ const break24 = {
     }
   }
 };
+const bar40 = {
+  type: 'line',
+  scaleID: 'y',
+  borderWidth: 2,
+  borderColor: 'rgba(0,0,51,0.3)',
+  value: 40,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'rgba(0,0,255,1)',
+    color: 'white',
+    content: ["BAR 40"],
+    padding: 1,
+    enabled: true,
+    position: 'center',
+    textAlign: 'center',
+    font: {
+      size: 9
+    }
+  }
+};
+const bar50 = {
+  type: 'line',
+  scaleID: 'y',
+  borderWidth: 2,
+  borderColor: 'rgba(0,0,51,0.3)',
+  value: 50,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'blue',
+    color: 'white',
+    content: ["BAR 50"],
+    padding: 1,
+    enabled: true,
+    position: 'center',
+    textAlign: 'center',
+    font: {
+      size: 9
+    }
+  }
+};
 
+const club40x2 = {
+  type: 'point',
+  xValue: 126,
+  yValue: 40,
+  radius: 5,
+  backgroundColor: 'rgba(255, 99, 132, 0.25)',
+};
+const club50x2 = {
+  type: 'point',
+  xValue: 150,
+  yValue: 51,
+  radius: 5,
+  backgroundColor: 'rgba(255, 99, 132, 0.25)'
+};
+const decoypitch = {
+  type: 'point',
+  xValue: 130,
+  yValue: 42,
+  radius: 5,
+  backgroundColor: 'rgba(255, 99, 132, 0.25)'
+};
+
+const label_club40x2 = {
+  type: 'label',
+  init: true,
+  content: 'Joined 40/40 club.',
+  backgroundColor: 'rgba(245, 245, 245, 0.5)',
+  content: (ctx) => 'Maximum value is ' + maxValue(ctx).toFixed(2),
+  font: {
+    size: 16
+  },
+  padding: {
+    top: 6,
+    left: 6,
+    right: 6,
+    bottom: 12
+  },
+  position: {
+    x: 150,
+    y: 'end'
+  },
+  xValue: (ctx) => maxLabel(ctx),
+  yAdjust: -6,
+  yValue: (ctx) => maxValue(ctx)
+};
 // Area Chart 2022
 var ctx_sho24hrs = document.getElementById("sho24hrs");
 var sho24hrs = new Chart(ctx_sho24hrs, {
@@ -887,7 +987,7 @@ var sho24hrs = new Chart(ctx_sho24hrs, {
         lineTension: 0,
         borderColor: "navy",
         borderWidth: 2,
-        pointRadius: 0.1,
+        pointRadius: 1,
         data: sho24_data.hrs,
       },
       {
@@ -897,7 +997,7 @@ var sho24hrs = new Chart(ctx_sho24hrs, {
         lineTension: 0,
         borderColor: "purple",
         borderWidth: 2,
-        pointRadius: 0.1,
+        pointRadius: 1,
         data: sho24_data.sbs,
       }
     ],
@@ -907,23 +1007,15 @@ var sho24hrs = new Chart(ctx_sho24hrs, {
       autocplors: false,
       annotation: {
         annotations: {
-          point1: {
-            type: 'point',
-            xValue: 150,
-            yValue: 51,
-            radius: 5,
-            backgroundColor: 'rgba(255, 99, 132, 0.25)'
-          },
-          point2: {
-            type: 'point',
-            xValue: 126,
-            yValue: 40,
-            radius: 5,
-            backgroundColor: 'rgba(255, 99, 132, 0.25)'
-          },
+          club50x2,
+          club40x2,
+          // label_club40x2,
+          decoypitch,
           closed24,
           shoday24,
           break24,
+          bar40,
+          bar50,
           // zero,
           // ilperiod22,
           // illabel22,
