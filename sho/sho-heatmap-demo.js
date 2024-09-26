@@ -158,7 +158,7 @@ var datas24 = {
 '2024-09-21':3,
 '2024-09-22':5,
 '2024-09-24': 1,
-'2024-09-25': -1,
+'2024-09-25': 4,
 '2024-09-26': -1,
 '2024-09-27': -1,
 '2024-09-28': -1,
@@ -319,6 +319,7 @@ var score24 = {
 '2024-09-21': '<span><strong>0 HR / 1 SB</strong></span></br>1 Hits / 0 RBI / AVG .297',
 '2024-09-22': '<span><strong>1 HR / 2 SB</strong></span></br>4 Hits / 1 RBI / AVG .301',
 '2024-09-24': '<span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .301',
+    '2024-09-25': '<span><strong>0 HR / 1 SB</strong></span></br>2 Hits / 2 RBI / AVG .303',
     //@@TOOLTIP@@
 };
 var chartData24 = [];
