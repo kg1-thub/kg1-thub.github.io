@@ -156,6 +156,7 @@ var sho24_data = {'hits': [0,
 185,
 187,
 190,
+194,
 //@@HITS@@
   ], 
   'hrs': [0,
@@ -315,6 +316,7 @@ var sho24_data = {'hits': [0,
 53,
 53,
 53,
+54,
 //@@HRS@@
   ],
   'sbs': [0,
@@ -474,6 +476,7 @@ var sho24_data = {'hits': [0,
 55,
 56,
 56,
+57,
 //@@SBS@@
   ], 
   'rbis': [0,
@@ -633,6 +636,7 @@ var sho24_data = {'hits': [0,
 123,
 125,
 126,
+130,
 //@@RBIS@@
   ], 
   'labels': ['Start',
@@ -792,6 +796,7 @@ var sho24_data = {'hits': [0,
 '2024-09-24',
 '2024-09-25',
 '2024-09-26',
+'2024-09-27',
 //@@TODAY@@
   ],
 }
@@ -887,6 +892,26 @@ const break24 = {
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'green',
     content: ["All-Star Game break."],
+    padding: 1,
+    enabled: true,
+    position: 'start',
+    textAlign: 'start',
+    font: {
+      size: 9
+    }
+  }
+};
+const clinch24 = {
+  type: 'line',
+  scaleID: 'x',
+  borderWidth: 2,
+  borderColor: 'rgba(0,128,0,0.3)',
+  value: 156,
+  label: {
+    // rotation: 270,
+    backgroundColor: 'rgba(0,0,0,0.0)',
+    color: 'green',
+    content: ["DODGERS CLINCH NL WEST"],
     padding: 1,
     enabled: true,
     position: 'start',
@@ -1023,6 +1048,7 @@ var sho24hrs = new Chart(ctx_sho24hrs, {
           closed24,
           shoday24,
           break24,
+          clinch24,
           bar40,
           bar50,
           // zero,
