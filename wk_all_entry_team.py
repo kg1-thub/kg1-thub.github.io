@@ -169,8 +169,9 @@ def set_team_param(_num):
         color_lose = 'rgb(192, 204, 217)'
         catcher0 = '佐藤'
         catcher1 = '田村'
-        catcher2 = '柿沼'
-        catchers = [catcher0, catcher1, catcher2]
+        catcher2 = '松川'
+        catcher3 = '柿沼'
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 11:
         num = 11
         Team = 'Buffaloes'
