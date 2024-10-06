@@ -163,6 +163,8 @@ var datas24 = {
 '2024-09-27': 5,
 '2024-09-28': 3,
 '2024-09-29': 3,
+'2024-10-05': 3,
+//@@TOOLTIP_DATE@@
 };
 var score24 = {
 '2024-03-20': '<span><strong>0 HR / 1 SB</strong></span></br>2 Hits / 1 RBI / AVG .400',
@@ -324,6 +326,7 @@ var score24 = {
     '2024-09-27': '<span><strong>1 HR / 1 SB</strong></span></br>4 Hits / 4 RBI / AVG .309',
     '2024-09-28': '<span><strong>0 HR / 1 SB</strong></span></br>2 Hits / 0 RBI / AVG .310',
     '2024-09-29': '<span><strong>0 HR / 1 SB</strong></span></br>1 Hits / 0 RBI / AVG .310',
+    '2024-10-05': '<span><strong>1 HR / 0 SB</strong></span></br>2 Hits / 3 RBI / AVG .400',
     //@@TOOLTIP@@
 };
 var chartData24 = [];
@@ -337,11 +340,11 @@ for (var d in datas24) {
 var heatmap24 = calendarHeatmap()
   .data(chartData24)
   .startDate('2024-03-20')
-  .endDate('2024-10-01')
+  .endDate('2024-10-31')
   .selector('#shomap24')
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-  .svgWidth('750px')
+  .svgWidth('800px')
   .colorRange(_colorRange);
 heatmap24();  // render the chart

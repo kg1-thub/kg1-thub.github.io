@@ -2,7 +2,7 @@ import csv
 
 _hit, _hr, _rbi, _sb, _avg= 0, 0, 0, 0, 0
 
-with open('C:/Users/ki401/Documents/git/github-io/sho/sho24.csv') as f:
+with open('C:/Users/ki401/Documents/git/github-io/sho/sho24ps.csv') as f:
     reader = csv.reader(f)
     next(reader)
     for _g in reader:
@@ -44,7 +44,8 @@ shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
 with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
     content = reader.read()
     content = content.replace(
-                "'%s': -1," % (_g[0],), 
+                # "'%s': -1," % (_g[0],), 
+                '//@@TOOLTIP_DATE@@',
                 "'%s': %i," % (_g[0], last_score), 
             ).replace(
                 '//@@TOOLTIP@@', 
@@ -53,40 +54,40 @@ with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
 with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
     writer.write(content)
 
-shoAREA = 'C:/Users/ki401/Documents/git/github-io/sho/sho-area-demo.js'
-with open(shoAREA,mode='r',encoding='utf-8') as reader:
-    content = reader.read()
-    content = content.replace(
-                '//@@HITS@@', 
-                '%s,\n//@@HITS@@' % (_hit,)
-            ).replace(
-                '//@@SBS@@', 
-                '%s,\n//@@SBS@@' % (_sb,)
-            ).replace(
-                '//@@HRS@@', 
-                '%s,\n//@@HRS@@' % (_hr,)
-            ).replace(
-                '//@@RBIS@@', 
-                '%s,\n//@@RBIS@@' % (_rbi,)
-            ).replace(
-                '//@@TODAY@@', 
-                "'%s',\n//@@TODAY@@" % (_g[0])
-            )
-with open(shoAREA,mode='w',encoding='utf-8') as writer:
-    writer.write(content)
+# shoAREA = 'C:/Users/ki401/Documents/git/github-io/sho/sho-area-demo.js'
+# with open(shoAREA,mode='r',encoding='utf-8') as reader:
+#     content = reader.read()
+#     content = content.replace(
+#                 '//@@HITS@@', 
+#                 '%s,\n//@@HITS@@' % (_hit,)
+#             ).replace(
+#                 '//@@SBS@@', 
+#                 '%s,\n//@@SBS@@' % (_sb,)
+#             ).replace(
+#                 '//@@HRS@@', 
+#                 '%s,\n//@@HRS@@' % (_hr,)
+#             ).replace(
+#                 '//@@RBIS@@', 
+#                 '%s,\n//@@RBIS@@' % (_rbi,)
+#             ).replace(
+#                 '//@@TODAY@@', 
+#                 "'%s',\n//@@TODAY@@" % (_g[0])
+#             )
+# with open(shoAREA,mode='w',encoding='utf-8') as writer:
+#     writer.write(content)
 
-content = ''
-shoINDEX = 'C:/Users/ki401/Documents/git/github-io/sho/index.html'
-with open(shoINDEX,mode='r',encoding='utf-8') as f:
-    # reader = reader(f)
-    for row in f.readlines():
-        if '<!-- @@SCORE1@@ -->' in row:
-            content += '            <div><h2>%s HR / %s SB</h2></div><!-- @@SCORE1@@ -->\n' % (_hr, _sb)
-        elif '<!-- @@SCORE2@@ -->' in row:
-            content += '            <div><h7>AVG %s / %s HITS / %s RBI</h7></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
-        else:
-            content += row
-with open(shoINDEX,mode='w',encoding='utf-8') as writer:
-    writer.write(content)
+# content = ''
+# shoINDEX = 'C:/Users/ki401/Documents/git/github-io/sho/index.html'
+# with open(shoINDEX,mode='r',encoding='utf-8') as f:
+#     # reader = reader(f)
+#     for row in f.readlines():
+#         if '<!-- @@SCORE1@@ -->' in row:
+#             content += '            <div><h2>%s HR / %s SB</h2></div><!-- @@SCORE1@@ -->\n' % (_hr, _sb)
+#         elif '<!-- @@SCORE2@@ -->' in row:
+#             content += '            <div><h7>AVG %s / %s HITS / %s RBI</h7></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
+#         else:
+#             content += row
+# with open(shoINDEX,mode='w',encoding='utf-8') as writer:
+#     writer.write(content)
 
 print('sho-HEATMAP UPDATED.')
