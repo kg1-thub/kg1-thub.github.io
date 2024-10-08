@@ -46,7 +46,7 @@ with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
     content = content.replace(
                 # "'%s': -1," % (_g[0],), 
                 '//@@TOOLTIP_DATE@@',
-                "'%s': %i," % (_g[0], last_score), 
+                "'%s': %i,\n//@@TOOLTIP_DATE@@" % (_g[0], last_score), 
             ).replace(
                 '//@@TOOLTIP@@', 
                 "'%s': '%s',\n    //@@TOOLTIP@@" % (_g[0], last_tooltip)
@@ -76,18 +76,18 @@ with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
 # with open(shoAREA,mode='w',encoding='utf-8') as writer:
 #     writer.write(content)
 
-# content = ''
-# shoINDEX = 'C:/Users/ki401/Documents/git/github-io/sho/index.html'
-# with open(shoINDEX,mode='r',encoding='utf-8') as f:
-#     # reader = reader(f)
-#     for row in f.readlines():
-#         if '<!-- @@SCORE1@@ -->' in row:
-#             content += '            <div><h2>%s HR / %s SB</h2></div><!-- @@SCORE1@@ -->\n' % (_hr, _sb)
-#         elif '<!-- @@SCORE2@@ -->' in row:
-#             content += '            <div><h7>AVG %s / %s HITS / %s RBI</h7></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
-#         else:
-#             content += row
-# with open(shoINDEX,mode='w',encoding='utf-8') as writer:
-#     writer.write(content)
+content = ''
+shoINDEX = 'C:/Users/ki401/Documents/git/github-io/sho/index.html'
+with open(shoINDEX,mode='r',encoding='utf-8') as f:
+    # reader = reader(f)
+    for row in f.readlines():
+        if '<!-- @@SCORE1@@ -->' in row:
+            content += '            <div><h4 class="display-4"> %s HR / %s SB</h4></div><!-- @@SCORE1@@ -->\n' % (_hr, _sb)
+        elif '<!-- @@SCORE2@@ -->' in row:
+            content += '            <div><h7 class="display-5"> AVG %s / %s HITS / %s RBI</h7></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
+        else:
+            content += row
+with open(shoINDEX,mode='w',encoding='utf-8') as writer:
+    writer.write(content)
 
 print('sho-HEATMAP UPDATED.')
