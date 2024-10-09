@@ -167,7 +167,6 @@ var datas24 = {
 '2024-10-06': 0,
 '2024-10-08': 1,
 //@@TOOLTIP_DATE@@
-
 };
 var score24 = {
 '2024-03-20': '<span><strong>0 HR / 1 SB</strong></span></br>2 Hits / 1 RBI / AVG .400',
