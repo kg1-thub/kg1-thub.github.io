@@ -441,7 +441,8 @@ if __name__=='__main__':
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
                         _playerscore.append(vsteam)
                         _playerscore.append('1' if order_of_pitcher==0 else '0')
-                        _playerscore.append(f'{_Y}RS')
+                        _playerscore.append(f'{_Y}CS')
+                        # _playerscore.append(f'{_Y}RS')
                         if order_of_pitcher==0: ## heatmap data
                             start_catcher = catcher
                             start_pitcher = _playerscore[1].split(" ")[0]
