@@ -852,11 +852,11 @@ const closed24 = {
     // display: (ctx) => ctx.hovered,
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'green',
-    content: ["Investigation closed, MLB.", "into fraud by Ippei Mizuhara."],
+    content: ["MLB has closed Investigation", "into fraud by Ippei Mizuhara."],
     padding: 1,
     enabled: true,
     position: 'start',
-    textAlign: 'start',
+    textAlign: 'left',
     font: {
       size: 9
     }
@@ -884,7 +884,7 @@ const shoday24 = {
     content: ["Shohei Ohtani Day."],
     padding: 1,
     enabled: true,
-    position: 'start',
+    position: 'end',
     textAlign: 'right',
     font: {
       size: 9
@@ -905,7 +905,7 @@ const break24 = {
     padding: 1,
     enabled: true,
     position: 'start',
-    textAlign: 'start',
+    textAlign: 'left',
     font: {
       size: 9
     }
