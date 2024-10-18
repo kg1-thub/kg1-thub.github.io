@@ -171,6 +171,7 @@ var datas24 = {
 '2024-10-13': 2,
 '2024-10-14': 0,
 '2024-10-16': 3,
+'2024-10-17': 3,
 //@@TOOLTIP_DATE@@
 };
 var score24 = {
@@ -333,14 +334,15 @@ var score24 = {
     '2024-09-27': '<span><strong>1 HR / 1 SB</strong></span></br>4 Hits / 4 RBI / AVG .309',
     '2024-09-28': '<span><strong>0 HR / 1 SB</strong></span></br>2 Hits / 0 RBI / AVG .310',
     '2024-09-29': '<span><strong>0 HR / 1 SB</strong></span></br>1 Hits / 0 RBI / AVG .310',
-    '2024-10-05': '<span><strong>1 HR / 0 SB</strong></span></br>2 Hits / 3 RBI / AVG .400',
-    '2024-10-06': '<span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .222',
-    '2024-10-08': '<span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .231',
-    '2024-10-09': '<span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 1 RBI / AVG .250',
-    '2024-10-11': '<span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .200',
-    '2024-10-13': '<span><strong>0 HR / 0 SB</strong></span></br>2 Hits / 1 RBI / AVG .250',
-    '2024-10-14': '<span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .222',
-    '2024-10-16': '<span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 3 RBI / AVG .226',
+    '2024-10-05': '(NLDS) vs SD</br><span><strong>1 HR / 0 SB</strong></span></br>2 Hits / 3 RBI / AVG .400',
+    '2024-10-06': '(NLDS) vs SD</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .222',
+    '2024-10-08': '(NLDS) vs SD</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .231',
+    '2024-10-09': '(NLDS) vs SD</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 1 RBI / AVG .250',
+    '2024-10-11': '(NLDS) vs SD</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .200',
+    '2024-10-13': '(NLCS) vs NYM</br><span><strong>0 HR / 0 SB</strong></span></br>2 Hits / 1 RBI / AVG .250',
+    '2024-10-14': '(NLCS) vs NYM</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .222',
+    '2024-10-16': '(NLCS) vs NYM</br><span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 3 RBI / AVG .226',
+    '2024-10-17': '(NLCS) vs NYM</br><span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 1 RBI / AVG .235',
     //@@TOOLTIP@@
 };
 var chartData24 = [];
