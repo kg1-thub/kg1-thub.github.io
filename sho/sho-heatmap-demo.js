@@ -172,6 +172,7 @@ var datas24 = {
 '2024-10-14': 0,
 '2024-10-16': 3,
 '2024-10-17': 3,
+'2024-10-18': 1,
 //@@TOOLTIP_DATE@@
 };
 var score24 = {
@@ -343,6 +344,7 @@ var score24 = {
     '2024-10-14': '(NLCS) vs NYM</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .222',
     '2024-10-16': '(NLCS) vs NYM</br><span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 3 RBI / AVG .226',
     '2024-10-17': '(NLCS) vs NYM</br><span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 1 RBI / AVG .235',
+    '2024-10-18': '<span><strong>0 HR / 0 SB</strong></span></br>2 Hits / 0 RBI / AVG .263',
     //@@TOOLTIP@@
 };
 var chartData24 = [];
