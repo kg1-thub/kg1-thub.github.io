@@ -295,9 +295,9 @@ var score24 = {
     '2024-10-01': 'vs Eagles , 1-5 </br>Start P.佐々木 / C.佐藤',
     '2024-10-03': 'vs Fighters , 0-3 </br>Start P.カイケル / C.田村',
     '2024-10-04': 'vs Hawks , 1-0 </br>Start P.中森 / C.寺地',
-    '2024-10-12': 'vs Fighters , 0-2 </br>Start P.佐々木 / C.佐藤',
-    '2024-10-13': 'vs Fighters , 3-2 </br>Start P.小島 / C.佐藤',
-    '2024-10-14': 'vs Fighters , 5-2 </br>Start P.種市 / C.佐藤',
+    '2024-10-12': '(CS 1st) vs Fighters , 0-2 </br>Start P.佐々木 / C.佐藤',
+    '2024-10-13': '(CS 1st) vs Fighters , 3-2 </br>Start P.小島 / C.佐藤',
+    '2024-10-14': '(CS 1st) vs Fighters , 5-2 </br>Start P.種市 / C.佐藤',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];

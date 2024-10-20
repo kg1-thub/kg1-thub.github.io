@@ -300,13 +300,13 @@ var score24 = {
     '2024-10-04': 'vs Dragons , 1-3 </br>Start P.濱口 / C.戸柱',
     '2024-10-05': 'vs Dragons , 4-3 </br>Start P.松本 / C.松尾',
     '2024-10-06': 'vs Dragons , 0-2 </br>Start P.大貫 / C.伊藤',
-    '2024-10-12': 'vs Tigers , 1-3 </br>Start P.東 / C.伊藤',
-    '2024-10-13': 'vs Tigers , 3-10 </br>Start P.ジャクソン / C.戸柱',
-    '2024-10-16': 'vs Giants , 0-2 </br>Start P.ケイ / C.戸柱',
-    '2024-10-17': 'vs Giants , 1-2 </br>Start P.大貫 / C.戸柱',
-    '2024-10-18': 'vs Giants , 1-2 </br>Start P.吉野 / C.戸柱',
-    '2024-10-19': 'vs Giants , 4-1 </br>Start P.ジャクソン / C.戸柱',
-    '2024-10-20': 'vs Giants , 1-0 </br>Start P.濱口 / C.戸柱',
+    '2024-10-12': '(CS 1st) vs Tigers , 1-3 </br>Start P.東 / C.伊藤',
+    '2024-10-13': '(CS 1st) vs Tigers , 3-10 </br>Start P.ジャクソン / C.戸柱',
+    '2024-10-16': '(CS Final) vs Giants , 0-2 </br>Start P.ケイ / C.戸柱',
+    '2024-10-17': '(CS Final) vs Giants , 1-2 </br>Start P.大貫 / C.戸柱',
+    '2024-10-18': '(CS Final) vs Giants , 1-2 </br>Start P.吉野 / C.戸柱',
+    '2024-10-19': '(CS Final) vs Giants , 4-1 </br>Start P.ジャクソン / C.戸柱',
+    '2024-10-20': '(CS Final) vs Giants , 1-0 </br>Start P.濱口 / C.戸柱',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];

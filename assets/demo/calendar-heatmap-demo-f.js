@@ -298,12 +298,12 @@ var score24 = {
     '2024-10-03': 'vs Marines , 0-3 </br>Start P.達 / C.伏見',
     '2024-10-05': 'vs Eagles , 2-3 </br>Start P.加藤 / C.田宮',
     '2024-10-08': 'vs Eagles , 2-0 </br>Start P.伊藤 / C.伏見',
-    '2024-10-12': 'vs Marines , 0-2 </br>Start P.加藤 / C.伏見',
-    '2024-10-13': 'vs Marines , 3-2 </br>Start P.金村 / C.田宮',
-    '2024-10-14': 'vs Marines , 5-2 </br>Start P.北山 / C.田宮',
-    '2024-10-16': 'vs Hawks , 5-2 </br>Start P.伊藤 / C.伏見',
-    '2024-10-17': 'vs Hawks , 7-2 </br>Start P.加藤 / C.田宮',
-    '2024-10-18': 'vs Hawks , 3-2 </br>Start P.山崎 / C.伏見',
+    '2024-10-12': '(CS 1st) vs Marines , 0-2 </br>Start P.加藤 / C.伏見',
+    '2024-10-13': '(CS 1st) vs Marines , 3-2 </br>Start P.金村 / C.田宮',
+    '2024-10-14': '(CS 1st) vs Marines , 5-2 </br>Start P.北山 / C.田宮',
+    '2024-10-16': '(CS Final) vs Hawks , 5-2 </br>Start P.伊藤 / C.伏見',
+    '2024-10-17': '(CS Final) vs Hawks , 7-2 </br>Start P.加藤 / C.田宮',
+    '2024-10-18': '(CS Final) vs Hawks , 3-2 </br>Start P.山崎 / C.伏見',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];

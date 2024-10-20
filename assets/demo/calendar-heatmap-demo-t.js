@@ -293,8 +293,8 @@ var score24 = {
     '2024-09-29': 'vs Baystars , 7-6 </br>Start P.才木 / C.梅野',
     '2024-09-30': 'vs Baystars , 0-2 </br>Start P.青柳 / C.坂本',
     '2024-10-03': 'vs Baystars , 1-3 </br>Start P.大竹 / C.坂本',
-    '2024-10-12': 'vs Baystars , 1-3 </br>Start P.才木 / C.梅野',
-    '2024-10-13': 'vs Baystars , 3-10 </br>Start P.高橋 / C.梅野',
+    '2024-10-12': '(CS 1st) vs Baystars , 1-3 </br>Start P.才木 / C.梅野',
+    '2024-10-13': '(CS 1st) vs Baystars , 3-10 </br>Start P.高橋 / C.梅野',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];

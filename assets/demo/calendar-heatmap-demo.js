@@ -297,11 +297,11 @@ var score24 = {
     '2024-09-28': 'vs Carp , 1-8 </br>Start P.菅野 / C.小林',
     '2024-09-29': 'vs Swallows , 5-4 </br>Start P.グリフィン / C.山瀬',
     '2024-10-02': 'vs Baystars , 4-2 </br>Start P.山崎 / C.大城',
-    '2024-10-16': 'vs Baystars , 0-2 </br>Start P.戸郷 / C.大城',
-    '2024-10-17': 'vs Baystars , 1-2 </br>Start P.菅野 / C.小林',
-    '2024-10-18': 'vs Baystars , 1-2 </br>Start P.グリフィン / C.岸田',
-    '2024-10-19': 'vs Baystars , 4-1 </br>Start P.井上 / C.岸田',
-    '2024-10-20': 'vs Baystars , 1-0 </br>Start P.山崎 / C.岸田',
+    '2024-10-16': '(CS Final) vs Baystars , 0-2 </br>Start P.戸郷 / C.大城',
+    '2024-10-17': '(CS Final) vs Baystars , 1-2 </br>Start P.菅野 / C.小林',
+    '2024-10-18': '(CS Final) vs Baystars , 1-2 </br>Start P.グリフィン / C.岸田',
+    '2024-10-19': '(CS Final) vs Baystars , 4-1 </br>Start P.井上 / C.岸田',
+    '2024-10-20': '(CS Final) vs Baystars , 1-0 </br>Start P.山崎 / C.岸田',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
