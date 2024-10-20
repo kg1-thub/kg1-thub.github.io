@@ -152,6 +152,7 @@ var datas24 = {
     '2024-10-17': 1,
     '2024-10-18': 1,
     '2024-10-19': -1,
+    '2024-10-20': -1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -305,6 +306,7 @@ var score24 = {
     '2024-10-17': 'vs Giants , 1-2 </br>Start P.大貫 / C.戸柱',
     '2024-10-18': 'vs Giants , 1-2 </br>Start P.吉野 / C.戸柱',
     '2024-10-19': 'vs Giants , 4-1 </br>Start P.ジャクソン / C.戸柱',
+    '2024-10-20': 'vs Giants , 1-0 </br>Start P.濱口 / C.戸柱',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
