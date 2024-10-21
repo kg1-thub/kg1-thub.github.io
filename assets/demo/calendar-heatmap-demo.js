@@ -151,6 +151,7 @@ var datas24 = {
     '2024-10-18': -1,
     '2024-10-19': 1,
     '2024-10-20': 1,
+    '2024-10-21': -1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -302,6 +303,7 @@ var score24 = {
     '2024-10-18': '(CS Final) vs Baystars , 1-2 </br>Start P.グリフィン / C.岸田',
     '2024-10-19': '(CS Final) vs Baystars , 4-1 </br>Start P.井上 / C.岸田',
     '2024-10-20': '(CS Final) vs Baystars , 1-0 </br>Start P.山崎 / C.岸田',
+    '2024-10-21': '(CS Final) vs Baystars , 2-3 </br>Start P.戸郷 / C.岸田',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
