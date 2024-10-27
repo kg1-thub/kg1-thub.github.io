@@ -155,6 +155,7 @@ var datas24 = {
     '2024-10-20': -1,
     '2024-10-21': 1,
     '2024-10-26': -1,
+    '2024-10-27': -1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -311,6 +312,7 @@ var score24 = {
     '2024-10-20': '(CS Final) vs Giants , 1-0 </br>Start P.濱口 / C.戸柱',
     '2024-10-21': '(CS Final) vs Giants , 2-3 </br>Start P.ケイ / C.戸柱',
     '2024-10-26': '(日本S) vs Hawks , 3-5 </br>Start P.ジャクソン / C.戸柱',
+    '2024-10-27': '(日本S) vs Hawks , 3-6 </br>Start P.大貫 / C.戸柱',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
