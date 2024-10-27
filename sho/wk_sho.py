@@ -28,7 +28,7 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho24ps.csv') as f:
         #         pt +=1
 
         last_score = pt
-        last_tooltip = '<span><strong>%s HR / %s SB</strong></span></br>%s Hits / %s RBI / AVG %s' % (_g[9], _g[14], _g[5], _g[10], _avg)
+        last_tooltip = '(World Series) vs NYY</br><span><strong>%s HR / %s SB</strong></span></br>%s Hits / %s RBI / AVG %s' % (_g[9], _g[14], _g[5], _g[10], _avg)
         # print(f"'{_g[0]}': '{last_tooltip}',")
         print(f"'{_g[0]}':{last_score},")
 
