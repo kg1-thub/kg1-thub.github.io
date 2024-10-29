@@ -151,6 +151,7 @@ var datas24 = {
     '2024-10-18': 1,
     '2024-10-26': 1,
     '2024-10-27': 1,
+    '2024-10-29': -1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -302,6 +303,7 @@ var score24 = {
     '2024-10-18': '(CS Final) vs Fighters , 3-2 </br>Start P.スチュワート・ジュニア / C.甲斐',
     '2024-10-26': '(日本S) vs Baystars , 3-5 </br>Start P.有原 / C.甲斐',
     '2024-10-27': '(日本S) vs Baystars , 3-6 </br>Start P.モイネロ / C.甲斐',
+    '2024-10-29': '(日本S) vs Baystars , 1-4 </br>Start P.スチュワート・ジュニア / C.甲斐',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];
