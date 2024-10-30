@@ -441,7 +441,8 @@ if __name__=='__main__':
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
                         _playerscore.append(vsteam)
                         _playerscore.append('1' if order_of_pitcher==0 else '0')
-                        _playerscore.append(f'{_Y}CS')
+                        _playerscore.append(f'{_Y}NS')
+                        # _playerscore.append(f'{_Y}CS')
                         # _playerscore.append(f'{_Y}RS')
                         if order_of_pitcher==0: ## heatmap data
                             start_catcher = catcher
@@ -453,67 +454,67 @@ if __name__=='__main__':
                         _batteries.append([_playerscore[1], _playerscore[13], _playerscore[2]])
 
         print()
-        if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
-            nextrunner = True
-            while nextrunner:
-                runner = input('  走者> ')
-                for i, x in enumerate(_batteries):
-                    print(i, x)
-                _j = int(input('  対象バッテリーの番号> '))
-                pitcher = _batteries[_j][0]
-                if not fullmask:
-                    catcher = _batteries[_j][1]
+        # if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
+        #     nextrunner = True
+        #     while nextrunner:
+        #         runner = input('  走者> ')
+        #         for i, x in enumerate(_batteries):
+        #             print(i, x)
+        #         _j = int(input('  対象バッテリーの番号> '))
+        #         pitcher = _batteries[_j][0]
+        #         if not fullmask:
+        #             catcher = _batteries[_j][1]
 
-                caught_stealing = int(input('  盗塁企図の結果は？(0:許盗塁, 1:盗塁刺, 2:複数回)> '))
-                if caught_stealing > 1:
-                    stolen_bases = int(input('    許盗塁の数> '))
-                    caught_stealing = int(input('    盗塁刺の数> '))
-                else:
-                    stolen_bases = 1 - caught_stealing
+        #         caught_stealing = int(input('  盗塁企図の結果は？(0:許盗塁, 1:盗塁刺, 2:複数回)> '))
+        #         if caught_stealing > 1:
+        #             stolen_bases = int(input('    許盗塁の数> '))
+        #             caught_stealing = int(input('    盗塁刺の数> '))
+        #         else:
+        #             stolen_bases = 1 - caught_stealing
 
-                sdata = []
-                sdata.append(vsteam)
-                sdata.append(runner)
-                sdata.append(team_jp)
-                sdata.append(catcher)
-                sdata.append(pitcher)
-                sdata.append(tday.strftime('%Y-%m-%d'))
-                sdata.append(str(stolen_bases))
-                sdata.append(str(caught_stealing))
-                sdata.append(f'{_Y}RS')
-                with open(csvdir+f'/stolen_stats{_y}{team_i}.csv',mode='a',encoding='shift-jis') as f:
-                    # o_team,runner,d_team,catcher,pitcher,day_of_game,stolen_bases,caught_stealing,series
-                    print(','.join(sdata))
-                    print()
-                    f.write(','.join(sdata)+'\n')
+        #         sdata = []
+        #         sdata.append(vsteam)
+        #         sdata.append(runner)
+        #         sdata.append(team_jp)
+        #         sdata.append(catcher)
+        #         sdata.append(pitcher)
+        #         sdata.append(tday.strftime('%Y-%m-%d'))
+        #         sdata.append(str(stolen_bases))
+        #         sdata.append(str(caught_stealing))
+        #         sdata.append(f'{_Y}RS')
+        #         with open(csvdir+f'/stolen_stats{_y}{team_i}.csv',mode='a',encoding='shift-jis') as f:
+        #             # o_team,runner,d_team,catcher,pitcher,day_of_game,stolen_bases,caught_stealing,series
+        #             print(','.join(sdata))
+        #             print()
+        #             f.write(','.join(sdata)+'\n')
 
-                nextrunner = int(input('他にも敵チームの盗塁企図あり?(1:YES, 0:NO)> '))
+        #         nextrunner = int(input('他にも敵チームの盗塁企図あり?(1:YES, 0:NO)> '))
 
-        print()
-        if int(input(f'{team_jp}にバッテリーエラーあり？(1:YES, 0:NO)> ')):
-            nextbattery = True
-            while nextbattery:
-                for i, x in enumerate(_batteries):
-                    print(i, x)
-                _j = int(input('  対象バッテリーの番号> '))
-                pitcher = _batteries[_j][0]
-                if not fullmask:
-                    catcher = _batteries[_j][1]
+        # print()
+        # if int(input(f'{team_jp}にバッテリーエラーあり？(1:YES, 0:NO)> ')):
+        #     nextbattery = True
+        #     while nextbattery:
+        #         for i, x in enumerate(_batteries):
+        #             print(i, x)
+        #         _j = int(input('  対象バッテリーの番号> '))
+        #         pitcher = _batteries[_j][0]
+        #         if not fullmask:
+        #             catcher = _batteries[_j][1]
 
-                pdata = []
-                pdata.append(catcher)
-                pdata.append(pitcher)
-                pdata.append(tday.strftime('%Y-%m-%d'))
-                pdata.append(str(int(input('    ワイルドピッチは何回?> '))))
-                pdata.append(str(int(input('    パスボールは何回?> '))))
-                pdata.append(f'{_Y}RS')
-                with open(csvdir+f'/pitch_stats{_y}{team_i}.csv',mode='a',encoding='shift-jis') as f:
-                    # catcher,pitcher,day_of_game,wild_pitch,passed_ball,series
-                    print(','.join(pdata))
-                    print()
-                    f.write(','.join(pdata)+'\n')
+        #         pdata = []
+        #         pdata.append(catcher)
+        #         pdata.append(pitcher)
+        #         pdata.append(tday.strftime('%Y-%m-%d'))
+        #         pdata.append(str(int(input('    ワイルドピッチは何回?> '))))
+        #         pdata.append(str(int(input('    パスボールは何回?> '))))
+        #         pdata.append(f'{_Y}RS')
+        #         with open(csvdir+f'/pitch_stats{_y}{team_i}.csv',mode='a',encoding='shift-jis') as f:
+        #             # catcher,pitcher,day_of_game,wild_pitch,passed_ball,series
+        #             print(','.join(pdata))
+        #             print()
+        #             f.write(','.join(pdata)+'\n')
 
-                nextbattery = int(input(f'  他にも{team_jp}にバッテリーエラーあり?(1:YES, 0:NO)> '))
+        #         nextbattery = int(input(f'  他にも{team_jp}にバッテリーエラーあり?(1:YES, 0:NO)> '))
 
         print('CSV UPDATED.')
 
@@ -552,7 +553,8 @@ if __name__=='__main__':
                         "'"+tday.strftime('%Y-%m-%d')+"'"+': '+str(heatmap_WLD)+',\n    //@@NEXTGAME@@'
                     ).replace(
                         '//@@NEXTSCORE@@', 
-                        "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
+                        # "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
+                        "'"+tday.strftime('%Y-%m-%d')+"': '(日本S) vs "+_team+' , '+score
                         + ' </br>Start P.'+start_pitcher+' / C.'+start_catcher+"',\n    //@@NEXTSCORE@@"
                     )
         with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:

@@ -157,6 +157,7 @@ var datas24 = {
     '2024-10-26': -1,
     '2024-10-27': -1,
     '2024-10-29': 1,
+    '2024-10-30': 1,
     //@@NEXTGAME@@
 };
 var score24 = {
@@ -315,6 +316,7 @@ var score24 = {
     '2024-10-26': '(日本S) vs Hawks , 3-5 </br>Start P.ジャクソン / C.戸柱',
     '2024-10-27': '(日本S) vs Hawks , 3-6 </br>Start P.大貫 / C.戸柱',
     '2024-10-29': '(日本S) vs Hawks , 1-4 </br>Start P.東 / C.戸柱',
+    '2024-10-30': '(日本S) vs Hawks , 0-5 </br>Start P.ケイ / C.戸柱',
     //@@NEXTSCORE@@
 };
 var chartData24 = [];

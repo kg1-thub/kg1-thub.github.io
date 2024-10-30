@@ -177,6 +177,7 @@ var datas24 = {
 '2024-10-25': 1,
 '2024-10-26': 0,
 '2024-10-28': 0,
+'2024-10-29': 1,
 //@@TOOLTIP_DATE@@
 };
 var score24 = {
@@ -353,6 +354,7 @@ var score24 = {
     '2024-10-25': '(World Series) vs NYY</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .277',
     '2024-10-26': '(World Series) vs NYY</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .260',
     '2024-10-28': '(World Series) vs NYY</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .245',
+    '2024-10-29': '(World Series) vs NYY</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .246',
     //@@TOOLTIP@@
 };
 var chartData24 = [];
@@ -371,6 +373,6 @@ var heatmap24 = calendarHeatmap()
   .tooltipEnabled(true)
   .legendEnabled(false)
   .squareLength(squareLength)
-  .svgWidth('800px')
+  .svgWidth('830px')
   .colorRange(_colorRange);
 heatmap24();  // render the chart
