@@ -90,6 +90,16 @@ $(document).ready(function() {
     calmap_scroll_right();
 });
 
+document.getElementById('tab-ce-league').addEventListener('click', function() {
+    document.getElementById('ce-league').classList.add('active');
+    document.getElementById('pa-league').classList.remove('active');
+});
+document.getElementById('tab-pa-league').addEventListener('click', function() {
+    console.log('clicked pa');
+    document.getElementById('pa-league').classList.add('active');
+    document.getElementById('ce-league').classList.remove('active');
+});
+
 function get_total_by_row(sample_list) {
     var total_by_row = Array(sample_list.length).fill(0);
     for (let i=0; i < sample_list.length; i++) {
