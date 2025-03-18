@@ -1,5 +1,5 @@
 var sho25_data = {'hits': [0,
-  2,
+2,
 //@@HITS@@
   ], 
   'hrs': [0,

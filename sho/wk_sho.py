@@ -28,7 +28,7 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
         #         pt +=1
 
         last_score = pt
-        last_tooltip = '(World Series) vs NYY</br><span><strong>%s HR / %s SB</strong></span></br>%s Hits / %s RBI / AVG %s' % (_g[9], _g[14], _g[5], _g[10], _avg)
+        last_tooltip = '(Regular Season)</br><span><strong>%s HR / %s SB</strong></span></br>%s Hits / %s RBI / AVG %s' % (_g[9], _g[14], _g[5], _g[10], _avg)
         # print(f"'{_g[0]}': '{last_tooltip}',")
         print(f"'{_g[0]}':{last_score},")
 
@@ -84,7 +84,7 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
         if '<!-- @@SCORE1@@ -->' in row:
             content += '            <div><h4 class="display-4"> %s HR / %s SB</h4></div><!-- @@SCORE1@@ -->\n' % (_hr, _sb)
         elif '<!-- @@SCORE2@@ -->' in row:
-            content += '            <div><h7 class="display-5"> AVG %s / %s HITS / %s RBI</h7></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
+            content += '            <div><h4 class="display-4"> AVG %s / %s HITS / %s RBI</h4></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
         else:
             content += row
 with open(shoINDEX,mode='w',encoding='utf-8') as writer:
