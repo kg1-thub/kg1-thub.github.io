@@ -2,7 +2,7 @@ import csv
 
 _hit, _hr, _rbi, _sb, _avg= 0, 0, 0, 0, 0
 
-with open('C:/Users/ki401/Documents/git/github-io/sho/sho24ps.csv') as f:
+with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
     reader = csv.reader(f)
     next(reader)
     for _g in reader:
@@ -54,27 +54,27 @@ with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
 with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
     writer.write(content)
 
-# shoAREA = 'C:/Users/ki401/Documents/git/github-io/sho/sho-area-demo.js'
-# with open(shoAREA,mode='r',encoding='utf-8') as reader:
-#     content = reader.read()
-#     content = content.replace(
-#                 '//@@HITS@@', 
-#                 '%s,\n//@@HITS@@' % (_hit,)
-#             ).replace(
-#                 '//@@SBS@@', 
-#                 '%s,\n//@@SBS@@' % (_sb,)
-#             ).replace(
-#                 '//@@HRS@@', 
-#                 '%s,\n//@@HRS@@' % (_hr,)
-#             ).replace(
-#                 '//@@RBIS@@', 
-#                 '%s,\n//@@RBIS@@' % (_rbi,)
-#             ).replace(
-#                 '//@@TODAY@@', 
-#                 "'%s',\n//@@TODAY@@" % (_g[0])
-#             )
-# with open(shoAREA,mode='w',encoding='utf-8') as writer:
-#     writer.write(content)
+shoAREA = 'C:/Users/ki401/Documents/git/github-io/sho/sho-area-demo.js'
+with open(shoAREA,mode='r',encoding='utf-8') as reader:
+    content = reader.read()
+    content = content.replace(
+                '//@@HITS@@', 
+                '%s,\n//@@HITS@@' % (_hit,)
+            ).replace(
+                '//@@SBS@@', 
+                '%s,\n//@@SBS@@' % (_sb,)
+            ).replace(
+                '//@@HRS@@', 
+                '%s,\n//@@HRS@@' % (_hr,)
+            ).replace(
+                '//@@RBIS@@', 
+                '%s,\n//@@RBIS@@' % (_rbi,)
+            ).replace(
+                '//@@TODAY@@', 
+                "'%s',\n//@@TODAY@@" % (_g[0])
+            )
+with open(shoAREA,mode='w',encoding='utf-8') as writer:
+    writer.write(content)
 
 content = ''
 shoINDEX = 'C:/Users/ki401/Documents/git/github-io/sho/index.html'
