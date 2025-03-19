@@ -3,11 +3,13 @@ var _colorRange = ['#EEEEEE', '#008b8b'];
 
 var datas25 = {
 '2025-03-18': 1,
+'2025-03-19': 3,
 //@@TOOLTIP_DATE@@
 };
 var score25 = {
 '2025-03-18': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>2 Hits / 0 RBI / AVG .400',
-//@@TOOLTIP@@
+'2025-03-19': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 1 RBI / AVG .375',
+    //@@TOOLTIP@@
 };
 var chartData25 = [];
 for (var d in datas25) {
