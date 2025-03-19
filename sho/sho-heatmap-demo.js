@@ -1,5 +1,5 @@
 var squareLength = 22;
-var _colorRange = ['#FFFFFE', '#008b8b'];
+var _colorRange = ['#EEEEEE', '#008b8b'];
 
 var datas25 = {
 '2025-03-18': 1,

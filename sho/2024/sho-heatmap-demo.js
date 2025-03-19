@@ -1,5 +1,5 @@
 var squareLength = 22;
-var _colorRange = ['#FFFFFE', '#008b8b'];
+var _colorRange = ['#EEEEEE', '#008b8b'];
 
 var datas24 = {
 '2024-03-20':4,
