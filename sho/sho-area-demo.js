@@ -304,8 +304,8 @@ var sho25hits = new Chart(ctx_sho25hits, {
         fill: 'origin',
         lineTension: 0,
         borderColor: "blue",
-        borderWidth: 5,
-        pointRadius: 0.3,
+        borderWidth: 2,
+        pointRadius: 1,
         data: sho25_data.hits,
       }
     ],
@@ -344,8 +344,8 @@ var sho25rbis = new Chart(ctx_sho25rbis, {
         fill: 'origin',
         lineTension: 0,
         borderColor: "green",
-        borderWidth: 5,
-        pointRadius: 0.3,
+        borderWidth: 2,
+        pointRadius: 1,
         data: sho25_data.rbis,
       }
     ],
