@@ -1,10 +1,26 @@
-site_name: Giants/Catcher/Score
+site_name: kg1-thub.github.io
 nav:
     # - Home: index.md
-    - DASHBOARD: https://kg1-thub.github.io/
-    - ABOUT: https://kg1-thub.github.io/catcher-stats/
-        # - About site: index.md
-        # - About site: about/catcher-stats.md
+    - SHOHEI OHTANI HEATMAP: https://kg1-thub.github.io/sho/
+    - NPB Catcher/Score:
+        - NPB Standing DASHBOARD: https://kg1-thub.github.io/home/
+        - Giants: https://kg1-thub.github.io
+        - Carp: https://kg1-thub.github.io/carp/
+        - Tigers: https://kg1-thub.github.io/tigers/
+        - Baystars: https://kg1-thub.github.io/baystars/
+        - Dragons: https://kg1-thub.github.io/dragons/
+        - Swallows: https://kg1-thub.github.io/swallows/
+        - Hawks: https://kg1-thub.github.io/hawks/
+        - Fighters: https://kg1-thub.github.io/fighters/
+        - Eagles: https://kg1-thub.github.io/eagles/
+        - Marines: https://kg1-thub.github.io/marines/
+        - Buffaloes: https://kg1-thub.github.io/buffaloes/
+        - Lions: https://kg1-thub.github.io/lions/
+    - Munenori Murakami HEATMAP(2022): https://kg1-thub.github.io/mune/
+
+    - ABOUT: # https://kg1-thub.github.io/catcher-stats/
+        - About site: about/about_site.md
+        - 当サイトについて: index.md
     - Links: https://kg1-thub.github.io/links/
         # - Privacy policy: about/privacy-policy.md
     - Contact: https://forms.gle/f5mB854NhKq3hHq48
