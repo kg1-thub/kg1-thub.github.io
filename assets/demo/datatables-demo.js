@@ -332,7 +332,58 @@ $(document).ready(function() {
   });
 });
 
-// dt24games
+$(document).ready(function() {
+  $('#dt25catcher').DataTable({
+    order: [ [ 1, "desc" ] ],
+    columnDefs: [
+      { width: "8%", targets: 2 },
+      { width: "8%", targets: 3 },
+      { width: "8%", targets: 4 },
+      { width: "8%", targets: 5 },
+      { width: "8%", targets: 6 },
+      { width: "8%", targets: 7 },
+      { width: "8%", targets: 9 },
+      { width: "8%", targets: 10 },
+      { width: "8%", targets: 11 }
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
+
+$(document).ready(function() {
+  $('#dt25month').DataTable({
+    order: [ [ 0, "asc" ] ],
+    columnDefs: [
+      // { width: "17%", targets: 1 },
+      // { width: "17%", targets: 2 },
+      // { width: "17%", targets: 3 },
+      // { width: "11%", targets: 4 },
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
+
+$(document).ready(function() {
+  $('#dt25pitcher').DataTable({
+    // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
+    order: [[ 1, "desc" ]],
+    columnDefs: [
+      // { width: "22%", targets: 1 },
+      // { width: "22%", targets: 2 },
+      // { width: "22%", targets: 3 },
+      // { width: "22%", targets: 4 },
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
+
+
 function makeCSV(records, columns, year, keyword) {
   const divtable = document.getElementById(`dt${year}games`);
   const divcaption = document.getElementById(`dt${year}gamescaption`);
@@ -420,7 +471,7 @@ function makeCSV(records, columns, year, keyword) {
   }
 
   // var keyword=KW;
-  if (year == '24') {
+  if (year == '24' || year == '25') {
     // keyword = "07/19"; // @@KEYWORD@@
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
@@ -596,7 +647,7 @@ function search_today() {
 };
 
 function csvLoad(year, keyword, team_initial="") {
-  if (year == "24"){
+  if (year == "24" || year == "25"){
     var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
   // } else {
   //   var cols = ["勝敗S","投手","投球回","打者","被安","三振","四球","失点","自責","捕手","月日","対戦","出場","series"];

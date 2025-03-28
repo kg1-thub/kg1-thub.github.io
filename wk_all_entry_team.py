@@ -25,6 +25,23 @@ num = 3
 def set_team_param(_num):
     global num, Team, team, team_jp, team_jp2, team_jp_full, team_i
     global title_color, color_win, color_draw, color_lose, catchers
+    if _num == 1:
+        num = 1
+        Team = 'Giants'
+        team = 'giants'
+        team_jp = '巨人'
+        team_jp2 = team_jp
+        team_jp_full = '読売ジャイアンツ'
+        team_i = 'g'
+        title_color = ''
+        color_win = '#008DDA'
+        color_draw = 'rgb(94, 180, 228)'
+        color_lose = 'rgb(189, 219, 237)'
+        catcher0 = '甲斐'
+        catcher1 = '大城'
+        catcher2 = '岸田'
+        catcher3 = '小林'
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 3:
         num = 3
         Team = 'Baystars'
@@ -106,7 +123,8 @@ def set_team_param(_num):
         catcher0 = '木下'
         catcher1 = '宇佐見'
         catcher2 = '加藤匠'
-        catchers = [catcher0, catcher1, catcher2]
+        catcher3 = '石伊'
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 12:
         num = 12
         Team = 'Hawks'
@@ -119,9 +137,9 @@ def set_team_param(_num):
         color_win = '#fcc800'
         color_draw = 'rgb(246, 216, 97)'
         color_lose = 'rgb(239, 231, 194)'
-        catcher0 = '甲斐'
-        catcher1 = '海野'
-        catcher2 = '谷川原'
+        catcher0 = '海野'
+        catcher1 = '谷川原'
+        catcher2 = '渡邉'
         catchers = [catcher0, catcher1, catcher2]
     if _num == 10:
         num = 376
@@ -225,7 +243,8 @@ def get_catcher_name(_catcher, catchers):
 def get_query(sql, series):
     conn = psycopg2.connect('dbname=baseball host=localhost user=postgres password=postgres')
     cur = conn.cursor()
-    cur.execute(sql % (series, series, series, series))
+    # cur.execute(sql % (series, series, series, series))
+    cur.execute(sql % (series, series, series))
     conn.commit()
     results = cur.fetchall()
     cur.close()
@@ -238,7 +257,8 @@ def replace_table(tablename, filename):
     conn = psycopg2.connect('dbname=baseball host=localhost user=postgres password=postgres')
     cur = conn.cursor()
     trunctb = "TRUNCATE %s;" % tablename
-    copytotb = "COPY %s FROM '%s/%s' WITH (format csv, header, encoding 'SJIS');" \
+    # copytotb = "COPY %s FROM '%s/%s' WITH (format csv, header, encoding 'SJIS');" \
+    copytotb = "COPY %s FROM '%s/%s' WITH (format csv, encoding 'SJIS');" \
                     % (tablename, csvdir, filename)
     res1 = cur.execute(trunctb)
     res2 = cur.execute(copytotb)
@@ -258,13 +278,13 @@ def get_query_category(sql, series, category):
         condition = ""
         # condition = "AND NOT (catcher='大城' AND pitcher='平内 龍太')"
         if num == 2 and category == 'pitcher':
-            condition = "AND NOT (catcher='西田' AND pitcher='木澤 尚文')"
-        if num == 4 and category == 'pitcher':
-            condition = "AND NOT (catcher='宇佐見' AND pitcher='田島 慎二')"
-        if num == 7 and category == 'pitcher':
-            condition = "AND NOT (catcher='古市' AND pitcher='ヤン')"
-        if num == 376 and category == 'pitcher':
-            condition = "AND (NOT (catcher='堀内' AND pitcher='松井 友飛') AND NOT (catcher='太田' AND pitcher='小孫 竜二'))"
+            condition = "AND NOT (catcher='中村' AND pitcher='山本 大貴')"
+        # if num == 4 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='宇佐見' AND pitcher='田島 慎二')"
+        # if num == 7 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='古市' AND pitcher='ヤン')"
+        # if num == 376 and category == 'pitcher':
+        #     condition = "AND (NOT (catcher='堀内' AND pitcher='松井 友飛') AND NOT (catcher='太田' AND pitcher='小孫 竜二'))"
     cur.execute(sql % (category1, category, category2, series, condition, category, category, category))
     conn.commit()
     results = cur.fetchall()
@@ -279,18 +299,22 @@ def create_table_category(series, category):
     tb = '\t'*11
     if category == 'pitcher' and num == 4:
         stats.append(('田島 慎二', None, None, None))
+    if category == 'pitcher' and num == 2:
+        stats.append(('山本 大貴', None, None, None))
     for stat in stats:
         table_html += tb+'<tr>\n'
         for i, x in enumerate(stat):
-            # print(i, stat)
+            print(i, stat)
             if x is None:
                 # table_html += tb+'\t<td>---</td>\n'
-                if stat[0] == '田島 慎二' and i==2:
+                # if stat[0] == '田島 慎二' and i==2:
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '松井 友飛' and i==3:
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '小孫 竜二' and i==1:
+                #     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
+                if stat[0] == '山本 大貴' and i==1:
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '松井 友飛' and i==3:
-                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '小孫 竜二' and i==1:
-                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 else:
                     table_html += tb+'\t<td>---</td>\n'
                 # table_html += tb+'\t<td>---</td>\n'
@@ -321,8 +345,8 @@ def get_query2(sql, series):
 
 if __name__=='__main__':
     print('どのチームにしますか?')
-    print('  2:ヤクルト, 3:横浜, 4:中日, 5:阪神, 6:広島')
-    print('  7:西武, 8:日ハム, 9:ロッテ, 10:楽天, 11:オリックス, 12:ソフトバンク')
+    print('  1:巨人, 2:ﾔｸﾙﾄ, 3:横浜, 4:中日, 5:阪神, 6:広島')
+    print('  7:西武, 8:日ﾊﾑ, 9:ﾛｯﾃ, 10:楽天, 11:ｵﾘｯｸｽ, 12:ｿﾌﾄﾊﾞﾝｸ')
     set_team_param(int(input('番号を入力してください> ')))
 
     print('どのタスクを行いますか?')
@@ -441,9 +465,9 @@ if __name__=='__main__':
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
                         _playerscore.append(vsteam)
                         _playerscore.append('1' if order_of_pitcher==0 else '0')
-                        _playerscore.append(f'{_Y}NS')
+                        # _playerscore.append(f'{_Y}NS')
                         # _playerscore.append(f'{_Y}CS')
-                        # _playerscore.append(f'{_Y}RS')
+                        _playerscore.append(f'{_Y}RS')
                         if order_of_pitcher==0: ## heatmap data
                             start_catcher = catcher
                             start_pitcher = _playerscore[1].split(" ")[0]
@@ -553,8 +577,8 @@ if __name__=='__main__':
                         "'"+tday.strftime('%Y-%m-%d')+"'"+': '+str(heatmap_WLD)+',\n    //@@NEXTGAME@@'
                     ).replace(
                         '//@@NEXTSCORE@@', 
-                        # "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
-                        "'"+tday.strftime('%Y-%m-%d')+"': '(日本S) vs "+_team+' , '+score
+                        "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
+                        # "'"+tday.strftime('%Y-%m-%d')+"': '(日本S) vs "+_team+' , '+score
                         + ' </br>Start P.'+start_pitcher+' / C.'+start_catcher+"',\n    //@@NEXTSCORE@@"
                     )
         with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:
@@ -581,7 +605,7 @@ if __name__=='__main__':
     # if False:
 
         replace_table('catcher_stats', f'catcher_stats{_y}{team_i}.csv')
-        replace_table('stolen_stats', f'stolen_stats{_y}{team_i}.csv')
+        # replace_table('stolen_stats', f'stolen_stats{_y}{team_i}.csv')
 
         sql_v3 = "\
             SELECT \
@@ -592,10 +616,7 @@ if __name__=='__main__':
                 w.save, \
                 s.starting, \
                 c.runs, \
-                c.er, \
-                ss.stolen_bases + ss.caught_stealing so, \
-                ss.stolen_bases sb, \
-                ss.caught_stealing cs \
+                c.er \
             FROM \
                 ( \
                     SELECT  \
@@ -624,10 +645,6 @@ if __name__=='__main__':
                         GROUP BY catcher \
                     ) w \
                     ON c.catcher = w.catcher \
-                LEFT OUTER JOIN  \
-                    (SELECT catcher, SUM(stolen_bases) stolen_bases, SUM(caught_stealing) caught_stealing \
-                    from stolen_stats where series='%s' GROUP BY catcher) ss \
-                    ON ss.catcher = c.catcher \
                 LEFT OUTER JOIN  \
                     (SELECT \
                         catcher, \
@@ -682,16 +699,16 @@ if __name__=='__main__':
 
         stats = get_query(sql_v3, f'{_Y}RS')
         catcher_stats = []
-        catcher_stats.append(['捕手', 'イニング', '勝', '敗', 'S', '先発数', '失点', '自責点', '防御率', '盗塁企図', '許盗塁', '盗塁刺', '阻止率'])
+        catcher_stats.append(['捕手', 'イニング', '勝', '敗', 'S', '先発数', '失点', '自責点', '防御率'])
 
         for stat in stats:
             catcher_stats.append([x if x else 0 for x in stat])
 
         for x in catcher_stats[1:]:
-            if x[8] > 0:
-                x.append(Decimal(x[10]/x[8]).quantize(Decimal('0.001'), rounding=ROUND_HALF_UP))
-            else:
-                x.append('---')
+            # if x[8] > 0:
+            #     x.append(Decimal(x[10]/x[8]).quantize(Decimal('0.001'), rounding=ROUND_HALF_UP))
+            # else:
+            #     x.append('---')
             x.insert(8, Decimal(x[7]*9/x[1]).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))
 
         table_html = ''
@@ -714,35 +731,27 @@ if __name__=='__main__':
             atag_tweet_html += catcher_stat[0]+', '+str(catcher_stat[2])+'-'+str(catcher_stat[3])+'-'+str(catcher_stat[4])+', '
             atag_tweet_html += str(catcher_stat[8])+' ('+str(float(catcher_stat[1])).replace('.67', '.2').replace('.33', '.1')+')%0D%0A'
         # atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
-        atag_tweet_html += f'%23{team}%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2F{team}%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">'
+        atag_tweet_html += f'%23{team}%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2F{team}%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">' \
+            if num > 1 else  \
+            f'%23{team}%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">'
 
-        pie_data = {'Catcher':[catchers[0], catchers[1], catchers[2], catchers[3] if len(catchers)>3 else 'その他'],
-                    'stolen_bases':[0,0,0,0],
-                    'Defense_inning':[
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0]
-                    ],
-                    'Starting_games':[
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0]
-                    ],
-                    'Winning_games': [
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0]
-                    ]}
+        pie_data = {'Catcher':
+                        [catchers[0], catchers[1], catchers[2], catchers[3], 'その他'] \
+                        if len(catchers) > 3  \
+                        else [catchers[0], catchers[1], catchers[2], 'その他'],
+                    # 'stolen_bases':[0,0,0,0],
+                    'Defense_inning':   [[0,0,0,0,0,0,0,0] for _ in range(len(catchers)+1)],
+                    'Starting_games':   [[0,0,0,0,0,0,0,0] for _ in range(len(catchers)+1)],
+                    'Winning_games':    [[0,0,0,0,0,0,0,0] for _ in range(len(catchers)+1)]
+                    }
 
-        for stat in catcher_stats[1:]:
-            # pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
-            if stat[0] in catchers:
-                pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
-            else:
-                pie_data['stolen_bases'][pie_data['Catcher'].index('その他')] += stat[10]
+        # # stolen_bases
+        # for stat in catcher_stats[1:]:
+        #     # pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
+        #     if stat[0] in catchers:
+        #         pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
+        #     else:
+        #         pie_data['stolen_bases'][pie_data['Catcher'].index('その他')] += stat[10]
 
         sql_month_stats = " \
             SELECT tmp.month, tmp.catcher, tmp.cnt, tmp.ins, wins.cnt \
@@ -770,6 +779,9 @@ if __name__=='__main__':
 
         area_datas = get_query2(sql_month_stats, f'{_Y}RS')
 
+        print(pie_data)
+        print(area_datas)
+        print(catchers)
         for x in area_datas:
             if x[1] in catchers:
                 pie_data['Starting_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[2]
@@ -780,17 +792,24 @@ if __name__=='__main__':
                 pie_data['Defense_inning'][pie_data['Catcher'].index('その他')][x[0]-3] += x[3]
                 pie_data['Winning_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[4] or 0
 
+        print(pie_data)
+
         table_month_html = create_table_category(f'{_Y}RS', 'month')
 
         table_pitcher_html = create_table_category(f'{_Y}RS', 'pitcher')
 
         today = datetime.date.today().strftime('%Y.%m.%d')
-        p = 'p' if num > 6 else ''
-        INDEX_TEMPLATE = f'./assets/data/index.template-{p}team4.html' \
-                            if len(catchers)>3 \
-                            else f'./assets/data/index.template-{p}team.html'
+
+        if num == 1:
+            INDEX_TEMPLATE = f'./assets/data/index.template.html'
+        else:
+            p = 'p' if num > 6 else ''
+            INDEX_TEMPLATE = f'./assets/data/index.template-{p}team4.html' \
+                                if len(catchers) > 3 \
+                                else f'./assets/data/index.template-{p}team.html'
+
         with open(INDEX_TEMPLATE, mode='r',encoding='utf-8') as f1:
-            with open(f'./{team}/index.html',mode='w',encoding='utf-8') as f2:
+            with open(f'./{team}/index.html' if num > 1 else f'./index.html', mode='w', encoding='utf-8') as f2:
                 for line in f1:
                     f2.write(
                         line
@@ -813,7 +832,11 @@ if __name__=='__main__':
                             .replace('@@catcher3@@', catchers[3] if len(catchers) > 3 else '')
                     )
 
-        with open('./assets/data/chart-pie-demo.template-team.js',mode='r',encoding='utf-8') as f1:
+        CHARTPETEMPLATE = f'./assets/data/chart-pie-demo.template-team4.js' \
+                            if len(catchers) > 3 \
+                            else f'./assets/data/chart-pie-demo.template-team.js'
+
+        with open(CHARTPETEMPLATE,mode='r',encoding='utf-8') as f1:
             with open(f'./assets/demo/chart-pie-demo-{team_i}.js',mode='w',encoding='utf-8') as f2:
                 for line in f1:
                     f2.write(
@@ -825,3 +848,132 @@ if __name__=='__main__':
 
         print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'HTML UPDATED!')
         print()
+
+    if not entry_wl:
+        entry_wl = int(input('今日の勝敗を取り込む？(1:YES, 0:NO)> '))
+
+    if entry_wl:
+        entry_wl = int(input('対象のリーグは? (0:両リーグ, 1:セ・リーグ, 2:パ・リーグ)> '))
+
+        entry_wl_ce = 1
+        entry_wl_pa = 1
+
+        if entry_wl == 1:
+            entry_wl_pa = 0
+        elif entry_wl == 2:
+            entry_wl_ce = 0
+
+        url = 'https://baseball.yahoo.co.jp/npb/standings/'
+        xml = requests.get(url)
+        soup = BeautifulSoup(xml.content, 'html.parser')
+        _score = []
+        standing = soup.find('section', class_='bb-modCommon03')
+
+        if entry_wl_ce:
+            # G,T,B,S,D,C
+            wl_teams = [0, 0, 0, 0, 0, 0]
+            for _, table in enumerate(standing.findAll('tbody')):
+                for _, rec in enumerate(table.findAll('tr')):
+                    team = ''
+                    _team = 0
+                    _wl = 0
+                    for i, td in enumerate(rec.findAll('td', class_='bb-rankTable__data')):
+                        if i == 1:
+                            team = td.text.replace('\n', '')
+                            if team == '巨人':
+                                _team = 0
+                            elif team == '阪神':
+                                _team = 1
+                            elif team == 'DeNA':
+                                _team = 2
+                            elif team == 'ヤクルト':
+                                _team = 3
+                            elif team == '中日':
+                                _team = 4
+                            elif team == '広島':
+                                _team = 5
+                        if i == 3:
+                            _wl = int(td.text)
+                        if i == 4:
+                            _wl -= int(td.text)
+                            wl_teams[_team] = _wl
+                            break
+                print(wl_teams)
+
+            # STANDINGAREADEMO UPDATE
+            STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
+            _rjust = 3
+            with open(STANDINGAREADEMO,mode='r',encoding='utf-8') as reader:
+                lines = reader.readlines()
+                content = ''
+                for line in lines:
+                    if '//wl_' in line:
+                        content += line\
+                            .replace('//wl_Giants',     str(wl_teams[0]).rjust(_rjust)+',//wl_Giants')\
+                            .replace('//wl_Tigers',     str(wl_teams[1]).rjust(_rjust)+',//wl_Tigers')\
+                            .replace('//wl_Baystars',   str(wl_teams[2]).rjust(_rjust)+',//wl_Baystars')\
+                            .replace('//wl_Swallows',   str(wl_teams[3]).rjust(_rjust)+',//wl_Swallows')\
+                            .replace('//wl_Dragons',    str(wl_teams[4]).rjust(_rjust)+',//wl_Dragons')\
+                            .replace('//wl_Carp',       str(wl_teams[5]).rjust(_rjust)+',//wl_Carp')
+                    else:
+                        content += line
+            with open(STANDINGAREADEMO,mode='w',encoding='utf-8') as writer:
+                writer.write(content)
+
+            print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'STANDINGS Ce UPDATED!')
+            print()
+
+        if entry_wl_pa:
+            # H,F,M,E,B,L
+            wl_teams = [0, 0, 0, 0, 0, 0]
+            for _, table in enumerate(standing.findAll('tbody')):
+                for _, rec in enumerate(table.findAll('tr')):
+                    team = ''
+                    _team = 0
+                    _wl = 0
+                    for i, td in enumerate(rec.findAll('td', class_='bb-rankTable__data')):
+                        if i == 1:
+                            team = td.text.replace('\n', '')
+                            if team == 'ソフトバンク':
+                                _team = 0
+                            elif team == '日本ハム':
+                                _team = 1
+                            elif team == 'ロッテ':
+                                _team = 2
+                            elif team == '楽天':
+                                _team = 3
+                            elif team == 'オリックス':
+                                _team = 4
+                            elif team == '西武':
+                                _team = 5
+                        if i == 3:
+                            _wl = int(td.text)
+                        if i == 4:
+                            _wl -= int(td.text)
+                            wl_teams[_team] = _wl
+                            break
+                print(wl_teams)
+
+            # STANDINGAREADEMO UPDATE
+            STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
+            _rjust = 3
+            with open(STANDINGAREADEMO,mode='r',encoding='utf-8') as reader:
+                lines = reader.readlines()
+                content = ''
+                for line in lines:
+                    if '//wl_' in line:
+                        content += line\
+                            .replace('//wl_Hawks',     str(wl_teams[0]).rjust(_rjust)+',//wl_Hawks')\
+                            .replace('//wl_Fighters',     str(wl_teams[1]).rjust(_rjust)+',//wl_Fighters')\
+                            .replace('//wl_Marines',   str(wl_teams[2]).rjust(_rjust)+',//wl_Marines')\
+                            .replace('//wl_Eagles',   str(wl_teams[3]).rjust(_rjust)+',//wl_Eagles')\
+                            .replace('//wl_Buffaloes',    str(wl_teams[4]).rjust(_rjust)+',//wl_Buffaloes')\
+                            .replace('//wl_Lions',       str(wl_teams[5]).rjust(_rjust)+',//wl_Lions')
+                    else:
+                        content += line
+            with open(STANDINGAREADEMO,mode='w',encoding='utf-8') as writer:
+                writer.write(content)
+
+            print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'STANDINGS Pa UPDATED!')
+            print()
+
