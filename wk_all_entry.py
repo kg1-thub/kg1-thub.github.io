@@ -7,13 +7,13 @@ from decimal import Decimal, ROUND_HALF_UP
 
 def get_catcher_name(_catcher):
     if _catcher==0:
-        catcher='大城'
+        catcher='甲斐'
     elif _catcher==1:
-        catcher='小林'
+        catcher='大城'
     elif _catcher==2:
-        catcher='山瀬'
-    elif _catcher==3:
         catcher='岸田'
+    elif _catcher==3:
+        catcher='小林'
     else:
         catcher=str(input('  捕手の名前> '))
     return catcher
@@ -21,7 +21,7 @@ def get_catcher_name(_catcher):
 def get_query(sql, series):
     conn = psycopg2.connect('dbname=baseball host=localhost user=postgres password=postgres')
     cur = conn.cursor()
-    cur.execute(sql % (series, series, series, series))
+    cur.execute(sql % (series, series, series))
     conn.commit()
     results = cur.fetchall()
     cur.close()
@@ -34,6 +34,7 @@ def replace_table(tablename, filename):
     conn = psycopg2.connect('dbname=baseball host=localhost user=postgres password=postgres')
     cur = conn.cursor()
     trunctb = "TRUNCATE %s;" % tablename
+    # copytotb = "COPY %s FROM '%s/%s' WITH (format csv, encoding 'SJIS');" \
     copytotb = "COPY %s FROM '%s/%s' WITH (format csv, header, encoding 'SJIS');" \
                     % (tablename, csvdir, filename)
     res1 = cur.execute(trunctb)
@@ -122,7 +123,7 @@ if __name__=='__main__':
                 if int(input('今日の試合? (1:YES, 0:NO)> ')) \
                 else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
 
-        catcher = get_catcher_name(int(input('スタメン捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> ')))
+        catcher = get_catcher_name(int(input('スタメン捕手 (0:甲斐, 1:大城, 2:岸田, 3:小林, 4:その他)> ')))
         fullmask = int(input('フルマスク? (1:YES, 0:NO)> '))
 
         # get yahoo sports gameid
@@ -197,7 +198,7 @@ if __name__=='__main__':
                                 if order_of_pitcher==0 or fullmask 
                                 else
                                     get_catcher_name(
-                                        int(input('次の投手 "'+_playerscore[1]+'" の捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
+                                        int(input('次の投手 "'+_playerscore[1]+'" の捕手 (0:甲斐, 1:大城, 2:岸田, 3:小林, 4:その他)> '))
                                     )
                         )
                         _playerscore.append(tday.strftime('%Y/%m/%d'))
@@ -220,77 +221,77 @@ if __name__=='__main__':
                         _batteries.append([_playerscore[1], _playerscore[13], _playerscore[2]])
 
         print()
-        if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
-            nextrunner = True
-            while nextrunner:
-                runner = input('  走者> ')
-                # if not fullmask:
-                #     catcher = get_catcher_name(
-                #                     int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
-                #             )
-                # pitcher = input('  投手> ')
-                for i, x in enumerate(_batteries):
-                    print(i, x)
-                _j = int(input('  対象バッテリーの番号> '))
-                pitcher = _batteries[_j][0]
-                if not fullmask:
-                    catcher = _batteries[_j][1]
+        # if int(input('敵チームの盗塁企図あり? (1:YES, 0:NO)> ')):
+        #     nextrunner = True
+        #     while nextrunner:
+        #         runner = input('  走者> ')
+        #         # if not fullmask:
+        #         #     catcher = get_catcher_name(
+        #         #                     int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
+        #         #             )
+        #         # pitcher = input('  投手> ')
+        #         for i, x in enumerate(_batteries):
+        #             print(i, x)
+        #         _j = int(input('  対象バッテリーの番号> '))
+        #         pitcher = _batteries[_j][0]
+        #         if not fullmask:
+        #             catcher = _batteries[_j][1]
 
-                caught_stealing = int(input('  盗塁企図の結果は？(0:許盗塁, 1:盗塁刺, 2:複数回)> '))
-                if caught_stealing > 1:
-                    stolen_bases = int(input('    許盗塁の数> '))
-                    caught_stealing = int(input('    盗塁刺の数> '))
-                else:
-                    stolen_bases = 1 - caught_stealing
+        #         caught_stealing = int(input('  盗塁企図の結果は？(0:許盗塁, 1:盗塁刺, 2:複数回)> '))
+        #         if caught_stealing > 1:
+        #             stolen_bases = int(input('    許盗塁の数> '))
+        #             caught_stealing = int(input('    盗塁刺の数> '))
+        #         else:
+        #             stolen_bases = 1 - caught_stealing
 
-                sdata = []
-                sdata.append(team)
-                sdata.append(runner)
-                sdata.append('巨人')
-                sdata.append(catcher)
-                sdata.append(pitcher)
-                sdata.append(tday.strftime('%Y-%m-%d'))
-                sdata.append(str(stolen_bases))
-                sdata.append(str(caught_stealing))
-                sdata.append(f'{_Y}RS')
-                with open(csvdir+f'/stolen_stats{_y}.csv',mode='a',encoding='shift-jis') as f:
-                    # o_team,runner,d_team,catcher,pitcher,day_of_game,stolen_bases,caught_stealing,series
-                    print(','.join(sdata))
-                    print()
-                    f.write(','.join(sdata)+'\n')
+        #         sdata = []
+        #         sdata.append(team)
+        #         sdata.append(runner)
+        #         sdata.append('巨人')
+        #         sdata.append(catcher)
+        #         sdata.append(pitcher)
+        #         sdata.append(tday.strftime('%Y-%m-%d'))
+        #         sdata.append(str(stolen_bases))
+        #         sdata.append(str(caught_stealing))
+        #         sdata.append(f'{_Y}RS')
+        #         with open(csvdir+f'/stolen_stats{_y}.csv',mode='a',encoding='shift-jis') as f:
+        #             # o_team,runner,d_team,catcher,pitcher,day_of_game,stolen_bases,caught_stealing,series
+        #             print(','.join(sdata))
+        #             print()
+        #             f.write(','.join(sdata)+'\n')
 
-                nextrunner = int(input('他にも敵チームの盗塁企図あり?(1:YES, 0:NO)> '))
+        #         nextrunner = int(input('他にも敵チームの盗塁企図あり?(1:YES, 0:NO)> '))
 
-        print()
-        if int(input('巨人にバッテリーエラーあり？(1:YES, 0:NO)> ')):
-            nextbattery = True
-            while nextbattery:
-                # if not fullmask:
-                #     catcher = get_catcher_name(
-                #                     int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
-                #             )
-                # pitcher = input('  投手> ')
-                for i, x in enumerate(_batteries):
-                    print(i, x)
-                _j = int(input('  対象バッテリーの番号> '))
-                pitcher = _batteries[_j][0]
-                if not fullmask:
-                    catcher = _batteries[_j][1]
+        # print()
+        # if int(input('巨人にバッテリーエラーあり？(1:YES, 0:NO)> ')):
+        #     nextbattery = True
+        #     while nextbattery:
+        #         # if not fullmask:
+        #         #     catcher = get_catcher_name(
+        #         #                     int(input('  捕手 (0:大城, 1:小林, 2:山瀬, 3:岸田, 4:その他)> '))
+        #         #             )
+        #         # pitcher = input('  投手> ')
+        #         for i, x in enumerate(_batteries):
+        #             print(i, x)
+        #         _j = int(input('  対象バッテリーの番号> '))
+        #         pitcher = _batteries[_j][0]
+        #         if not fullmask:
+        #             catcher = _batteries[_j][1]
 
-                pdata = []
-                pdata.append(catcher)
-                pdata.append(pitcher)
-                pdata.append(tday.strftime('%Y-%m-%d'))
-                pdata.append(str(int(input('    ワイルドピッチは何回?> '))))
-                pdata.append(str(int(input('    パスボールは何回?> '))))
-                pdata.append(f'{_Y}RS')
-                with open(csvdir+f'/pitch_stats{_y}.csv',mode='a',encoding='shift-jis') as f:
-                    # catcher,pitcher,day_of_game,wild_pitch,passed_ball,series
-                    print(','.join(pdata))
-                    print()
-                    f.write(','.join(pdata)+'\n')
+        #         pdata = []
+        #         pdata.append(catcher)
+        #         pdata.append(pitcher)
+        #         pdata.append(tday.strftime('%Y-%m-%d'))
+        #         pdata.append(str(int(input('    ワイルドピッチは何回?> '))))
+        #         pdata.append(str(int(input('    パスボールは何回?> '))))
+        #         pdata.append(f'{_Y}RS')
+        #         with open(csvdir+f'/pitch_stats{_y}.csv',mode='a',encoding='shift-jis') as f:
+        #             # catcher,pitcher,day_of_game,wild_pitch,passed_ball,series
+        #             print(','.join(pdata))
+        #             print()
+        #             f.write(','.join(pdata)+'\n')
 
-                nextbattery = int(input('  他にも巨人にバッテリーエラーあり?(1:YES, 0:NO)> '))
+        #         nextbattery = int(input('  他にも巨人にバッテリーエラーあり?(1:YES, 0:NO)> '))
 
         print('CSV UPDATED.')
 
@@ -352,7 +353,7 @@ if __name__=='__main__':
     if make_html:
 
         replace_table('catcher_stats', f'catcher_stats{_y}.csv')
-        replace_table('stolen_stats', f'stolen_stats{_y}.csv')
+        # replace_table('stolen_stats', f'stolen_stats{_y}.csv')
 
         sql_v3 = "\
             SELECT \
@@ -363,10 +364,7 @@ if __name__=='__main__':
                 w.save, \
                 s.starting, \
                 c.runs, \
-                c.er, \
-                ss.stolen_bases + ss.caught_stealing so, \
-                ss.stolen_bases sb, \
-                ss.caught_stealing cs \
+                c.er \
             FROM \
                 ( \
                     SELECT  \
@@ -396,10 +394,6 @@ if __name__=='__main__':
                     ) w \
                     ON c.catcher = w.catcher \
                 LEFT OUTER JOIN  \
-                    (SELECT catcher, SUM(stolen_bases) stolen_bases, SUM(caught_stealing) caught_stealing \
-                    from stolen_stats where series='%s' GROUP BY catcher) ss \
-                    ON ss.catcher = c.catcher \
-                LEFT OUTER JOIN  \
                     (SELECT \
                         catcher, \
                         COUNT(*) starting \
@@ -414,10 +408,10 @@ if __name__=='__main__':
         sql_cat = " \
             SELECT \
             %s, \
+            MAX(CASE tmp2.catcher WHEN '甲斐' THEN tmp2.wls ELSE NULL END) 甲斐, \
             MAX(CASE tmp2.catcher WHEN '大城' THEN tmp2.wls ELSE NULL END) 大城, \
-            MAX(CASE tmp2.catcher WHEN '小林' THEN tmp2.wls ELSE NULL END) 小林, \
             MAX(CASE tmp2.catcher WHEN '岸田' THEN tmp2.wls ELSE NULL END) 岸田, \
-            MAX(CASE tmp2.catcher WHEN '山瀬' THEN tmp2.wls ELSE NULL END) 山瀬 \
+            MAX(CASE tmp2.catcher WHEN '小林' THEN tmp2.wls ELSE NULL END) 小林 \
             FROM \
             ( \
             SELECT \
@@ -451,16 +445,17 @@ if __name__=='__main__':
 
         stats = get_query(sql_v3, f'{_Y}RS')
         catcher_stats = []
-        catcher_stats.append(['捕手', 'イニング', '勝', '敗', 'S', '先発数', '失点', '自責点', '防御率', '盗塁企図', '許盗塁', '盗塁刺', '阻止率'])
+        catcher_stats.append(['捕手', 'イニング', '勝', '敗', 'S', '先発数', '失点', '自責点', '防御率'])
 
         for stat in stats:
             catcher_stats.append([x if x else 0 for x in stat])
 
         for x in catcher_stats[1:]:
-            if x[8] > 0:
-                x.append(Decimal(x[10]/x[8]).quantize(Decimal('0.001'), rounding=ROUND_HALF_UP))
-            else:
-                x.append('---')
+            print(x)
+            # if x[8] > 0:
+            #     x.append(Decimal(x[10]/x[8]).quantize(Decimal('0.001'), rounding=ROUND_HALF_UP))
+            # else:
+            #     x.append('---')
             x.insert(8, Decimal(x[7]*9/x[1]).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))
 
         table_html = ''
@@ -485,8 +480,8 @@ if __name__=='__main__':
         # atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
         atag_tweet_html += '%23giants%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">'
 
-        pie_data = {'Catcher':['大城', '小林', '岸田', 'その他'],
-                    'stolen_bases':[0,0,0,0],
+        pie_data = {'Catcher':['甲斐', '大城', '岸田', '小林',],
+                    # 'stolen_bases':[0,0,0,0],
                     'Defense_inning':[
                         [0,0,0,0,0,0,0,0],
                         [0,0,0,0,0,0,0,0],
@@ -506,12 +501,12 @@ if __name__=='__main__':
                         [0,0,0,0,0,0,0,0]
                     ]}
 
-        for stat in catcher_stats[1:]:
-            # pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
-            if stat[0] in ['大城', '小林', '岸田']:
-                pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
-            else:
-                pie_data['stolen_bases'][pie_data['Catcher'].index('その他')] += stat[10]
+        # for stat in catcher_stats[1:]:
+        #     # pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
+        #     if stat[0] in ['大城', '小林', '岸田']:
+        #         pie_data['stolen_bases'][pie_data['Catcher'].index(stat[0])] = stat[10]
+        #     else:
+        #         pie_data['stolen_bases'][pie_data['Catcher'].index('その他')] += stat[10]
 
         sql_month_stats = " \
             SELECT tmp.month, tmp.catcher, tmp.cnt, tmp.ins, wins.cnt \
@@ -540,14 +535,14 @@ if __name__=='__main__':
         area_datas = get_query2(sql_month_stats, f'{_Y}RS')
 
         for x in area_datas:
-            if x[1] in ['大城', '小林', '岸田']:
+            if x[1] in ['甲斐', '大城', '岸田', '小林']:
                 pie_data['Starting_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[2]
                 pie_data['Defense_inning'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[3]
                 pie_data['Winning_games'][pie_data['Catcher'].index(x[1])][x[0]-3] = x[4] or 0
-            else:
-                pie_data['Starting_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[2]
-                pie_data['Defense_inning'][pie_data['Catcher'].index('その他')][x[0]-3] += x[3]
-                pie_data['Winning_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[4] or 0
+            # else:
+            #     pie_data['Starting_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[2]
+            #     pie_data['Defense_inning'][pie_data['Catcher'].index('その他')][x[0]-3] += x[3]
+            #     pie_data['Winning_games'][pie_data['Catcher'].index('その他')][x[0]-3] += x[4] or 0
 
         table_month_html = create_table_category(f'{_Y}RS', 'month')
 

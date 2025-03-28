@@ -257,8 +257,8 @@ def replace_table(tablename, filename):
     conn = psycopg2.connect('dbname=baseball host=localhost user=postgres password=postgres')
     cur = conn.cursor()
     trunctb = "TRUNCATE %s;" % tablename
-    # copytotb = "COPY %s FROM '%s/%s' WITH (format csv, header, encoding 'SJIS');" \
-    copytotb = "COPY %s FROM '%s/%s' WITH (format csv, encoding 'SJIS');" \
+    # copytotb = "COPY %s FROM '%s/%s' WITH (format csv, encoding 'SJIS');" \
+    copytotb = "COPY %s FROM '%s/%s' WITH (format csv, header, encoding 'SJIS');" \
                     % (tablename, csvdir, filename)
     res1 = cur.execute(trunctb)
     res2 = cur.execute(copytotb)
