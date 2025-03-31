@@ -1,15 +1,15 @@
 var ctx25_data = {
-  'Giants':  [0,  1,//wl_Giants
+  'Giants':  [0,  1,  2,  3,//wl_Giants
   ],
-  'Tigers':  [0,  1,//wl_Tigers
+  'Tigers':  [0,  1,  2,  1,//wl_Tigers
   ],
-  'Baystars':[0,  1,//wl_Baystars
+  'Baystars':[0,  1,  0,  1,//wl_Baystars
   ],
-  'Swallows':[0, -1,//wl_Swallows
+  'Swallows':[0, -1, -2, -3,//wl_Swallows
   ],
-  'Dragons': [0, -1,//wl_Dragons
+  'Dragons': [0, -1,  0, -1,//wl_Dragons
   ],
-  'Carp':    [0, -1,//wl_Carp
+  'Carp':    [0, -1, -2, -1,//wl_Carp
   ],
   'labels':[
     'Start','03/28','03/29','03/30','04/01','04/02','04/03','04/04','04/05','04/06',
@@ -29,17 +29,17 @@ var ctx25_data = {
 };
 
 var ctx25p_data = {
-  'Hawks':    [0, -1, //wl_Hawks
+  'Hawks':    [0, -1, -2, -3,//wl_Hawks
   ],
-  'Fighters': [0,  1,//wl_Fighters
+  'Fighters': [0,  1,  2,  3,//wl_Fighters
   ],
-  'Marines':  [0,  1,//wl_Marines
+  'Marines':  [0,  1,  2,  3,//wl_Marines
   ],
-  'Eagles':   [0, -1,//wl_Eagles
+  'Eagles':   [0, -1,  0, -1,//wl_Eagles
   ],
-  'Buffaloes':[0,  1,//wl_Buffaloes
+  'Buffaloes':[0,  1,  0,  1,//wl_Buffaloes
   ],
-  'Lions':    [0, -1,//wl_Lions
+  'Lions':    [0, -1, -2, -3,//wl_Lions
   ],
   'labels':[
     'Start','03/28','03/29','03/30','04/01','04/02','04/03','04/04','04/05','04/06',

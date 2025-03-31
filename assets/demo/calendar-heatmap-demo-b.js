@@ -4,10 +4,14 @@ var _colorRange = ['#ECEFF2', '#008DDA'];
 // 2025
 var datas25 = {
     '2025-03-28': 1,
+    '2025-03-29': -1,
+    '2025-03-30': 1,
     //@@NEXTGAME@@
 };
 var score25 = {
     '2025-03-28': 'vs Dragons , 5-0 </br>Start P.東 / C.山本',
+    '2025-03-29': 'vs Dragons , 0-1 </br>Start P.バウアー / C.山本',
+    '2025-03-30': 'vs Dragons , 2-1 </br>Start P.平良 / C.松尾',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
