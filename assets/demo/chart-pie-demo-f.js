@@ -4,7 +4,7 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data25 = {'Catcher': ['田宮', '伏見', '郡司', 'その他'], 'Defense_inning': [[18.0, 0, 0, 0, 0, 0, 0, 0], [1.0, 0, 0, 0, 0, 0, 0, 0], [9.0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
+var pie_data25 = {'Catcher': ['田宮', '伏見', '郡司', 'その他'], 'Defense_inning': [[18.0, 0, 0, 0, 0, 0, 0, 0], [1.0, 9.0, 0, 0, 0, 0, 0, 0], [9.0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[2, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
 var catchers = ['田宮', '伏見', '郡司'];
 
 var innings25 = pie_data25.Defense_inning;
@@ -83,7 +83,7 @@ var innings25_ctx_config = {
           data: innings25.p[2],
           fill: true
       }, {
-          label: catchers[3],
+          label: 'その他',
           lineTension: 0,
           borderColor: window.chartColors.blue,
           backgroundColor: window.chartColors.blue,
@@ -119,7 +119,7 @@ var starting_games25_ctx_config = {
           data: starting_games25.p[2],
           fill: true
       }, {
-          label: catchers[3],
+          label: 'その他',
           lineTension: 0,
           borderColor: window.chartColors.blue,
           backgroundColor: window.chartColors.blue,
@@ -150,7 +150,7 @@ var ctx25 = document.getElementById("pie25innings");
 var pie25innings = new Chart(ctx25, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], catchers[3]],
+    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
     datasets: [{
       data: total_innings25,
       backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
@@ -173,7 +173,7 @@ var ctx25v2 = document.getElementById("pie25startings");
 var pie25startings = new Chart(ctx25v2, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], catchers[3]],
+    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
     datasets: [{
       data: total_starting_games25,
       backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
@@ -196,7 +196,7 @@ var ctx25v3 = document.getElementById("pie25wins");
 var pie25wins = new Chart(ctx25v3, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], catchers[3]],
+    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
     datasets: [{
       data: total_wins25,
       backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
@@ -242,7 +242,7 @@ var myLineChart25 = new Chart(ctx25, {
         data: pie_data25.Winning_games[2],
       },
       {
-        label: catchers[3],
+        label: 'その他',
         backgroundColor: "#007bff",
         borderColor: "#007bff",
         data: pie_data25.Winning_games[3],
