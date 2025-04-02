@@ -6,12 +6,14 @@ var datas25 = {
     '2025-03-28': 1,
     '2025-03-29': -1,
     '2025-03-30': 1,
+    '2025-04-02': 1,
     //@@NEXTGAME@@
 };
 var score25 = {
     '2025-03-28': 'vs Eagles , 3-2 </br>Start P.宮城 / C.若月',
     '2025-03-29': 'vs Eagles , 4-5 </br>Start P.九里 / C.若月',
     '2025-03-30': 'vs Eagles , 6-1 </br>Start P.高島 / C.福永',
+    '2025-04-02': 'vs Marines , 2-3 </br>Start P.曽谷 / C.若月',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
