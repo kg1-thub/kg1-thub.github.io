@@ -274,6 +274,8 @@ def get_query_category(sql, series, category):
         # condition = "AND NOT (catcher='大城' AND pitcher='平内 龍太')"
         if num == 2 and category == 'pitcher':
             condition = "AND NOT (catcher='中村' AND pitcher='山本 大貴')"
+        if num == 3 and category == 'pitcher':
+            condition = "AND NOT (catcher='戸柱' AND pitcher='颯')"
         # if num == 4 and category == 'pitcher':
         #     condition = "AND NOT (catcher='宇佐見' AND pitcher='田島 慎二')"
         # if num == 7 and category == 'pitcher':
@@ -292,10 +294,12 @@ def create_table_category(sql_cat, series, category):
 
     table_html = ''
     tb = '\t'*11
-    if category == 'pitcher' and num == 4:
-        stats.append(('田島 慎二', None, None, None))
+    # if category == 'pitcher' and num == 4:
+    #     stats.append(('田島 慎二', None, None, None))
     if category == 'pitcher' and num == 2:
         stats.append(('山本 大貴', None, None, None))
+    if category == 'pitcher' and num == 3:
+        stats.append(('颯', None, None, None))
     for stat in stats:
         table_html += tb+'<tr>\n'
         for i, x in enumerate(stat):
@@ -310,6 +314,8 @@ def create_table_category(sql_cat, series, category):
                 #     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 if stat[0] == '山本 大貴' and i==1:
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                elif stat[0] == '颯' and i==3:
+                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 else:
                     table_html += tb+'\t<td>---</td>\n'
                 # table_html += tb+'\t<td>---</td>\n'
