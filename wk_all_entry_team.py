@@ -296,10 +296,10 @@ def create_table_category(sql_cat, series, category):
     tb = '\t'*11
     # if category == 'pitcher' and num == 4:
     #     stats.append(('田島 慎二', None, None, None))
-    if category == 'pitcher' and num == 2:
-        stats.append(('山本 大貴', None, None, None))
-    if category == 'pitcher' and num == 3:
-        stats.append(('颯', None, None, None))
+    # if category == 'pitcher' and num == 2:
+    #     stats.append(('山本 大貴', None, None, None))
+    # if category == 'pitcher' and num == 3:
+    #     stats.append(('颯', None, None, None))
     for stat in stats:
         table_html += tb+'<tr>\n'
         for i, x in enumerate(stat):
@@ -758,6 +758,8 @@ def task_entry_wl():
     elif entry_wl == 2:
         entry_wl_ce = 0
 
+    STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
+    _rjust = 3
     url = 'https://baseball.yahoo.co.jp/npb/standings/'
     xml = requests.get(url)
     soup = BeautifulSoup(xml.content, 'html.parser')
@@ -797,8 +799,6 @@ def task_entry_wl():
             print(wl_teams)
 
         # STANDINGAREADEMO UPDATE
-        STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
-        _rjust = 3
         with open(STANDINGAREADEMO,mode='r',encoding='utf-8') as reader:
             lines = reader.readlines()
             content = ''
@@ -851,8 +851,6 @@ def task_entry_wl():
             print(wl_teams)
 
         # STANDINGAREADEMO UPDATE
-        STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
-        _rjust = 3
         with open(STANDINGAREADEMO,mode='r',encoding='utf-8') as reader:
             lines = reader.readlines()
             content = ''
@@ -887,9 +885,6 @@ if __name__=='__main__':
     make_html_all = False
     entry_wl = False
     # TODAY = datetime.datetime.today()
-    tday = datetime.datetime.today() \
-        if int(input('今日の試合? (1:YES, 0:NO)> ')) \
-        else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
 
     if task==1:
         make_html = False
@@ -902,23 +897,34 @@ if __name__=='__main__':
         entry_csv = False
         make_html = False
 
-    if entry_wl:
-        task_entry_wl()
-        exit
-
     if make_html_all:
         for i in range(1,13):
             set_team_param(i)
             task_make_html()
-    else:
+    elif not entry_wl:
+        if entry_csv:
+            tday = datetime.datetime.today() \
+                if int(input('今日の試合? (1:YES, 0:NO)> ')) \
+                else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
+
+        team_num = 1
         while True:
             print('どのチームにしますか?')
-            print('  1:巨人, 2:ﾔｸﾙﾄ, 3:横浜, 4:中日, 5:阪神, 6:広島')
+            print('  0:exit, 1:巨人, 2:ﾔｸﾙﾄ, 3:横浜, 4:中日, 5:阪神, 6:広島')
             print('  7:西武, 8:日ﾊﾑ, 9:ﾛｯﾃ, 10:楽天, 11:ｵﾘｯｸｽ, 12:ｿﾌﾄﾊﾞﾝｸ')
-            set_team_param(int(input('番号を入力してください> ')))
+            team_num = int(input('番号を入力してください> '))
+            if team_num == 0:
+                entry_wl = bool(int(input('チーム勝敗を取り込む(1:Yes, 0:No)> ')))
+            else:
+                set_team_param(team_num)
 
-            if entry_csv:
-                task_entry_csv()
+                if entry_csv:
+                    task_entry_csv()
 
-            if make_html:
-                task_make_html()
+                if make_html:
+                    task_make_html()
+
+    if entry_wl:
+        task_entry_wl()
+
+    print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'SCRIPT FINISHED!')

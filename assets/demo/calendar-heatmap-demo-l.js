@@ -3,15 +3,18 @@ var _colorRange = ['#ECEFF2', '#176B87'];
 
 // 2025
 var datas25 = {
+    '2025-01-01': 1,
     '2025-03-28': -1,
     '2025-03-29': -1,
     '2025-03-30': -1,
+    '2025-04-03': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
     '2025-03-28': 'vs Fighters , 0-2 </br>Start P.今井 / C.古賀',
     '2025-03-29': 'vs Fighters , 2-3 </br>Start P.渡邉 / C.古賀',
     '2025-03-30': 'vs Fighters , 5-7 </br>Start P.高橋 / C.古賀',
+    '2025-04-03': 'vs Eagles , 4-1 </br>Start P.上田 / C.牧野',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
