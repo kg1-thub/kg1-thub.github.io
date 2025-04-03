@@ -908,7 +908,7 @@ if __name__=='__main__':
                 else datetime.datetime(int(_Y), int(input('  月> ')), int(input('  日> ')))
 
         team_num = 1
-        while True:
+        while team_num > 0:
             print('どのチームにしますか?')
             print('  0:exit, 1:巨人, 2:ﾔｸﾙﾄ, 3:横浜, 4:中日, 5:阪神, 6:広島')
             print('  7:西武, 8:日ﾊﾑ, 9:ﾛｯﾃ, 10:楽天, 11:ｵﾘｯｸｽ, 12:ｿﾌﾄﾊﾞﾝｸ')
