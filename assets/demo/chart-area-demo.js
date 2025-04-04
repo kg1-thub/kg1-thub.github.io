@@ -29,17 +29,17 @@ var ctx25_data = {
 };
 
 var ctx25p_data = {
-  'Hawks':    [0, -1, -2, -3, -2, -3, -3,//wl_Hawks
+  'Hawks':    [0, -1, -2, -3, -2, -3, -3, -4,//wl_Hawks
   ],
-  'Fighters': [0,  1,  2,  3,  2,  3,  3,//wl_Fighters
+  'Fighters': [0,  1,  2,  3,  2,  3,  3,  2,//wl_Fighters
   ],
-  'Marines':  [0,  1,  2,  3,  3,  2,  1,//wl_Marines
+  'Marines':  [0,  1,  2,  3,  3,  2,  1,  0,//wl_Marines
   ],
-  'Eagles':   [0, -1,  0, -1, -1, -1,  0,//wl_Eagles
+  'Eagles':   [0, -1,  0, -1, -1, -1,  0,  1,//wl_Eagles
   ],
-  'Buffaloes':[0,  1,  0,  1,  1,  2,  3,//wl_Buffaloes
+  'Buffaloes':[0,  1,  0,  1,  1,  2,  3,  4,//wl_Buffaloes
   ],
-  'Lions':    [0, -1, -2, -3, -3, -3, -4,//wl_Lions
+  'Lions':    [0, -1, -2, -3, -3, -3, -4, -3,//wl_Lions
   ],
   'labels':[
     'Start','03/28','03/29','03/30','04/01','04/02','04/03','04/04','04/05','04/06',
