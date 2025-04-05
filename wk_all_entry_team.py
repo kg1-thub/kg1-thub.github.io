@@ -272,7 +272,7 @@ def get_query_category(sql, series, category):
         if num == 2 and category == 'pitcher':
             condition = "AND NOT (catcher='中村' AND pitcher='山本 大貴') AND NOT (catcher='中村' AND pitcher='星 知弥')"
         if num == 3 and category == 'pitcher':
-            condition = "AND NOT (catcher='戸柱' AND pitcher='颯')"
+            condition = "AND NOT (catcher='戸柱' AND pitcher='颯') AND NOT (catcher='戸柱' AND pitcher='山崎 康晃')"
         # if num == 4 and category == 'pitcher':
         #     condition = "AND NOT (catcher='宇佐見' AND pitcher='田島 慎二')"
         # if num == 7 and category == 'pitcher':
