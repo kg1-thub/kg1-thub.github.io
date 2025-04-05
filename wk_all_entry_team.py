@@ -56,7 +56,7 @@ def set_team_param(_num):
         color_lose = 'rgb(190, 211, 213)'
         catcher0 = '中村'
         catcher1 = '松本直'
-        catcher2 = '内山'
+        catcher2 = '古賀'
         catchers = [catcher0, catcher1, catcher2]
     if _num == 3:
         num = 3
@@ -71,9 +71,9 @@ def set_team_param(_num):
         color_draw = 'rgb(94, 180, 228)'
         color_lose = 'rgb(189, 219, 237)'
         catcher0 = '山本'
-        catcher1 = '伊藤'
-        catcher2 = '戸柱'
-        catcher3 = '松尾'
+        catcher1 = '戸柱'
+        catcher2 = '松尾'
+        catcher3 = '伊藤'
         catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 4:
         num = 4
@@ -106,9 +106,8 @@ def set_team_param(_num):
         color_lose = 'rgb(239, 231, 194)'
         catcher0 = '梅野'
         catcher1 = '坂本'
-        catcher2 = '長坂'
-        catcher3 = '榮枝'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher2 = '榮枝'
+        catchers = [catcher0, catcher1, catcher2]
     if _num == 6:
         num = 6
         Team = 'Carp'
@@ -137,11 +136,10 @@ def set_team_param(_num):
         color_win = '#176B87'
         color_draw = 'rgb(108, 160, 178)'
         color_lose = 'rgb(193, 213, 221)'
-        catcher0 = '古賀'
+        catcher0 = '古賀悠'
         catcher1 = '炭谷'
-        catcher2 = '柘植'
-        catcher3 = '牧野'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher2 = '牧野'
+        catchers = [catcher0, catcher1, catcher2]
     if _num == 8:
         num = 8
         Team = 'Fighters'
@@ -204,9 +202,8 @@ def set_team_param(_num):
         color_lose = 'rgb(191, 197, 211)'
         catcher0 = '森'
         catcher1 = '若月'
-        catcher2 = '石川'
-        catcher3 = '福永'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher2 = '福永'
+        catchers = [catcher0, catcher1, catcher2]
     if _num == 12:
         num = 12
         Team = 'Hawks'
@@ -312,11 +309,11 @@ def create_table_category(sql_cat, series, category):
                 #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 # elif stat[0] == '小孫 竜二' and i==1:
                 #     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
-                if stat[0] == '山本 大貴' and i==1:
+                if stat[0] == '山本 大貴' and i==1: #S,i=1,C:中村
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '星 知弥' and i==1:
+                elif stat[0] == '星 知弥' and i==1: #S,i=1,C:中村
                     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
-                elif stat[0] == '颯' and i==3:
+                elif stat[0] == '颯' and i==2: #B,i=2,C:戸柱
                     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 else:
                     table_html += tb+'\t<td>---</td>\n'
