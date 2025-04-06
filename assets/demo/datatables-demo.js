@@ -635,14 +635,14 @@ function makeCSV(records, columns, year, keyword) {
   }
 };
 
-function search_keyword(keyword) {
-  var table = $('#dt24games').DataTable();
+function search_keyword(year, keyword) {
+  var table = $(`#dt${year}games`).DataTable();
   table.search( keyword ).draw();
 };
 
-function search_today() {
+function search_today(year) {
   var today=new Date(); 
-  var table = $('#dt24games').DataTable();
+  var table = $(`#dt${year}games`).DataTable();
   table.search( ('0'+String(today.getMonth()+1)).slice(-2)+"/"+('0'+String(today.getDate())).slice(-2) ).draw();
 };
 
@@ -684,7 +684,7 @@ window.onload = function() {
     let params = new URLSearchParams(location.search.substring(1));
     var search = params.get("search");
     var query = decodeURI(search).replace(",", " ");
-    search_keyword(query);
+    search_keyword(year, query);
   }
 };
 
