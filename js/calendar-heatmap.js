@@ -264,7 +264,11 @@ function calendarHeatmap() {
           .enter().append('text')
           .attr('class', 'month-name')
           .text(function (d) {
-            return locale.months[d.getMonth()];
+            if (locale.months[d.getMonth()] === 'Mar'){
+              return '';
+            }else{
+              return locale.months[d.getMonth()];
+            }
           })
           .attr('x', function (d) {
             var matchIndex = 0;
