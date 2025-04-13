@@ -123,7 +123,8 @@ def set_team_param(_num):
         catcher0 = '坂倉'
         catcher1 = '會澤'
         catcher2 = '石原'
-        catchers = [catcher0, catcher1, catcher2]
+        catcher3 = '磯村'
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 7:
         num = 7
         Team = 'Lions'
