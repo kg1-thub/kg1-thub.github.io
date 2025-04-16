@@ -82,9 +82,9 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
     # reader = reader(f)
     for row in f.readlines():
         if '<!-- @@SCORE1@@ -->' in row:
-            content += '            <div><h4 class="display-4"> %s HR / %s SB</h4></div><!-- @@SCORE1@@ -->\n' % (_hr, _sb)
-        elif '<!-- @@SCORE2@@ -->' in row:
-            content += '            <div><h4 class="display-4"> AVG %s / %s HITS / %s RBI</h4></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
+            content += '            <div><h4 class="display-4"> %s HR / %s SB / AVG %s / %s HITS / %s RBI</h4></div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
+        # elif '<!-- @@SCORE2@@ -->' in row:
+        #     content += '            <div><h4 class="display-4"> AVG %s / %s HITS / %s RBI</h4></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
         else:
             content += row
 with open(shoINDEX,mode='w',encoding='utf-8') as writer:
