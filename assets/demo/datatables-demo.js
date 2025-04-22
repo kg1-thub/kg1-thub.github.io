@@ -759,7 +759,7 @@ function makeCSV2(records, columns, year, keyword) {
           sb  += parseInt(data[3][i]);
           hr  += parseInt(data[4][i]);
         }
-        document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${parseInt(h/ab*1000)} / ${sb} 盗塁`;
+        document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${Math.round(h/ab*1000)} / ${sb} 盗塁`;
       })
     });
   }
