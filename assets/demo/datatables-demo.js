@@ -711,18 +711,18 @@ function makeCSV2(records, columns, year, keyword) {
           { width: "5%", targets: 12 },
           { width: "5%", targets: 13 },
           { width: "5%", targets: 14 },
-          { visible: false, targets: 15 },
-          { visible: false, targets: 16 },
-          { visible: false, targets: 17 },
-          { visible: false, targets: 18 },
-          { visible: false, targets: 19 },
-          { visible: false, targets: 20 },
-          { visible: false, targets: 21 },
-          { visible: false, targets: 22 },
-          { visible: false, targets: 23 },
-          { visible: false, targets: 24 },
-          { visible: false, targets: 25 },
-          { visible: false, targets: 26 },
+          { visible: false, width: "5%", targets: 15 },
+          { visible: false, width: "5%", targets: 16 },
+          { visible: false, width: "5%", targets: 17 },
+          { visible: false, width: "5%", targets: 18 },
+          { visible: false, width: "5%", targets: 19 },
+          { visible: false, width: "5%", targets: 20 },
+          { visible: false, width: "5%", targets: 21 },
+          { visible: false, width: "5%", targets: 22 },
+          { visible: false, width: "5%", targets: 23 },
+          { visible: false, width: "5%", targets: 24 },
+          { visible: false, width: "5%", targets: 25 },
+          { visible: false, width: "5%", targets: 26 },
           { width: "5%", targets: 27 },
           { width: "5%", targets: 28 },
           { visible: false, targets: 29 },//starting
@@ -745,44 +745,21 @@ function makeCSV2(records, columns, year, keyword) {
       }).on('search.dt', function() {
         var table = $(`#dt${year}gamesoffence`).DataTable();
 
-        var data = table.columns( [1, 3, 13, 17] , {filter:'applied'}).data();
-        var wls = [0, 0, 0];
-        var ins_outs = [0, 0];
-        var ers = 0;
-        var qs = 0;
-        var st = 0
+        var data = table.columns( [4, 6, 7, 12, 14] , {filter:'applied'}).data();
+        var ab = 0;
+        var h = 0;
+        var rbi = 0;
+        var sb = 0;
+        var hr = 0
 
-        // for (let i=0; i<data[0].length; i++) {
-        //   if (data[0][i]=='W') {
-        //     wls[0] += 1;
-        //   } else if (data[0][i]=='L') {
-        //     wls[1] += 1;
-        //   } else if (data[0][i]=='S') {
-        //     wls[2] += 1;
-        //   }
-
-        //   if (data[1][i].includes('.')) {
-        //     var _ins_outs = data[1][i].split('.');
-        //     ins_outs[0] += parseInt(_ins_outs[0]);
-        //     ins_outs[1] += parseInt(_ins_outs[1]);
-        //   } else {
-        //     ins_outs[0] += parseInt(data[1][i]);
-        //   }
-
-        //   if (data[3][i]=='先発') {
-        //     st += 1;
-        //     if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3) {
-        //       qs += 1;
-        //     }
-        //   }
-
-        //   ers += parseInt(data[2][i]);
-        // }
-        // if (st==0){
-        //   document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
-        // } else {
-        //   document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
-        // }
+        for (let i=0; i<data[0].length; i++) {
+          ab  += parseInt(data[0][i]);
+          h   += parseInt(data[1][i]);
+          rbi += parseInt(data[2][i]);
+          sb  += parseInt(data[3][i]);
+          hr  += parseInt(data[4][i]);
+        }
+        document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${parseInt(h/ab*1000)} / ${sb} 盗塁`;
       })
     });
   }
