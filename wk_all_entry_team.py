@@ -387,9 +387,11 @@ def task_entry_csv():
     # if _score[0] == team_jp:
     if _score[0] == team_jp2:
         vsteam = _score[1]
+        _k_table = 1
     # elif _score[1] == team_jp:
     elif _score[1] == team_jp2:
         vsteam = _score[0]
+        _k_table = 0
     score = _score[2]+'-'+_score[3]
 
     url = f'https://baseball.yahoo.co.jp/npb/game/{gameid}/stats'
@@ -451,8 +453,32 @@ def task_entry_csv():
                     if not fullmask: print()
                     f.write(','.join(_playerscore)+'\n')
                     _batteries.append([_playerscore[1], _playerscore[13], _playerscore[2]])
+    print('PITCH CSV UPDATED.')
 
+    for _k, news in enumerate(soup.findAll('table', class_='bb-statsTable')):
+        if _k == _k_table:
+            with open(csvdir+f'/offence_stats{_y}{team_i}.csv',mode='a',encoding='utf-8') as f:
+                for order_of_batter, scores_of_batter in enumerate(news.findAll('tr', class_='bb-statsTable__row')):
+                    if order_of_batter == 0:
+                        pass
+                    else:
+                        # print(scores_of_pitcher)
+                        _playerscore = []
+                        starting = 0
+                        for i, score_of_batter in enumerate(scores_of_batter.findAll('td')):
+                            if i == 0 and score_of_batter.text[0] == '(':
+                                starting = 1
+                            _playerscore.append(score_of_batter.text.strip('\n').replace('\n', ' '))
+                        if i < 25:
+                            _playerscore.extend(['']*(25-i))
+                        _playerscore.append(tday.strftime('%Y/%m/%d'))
+                        _playerscore.append(vsteam)
+                        _playerscore.append(str(starting))
+                        _playerscore.append(f'{_Y}RS')
+                        print(','.join(_playerscore))
+                        f.write(','.join(_playerscore)+'\n')
     print()
+    print('OFFENCE CSV UPDATED.')
     print('CSV UPDATED.')
 
     # CALENDER-HEATMAP UPDATE

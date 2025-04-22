@@ -554,84 +554,6 @@ function makeCSV(records, columns, year, keyword) {
         }
       })
     });
-  // } else {
-  //   $(document).ready(function() {
-  //     $(`#dt${year}games`).DataTable({
-  //       order: [[ 0, "asc" ]],
-  //       columnDefs: [
-  //         { visible: false, targets: 0 },
-  //         { width: "5%", targets: 1 },
-  //         { width: "9%", targets: 2 },
-  //         { width: "6%", targets: 3 },
-  //         { width: "5%", targets: 4 },
-  //         { width: "5%", targets: 5 },
-  //         { width: "5%", targets: 6 },
-  //         { width: "5%", targets: 7 },
-  //         { width: "5%", targets: 8 },
-  //         { width: "5%", targets: 9 },
-  //         { width: "5%", targets: 10 },
-  //         { visible: false, targets: 11 },
-  //         { width: "5%", targets: 12 },
-  //         { width: "5%", targets: 13 },
-  //         { visible: false, targets: 14 },
-  //       ],
-  //       // dom: 'frtiQlp',
-  //       dom: '<"float-left"f>rt<"float-left"p>',
-  //       searching: true,
-  //       search: {
-  //         regex: true,
-  //         search: keyword
-  //       },
-  //       paging: true,
-  //       info: false,
-  //       // language: {
-  //       //   searchPlaceholder: "search keyword"
-  //       // }
-  //       lengthMenu: [ 10, 30, 50 ],
-  //       mark: true,
-  //     }).on('search.dt', function() {
-  //       var table = $(`#dt${year}games`).DataTable();
-
-  //       var data = table.columns( [1, 3, 13] , {filter:'applied'}).data();
-  //       var wls = [0, 0, 0];
-  //       var ins_outs = [0, 0];
-  //       var ers = 0;
-  //       var qs = 0;
-  //       var st = 0
-
-  //       for (let i=0; i<data[0].length; i++) {
-  //         if (data[0][i]=='W') {
-  //           wls[0] += 1;
-  //         } else if (data[0][i]=='L') {
-  //           wls[1] += 1;
-  //         } else if (data[0][i]=='S') {
-  //           wls[2] += 1;
-  //         }
-
-  //         if (data[1][i].includes('.')) {
-  //           var _ins_outs = data[1][i].split('.');
-  //           ins_outs[0] += parseInt(_ins_outs[0]);
-  //           ins_outs[1] += parseInt(_ins_outs[1]);
-  //         } else {
-  //           ins_outs[0] += parseInt(data[1][i]);
-  //         }
-
-  //         if (data[3][i]=='先発') {
-  //           st += 1;
-  //           if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3) {
-  //             qs += 1;
-  //           }
-  //         }
-
-  //         ers += parseInt(data[2][i]);
-  //       }
-  //       if (st==0){
-  //         document.getElementById(`dt${year}gamescaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
-  //       } else {
-  //         document.getElementById(`dt${year}gamescaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
-  //       }
-  //     })
-  //   });
   }
 };
 
@@ -649,8 +571,6 @@ function search_today(year) {
 function csvLoad(year, keyword, team_initial="") {
   if (year == "24" || year == "25"){
     var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
-  // } else {
-  //   var cols = ["勝敗S","投手","投球回","打者","被安","三振","四球","失点","自責","捕手","月日","対戦","出場","series"];
   }
   // wls,pitcher,innings,pitches,at_bats,hits,homeruns,strikeouts,walks,hit_by_pitch,balks,runs,earned_runs,catcher,day_of_game,vs_team,starting,series
   var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/catcher_stats${year}${team_initial}.csv`;
@@ -672,6 +592,238 @@ function csvLoad(year, keyword, team_initial="") {
               records[i] = row_data.split(",");
           }
           makeCSV(records, cols, year, keyword);
+      };
+      reader.onerror = function() {
+          alert("エラー：ファイルをロードできません。");
+      };
+  });
+};
+
+function makeCSV2(records, columns, year, keyword) {
+  const divtable = document.getElementById(`dt${year}gamesoffence`);
+  const divcaption = document.getElementById(`dt${year}gamesoffencecaption`);
+  // const divcaption = document.createElement("caption");
+  // divcaption.setAttribute("id", "dt"+year+"gamescaption");
+  divcaption.style.captionSide = "top";
+  divcaption.style.fontSize = "1.4rem";
+  divcaption.style.fontWeight = "300";
+  divcaption.style.lineHeight = "1.2";
+  divcaption.classList.add("pt-0");
+  divcaption.classList.add("pb-0");
+  // var wls = [0, 0, 0];
+  // var ins_outs = [0, 0];
+  // var ers = 0;
+  // var qs = 0;
+
+  // for (let i=0; i<records.length; i++) {
+  //   if (records[i][0]=='W') {
+  //     wls[0] += 1;
+  //   } else if (records[i][0]=='L') {
+  //     wls[1] += 1;
+  //   } else if (records[i][0]=='S') {
+  //     wls[2] += 1;
+  //   }
+
+  //   if (records[i][2].includes('.')) {
+  //     var _ins_outs = records[i][2].split('.');
+  //     ins_outs[0] += parseInt(_ins_outs[0]);
+  //     ins_outs[1] += parseInt(_ins_outs[1]);
+  //   } else {
+  //     ins_outs[0] += parseInt(records[i][2]);
+  //   }
+
+  //   if (records[i][16]=='1' && parseFloat(records[i][2])>=6 && parseFloat(records[i][12])<=3)
+  //   {
+  //     qs += 1;
+  //   }
+
+  //   ers += parseInt(records[i][12]);
+  // }
+
+  // // divcaption.textContent = "勝-敗-S, 防御率 (イニング)";
+  // divcaption.textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS`;
+  // // divtable.appendChild(divcaption);
+
+  const divthead = document.createElement("thead");
+  divtable.appendChild(divthead);
+  const divtheadr = document.createElement("tr");
+  divthead.appendChild(divtheadr);
+  let divth = document.createElement("th");
+  divth.textContent = 'seq';
+  divtheadr.appendChild(divth);
+  for (var j = 0; j < columns.length; j++) {
+      let divth = document.createElement("th");
+      divth.textContent = columns[j];
+      divtheadr.appendChild(divth);
+  }
+
+  const divtbody = document.createElement("tbody");
+  divtable.appendChild(divtbody);
+  for (var i = 0; i < records.length; i++) {
+      let divtr = document.createElement("tr");
+      divtbody.appendChild(divtr);
+      let divtd = document.createElement("td");
+      divtd.textContent = String(i);
+      divtr.appendChild(divtd);
+      for (var j = 0; j < columns.length; j++) {
+          let divtd = document.createElement("td");
+          // if (j==1) {
+          //   divtd.textContent = records[i][j].replace("　", "");
+          // } else 
+          if (j==26) {
+            divtd.textContent = records[i][j].substr(5);
+          } else if (j==28) {
+            if (records[i][j]=="1") {
+              divtd.textContent = "先発";
+            } else {
+              divtd.textContent = "交代";
+            }
+          } else {
+            divtd.textContent = records[i][j];
+          }
+          divtr.appendChild(divtd);
+      }
+  }
+
+  // var keyword=KW;
+  if (year == '25') {
+    // keyword = "07/19"; // @@KEYWORD@@
+    $(document).ready(function() {
+      $(`#dt${year}gamesoffence`).DataTable({
+        order: [[ 0, "asc" ]],
+        buttons: [
+          'colvis' // ←これだけで列表示メニューが出る！
+        ],
+        columnDefs: [
+          { visible: false, targets: 0 },
+          // { visible: false, targets: 1 },
+          { width: "5%", targets: 1 },
+          { width: "10%", targets: 2 },
+          { width: "5%", targets: 3 },
+          { width: "5%", targets: 4 },
+          { width: "5%", targets: 5 },
+          { width: "5%", targets: 6 },
+          { width: "5%", targets: 7 },
+          { width: "5%", targets: 8 },
+          { width: "5%", targets: 9 },
+          { width: "5%", targets: 10 },
+          { width: "5%", targets: 11 },
+          { width: "5%", targets: 12 },
+          { width: "5%", targets: 13 },
+          { width: "5%", targets: 14 },
+          { visible: false, targets: 15 },
+          { visible: false, targets: 16 },
+          { visible: false, targets: 17 },
+          { visible: false, targets: 18 },
+          { visible: false, targets: 19 },
+          { visible: false, targets: 20 },
+          { visible: false, targets: 21 },
+          { visible: false, targets: 22 },
+          { visible: false, targets: 23 },
+          { visible: false, targets: 24 },
+          { visible: false, targets: 25 },
+          { visible: false, targets: 26 },
+          { width: "5%", targets: 27 },
+          { width: "5%", targets: 28 },
+          { visible: false, targets: 29 },//starting
+          { visible: false, targets: 30 },//category
+        ],
+        // dom: 'frtiQlp',
+        dom: '<"float-left"f>rt<"float-left"p>',
+        searching: true,
+        search: {
+          regex: true,
+          search: keyword
+        },
+        paging: true,
+        info: false,
+        // language: {
+        //   searchPlaceholder: "search keyword"
+        // }
+        lengthMenu: [ 30, 50, 100 ],
+        mark: true,
+      }).on('search.dt', function() {
+        var table = $(`#dt${year}gamesoffence`).DataTable();
+
+        var data = table.columns( [1, 3, 13, 17] , {filter:'applied'}).data();
+        var wls = [0, 0, 0];
+        var ins_outs = [0, 0];
+        var ers = 0;
+        var qs = 0;
+        var st = 0
+
+        // for (let i=0; i<data[0].length; i++) {
+        //   if (data[0][i]=='W') {
+        //     wls[0] += 1;
+        //   } else if (data[0][i]=='L') {
+        //     wls[1] += 1;
+        //   } else if (data[0][i]=='S') {
+        //     wls[2] += 1;
+        //   }
+
+        //   if (data[1][i].includes('.')) {
+        //     var _ins_outs = data[1][i].split('.');
+        //     ins_outs[0] += parseInt(_ins_outs[0]);
+        //     ins_outs[1] += parseInt(_ins_outs[1]);
+        //   } else {
+        //     ins_outs[0] += parseInt(data[1][i]);
+        //   }
+
+        //   if (data[3][i]=='先発') {
+        //     st += 1;
+        //     if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3) {
+        //       qs += 1;
+        //     }
+        //   }
+
+        //   ers += parseInt(data[2][i]);
+        // }
+        // if (st==0){
+        //   document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+        // } else {
+        //   document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
+        // }
+      })
+    });
+  }
+};
+
+function switch_colvis(year) {
+  var table = $(`#dt${year}gamesoffence`).DataTable();
+  const targetCols = [
+    3,4,5,6,7,8,9,10,11,12,13,14,
+    15,16,17,18,19,20,21,22,23,24,25,26
+  ];
+  targetCols.forEach(function (colIndex) {
+    const col = table.column(colIndex);
+    col.visible(!col.visible());
+  });
+};
+
+function csvLoad2(year, keyword, team_initial="") {
+  if (year == "25"){
+    var cols = ["位置","選手","打率","打数","得点","安打","打点","三振","四球","死球","犠打","盗塁","失策","本塁打","1回","2回","3回","4回","5回","6回","7回","8回","9回","10回","11回","12回","月日","対戦","出場","series"];
+  }
+  // position,player,avg,ab,r,h,rbi,so,walks,hbp,sac,sb,err,hr,inn1,inn2,inn3,inn4,inn5,inn6,inn7,inn8,inn9,inn10,inn11,inn12,day_of_game,vs_team,starting,series
+  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/offence_stats${year}${team_initial}.csv`;
+  fetch(fileurl)
+  .then(res => res.blob()) // Gets the response and returns it as a blob
+  .then(blob => {
+      console.log("LOAD TABLE");
+      var file = blob;
+      var reader = new FileReader();
+      reader.readAsText(file, 'utf-8');
+      reader.onload = function(event) {
+          var textdata = event.target.result;
+          var tmp = textdata.split("\n");
+          // console.log(tmp);
+          // var cols = tmp[0].split(",");
+          var records = [];
+          for (var i = 0; i < tmp.length-2; i++) {
+              var row_data = tmp[i+1];
+              records[i] = row_data.split(",");
+          }
+          makeCSV2(records, cols, year, keyword);
       };
       reader.onerror = function() {
           alert("エラー：ファイルをロードできません。");
