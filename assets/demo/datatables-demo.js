@@ -657,6 +657,19 @@ function makeCSV2(records, columns, year, keyword) {
       divtheadr.appendChild(divth);
   }
 
+  const divtfoot = document.createElement("tfoot");
+  divtable.appendChild(divtfoot);
+  const divtfootr = document.createElement("tr");
+  divtfoot.appendChild(divtfootr);
+  divth = document.createElement("th");
+  divth.textContent = 'seq';
+  divtfootr.appendChild(divth);
+  for (var j = 0; j < columns.length; j++) {
+      let divth = document.createElement("th");
+      divth.textContent = columns[j];
+      divtfootr.appendChild(divth);
+  }
+
   const divtbody = document.createElement("tbody");
   divtable.appendChild(divtbody);
   for (var i = 0; i < records.length; i++) {
@@ -687,47 +700,65 @@ function makeCSV2(records, columns, year, keyword) {
 
   // var keyword=KW;
   if (year == '25') {
+    // const keywords = ["安","２","３","本"];
     // keyword = "07/19"; // @@KEYWORD@@
     $(document).ready(function() {
       $(`#dt${year}gamesoffence`).DataTable({
         order: [[ 0, "asc" ]],
-        buttons: [
-          'colvis' // ←これだけで列表示メニューが出る！
-        ],
         columnDefs: [
           { visible: false, targets: 0 },
-          // { visible: false, targets: 1 },
           { width: "5%", targets: 1 },
           { width: "10%", targets: 2 },
-          { width: "5%", targets: 3 },
-          { width: "5%", targets: 4 },
-          { width: "5%", targets: 5 },
-          { width: "5%", targets: 6 },
-          { width: "5%", targets: 7 },
-          { width: "5%", targets: 8 },
-          { width: "5%", targets: 9 },
-          { width: "5%", targets: 10 },
-          { width: "5%", targets: 11 },
-          { width: "5%", targets: 12 },
-          { width: "5%", targets: 13 },
-          { width: "5%", targets: 14 },
-          { visible: false, width: "5%", targets: 15 },
-          { visible: false, width: "5%", targets: 16 },
-          { visible: false, width: "5%", targets: 17 },
-          { visible: false, width: "5%", targets: 18 },
-          { visible: false, width: "5%", targets: 19 },
-          { visible: false, width: "5%", targets: 20 },
-          { visible: false, width: "5%", targets: 21 },
-          { visible: false, width: "5%", targets: 22 },
-          { visible: false, width: "5%", targets: 23 },
-          { visible: false, width: "5%", targets: 24 },
-          { visible: false, width: "5%", targets: 25 },
-          { visible: false, width: "5%", targets: 26 },
+          { visible: false, width: "5%", targets: 3 },
+          { visible: false, width: "5%", targets: 4 },
+          { visible: false, width: "5%", targets: 5 },
+          { visible: false, width: "5%", targets: 6 },
+          { visible: false, width: "5%", targets: 7 },
+          { visible: false, width: "5%", targets: 8 },
+          { visible: false, width: "5%", targets: 9 },
+          { visible: false, width: "5%", targets: 10 },
+          { visible: false, width: "5%", targets: 11 },
+          { visible: false, width: "5%", targets: 12 },
+          { visible: false, width: "5%", targets: 13 },
+          { visible: false, width: "5%", targets: 14 },
+          { visible: true, width: "5%", targets: 15 },
+          { visible: true, width: "5%", targets: 16 },
+          { visible: true, width: "5%", targets: 17 },
+          { visible: true, width: "5%", targets: 18 },
+          { visible: true, width: "5%", targets: 19 },
+          { visible: true, width: "5%", targets: 20 },
+          { visible: true, width: "5%", targets: 21 },
+          { visible: true, width: "5%", targets: 22 },
+          { visible: true, width: "5%", targets: 23 },
+          { visible: true, width: "5%", targets: 24 },
+          { visible: true, width: "5%", targets: 25 },
+          { visible: true, width: "5%", targets: 26 },
           { width: "5%", targets: 27 },
           { width: "5%", targets: 28 },
           { visible: false, targets: 29 },//starting
           { visible: false, targets: 30 },//category
         ],
+        rowCallback: function(row, data, dataIndex) {
+          $('td', row).each(function(i) {
+            const cellText = $(this).text();
+            if (i>1 && (cellText.indexOf('安') !== -1 ||
+              cellText.indexOf('２') !== -1 ||
+              cellText.indexOf('３') !== -1 ||
+              cellText.indexOf('本') !== -1)) {
+              console.log('HIT');
+              $(this).css({
+                'color': 'red',
+                'font-weight': 'bold'
+              });
+            } else {
+              // 条件に合わない場合は通常に戻す（見た目崩れ防止）
+              $(this).css({
+                'color': '',
+                'font-weight': ''
+              });
+            }
+          });
+        },
         // dom: 'frtiQlp',
         dom: '<"float-left"f>rt<"float-left"p>',
         searching: true,
