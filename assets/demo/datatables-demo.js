@@ -741,10 +741,12 @@ function makeCSV2(records, columns, year, keyword) {
         rowCallback: function(row, data, dataIndex) {
           $('td', row).each(function(i) {
             const cellText = $(this).text();
-            if (i>1 && i<14 && (cellText.indexOf('安') !== -1 ||
+            if (i>1 && i<14 && (
+              cellText.indexOf('安') !== -1 ||
               cellText.indexOf('２') !== -1 ||
               cellText.indexOf('３') !== -1 ||
-              cellText.indexOf('本') !== -1)) {
+              cellText.indexOf('本') !== -1
+            )) {
               console.log('HIT');
               $(this).css({
                 'color': 'red',
