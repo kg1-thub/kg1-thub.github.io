@@ -812,7 +812,7 @@ function switch_colvis(year) {
 
 function csvLoad2(year, keyword, team_initial="") {
   if (year == "25"){
-    var cols = ["位置","選手","打率","打数","得点","安打","打点","三振","四球","死球","犠打","盗塁","失策","本塁打","1回","2回","3回","4回","5回","6回","7回","8回","9回","10回","11回","12回","月日","対戦","出場","series"];
+    var cols = ["位置","選手","打率","打数","得点","安打","打点","三振","四球","死球","犠打","盗塁","失策","本打","1回","2回","3回","4回","5回","6回","7回","8回","9回","10回","11回","12回","月日","対戦","出場","series"];
   }
   // position,player,avg,ab,r,h,rbi,so,walks,hbp,sac,sb,err,hr,inn1,inn2,inn3,inn4,inn5,inn6,inn7,inn8,inn9,inn10,inn11,inn12,day_of_game,vs_team,starting,series
   var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/offence_stats${year}${team_initial}.csv`;

@@ -23,6 +23,7 @@ var datas25 = {
     '2025-04-22': 1,
     '2025-04-23': 1,
     '2025-04-25': 1,
+    '2025-04-26': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -46,6 +47,7 @@ var score25 = {
     '2025-04-22': 'vs Lions , 2-1 </br>Start P.石川 / C.佐藤',
     '2025-04-23': 'vs Lions , 5-2 </br>Start P.種市 / C.寺地',
     '2025-04-25': 'vs Fighters , 1-2 </br>Start P.ボス / C.寺地',
+    '2025-04-26': 'vs Fighters , 2-1 </br>Start P.小島 / C.寺地',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
