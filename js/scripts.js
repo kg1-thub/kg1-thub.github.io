@@ -137,13 +137,17 @@ const tabPaLeague = document.getElementById('tab-pa-league');
 if (tabCeLeague && tabPaLeague){
     tabCeLeague.addEventListener('click', function() {
         console.log('clicked ce');
-        document.getElementById('ce-league').classList.add('active');
-        document.getElementById('pa-league').classList.remove('active');
+        document.getElementById('ce-league').classList.add('d-flex');
+        document.getElementById('ce-league').classList.remove('d-none');
+        document.getElementById('pa-league').classList.remove('d-flex');
+        document.getElementById('pa-league').classList.add('d-none');
     });
     tabPaLeague.addEventListener('click', function() {
         console.log('clicked pa');
-        document.getElementById('ce-league').classList.remove('active');
-        document.getElementById('pa-league').classList.add('active');
+        document.getElementById('ce-league').classList.remove('d-flex');
+        document.getElementById('ce-league').classList.add('d-none');
+        document.getElementById('pa-league').classList.add('d-flex');
+        document.getElementById('pa-league').classList.remove('d-none');
     });
 }
 

@@ -216,7 +216,6 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('#dt22pitcher').DataTable({
-    // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     order: [[ 1, "desc" ]],
     columnDefs: [
       // { width: "22%", targets: 1 },
@@ -267,7 +266,6 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('#dt23pitcher').DataTable({
-    // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     order: [[ 1, "desc" ]],
     columnDefs: [
       // { width: "22%", targets: 1 },
@@ -318,7 +316,6 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('#dt24pitcher').DataTable({
-    // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     order: [[ 1, "desc" ]],
     columnDefs: [
       // { width: "22%", targets: 1 },
@@ -369,7 +366,6 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('#dt25pitcher').DataTable({
-    // order: [ [ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ]],
     order: [[ 1, "desc" ]],
     columnDefs: [
       // { width: "22%", targets: 1 },
@@ -387,8 +383,6 @@ $(document).ready(function() {
 function makeCSV(records, columns, year, keyword) {
   const divtable = document.getElementById(`dt${year}games`);
   const divcaption = document.getElementById(`dt${year}gamescaption`);
-  // const divcaption = document.createElement("caption");
-  // divcaption.setAttribute("id", "dt"+year+"gamescaption");
   divcaption.style.captionSide = "top";
   divcaption.style.fontSize = "1.4rem";
   divcaption.style.fontWeight = "300";
@@ -452,9 +446,6 @@ function makeCSV(records, columns, year, keyword) {
       divtr.appendChild(divtd);
       for (var j = 0; j < columns.length; j++) {
           let divtd = document.createElement("td");
-          // if (j==1) {
-          //   divtd.textContent = records[i][j].replace("　", "");
-          // } else 
           if (j==14) {
             divtd.textContent = records[i][j].substr(5);
           } else if (j==16) {
@@ -470,9 +461,7 @@ function makeCSV(records, columns, year, keyword) {
       }
   }
 
-  // var keyword=KW;
   if (year == '24' || year == '25') {
-    // keyword = "07/19"; // @@KEYWORD@@
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
         order: [[ 0, "asc" ]],
@@ -506,21 +495,62 @@ function makeCSV(records, columns, year, keyword) {
         },
         paging: true,
         info: false,
-        // language: {
-        //   searchPlaceholder: "search keyword"
-        // }
         lengthMenu: [ 10, 30, 50 ],
         mark: true,
-      }).on('search.dt', function() {
+        initComplete: function(){
+          if (location.search) {
+            let params = new URLSearchParams(location.search.substring(1));
+            var search = params.get("search");
+            if (search) {
+              var query = decodeURI(search).replace(",", " ");
+              var table = $(`#dt${year}games`).DataTable();
+              table.search( query ).draw();
+              var data = table.columns( [1, 3, 13, 17] , {filter:'applied'}).data();
+              var wls = [0, 0, 0];
+              var ins_outs = [0, 0];
+              var ers = 0;
+              var qs = 0;
+              var st = 0
+              for (let i=0; i<data[0].length; i++) {
+                if (data[0][i]=='W') {
+                  wls[0] += 1;
+                } else if (data[0][i]=='L') {
+                  wls[1] += 1;
+                } else if (data[0][i]=='S') {
+                  wls[2] += 1;
+                }
+                if (data[1][i].includes('.')) {
+                  var _ins_outs = data[1][i].split('.');
+                  ins_outs[0] += parseInt(_ins_outs[0]);
+                  ins_outs[1] += parseInt(_ins_outs[1]);
+                } else {
+                  ins_outs[0] += parseInt(data[1][i]);
+                }
+                if (data[3][i]=='先発') {
+                  st += 1;
+                  if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3) {
+                    qs += 1;
+                  }
+                }
+                ers += parseInt(data[2][i]);
+              }
+              if (st==0){
+                document.getElementById(`dt${year}gamescaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${Math.round(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 )`;
+              } else {
+                document.getElementById(`dt${year}gamescaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${Math.round(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
+              }
+            }
+          }
+        }
+      })
+      .on('search.dt', function() {
         var table = $(`#dt${year}games`).DataTable();
-
         var data = table.columns( [1, 3, 13, 17] , {filter:'applied'}).data();
         var wls = [0, 0, 0];
         var ins_outs = [0, 0];
         var ers = 0;
         var qs = 0;
         var st = 0
-
         for (let i=0; i<data[0].length; i++) {
           if (data[0][i]=='W') {
             wls[0] += 1;
@@ -529,7 +559,6 @@ function makeCSV(records, columns, year, keyword) {
           } else if (data[0][i]=='S') {
             wls[2] += 1;
           }
-
           if (data[1][i].includes('.')) {
             var _ins_outs = data[1][i].split('.');
             ins_outs[0] += parseInt(_ins_outs[0]);
@@ -537,14 +566,12 @@ function makeCSV(records, columns, year, keyword) {
           } else {
             ins_outs[0] += parseInt(data[1][i]);
           }
-
           if (data[3][i]=='先発') {
             st += 1;
             if (parseFloat(data[1][i])>=6 && parseFloat(data[2][i])<=3) {
               qs += 1;
             }
           }
-
           ers += parseInt(data[2][i]);
         }
         if (st==0){
@@ -552,7 +579,7 @@ function makeCSV(records, columns, year, keyword) {
         } else {
           document.getElementById(`dt${year}gamescaption`).textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${Math.round(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS, QS率 ${parseInt(qs/st*1000)/10}%`;
         }
-      })
+      });
     });
   }
 };
@@ -584,8 +611,6 @@ function csvLoad(year, keyword, team_initial="") {
       reader.onload = function(event) {
           var textdata = event.target.result;
           var tmp = textdata.split("\n");
-          // console.log(tmp);
-          // var cols = tmp[0].split(",");
           var records = [];
           for (var i = 0; i < tmp.length-2; i++) {
               var row_data = tmp[i+1];
@@ -602,47 +627,12 @@ function csvLoad(year, keyword, team_initial="") {
 function makeCSV2(records, columns, year, keyword) {
   const divtable = document.getElementById(`dt${year}gamesoffence`);
   const divcaption = document.getElementById(`dt${year}gamesoffencecaption`);
-  // const divcaption = document.createElement("caption");
-  // divcaption.setAttribute("id", "dt"+year+"gamescaption");
   divcaption.style.captionSide = "top";
   divcaption.style.fontSize = "1.4rem";
   divcaption.style.fontWeight = "300";
   divcaption.style.lineHeight = "1.2";
   divcaption.classList.add("pt-0");
   divcaption.classList.add("pb-0");
-  // var wls = [0, 0, 0];
-  // var ins_outs = [0, 0];
-  // var ers = 0;
-  // var qs = 0;
-
-  // for (let i=0; i<records.length; i++) {
-  //   if (records[i][0]=='W') {
-  //     wls[0] += 1;
-  //   } else if (records[i][0]=='L') {
-  //     wls[1] += 1;
-  //   } else if (records[i][0]=='S') {
-  //     wls[2] += 1;
-  //   }
-
-  //   if (records[i][2].includes('.')) {
-  //     var _ins_outs = records[i][2].split('.');
-  //     ins_outs[0] += parseInt(_ins_outs[0]);
-  //     ins_outs[1] += parseInt(_ins_outs[1]);
-  //   } else {
-  //     ins_outs[0] += parseInt(records[i][2]);
-  //   }
-
-  //   if (records[i][16]=='1' && parseFloat(records[i][2])>=6 && parseFloat(records[i][12])<=3)
-  //   {
-  //     qs += 1;
-  //   }
-
-  //   ers += parseInt(records[i][12]);
-  // }
-
-  // // divcaption.textContent = "勝-敗-S, 防御率 (イニング)";
-  // divcaption.textContent = ` ${wls[0]}勝 ${wls[1]}敗 ${wls[2]}S, 防御率 ${parseInt(ers/(ins_outs[0]*3+ins_outs[1])*27*100)/100} ( ${ins_outs[0]+parseInt(ins_outs[1]/3)+ins_outs[1]%3/10} 回 ) ${qs}QS`;
-  // // divtable.appendChild(divcaption);
 
   const divthead = document.createElement("thead");
   divtable.appendChild(divthead);
@@ -680,9 +670,6 @@ function makeCSV2(records, columns, year, keyword) {
       divtr.appendChild(divtd);
       for (var j = 0; j < columns.length; j++) {
           let divtd = document.createElement("td");
-          // if (j==1) {
-          //   divtd.textContent = records[i][j].replace("　", "");
-          // } else 
           if (j==26) {
             divtd.textContent = records[i][j].substr(5);
           } else if (j==28) {
@@ -700,8 +687,6 @@ function makeCSV2(records, columns, year, keyword) {
 
   // var keyword=KW;
   if (year == '25') {
-    // const keywords = ["安","２","３","本"];
-    // keyword = "07/19"; // @@KEYWORD@@
     $(document).ready(function() {
       $(`#dt${year}gamesoffence`).DataTable({
         order: [[ 0, "asc" ]],
@@ -747,7 +732,6 @@ function makeCSV2(records, columns, year, keyword) {
               cellText.indexOf('３') !== -1 ||
               cellText.indexOf('本') !== -1
             )) {
-              console.log('HIT');
               $(this).css({
                 'color': 'red',
                 'font-weight': 'bold'
@@ -770,21 +754,43 @@ function makeCSV2(records, columns, year, keyword) {
         },
         paging: true,
         info: false,
-        // language: {
-        //   searchPlaceholder: "search keyword"
-        // }
         lengthMenu: [ 30, 50, 100 ],
         mark: true,
+        initComplete: function(){
+          console.log('init')
+          switch_colvis(year);
+          if (location.search) {
+            let params = new URLSearchParams(location.search.substring(1));
+            var search = params.get("search2");
+            if (search) {
+              var query = decodeURI(search).replace(",", " ");
+              var table = $(`#dt${year}gamesoffence`).DataTable();
+              table.search( query ).draw();
+              var data = table.columns( [4, 6, 7, 12, 14] , {filter:'applied'}).data();
+              var ab = 0;
+              var h = 0;
+              var rbi = 0;
+              var sb = 0;
+              var hr = 0
+              for (let i=0; i<data[0].length; i++) {
+                ab  += parseInt(data[0][i]);
+                h   += parseInt(data[1][i]);
+                rbi += parseInt(data[2][i]);
+                sb  += parseInt(data[3][i]);
+                hr  += parseInt(data[4][i]);
+              }
+              document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${Math.round(h/ab*1000)} / ${sb} 盗塁`;
+            }  
+          }
+        }
       }).on('search.dt', function() {
         var table = $(`#dt${year}gamesoffence`).DataTable();
-
         var data = table.columns( [4, 6, 7, 12, 14] , {filter:'applied'}).data();
         var ab = 0;
         var h = 0;
         var rbi = 0;
         var sb = 0;
         var hr = 0
-
         for (let i=0; i<data[0].length; i++) {
           ab  += parseInt(data[0][i]);
           h   += parseInt(data[1][i]);
@@ -797,6 +803,24 @@ function makeCSV2(records, columns, year, keyword) {
     });
   }
 };
+
+function get_summary_offence(year) {
+  var table = $(`#dt${year}gamesoffence`).DataTable();
+  var data = table.columns( [4, 6, 7, 12, 14] , {filter:'applied'}).data();
+  var ab = 0;
+  var h = 0;
+  var rbi = 0;
+  var sb = 0;
+  var hr = 0
+  for (let i=0; i<data[0].length; i++) {
+    ab  += parseInt(data[0][i]);
+    h   += parseInt(data[1][i]);
+    rbi += parseInt(data[2][i]);
+    sb  += parseInt(data[3][i]);
+    hr  += parseInt(data[4][i]);
+  }
+  document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${Math.round(h/ab*1000)} / ${sb} 盗塁`;
+}
 
 function switch_colvis(year) {
   var table = $(`#dt${year}gamesoffence`).DataTable();
@@ -826,8 +850,6 @@ function csvLoad2(year, keyword, team_initial="") {
       reader.onload = function(event) {
           var textdata = event.target.result;
           var tmp = textdata.split("\n");
-          // console.log(tmp);
-          // var cols = tmp[0].split(",");
           var records = [];
           for (var i = 0; i < tmp.length-2; i++) {
               var row_data = tmp[i+1];
@@ -840,22 +862,3 @@ function csvLoad2(year, keyword, team_initial="") {
       };
   });
 };
-
-window.onload = function() {
-  if (location.search) {
-    let params = new URLSearchParams(location.search.substring(1));
-    var search = params.get("search");
-    var query = decodeURI(search).replace(",", " ");
-    search_keyword(year, query);
-  }
-};
-
-// document.getElementById('d2021').addEventListener('click', function() {
-//   csvLoad('21');
-// });
-
-// {
-//   // csvLoad('22');
-//   // csvLoad('23');
-//   csvLoad('24');
-// }
