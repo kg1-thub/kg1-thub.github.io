@@ -500,7 +500,7 @@ function makeCSV(records, columns, year, keyword) {
         initComplete: function(){
           if (location.search) {
             let params = new URLSearchParams(location.search.substring(1));
-            var search = params.get("search");
+            var search = params.get("pitching");
             if (search) {
               var query = decodeURI(search).replace(",", " ");
               var table = $(`#dt${year}games`).DataTable();
@@ -761,7 +761,7 @@ function makeCSV2(records, columns, year, keyword) {
           switch_colvis(year);
           if (location.search) {
             let params = new URLSearchParams(location.search.substring(1));
-            var search = params.get("search2");
+            var search = params.get("batting");
             if (search) {
               var query = decodeURI(search).replace(",", " ");
               var table = $(`#dt${year}gamesoffence`).DataTable();
