@@ -82,12 +82,26 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
     # reader = reader(f)
     for row in f.readlines():
         if '<!-- @@SCORE1@@ -->' in row:
-            content += '            <div><h4 class="display-4"> %s HR / %s SB / AVG %s / %s HITS / %s RBI</h4></div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
-        # elif '<!-- @@SCORE2@@ -->' in row:
-        #     content += '            <div><h4 class="display-4"> AVG %s / %s HITS / %s RBI</h4></div><!-- @@SCORE2@@ -->\n' % (_avg, _hit, _rbi)
+            content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s HITS / %s RBI</div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
+        elif '<!-- @@SCORE2@@ -->' in row:
+            content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s HITS / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
         else:
             content += row
 with open(shoINDEX,mode='w',encoding='utf-8') as writer:
     writer.write(content)
-
 print('sho-HEATMAP UPDATED.')
+
+# DATATABLESDEMO SEARCH KEYWORD UPDATE
+DATATABLESDEMO = f'./sho/sho-datatables.js'
+print(DATATABLESDEMO)
+with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
+    lines = reader.readlines()
+    content = ''
+    for line in lines:
+        if '@@KEYWORD@@' in line:
+            content += f"        '{_g[0]}' // @@KEYWORD@@\n"
+        else:
+            content += line
+with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
+    writer.write(content)
+print('DATATABLES-DEMO SEARCH KEYWORD UPDATED.')
