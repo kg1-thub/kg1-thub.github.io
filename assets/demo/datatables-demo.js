@@ -333,15 +333,16 @@ $(document).ready(function() {
   $('#dt25catcher').DataTable({
     order: [ [ 1, "desc" ] ],
     columnDefs: [
+      { targets: '_all', className: 'text-center' },
+      { width: "8%", targets: 0 },
+      { width: "8%", targets: 1 },
       { width: "8%", targets: 2 },
       { width: "8%", targets: 3 },
       { width: "8%", targets: 4 },
       { width: "8%", targets: 5 },
       { width: "8%", targets: 6 },
       { width: "8%", targets: 7 },
-      { width: "8%", targets: 9 },
-      { width: "8%", targets: 10 },
-      { width: "8%", targets: 11 }
+      { width: "8%", targets: 8 },
     ],
     searching: false,
     paging: false,
@@ -353,6 +354,7 @@ $(document).ready(function() {
   $('#dt25month').DataTable({
     order: [ [ 0, "asc" ] ],
     columnDefs: [
+      { targets: '_all', className: 'text-center', width: '10%' },
       // { width: "17%", targets: 1 },
       // { width: "17%", targets: 2 },
       // { width: "17%", targets: 3 },
@@ -368,6 +370,7 @@ $(document).ready(function() {
   $('#dt25pitcher').DataTable({
     order: [[ 1, "desc" ]],
     columnDefs: [
+      { targets: '_all', className: 'text-center', width: '10%' },
       // { width: "22%", targets: 1 },
       // { width: "22%", targets: 2 },
       // { width: "22%", targets: 3 },
@@ -466,6 +469,7 @@ function makeCSV(records, columns, year, keyword) {
       $(`#dt${year}games`).DataTable({
         order: [[ 0, "asc" ]],
         columnDefs: [
+          { targets: '_all', className: 'text-center' },
           { visible: false, targets: 0 },
           { width: "5%", targets: 1 },
           { width: "9%", targets: 2 },
@@ -691,6 +695,7 @@ function makeCSV2(records, columns, year, keyword) {
       $(`#dt${year}gamesoffence`).DataTable({
         order: [[ 0, "asc" ]],
         columnDefs: [
+          { targets: '_all', className: 'text-center' },
           { visible: false, targets: 0 },
           { width: "5%", targets: 1 },
           { width: "10%", targets: 2 },

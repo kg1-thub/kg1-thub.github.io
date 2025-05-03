@@ -1,22 +1,22 @@
-var ctx25_data = {
-  'Giants':  [0,  1,  2,  3,  2,  3,  4,  3,  2,  1,  1,  2,  2,  1,  0, -1,  0,  1,  0,  1,  2,  1,  2,  3,  3,  2,  1,  2,  3,  4,  5,  5,//wl_Giants
+var ctx25p_data = {
+  'Hawks':    [0, -1, -2, -3, -2, -3, -3, -4, -5, -4, -3, -2, -2, -1,  0,  0, -1, -2, -3, -4, -5, -4, -4, -3, -2, -3, -4, -5, -6, -7, -6,//wl_Hawks
   ],
-  'Tigers':  [0,  1,  2,  1,  0,  0, -1,  0,  1,  2,  1,  0,  0,  1,  0,  0,  1,  1,  2,  1,  0,  1,  2,  3,  4,  5,  6,  5,  4,  3,  2,  3,//wl_Tigers
+  'Fighters': [0,  1,  2,  3,  2,  3,  3,  2,  1,  0,  1,  2,  3,  4,  3,  2,  3,  2,  2,  1,  2,  3,  2,  1,  0,  1,  0,  1,  2,  3,  3,//wl_Fighters
   ],
-  'Baystars':[0,  1,  0,  1,  2,  2,  3,  2,  1,  0,  0, -1, -1, -1,  0,  0, -1, -2, -1, -1, -2, -3, -4, -5, -6, -5, -4, -3, -2, -3, -2, -2,//wl_Baystars
+  'Marines':  [0,  1,  2,  3,  3,  2,  1,  0,  1,  0,  1,  0,  0, -1, -2, -2, -3, -2, -2, -1, -2, -3, -2, -1,  0, -1,  0, -1, -2, -2, -3,//wl_Marines
   ],
-  'Swallows':[0, -1, -2, -3, -3, -2, -1, -1,  0, -1,  0,  1,  1,  1,  0,  0, -1, -1, -2, -3, -4, -3, -3, -4, -4, -3, -4, -3, -4, -3, -4, -5,//wl_Swallows
+  'Eagles':   [0, -1,  0, -1, -1, -1,  0,  1,  0,  1,  0, -1, -2, -3, -4, -5, -4, -3, -2, -3, -2, -1,  0,  1,  0,  1,  2,  1,  0, -1, -1,//wl_Eagles
   ],
-  'Dragons': [0, -1,  0, -1,  0, -1, -2, -2, -3, -2, -2, -1, -2, -3, -2, -2, -3, -2, -2, -2, -1,  0, -1, -2, -2, -3, -2, -3, -2, -1,  0,  1,//wl_Dragons
+  'Buffaloes':[0,  1,  0,  1,  1,  2,  3,  4,  5,  6,  5,  4,  4,  5,  6,  7,  8,  7,  6,  7,  6,  5,  5,  4,  5,  4,  3,  4,  5,  5,  5,//wl_Buffaloes
   ],
-  'Carp':    [0, -1, -2, -1, -1, -2, -3, -2, -1,  0,  0, -1,  0,  1,  2,  3,  4,  3,  3,  4,  5,  4,  4,  5,  5,  4,  3,  2,  1,  0, -1, -2,//wl_Carp
+  'Lions':    [0, -1, -2, -3, -3, -3, -4, -3, -2, -3, -4, -3, -3, -4, -3, -2, -3, -2, -1,  0,  1,  0, -1, -2, -3, -2, -1,  0,  1,  2,  2,//wl_Lions
   ],
   'labels':[
     'Start','03/28','03/29','03/30',
     '04/01','04/02','04/03','04/04','04/05','04/06',
     '04/08','04/09','04/10','04/11','04/12','04/13',
     '04/15','04/16','04/17','04/18','04/19','04/20',
-    '04/22','04/23','04/24','04/25','04/26','04/27',
+    '04/22','04/23','04/25','04/26','04/27',
     '04/29','04/30','05/01','05/02','05/03','05/04','05/05','05/06','05/07',
     // '05/08','05/10','05/11','05/12','05/14','05/15',
     // '05/16','05/17','05/18','05/19','05/21','05/22','05/23','05/24','05/25','05/26','05/28','05/29','05/30','05/31',
@@ -32,7 +32,7 @@ var ctx25_data = {
 };
 
 // Annotation
-const zero = {
+const zero25p = {
   type: 'line',
   scaleID: 'y',
   borderWidth: 2,
@@ -40,7 +40,7 @@ const zero = {
   value: 0,
 };
 
-const illabel25 = {
+const illabel25p = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 0,
@@ -60,7 +60,7 @@ const illabel25 = {
   }
 };
 
-const ilperiod25 = {
+const ilperiod25p = {
   type: 'box',
   backgroundColor: 'rgba(255,182,193,0.35)',
   borderColor: 'rgba(0,150,0,0)',
@@ -70,7 +70,7 @@ const ilperiod25 = {
   xMax: 70,
 };
 
-const asbreak25 = {
+const asbreak25p = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 2,
@@ -90,7 +90,7 @@ const asbreak25 = {
     }
   }
 };
-const champ25 = {
+const champ25p = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 2,
@@ -112,35 +112,18 @@ const champ25 = {
 };
 
 // Area Chart 2025
-var ctx25 = document.getElementById("myAreaChart25");
-var myLineChart25 = new Chart(ctx25, {
+var ctx25p = document.getElementById("myAreaChart25p");
+var myLineChart25p = new Chart(ctx25p, {
   type: 'line',
   data: {
-    labels: ctx25_data.labels,
+    labels: ctx25p_data.labels,
     datasets: [
       {
-        label: "Giants",
+        label: "Hawks",
         hidden: false,
         fill: 'origin',
         lineTension: 0,
-        backgroundColor: "rgba(255,140,0,0.1)",
-        borderColor: "#EB9E16",
-        borderWidth: 5,
-        pointRadius: 0.3,
-        pointBackgroundColor: "#EB9E16",
-        pointBorderColor: "#EB9E16",
-        pointHoverRadius: 0.3,
-        pointHoverBackgroundColor: "#EB9E16",
-        pointHitRadius: 50,
-        pointborderWidth: 5,
-        data: ctx25_data.Giants,
-      }, // Giants
-      {
-        label: "Tigers",
-        hidden: false,
-        fill: 'origin',
-        lineTension: 0,
-        backgroundColor: "rgba(255,215,0,0.05)",
+        backgroundColor: "rgba(100, 113, 148, 0.1)",
         borderColor: "#fcc800",
         borderWidth: 5,
         pointRadius: 0.3,
@@ -150,76 +133,93 @@ var myLineChart25 = new Chart(ctx25, {
         pointHoverBackgroundColor: "#fcc800",
         pointHitRadius: 50,
         pointborderWidth: 5,
-        data: ctx25_data.Tigers,
-      }, // Tigers
+        data: ctx25p_data.Hawks,
+      }, // Hawks
       {
-        label: "Baystars",
+        label: "Fighters",
         hidden: false,
         fill: 'origin',
         lineTension: 0,
-        backgroundColor: "rgba(135,206,250,0.05)",
-        borderColor: "#3893D2",
+        backgroundColor: "rgba(94, 154, 188, 0.05)",
+        borderColor: "#17a2b8",
         borderWidth: 5,
         pointRadius: 0.3,
-        pointBackgroundColor: "#3893D2",
-        pointBorderColor: "#3893D2",
+        pointBackgroundColor: "#17a2b8",
+        pointBorderColor: "#17a2b8",
         pointHoverRadius: 0.3,
-        pointHoverBackgroundColor: "#3893D2",
+        pointHoverBackgroundColor: "#17a2b8",
         pointHitRadius: 50,
         pointborderWidth: 5,
-        data: ctx25_data.Baystars,
-      }, // Baystars
+        data: ctx25p_data.Fighters,
+      }, // Fighters
       {
-        label: "Swallows",
+        label: "Marines",
         hidden: false,
         fill: 'origin',
         lineTension: 0,
-        backgroundColor: "rgba(51,204,0,0.05)",
-        borderColor: "#5DD95D",
+        backgroundColor: "rgba(105, 134, 168, 0.05)",
+        borderColor: "#6c757d",
         borderWidth: 5,
         pointRadius: 0.3,
-        pointBackgroundColor: "#5DD95D",
-        pointBorderColor: "#5DD95D",
+        pointBackgroundColor: "#6c757d",
+        pointBorderColor: "#6c757d",
         pointHoverRadius: 0.3,
-        pointHoverBackgroundColor: "#5DD95D",
+        pointHoverBackgroundColor: "#6c757d",
         pointHitRadius: 50,
         pointborderWidth: 5,
-        data: ctx25_data.Swallows,
-      }, // Swallows
+        data: ctx25p_data.Marines,
+      }, // Marines
       {
-        label: "Dragons",
+        label: "Eagles",
         hidden: false,
         fill: 'origin',
         lineTension: 0,
-        backgroundColor: "rgba(0,0,128,0.05)",
-        borderColor: "#6F3BC8",
+        backgroundColor: "rgba(175, 96, 107, 0.05)",
+        borderColor: "#870011",
         borderWidth: 5,
         pointRadius: 0.3,
-        pointBackgroundColor: "#6F3BC8",
-        pointBorderColor: "#6F3BC8",
+        pointBackgroundColor: "#870011",
+        pointBorderColor: "#870011",
         pointHoverRadius: 0.3,
-        pointHoverBackgroundColor: "#6F3BC8",
+        pointHoverBackgroundColor: "#870011",
         pointHitRadius: 50,
         pointborderWidth: 5,
-        data: ctx25_data.Dragons,
-      }, // Dragons
+        data: ctx25p_data.Eagles,
+      }, // Eagles
       {
-        label: "Carp",
+        label: "Buffaloes",
         hidden: false,
         fill: 'origin',
         lineTension: 0,
-        backgroundColor: "rgba(255,0,0,0.05)",
-        borderColor: "#EF3A38",
+        backgroundColor: "rgba(100, 113, 148, 0.05)",
+        borderColor: "#143D60",
         borderWidth: 5,
         pointRadius: 0.3,
-        pointBackgroundColor: "#EF3A38",
-        pointBorderColor: "#EF3A38",
+        pointBackgroundColor: "#143D60",
+        pointBorderColor: "#143D60",
         pointHoverRadius: 0.3,
-        pointHoverBackgroundColor: "#EF3A38",
+        pointHoverBackgroundColor: "#143D60",
         pointHitRadius: 50,
         pointborderWidth: 5,
-        data: ctx25_data.Carp,
-      }, // Carp
+        data: ctx25p_data.Buffaloes,
+      }, // Buffaloes
+      {
+        label: "Lions",
+        hidden: false,
+        fill: 'origin',
+        lineTension: 0,
+        backgroundColor: "rgba(108, 160, 178, 0.05)",
+        borderColor: "#20c997",
+        borderWidth: 5,
+        pointRadius: 0.3,
+        pointBackgroundColor: "#20c997",
+        pointBorderColor: "#20c997",
+        pointHoverRadius: 0.3,
+        pointHoverBackgroundColor: "#20c997",
+        pointHitRadius: 50,
+        pointborderWidth: 5,
+        data: ctx25p_data.Lions,
+      }, // Lions
     ],
   },
   options: {
@@ -227,11 +227,11 @@ var myLineChart25 = new Chart(ctx25, {
       autocplors: false,
       annotation: {
         annotations: {
-          zero,
-          // ilperiod25,
-          // illabel25,
-          // asbreak25,
-          // champ25
+          zero25p,
+          // ilperiod25p,
+          // illabel25p,
+          // asbreak25p,
+          // champ25p
         },
       },
       legend: {
