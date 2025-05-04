@@ -792,6 +792,7 @@ def task_entry_wl():
         entry_wl_ce = 0
 
     STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
+    STANDINGAREADEMOPA = './assets/demo/chart-area-demo-pa.js'
     _rjust = 3
     url = 'https://baseball.yahoo.co.jp/npb/standings/'
     xml = requests.get(url)
@@ -883,8 +884,8 @@ def task_entry_wl():
                         break
             print(wl_teams)
 
-        # STANDINGAREADEMO UPDATE
-        with open(STANDINGAREADEMO,mode='r',encoding='utf-8') as reader:
+        # STANDINGAREADEMOPA UPDATE
+        with open(STANDINGAREADEMOPA,mode='r',encoding='utf-8') as reader:
             lines = reader.readlines()
             content = ''
             for line in lines:
@@ -898,7 +899,7 @@ def task_entry_wl():
                         .replace('//wl_Lions',       str(wl_teams[5]).rjust(_rjust)+',//wl_Lions')
                 else:
                     content += line
-        with open(STANDINGAREADEMO,mode='w',encoding='utf-8') as writer:
+        with open(STANDINGAREADEMOPA,mode='w',encoding='utf-8') as writer:
             writer.write(content)
 
         print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'STANDINGS Pa UPDATED!')
