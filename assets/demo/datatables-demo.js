@@ -467,11 +467,12 @@ function makeCSV(records, columns, year, keyword) {
   if (year == '24' || year == '25') {
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
+        deferRender: true,
         order: [[ 0, "asc" ]],
         columnDefs: [
           { targets: '_all', className: 'text-center' },
           { visible: false, targets: 0 },
-          { width: "5%", targets: 1 },
+          { width: "6%", targets: 1 },
           { width: "9%", targets: 2 },
           { width: "6%", targets: 3 },
           { width: "5%", targets: 4 },
@@ -693,6 +694,7 @@ function makeCSV2(records, columns, year, keyword) {
   if (year == '25') {
     $(document).ready(function() {
       $(`#dt${year}gamesoffence`).DataTable({
+        deferRender: true,
         order: [[ 0, "asc" ]],
         columnDefs: [
           { targets: '_all', className: 'text-center' },
