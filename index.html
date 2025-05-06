@@ -18,17 +18,17 @@
         <title>Giants/Catcher/Score</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> -->
 
         <script src="js/utils.js"></script>
 
@@ -177,18 +177,18 @@
                 </div>
                 <div class="row">
                     <a href="https://kg1-thub.github.io/sho/" rel="nofollow">
-                        <img border="0" width="800px" height="" alt="" src="./assets/img/sho.png" class="mx-auto d-block" style="max-width: 100%;"></a>
+                        <img border="0" width="800px" height="60vh" alt="redirect to sho-meter" src="./assets/img/sho.png" class="mx-auto d-block" style="max-width: 100%;"></a>
                 </div>
                 <div class="row">
                     <div class="col-md-8 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>League/Team/貯金推移</div>
+                            <div class="card-header p-2"><span class="fa-solid--chart-line mr-1" style="vertical-align: text-bottom;"></span>League/Team/貯金推移</div>
                             <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart25" width="100%" height="60vh"></canvas></div>
                         </div>
                     </div>
                     <div class="col-md-4 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-th mr-1" style="width: 17px;"></i>Giants/Team/勝敗マップ</div>
+                            <div class="card-header p-2"><span class="fa-solid--th mr-1" style="vertical-align: text-bottom;"></span>Giants/Team/勝敗マップ</div>
                             <div class="row pt-1">
                                 <div style="background-color: #ff8000; width: 12px; height: 12px; border-radius: 30%;margin-left: 40px; margin-right: 1px;" class="my-auto"></div>
                                 <div>Win</div>
@@ -203,7 +203,7 @@
                             </div>
                         </div>
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-chart-column mr-1" style="width: 17px;"></i>Giants/Team/月別勝利数</div>
+                            <div class="card-header p-2"><span class="fa-solid--chart-bar mr-1" style="vertical-align: text-bottom;"></span>Giants/Team/月別勝利数</div>
                             <div class="card-body pr-0 pl-1 pt-2 pb-1">
                                 <canvas id="bar25wins" width="100%" height="60vh"></canvas>
                             </div>
@@ -218,13 +218,13 @@
                 <div class="row">
                     <div class="col-sm p-1">
                         <div class="card mb-1" id="games25p">
-                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Pitcher/ゲーム成績
+                            <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Giants/Pitcher/ゲーム成績
                                 <div class="float-right">
-                                    <button class="badge badge-pill badge-secondary" onclick="search_today(25)"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>今日</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'先発')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>先発</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'交代')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>交代</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'甲斐')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>甲斐</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'大城')"><i class="fa-solid fa-magnifying-glass mr-1" style="width: 10px;"></i>大城</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_today(25)"><span class="fa-solid--search mr-1"></span>今日</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'先発')"><span class="fa-solid--search mr-1"></span>先発</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'交代')"><span class="fa-solid--search mr-1"></span>交代</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'甲斐')"><span class="fa-solid--search mr-1"></span>甲斐</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'大城')"><span class="fa-solid--search mr-1"></span>大城</button>
                                 </div>
                             </div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-1">
@@ -242,7 +242,7 @@
                 <div class="row">
                     <div class="col-sm p-1">
                         <div class="card mb-1" id="games25">
-                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Offence/ゲーム成績
+                            <div class="card-header p-2"><span class="fa-solid--table mr-1"></span>Giants/Offence/ゲーム成績
                                 <button class="badge badge-secondary" onclick="switch_colvis(25)">Switch</button>
                             </div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-1">
@@ -264,25 +264,25 @@
                 <div class="row">
                     <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Giants/Catcher/守備イニング</div>
+                            <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/守備イニング</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25innings"></canvas>
+                                <canvas id="pie25innings" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Giants/Catcher/先発試合数</div>
+                            <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;">Giants/Catcher/先発試合数</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25startings"></canvas>
+                                <canvas id="pie25startings" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4 pb-1 pt-1 pl-1 pr-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-chart-pie mr-1" style="width: 17px;"></i>Giants/Catcher/勝利数</div>
+                            <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/勝利数</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25wins"></canvas>
+                                <canvas id="pie25wins" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -291,21 +291,21 @@
                 <div class="row">
                     <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>Giants/Catcher/月別守備イニング
+                            <div class="card-header p-2"><span class="fa-solid--chart-area mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/月別守備イニング
                                 <button id="redraw_canvas25innings" class="badge badge-secondary">Redraw</button>
                             </div>
                             <div style="width:100%;">
-                                <canvas id="canvas25innings"></canvas>
+                                <canvas id="canvas25innings" height="150vh"></canvas>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>Giants/Catcher/月別先発試合
+                            <div class="card-header p-2"><span class="fa-solid--chart-area mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/月別先発試合
                                 <button id="redraw_canvas25startings" class="badge badge-secondary">Redraw</button>
                             </div>
                             <div style="width:100%;">
-                                <canvas id="canvas25startings"></canvas>
+                                <canvas id="canvas25startings" height="150vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -324,7 +324,7 @@
                 <div class="row">
                     <div class="col-sm p-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Catcher/シーズン成績</div>
+                            <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/シーズン成績</div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-0">
                                 <div class="table-responsive">
                                     <table class="table-sm table-bordered table-hover text-center" id="dt25catcher" width="100%" cellspacing="0">
@@ -386,7 +386,7 @@
                 <div class="row">
                     <div class="col-sm p-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Catcher/月別成績</div>
+                            <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/月別成績</div>
                             <div class="card-body p-1">
                                 <div class="table-responsive">
                                     <table class="table-sm table-bordered table-hover text-center" id="dt25month" width="100%" cellspacing="0">
@@ -438,7 +438,7 @@
                 <div class="row">
                     <div class="col-sm p-1">
                         <div class="card mb-1">
-                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>Giants/Catcher/投手別成績</div>
+                            <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/投手別成績</div>
                             <div class="card-body p-1">
                                 <div class="table-responsive">
                                     <table class="table-sm table-bordered table-hover text-center" id="dt25pitcher" width="100%" cellspacing="0">
@@ -580,41 +580,22 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Advertisement area 3 START -->
-                <!-- <div class="row">
-                    <a href="https://px.a8.net/svt/ejp?a8mat=3BI2FI+CONHRM+461Y+6DRLT" rel="nofollow" class="mx-auto d-block" onClick="ga('send', 'event', 'sp', 'tel', 'test');">
-                        <img border="0" width="800px" height="" alt="" src="./assets/img/skyperfect_tv.jpg" class="mx-auto d-block" style="max-width: 100%;"></a>
-                </div> -->
-                <!-- <div class="row">
-                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A7XWMQ+39FI+1TIYU9" rel="nofollow">
-                        <img border="0" width="300" height="250" alt="" src="https://www29.a8.net/svt/bgt?aid=220520897618&wid=001&eno=01&mid=s00000015219011006000&mc=1"></a>
-                        <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=3NAJ0H+A7XWMQ+39FI+1TIYU9" alt="">
-                    <a href="https://px.a8.net/svt/ejp?a8mat=3NAJ0H+A6R1F6+4TIO+5ZMCH" rel="nofollow">
-                        <img border="0" width="300" height="250" alt="" src="https://www26.a8.net/svt/bgt?aid=220520897616&wid=001&eno=01&mid=s00000022488001006000&mc=1"></a>
-                        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=3NAJ0H+A6R1F6+4TIO+5ZMCH" alt="">
-                </div> -->
-                <!-- admax -->
-                <!-- <script src="https://adm.shinobi.jp/o/8eda2143802ac117df64c7c8ee7bde8a"></script> -->
-                <!-- admax -->
-                <!-- Advertisement area 3 END-->
-
             </div>
 
             <!-- fixed btn -->
-            <button type="button" id="top-btn" class="btn btn-sm btn-floating btn-secondary" style="position: fixed; bottom: 20%; right: 40px; display: none; opacity: 70%; border-radius: 100%; width: 31px; height: 31px;">
-                <i class="fa-solid fa-arrow-up"></i>
+            <button type="button" id="top-btn" class="btn btn-sm btn-floating btn-secondary" style="position: fixed; bottom: 20%; right: 40px; display: none; opacity: 70%; border-radius: 100%; width: 31px; height: 31px; display: inline-flex; align-items: center; justify-content: center;">
+                <span class="fa-solid--arrow-up"style=""></span>
             </button>
-            <button type="button" id="down-btn" class="btn btn-sm btn-floating btn-secondary" style="position: fixed; bottom: 20%; right: 5px; display: block; opacity: 70%; border-radius: 100%; width: 31px; height: 31px;">
-                <i class="fa-solid fa-arrow-down"></i>
+            <button type="button" id="down-btn" class="btn btn-sm btn-floating btn-secondary" aria-label="ページの下部へ移動" style="position: fixed; bottom: 20%; right: 5px; display: block; opacity: 70%; border-radius: 100%; width: 31px; height: 31px; display: inline-flex; align-items: center; justify-content: center;">
+                <span class="fa-solid--arrow-down"style=""></span>
             </button>
 
             <footer class="py-3 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Updated 2025.05.05</div>
+                        <div class="text-muted">Updated 2025.05.06</div>
                         <div>
-                            <a href="https://kg1-thub.github.io">DASHBOARD</a>
+                            <a href="https://kg1-thub.github.io/home/">DASHBOARD</a>
                             &middot;
                             <a href="https://kg1-thub.github.io/catcher-stats/about/about_site/">About Site</a>
                             &middot;
