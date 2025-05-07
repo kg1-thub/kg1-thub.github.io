@@ -675,10 +675,12 @@ function makeCSV2(records, columns, year, keyword) {
       divtr.appendChild(divtd);
       for (var j = 0; j < columns.length; j++) {
           let divtd = document.createElement("td");
-          if (j==26) {
-            divtd.textContent = records[i][j].substr(5);
-          } else if (j==28) {
-            if (records[i][j]=="1") {
+          if (j==14) {
+            divtd.textContent = records[i][j+12].substr(5);
+          } else if (j==15) {
+            divtd.textContent = records[i][j+12];
+          } else if (j==16) {
+            if (records[i][j+12]=="1") {
               divtd.textContent = "先発";
             } else {
               divtd.textContent = "交代";
@@ -701,57 +703,61 @@ function makeCSV2(records, columns, year, keyword) {
           { visible: false, targets: 0 },
           { width: "5%", targets: 1 },
           { width: "10%", targets: 2 },
-          { visible: false, width: "5%", targets: 3 },
-          { visible: false, width: "5%", targets: 4 },
-          { visible: false, width: "5%", targets: 5 },
-          { visible: false, width: "5%", targets: 6 },
-          { visible: false, width: "5%", targets: 7 },
-          { visible: false, width: "5%", targets: 8 },
-          { visible: false, width: "5%", targets: 9 },
-          { visible: false, width: "5%", targets: 10 },
-          { visible: false, width: "5%", targets: 11 },
-          { visible: false, width: "5%", targets: 12 },
-          { visible: false, width: "5%", targets: 13 },
-          { visible: false, width: "5%", targets: 14 },
-          { visible: true, searchable: false, width: "5%", targets: 15 },
-          { visible: true, searchable: false, width: "5%", targets: 16 },
-          { visible: true, searchable: false, width: "5%", targets: 17 },
-          { visible: true, searchable: false, width: "5%", targets: 18 },
-          { visible: true, searchable: false, width: "5%", targets: 19 },
-          { visible: true, searchable: false, width: "5%", targets: 20 },
-          { visible: true, searchable: false, width: "5%", targets: 21 },
-          { visible: true, searchable: false, width: "5%", targets: 22 },
-          { visible: true, searchable: false, width: "5%", targets: 23 },
-          { visible: true, searchable: false, width: "5%", targets: 24 },
-          { visible: true, searchable: false, width: "5%", targets: 25 },
-          { visible: true, searchable: false, width: "5%", targets: 26 },
-          { width: "5%", targets: 27 },
-          { width: "5%", targets: 28 },
-          { visible: false, targets: 29 },//starting
-          { visible: false, targets: 30 },//category
+          { visible: true, width: "5%", targets: 3 },
+          { visible: true, width: "5%", targets: 4 },
+          { visible: true, width: "5%", targets: 5 },
+          { visible: true, width: "5%", targets: 6 },
+          { visible: true, width: "5%", targets: 7 },
+          { visible: true, width: "5%", targets: 8 },
+          { visible: true, width: "5%", targets: 9 },
+          { visible: true, width: "5%", targets: 10 },
+          { visible: true, width: "5%", targets: 11 },
+          { visible: true, width: "5%", targets: 12 },
+          { visible: true, width: "5%", targets: 13 },
+          { visible: true, width: "5%", targets: 14 },
+          // { visible: true, searchable: false, width: "5%", targets: 15 },
+          // { visible: true, searchable: false, width: "5%", targets: 16 },
+          // { visible: true, searchable: false, width: "5%", targets: 17 },
+          // { visible: true, searchable: false, width: "5%", targets: 18 },
+          // { visible: true, searchable: false, width: "5%", targets: 19 },
+          // { visible: true, searchable: false, width: "5%", targets: 20 },
+          // { visible: true, searchable: false, width: "5%", targets: 21 },
+          // { visible: true, searchable: false, width: "5%", targets: 22 },
+          // { visible: true, searchable: false, width: "5%", targets: 23 },
+          // { visible: true, searchable: false, width: "5%", targets: 24 },
+          // { visible: true, searchable: false, width: "5%", targets: 25 },
+          // { visible: true, searchable: false, width: "5%", targets: 26 },
+          // { width: "5%", targets: 27 },
+          // { width: "5%", targets: 28 },
+          // { visible: false, targets: 29 },//starting
+          // { visible: false, targets: 30 },//category
+          { width: "5%", targets: 15 },
+          { width: "5%", targets: 16 },
+          { visible: false, targets: 17 },//starting
+          { visible: false, targets: 18 },//category
         ],
-        rowCallback: function(row, data, dataIndex) {
-          $('td', row).each(function(i) {
-            const cellText = $(this).text();
-            if (i>1 && i<14 && (
-              cellText.indexOf('安') !== -1 ||
-              cellText.indexOf('２') !== -1 ||
-              cellText.indexOf('３') !== -1 ||
-              cellText.indexOf('本') !== -1
-            )) {
-              $(this).css({
-                'color': 'red',
-                'font-weight': 'bold'
-              });
-            } else {
-              // 条件に合わない場合は通常に戻す（見た目崩れ防止）
-              $(this).css({
-                'color': '',
-                'font-weight': ''
-              });
-            }
-          });
-        },
+        // rowCallback: function(row, data, dataIndex) {
+        //   $('td', row).each(function(i) {
+        //     const cellText = $(this).text();
+        //     if (i>1 && i<14 && (
+        //       cellText.indexOf('安') !== -1 ||
+        //       cellText.indexOf('２') !== -1 ||
+        //       cellText.indexOf('３') !== -1 ||
+        //       cellText.indexOf('本') !== -1
+        //     )) {
+        //       $(this).css({
+        //         'color': 'red',
+        //         'font-weight': 'bold'
+        //       });
+        //     } else {
+        //       // 条件に合わない場合は通常に戻す（見た目崩れ防止）
+        //       $(this).css({
+        //         'color': '',
+        //         'font-weight': ''
+        //       });
+        //     }
+        //   });
+        // },
         // dom: 'frtiQlp',
         dom: '<"float-left"f>rt<"float-left"p>',
         searching: true,
@@ -765,7 +771,7 @@ function makeCSV2(records, columns, year, keyword) {
         mark: true,
         initComplete: function(){
           console.log('init')
-          switch_colvis(year);
+          // switch_colvis(year);
           if (location.search) {
             let params = new URLSearchParams(location.search.substring(1));
             var search = params.get("batting");
@@ -843,7 +849,8 @@ function switch_colvis(year) {
 
 function csvLoad2(year, keyword, team_initial="") {
   if (year == "25"){
-    var cols = ["位置","選手","打率","打数","得点","安打","打点","三振","四球","死球","犠打","盗塁","失策","本打","1回","2回","3回","4回","5回","6回","7回","8回","9回","10回","11回","12回","月日","対戦","出場","series"];
+    // var cols = ["位置","選手","打率","打数","得点","安打","打点","三振","四球","死球","犠打","盗塁","失策","本打","1回","2回","3回","4回","5回","6回","7回","8回","9回","10回","11回","12回","月日","対戦","出場","series"];
+    var cols = ["位置","選手","打率","打数","得点","安打","打点","三振","四球","死球","犠打","盗塁","失策","本打","月日","対戦","出場","series"];
   }
   // position,player,avg,ab,r,h,rbi,so,walks,hbp,sac,sb,err,hr,inn1,inn2,inn3,inn4,inn5,inn6,inn7,inn8,inn9,inn10,inn11,inn12,day_of_game,vs_team,starting,series
   var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/data/csv/offence_stats${year}${team_initial}.csv`;
