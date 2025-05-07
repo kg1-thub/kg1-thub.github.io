@@ -18,7 +18,7 @@ var total_wins25 = get_total_by_row(wins25);
 var wins25 = get_percentage_of_total(wins25);
 
 var options_prm = {
-    responsive: true,
+    responsive: false,
     plugins: {
         title: {
             display: false,

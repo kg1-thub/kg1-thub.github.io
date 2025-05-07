@@ -18,7 +18,7 @@
         <title>SHO-METER</title>
         <link href="../css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css">
@@ -82,18 +82,20 @@
         <div class="tab-content p-1">
             <div class="display-3">LAD #17 SHOHEI OHTANI</div>
             <span class="badge badge-pill badge-secondary">Regular Season</span>
-            <div class="display-4"> 9 HR / 10 SB / AVG .292 / 38 HITS / 13 RBI</div><!-- @@SCORE1@@ -->
+            <div class="display-4"> 10 HR / 10 SB / AVG .296 / 40 HITS / 15 RBI</div><!-- @@SCORE1@@ -->
             <div>
                 <div class="row">
                     <div class="col-sm p-1">
                         <div class="card mb-1 col-md-12" id="games25">
-                            <div class="card-header p-2"><i class="fa-solid fa-table mr-1" style="width: 17px;"></i>SHOHEI/BATTING
+                            <div class="card-header p-2">
+                                <span class="fa-solid--table mr-1"></span>
+                                SHOHEI/BATTING
                             </div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-1">
                                 <div class="table-responsive">
                                     <table class="table-sm table-bordered table-hover text-center" id="dt25games"
                                      width="100%" cellspacing="0" style="font-size:13px;">
-									<caption id="dt25gamescaption">1 HR / 1 SB / 1 HITS / 2 RBI </caption><!-- @@SCORE2@@ -->
+									<caption id="dt25gamescaption">1 HR / 0 SB / 2 HITS / 2 RBI </caption><!-- @@SCORE2@@ -->
                                     </table>
                                 </div>
                             </div>
@@ -103,7 +105,7 @@
 
                 <div class="row">
                     <div class="card mb-1 col-md-12">
-                        <div class="card-header p-2"><i class="fa-solid fa-th mr-1" style="width: 17px;"></i>SHOHEI/HEATMAP</div>
+                        <div class="card-header p-2"><span class="fa-solid--th mr-1"></span>SHOHEI/HEATMAP</div>
                         <div class="row pt-1 pb-1 ml-2">
                             <div>Non-factor</div>
                             <div style="background-color: rgb(146, 200, 200); width: 20px; height: 20px; border-radius: 30%;margin-left: 8px; margin-right: 1px;" class="my-auto"></div>
@@ -121,15 +123,15 @@
                 </div>
                 <div class="row">
                     <div class="card mb-1 col-md-12">
-                        <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>SHOHEI/RegularSeason/HIT</div>
+                        <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/HIT</div>
                         <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
                             <div class="col-lg-12"><canvas id="sho25hits" height="250px" width="750px"></canvas></div>
                         </div>
-                        <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>SHOHEI/RegularSeason/HR&SB</div>
+                        <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/HR&SB</div>
                         <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
                             <div class="col-lg-12 p-0"><canvas id="sho25hrs" height="250px" width="750px"></canvas></div>
                         </div>
-                        <div class="card-header p-2"><i class="fa-solid fa-chart-area mr-1" style="width: 17px;"></i>SHOHEI/RegularSeason/RBI</div>
+                        <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/RBI</div>
                         <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
                             <div class="col-lg-12"><canvas id="sho25rbis" height="250px" width="750px"></canvas></div>
                         </div>
