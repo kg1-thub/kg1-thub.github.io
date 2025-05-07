@@ -677,7 +677,7 @@ function makeCSV2(records, columns, year, keyword) {
           let divtd = document.createElement("td");
           if (j==14) {
             divtd.textContent = records[i][j+12].substr(5);
-          } else if (j==15) {
+          } else if (j == 15) {
             divtd.textContent = records[i][j+12];
           } else if (j==16) {
             if (records[i][j+12]=="1") {
@@ -685,6 +685,8 @@ function makeCSV2(records, columns, year, keyword) {
             } else {
               divtd.textContent = "交代";
             }
+          } else if (j == 17) {
+            divtd.textContent = records[i][j+12];
           } else {
             divtd.textContent = records[i][j];
           }
@@ -733,7 +735,7 @@ function makeCSV2(records, columns, year, keyword) {
           // { visible: false, targets: 30 },//category
           { width: "5%", targets: 15 },
           { width: "5%", targets: 16 },
-          { visible: false, targets: 17 },//starting
+          { width: "5%", targets: 17 },//starting
           { visible: false, targets: 18 },//category
         ],
         // rowCallback: function(row, data, dataIndex) {
