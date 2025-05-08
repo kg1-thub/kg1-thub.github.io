@@ -237,13 +237,17 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    topbtn.style.display = "block";
+    topbtn.classList.remove('d-none');
+    topbtn.classList.add('d-flex');
   } else {
-    topbtn.style.display = "none";
+    topbtn.classList.remove('d-flex');
+    topbtn.classList.add('d-none');
   }
 };
 
-topbtn.addEventListener("click", backToTop);
+if (topbtn){
+    topbtn.addEventListener("click", backToTop);
+}
 downbtn.addEventListener("click", goToDown);
 
 // When the user clicks on the button, scroll to the top of the document
