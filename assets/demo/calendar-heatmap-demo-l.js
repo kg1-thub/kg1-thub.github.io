@@ -36,6 +36,7 @@ var datas25 = {
     '2025-05-07': 1,
     '2025-05-09': 1,
     '2025-05-10': 1,
+    '2025-05-11': 1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -72,6 +73,7 @@ var score25 = {
     '2025-05-07': 'vs Hawks , 7-1 </br>Start P.高橋 / C.古賀悠',
     '2025-05-09': 'vs Marines , 1-0 </br>Start P.與座 / C.牧野',
     '2025-05-10': 'vs Marines , 7-0 </br>Start P.今井 / C.古賀悠',
+    '2025-05-11': 'vs Marines , 10-0 </br>Start P.隅田 / C.古賀悠',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
