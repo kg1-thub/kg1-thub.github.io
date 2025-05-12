@@ -813,7 +813,7 @@ function makeCSV2(records, columns, year, keyword) {
           sb  += parseInt(data[3][i]);
           hr  += parseInt(data[4][i]);
         }
-        document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${Math.round(h/ab*1000)} / ${sb} 盗塁`;
+        document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${String(Math.round(h/ab*1000)).padStart(3,'0')} / ${sb} 盗塁`;
       })
     });
   }
@@ -834,7 +834,7 @@ function get_summary_offence(year) {
     sb  += parseInt(data[3][i]);
     hr  += parseInt(data[4][i]);
   }
-  document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${Math.round(h/ab*1000)} / ${sb} 盗塁`;
+  document.getElementById(`dt${year}gamesoffencecaption`).textContent = ` ${hr} 本塁打 / ${rbi} 打点 / AVG .${String(Math.round(h/ab*1000)).padStart(3,'0')} / ${sb} 盗塁`;
 }
 
 function switch_colvis(year) {

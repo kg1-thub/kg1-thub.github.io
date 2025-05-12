@@ -85,6 +85,14 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
             content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s HITS / %s RBI</div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
         elif '<!-- @@SCORE2@@ -->' in row:
             content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s HITS / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
+        elif '<!-- @@HR10@@ -->' in row:
+            content += '                        %s<!-- @@HR10@@ -->\n' % (str(_hr)[0])
+        elif '<!-- @@HR01@@ -->' in row:
+            content += '                        %s<!-- @@HR10@@ -->\n' % (str(_hr)[1])
+        elif '<!-- @@SB10@@ -->' in row:
+            content += '                        %s<!-- @@SB10@@ -->\n' % (str(_sb)[0])
+        elif '<!-- @@SB01@@ -->' in row:
+            content += '                        %s<!-- @@SB01@@ -->\n' % (str(_sb)[1])
         else:
             content += row
 with open(shoINDEX,mode='w',encoding='utf-8') as writer:

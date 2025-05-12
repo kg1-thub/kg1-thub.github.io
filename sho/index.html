@@ -23,6 +23,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="./sho.css" href="stylesheet">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -60,12 +65,29 @@
     </head>
 
     <body class="sb-nav-fixed pt-5">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark" style="height: 40px; background-color: navy;">
-            <a class="navbar-brand" href="https://kg1-thub.github.io/sho/">SHO-METER</a>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark" style="height: 60px; background-color: navy;">
+            <div>
+                <a class="navbar-brand" href="https://kg1-thub.github.io/sho/" style="width: 120px; font-size: 20px; margin: 0; padding: 0;">SHO-METER</a>
+            </div>
             <nav class="nav">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">2025</a>
+                    <div style="width: 3px; height: 38px; background-color: red; margin: 5px 0 0 0;"></div>
+                    <h3 style="color: aliceblue; align-items: center; display: flex; margin: 0 3px 0 20px;">HR</h3>
+                    <div style="width:28px; background-color: aliceblue; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 1px;" class="bebas-neue-regular">
+                        1<!-- @@HR10@@ -->
+                    </div>
+                    <div style="width:28px; background-color: aliceblue; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 1px;" class="bebas-neue-regular">
+                        2<!-- @@HR01@@ -->
+                    </div>
+                    <h3 style="color: aliceblue; align-items: center; display: flex; margin: 0 3px 0 20px;">SB</h3>
+                    <div style="width:28px; background-color: aliceblue; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 1px;" class="bebas-neue-regular">
+                        1<!-- @@SB10@@ -->
+                    </div>
+                    <div style="width:28px; background-color: aliceblue; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 1px 25px 1px 1px;" class="bebas-neue-regular">
+                        0<!-- @@SB01@@ -->
+                    </div>
+                    <li class="nav-item ms-auto dropdown">
+                        <a class="nav-link ms-auto dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">2025</a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
                             <a class="dropdown-item d-none" href="https://kg1-thub.github.io/sho/" id="d2025">2025</a>
                             <a class="dropdown-item" href="https://kg1-thub.github.io/sho/2024/" id="d2024">2024</a>
@@ -80,7 +102,7 @@
 
         <!-- Tab panes -->
         <div class="tab-content p-1">
-            <div class="display-3">LAD #17 SHOHEI OHTANI</div>
+            <div class="display-4">LAD #17 SHOHEI OHTANI</div>
             <span class="badge badge-pill badge-secondary">Regular Season</span>
             <div class="display-4"> 12 HR / 10 SB / AVG .308 / 48 HITS / 21 RBI</div><!-- @@SCORE1@@ -->
             <div>
@@ -125,15 +147,15 @@
                     <div class="card mb-1 col-md-12">
                         <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/HIT</div>
                         <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
-                            <div class="col-lg-12"><canvas id="sho25hits" height="250px" width="750px"></canvas></div>
+                            <div class="col-lg-12"><canvas id="sho25hits" height="250px" width="650px"></canvas></div>
                         </div>
                         <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/HR&SB</div>
                         <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
-                            <div class="col-lg-12 p-0"><canvas id="sho25hrs" height="250px" width="750px"></canvas></div>
+                            <div class="col-lg-12 p-0"><canvas id="sho25hrs" height="250px" width="650px"></canvas></div>
                         </div>
                         <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/RBI</div>
                         <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
-                            <div class="col-lg-12"><canvas id="sho25rbis" height="250px" width="750px"></canvas></div>
+                            <div class="col-lg-12"><canvas id="sho25rbis" height="250px" width="650px"></canvas></div>
                         </div>
                     </div>
                 </div>
