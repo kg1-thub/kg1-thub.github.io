@@ -86,13 +86,13 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
         elif '<!-- @@SCORE2@@ -->' in row:
             content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s HITS / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
         elif '<!-- @@HR10@@ -->' in row:
-            content += '                        %s<!-- @@HR10@@ -->\n' % (str(_hr)[0])
+            content += '                        %s<!-- @@HR10@@ -->\n' % (_hr // 10)
         elif '<!-- @@HR01@@ -->' in row:
-            content += '                        %s<!-- @@HR10@@ -->\n' % (str(_hr)[1])
+            content += '                        %s<!-- @@HR10@@ -->\n' % (_hr % 10)
         elif '<!-- @@SB10@@ -->' in row:
-            content += '                        %s<!-- @@SB10@@ -->\n' % (str(_sb)[0])
+            content += '                        %s<!-- @@SB10@@ -->\n' % (_sb // 10)
         elif '<!-- @@SB01@@ -->' in row:
-            content += '                        %s<!-- @@SB01@@ -->\n' % (str(_sb)[1])
+            content += '                        %s<!-- @@SB01@@ -->\n' % (_sb % 10)
         else:
             content += row
 with open(shoINDEX,mode='w',encoding='utf-8') as writer:
