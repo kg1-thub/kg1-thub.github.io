@@ -13,25 +13,19 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
         _avg = str(_g[16])
 
         pt = 0
-        if int(_g[5])>0:
-            pt+=1
-        if int(_g[9])>0:
-            pt+=2
-        elif int(_g[10])>0:
-            pt+=1
-        if int(_g[14])>0:
-            pt+=2
-        # if pt==3:
-        #     if int(_g[9])>1:
-        #         pt +=2
-        #     elif int(_g[9])>0:
-        #         pt +=1
+        if int(_g[5]) > 0: #hit
+            pt += 1 * int(_g[5])
+        if int(_g[9]) > 0: #hr
+            pt += 2 * int(_g[9])
+        elif int(_g[10]) > 0: #rbi
+            pt += 1 * int(_g[10])
+        if int(_g[14]) > 0: #sb
+            pt += 2 * int(_g[14])
 
-        last_score = pt
+        last_score = min(pt, 5)
         last_tooltip = '(Regular Season)</br><span><strong>%s HR / %s SB</strong></span></br>%s Hits / %s RBI / AVG %s' % (_g[9], _g[14], _g[5], _g[10], _avg)
         # print(f"'{_g[0]}': '{last_tooltip}',")
-        print(f"'{_g[0]}':{last_score},")
-
+        print(f"'{_g[0]}': {last_score},")
 
     # print(f'{_sb},')
     # print(_hit, _hr, _sb, _rbi)
@@ -88,7 +82,7 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
         elif '<!-- @@HR10@@ -->' in row:
             content += '                        %s<!-- @@HR10@@ -->\n' % (_hr // 10)
         elif '<!-- @@HR01@@ -->' in row:
-            content += '                        %s<!-- @@HR10@@ -->\n' % (_hr % 10)
+            content += '                        %s<!-- @@HR01@@ -->\n' % (_hr % 10)
         elif '<!-- @@SB10@@ -->' in row:
             content += '                        %s<!-- @@SB10@@ -->\n' % (_sb // 10)
         elif '<!-- @@SB01@@ -->' in row:
