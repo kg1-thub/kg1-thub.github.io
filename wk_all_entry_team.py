@@ -57,8 +57,9 @@ def set_team_param(_num):
         catcher0 = '山本'
         catcher1 = '戸柱'
         catcher2 = '松尾'
-        catcher3 = '伊藤'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        # catcher3 = '伊藤'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 4:
         num = 4
         Team = 'Dragons'
@@ -204,9 +205,9 @@ def set_team_param(_num):
         color_draw = 'rgb(246, 216, 97)'
         color_lose = 'rgb(239, 231, 194)'
         catcher0 = '海野'
-        catcher1 = '谷川原'
-        catcher2 = '渡邉'
-        catcher3 = '嶺井'
+        catcher1 = '渡邉'
+        catcher2 = '嶺井'
+        catcher3 = '谷川原'
         catchers = [catcher0, catcher1, catcher2, catcher3]
 
 TODAY = datetime.datetime.today()
