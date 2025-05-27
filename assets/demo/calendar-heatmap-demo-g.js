@@ -51,6 +51,7 @@ var datas25 = {
     '2025-05-23': 1,
     '2025-05-24': 1,
     '2025-05-25': 1,
+    '2025-05-27': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -102,6 +103,7 @@ var score25 = {
     '2025-05-23': 'vs Swallows , 5-0 </br>Start P.赤星 / C.甲斐',
     '2025-05-24': 'vs Swallows , 4-2 </br>Start P.グリフィン / C.岸田',
     '2025-05-25': 'vs Swallows , 5-2 </br>Start P.戸郷 / C.岸田',
+    '2025-05-27': 'vs Carp , 1-2 </br>Start P.井上 / C.甲斐',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
