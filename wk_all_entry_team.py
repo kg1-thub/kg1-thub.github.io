@@ -261,7 +261,7 @@ def get_query_category(sql, series, category):
         if num == 2 and category == 'pitcher':
             condition = "AND NOT (catcher='中村' AND pitcher='星 知弥')"
         if num == 3 and category == 'pitcher':
-            condition = "AND NOT (catcher='戸柱' AND pitcher='山崎 康晃')"
+            condition = "AND NOT (catcher='戸柱' AND pitcher='山崎 康晃') AND NOT (catcher='松尾' AND pitcher='山崎 康晃')"
         if num == 376 and category == 'pitcher':
             condition = "AND NOT (catcher='田中貴' AND pitcher='西垣 雅矢')"
         if num == 11 and category == 'pitcher':
@@ -292,6 +292,8 @@ def create_table_category(sql_cat, series, category):
                 if stat[0] == '星 知弥' and i==1: #S,i=1,C:中村
                     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 elif stat[0] == '山崎 康晃' and i==2: #B,i=2,C:戸柱
+                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                elif stat[0] == '山崎 康晃' and i==3: #B,i=3,C:松尾
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 elif stat[0] == '富山 凌雅' and i==1: #O,i=1,C:森
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
