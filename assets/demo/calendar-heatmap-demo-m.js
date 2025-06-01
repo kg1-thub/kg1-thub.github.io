@@ -50,6 +50,7 @@ var datas25 = {
     '2025-05-28': -1,
     '2025-05-30': -1,
     '2025-05-31': -1,
+    '2025-06-01': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -100,6 +101,7 @@ var score25 = {
     '2025-05-28': 'vs Buffaloes , 1-2 </br>Start P.種市 / C.寺地',
     '2025-05-30': 'vs Fighters , 4-1 </br>Start P.小島 / C.寺地',
     '2025-05-31': 'vs Fighters , 4-3 </br>Start P.西野 / C.寺地',
+    '2025-06-01': 'vs Fighters , 1-0 </br>Start P.ボス / C.寺地',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
