@@ -1,6 +1,6 @@
 $(document).ready(function () {
     csvLoad(
         '25',
-        '2025-05-31' // @@KEYWORD@@
+        '2025-06-01' // @@KEYWORD@@
     )
 });
