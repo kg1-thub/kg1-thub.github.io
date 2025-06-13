@@ -23,9 +23,8 @@ def set_team_param(_num):
         catcher0 = '甲斐'
         catcher1 = '大城'
         catcher2 = '岸田'
-        # catcher3 = '小林'
-        catchers = [catcher0, catcher1, catcher2]
-        # catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher3 = '小林'
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 2:
         num = 2
         Team = 'Swallows'
