@@ -72,6 +72,7 @@ var datas25 = {
 '2025-06-13': 0,
 '2025-06-14': 5,
 '2025-06-15': 3,
+'2025-06-16': 4,
 //@@TOOLTIP_DATE@@
 };
 var score25 = {
@@ -146,6 +147,7 @@ var score25 = {
     '2025-06-13': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .286',
     '2025-06-14': '(Regular Season)</br><span><strong>2 HR / 0 SB</strong></span></br>2 Hits / 2 RBI / AVG .290',
     '2025-06-15': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>3 Hits / 0 RBI / AVG .297',
+    '2025-06-16': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>2 Hits / 2 RBI / AVG .300',
     //@@TOOLTIP@@
 };
 var chartData25 = [];
