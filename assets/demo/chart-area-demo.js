@@ -74,7 +74,7 @@ const illabel25 = {
   scaleID: 'x',
   borderWidth: 0,
   borderColor: 'rgba(255,182,193,0)',
-  value: 60,
+  value: 61,
   label: {
     // rotation: 270,
     // backgroundColor: 'pink',
@@ -95,8 +95,8 @@ const ilperiod25 = {
   borderColor: 'rgba(0,150,0,0)',
   borderWidth: 1,
   cornerRadius: 4,
-  xMin: 51,
-  xMax: 70,
+  xMin: 57,
+  xMax: 76,
 };
 
 const asbreak25 = {
@@ -257,8 +257,8 @@ var myLineChart25 = new Chart(ctx25, {
       annotation: {
         annotations: {
           zero,
-          // ilperiod25,
-          // illabel25,
+          ilperiod25,
+          illabel25,
           // asbreak25,
           // champ25
         },

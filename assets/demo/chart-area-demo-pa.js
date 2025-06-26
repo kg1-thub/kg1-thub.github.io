@@ -74,7 +74,7 @@ const illabel25p = {
   scaleID: 'x',
   borderWidth: 0,
   borderColor: 'rgba(255,182,193,0)',
-  value: 60,
+  value: 61,
   label: {
     // rotation: 270,
     // backgroundColor: 'pink',
@@ -82,7 +82,7 @@ const illabel25p = {
     color: 'black',
     content: ['INTERLEAGUE','PLAY'],
     enabled: true,
-    position: 'end',
+    position: 'start',
     font: {
       size: 10
     }
@@ -95,8 +95,8 @@ const ilperiod25p = {
   borderColor: 'rgba(0,150,0,0)',
   borderWidth: 1,
   cornerRadius: 4,
-  xMin: 51,
-  xMax: 70,
+  xMin: 56,
+  xMax: 75,
 };
 
 const asbreak25p = {
@@ -257,8 +257,8 @@ var myLineChart25p = new Chart(ctx25p, {
       annotation: {
         annotations: {
           zero25p,
-          // ilperiod25p,
-          // illabel25p,
+          ilperiod25p,
+          illabel25p,
           // asbreak25p,
           // champ25p
         },
