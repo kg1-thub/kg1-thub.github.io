@@ -1,5 +1,6 @@
 var squareLength = 22;
 var _colorRange = ['#EEEEEE', '#008b8b'];
+var _colorRangep = ['#EEEEEE', '#bd0026'];
 
 var datas25 = {
 '2025-03-18': 2,
@@ -82,6 +83,7 @@ var datas25 = {
 '2025-06-24': 3,
 '2025-06-25': 1,
 '2025-06-26': 3,
+'2025-06-27': 4,
 //@@TOOLTIP_DATE@@
 };
 var score25 = {
@@ -166,6 +168,7 @@ var score25 = {
     '2025-06-24': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 2 RBI / AVG .289',
     '2025-06-25': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .291',
     '2025-06-26': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 1 RBI / AVG .291',
+    '2025-06-27': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>2 Hits / 2 RBI / AVG .295',
     //@@TOOLTIP@@
 };
 var chartData25 = [];
@@ -187,3 +190,34 @@ var heatmap25 = calendarHeatmap()
   .svgWidth('830px')
   .colorRange(_colorRange);
 heatmap25();  // render the chart
+
+var datas25p = {
+'2025-01-01': 5,
+'2025-06-17': 0,
+'2025-06-22': 1,
+//@@TOOLTIP_DATE_P@@
+};
+var score25p = {
+    '2025-06-17': '(Regular Season)</br>1.0 IP / 28 NP / 2 Hits / 1 R',
+    '2025-06-22': '(Regular Season)</br>1.0 IP / 18 NP / 0 Hits / 0 R',
+    //@@TOOLTIP_P@@
+};
+var chartData25p = [];
+for (var d in datas25p) {
+    chartData25p.push({
+        date: moment(d, 'YYYY-MM-DD').startOf('day').toDate(),
+        count: datas25p[d],
+        score: score25p[d],
+    });
+};
+var heatmap25p = calendarHeatmap()
+  .data(chartData25p)
+  .startDate('2025-03-18')
+  .endDate('2025-10-31')
+  .selector('#shomap25p')
+  .tooltipEnabled(true)
+  .legendEnabled(false)
+  .squareLength(squareLength)
+  .svgWidth('830px')
+  .colorRange(_colorRangep);
+heatmap25p();  // render the chart
