@@ -185,20 +185,24 @@ function makeCSV2(records, columns, year, keyword) {
       })
       .on('search.dt', function() {
         var table = $(`#dt${year}pgames`).DataTable();
-        var data = table.columns( [4, 6, 11, 15, 10] , {filter:'applied'}).data();
-        var ab = 0;
-        var h = 0;
-        var rbi = 0;
-        var sb = 0;
-        var hr = 0
+        var data = table.columns( [4, 5, 13, 16] , {filter:'applied'}).data();
+        var w = 0;
+        var l = 0;
+        var ip = 0;
+        var er = 0;
         for (let i=0; i<data[0].length; i++) {
-          ab  += parseInt(data[0][i]);
-          h   += parseInt(data[1][i]);
-          rbi += parseInt(data[2][i]);
-          sb  += parseInt(data[3][i]);
-          hr  += parseInt(data[4][i]);
+          w  += parseInt(data[0][i]);
+          l  += parseInt(data[1][i]);
+          ip += parseFloat(data[2][i]);
+          ip1 = Math.floor(Math.abs(ip) * 10) % 10;
+          if (ip1 == 3){
+            ip = int(ip) + 1;
+          }else if (ip1 == 4){
+            ip += 0.7;
+          }
+          er += parseInt(data[3][i]);
         }
-        document.getElementById(`dt${year}pgamescaption`).textContent = ` ${hr} HR / ${sb} SB / AVG .${Math.round(h/ab*1000)} / ${h} HITS / ${rbi} RBI`;
+        document.getElementById(`dt${year}pgamescaption`).textContent = ` ${w} Wins / ${l} Loses / ERA ${Math.round(er/ip*9*100)/100} / ${ip} IP`;
       })
     });
   }
