@@ -194,7 +194,7 @@ function makeCSV2(records, columns, year, keyword) {
           w  += parseInt(data[0][i]);
           l  += parseInt(data[1][i]);
           ip += parseFloat(data[2][i]);
-          ip1 = Math.floor(Math.abs(ip) * 10) % 10;
+          ip1 = (ip - int(ip))*10;
           if (ip1 == 3){
             ip = int(ip) + 1;
           }else if (ip1 == 4){
@@ -202,7 +202,7 @@ function makeCSV2(records, columns, year, keyword) {
           }
           er += parseInt(data[3][i]);
         }
-        document.getElementById(`dt${year}pgamescaption`).textContent = ` ${w} Wins / ${l} Loses / ERA ${Math.round(er/ip*9*100)/100} / ${ip} IP`;
+        document.getElementById(`dt${year}pgamescaption`).textContent = ` ${w} Wins / ${l} Loses / ERA ${Math.round(er/(int(ip)*3+(ip-int(ip))*10)*27*100)/100} / ${ip} IP`;
       })
     });
   }
