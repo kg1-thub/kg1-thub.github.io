@@ -1,7 +1,8 @@
 /stock/
 sho/wk_sho_.py
-soccer/wk_soccer.py
+sho/wk_sho_test.py
 sho/sho-work.txt
+soccer/wk_soccer.py
 .vs/ProjectSettings.json
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
