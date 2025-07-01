@@ -74,6 +74,7 @@ var datas25 = {
     '2025-06-27': -1,
     '2025-06-28': 1,
     '2025-06-29': -1,
+    '2025-07-01': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -148,6 +149,7 @@ var score25 = {
     '2025-06-27': 'vs Fighters , 2-5 </br>Start P.今井 / C.古賀悠',
     '2025-06-28': 'vs Fighters , 3-2 </br>Start P.隅田 / C.古賀悠',
     '2025-06-29': 'vs Fighters , 1-2 </br>Start P.渡邉 / C.古賀悠',
+    '2025-07-01': 'vs Buffaloes , 0-3 </br>Start P.與座 / C.牧野',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
