@@ -36,12 +36,13 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
 
 pitching = bool(input('Have pitching data?(Yes:1, No:0) > '))
 if pitching:
-    _w, _l, _ip, _er = 0, 0, 0, 0
+    _game, _w, _l, _ip, _er, _era = 0, 0, 0, 0, 0,0
 
     with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
         reader = csv.reader(f)
         next(reader)
         for _p in reader:
+            _game  += 1
             _w  += int(_p[3])
             _l  += int(_p[4])
             _ip += float(_p[12])
@@ -51,6 +52,7 @@ if pitching:
             elif _ip1 == 4:
                 _ip += 0.7
             _er += int(_p[15])
+            _era = _p[5]
 
             pt = 0
             wl = '---'
@@ -124,8 +126,14 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
     for row in f.readlines():
         if '<!-- @@SCORE1@@ -->' in row:
             content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s HITS / %s RBI</div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
+        elif '<!-- @@SCORE1P@@ -->' in row:
+            if pitching:
+                content += '            <div class="display-4"> %s GAME / W-L %s-%s / ERA %s / %s IP</div><!-- @@SCORE1P@@ -->\n' % (_game, _w, _l, _era, _ip)
         elif '<!-- @@SCORE2@@ -->' in row:
             content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s HITS / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
+        elif '<!-- @@SCORE2P@@ -->' in row:
+            if pitching:
+                content += '\t'*9 + '<caption id="dt25pgamescaption"> W-L %s-%s / ERA %s / %s IP</caption><!-- @@SCORE2P@@ -->\n' % (_w, _l, _era, _ip)
         elif '<!-- @@HR10@@ -->' in row:
             content += '                        %s<!-- @@HR10@@ -->\n' % (_hr // 10)
         elif '<!-- @@HR01@@ -->' in row:

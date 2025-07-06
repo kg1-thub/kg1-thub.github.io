@@ -189,20 +189,21 @@ function makeCSV2(records, columns, year, keyword) {
         var w = 0;
         var l = 0;
         var ip = 0;
-        var er = 0;
+        var er = 0
+        var ip1 = 0;
         for (let i=0; i<data[0].length; i++) {
           w  += parseInt(data[0][i]);
           l  += parseInt(data[1][i]);
           ip += parseFloat(data[2][i]);
-          ip1 = (ip - int(ip))*10;
+          ip1 = (ip - Math.floor(ip))*10;
           if (ip1 == 3){
-            ip = int(ip) + 1;
+            ip = Math.floor(ip) + 1.0;
           }else if (ip1 == 4){
             ip += 0.7;
           }
           er += parseInt(data[3][i]);
         }
-        document.getElementById(`dt${year}pgamescaption`).textContent = ` ${w} Wins / ${l} Loses / ERA ${Math.round(er/(int(ip)*3+(ip-int(ip))*10)*27*100)/100} / ${ip} IP`;
+        document.getElementById(`dt${year}pgamescaption`).textContent = ` W-L ${w}-${l} / ERA ${Math.round(er/(Math.floor(ip)*3+(ip-Math.floor(ip))*10)*27*100)/100} / ${ip} IP`;
       })
     });
   }
