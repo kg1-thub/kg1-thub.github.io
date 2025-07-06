@@ -747,15 +747,18 @@ def task_make_html():
     print()
 
 def task_entry_wl():
-    entry_wl = int(input('対象のリーグは? (0:両リーグ, 1:セ・リーグ, 2:パ・リーグ)> '))
+    entry_wl = int(input('対象のリーグは? (0:break, 1:セ・リーグ, 2:パ・リーグ, 3:両リーグ)> '))
 
-    entry_wl_ce = 1
-    entry_wl_pa = 1
+    entry_wl_ce = 0
+    entry_wl_pa = 0
 
     if entry_wl == 1:
-        entry_wl_pa = 0
+        entry_wl_ce = 1
     elif entry_wl == 2:
-        entry_wl_ce = 0
+        entry_wl_pa = 1
+    elif entry_wl == 3:
+        entry_wl_ce = 1
+        entry_wl_pa = 1
 
     STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
     STANDINGAREADEMOPA = './assets/demo/chart-area-demo-pa.js'
