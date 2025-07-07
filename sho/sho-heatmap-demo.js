@@ -91,6 +91,7 @@ var datas25 = {
 '2025-07-03': 0,
 '2025-07-04': 0,
 '2025-07-05': 1,
+'2025-07-06': 0,
 //@@TOOLTIP_DATE@@
 };
 var score25 = {
@@ -183,6 +184,7 @@ var score25 = {
     '2025-07-03': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .284',
     '2025-07-04': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .282',
     '2025-07-05': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .281',
+    '2025-07-06': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .278',
     //@@TOOLTIP@@
 };
 var chartData25 = [];
@@ -216,6 +218,7 @@ var datas25p = {
 '2025-06-28': 1,
 '2025-06-28': 1,
 '2025-07-05': 1,
+'2025-07-05': 1,
 //@@TOOLTIP_DATE_P@@
 };
 var score25p = {
@@ -226,6 +229,7 @@ var score25p = {
     '2025-06-28': '(Regular Season)</br>2.0 IP / 27 NP / 0 R</br>---',
     '2025-06-28': '(Regular Season)</br>2.0 IP / 27 NP / 0 R</br>---',
     '2025-06-28': '(Regular Season)</br>2.0 IP / 27 NP / 0 R</br>---',
+    '2025-07-05': '(Regular Season)</br>2.0 IP / 31 NP / 0 R</br>---',
     '2025-07-05': '(Regular Season)</br>2.0 IP / 31 NP / 0 R</br>---',
     //@@TOOLTIP_P@@
 };
