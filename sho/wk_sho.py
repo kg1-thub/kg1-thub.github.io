@@ -34,7 +34,7 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
     # print(f'{_hr} HR / {_sb} SB')
     # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
 
-pitching = bool(input('Have pitching data?(Yes:1, No:0) > '))
+pitching = bool(input('Have a new pitching data?(Yes:1, No:0) > '))
 if pitching:
     _game, _w, _l, _ip, _er, _era = 0, 0, 0, 0, 0,0
 
