@@ -126,7 +126,7 @@ const asbreak25 = {
     content: ['ALL-STAR GAME', 'BREAK'],
     padding: 1,
     enabled: true,
-    position: 'start',
+    position: 'end',
     textAlign: 'center',
     font: {
       size: 10
