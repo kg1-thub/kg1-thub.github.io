@@ -128,7 +128,7 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
             content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s HITS / %s RBI</div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
         elif '<!-- @@SCORE1P@@ -->' in row:
             if pitching:
-                content += '            <div class="display-4"> %s GAME / W-L %s-%s / ERA %s / %s IP</div><!-- @@SCORE1P@@ -->\n' % (_game, _w, _l, _era, _ip)
+                content += '            <div class="display-4"> %s GAMES / W-L %s-%s / ERA %s / %s IP</div><!-- @@SCORE1P@@ -->\n' % (_game, _w, _l, _era, _ip)
         elif '<!-- @@SCORE2@@ -->' in row:
             content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s HITS / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
         elif '<!-- @@SCORE2P@@ -->' in row:
