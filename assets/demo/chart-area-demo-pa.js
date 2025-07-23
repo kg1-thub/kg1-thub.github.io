@@ -88,7 +88,7 @@ const illabel25p = {
   scaleID: 'x',
   borderWidth: 0,
   borderColor: 'rgba(255,182,193,0)',
-  value: 61,
+  value: 65,
   label: {
     // rotation: 270,
     // backgroundColor: 'pink',
@@ -123,11 +123,11 @@ const asbreak25p = {
     // rotation: 270,
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'green',
-    content: ['ALL-STAR GAME', 'BREAK'],
+    content: ['ALL-STAR GAME ', 'BREAK '],
     padding: 1,
     enabled: true,
     position: 'start',
-    textAlign: 'center',
+    textAlign: 'right',
     font: {
       size: 10
     }
