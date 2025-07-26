@@ -91,6 +91,7 @@ var datas25 = {
     '2025-07-19': -1,
     '2025-07-20': -1,
     '2025-07-21': -1,
+    '2025-07-26': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -182,6 +183,7 @@ var score25 = {
     '2025-07-19': 'vs Swallows , 3-1 </br>Start P.森下 / C.坂倉',
     '2025-07-20': 'vs Swallows , 8-7 </br>Start P.玉村 / C.坂倉',
     '2025-07-21': 'vs Swallows , 7-6 </br>Start P.床田 / C.石原',
+    '2025-07-26': 'vs Giants , 1-5 </br>Start P.森下 / C.坂倉',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
