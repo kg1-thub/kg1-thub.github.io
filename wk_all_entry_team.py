@@ -370,7 +370,7 @@ def task_entry_csv():
     soup = BeautifulSoup(xml.content, 'html.parser')
     heatmap_WLD = 0    # (WIN=1, LOSE=-1, DRAW=0)
 
-    for _k, news in enumerate(soup.findAll('section', class_='bb-modCommon02')):
+    for _k, news in enumerate(soup.findAll('section', class_='bb-modCommon03')):
         _team = news.find('h3', class_='bb-head02__title')
         if _team is None:
             pass
