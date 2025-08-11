@@ -22,7 +22,7 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
         if int(_g[14]) > 0: #sb
             pt += 1 * int(_g[14])
 
-        last_score = min(pt, 5)
+        last_score = min(pt, 4)
         last_tooltip = '(Regular Season)</br><span><strong>%s HR / %s SB</strong></span></br>%s Hits / %s RBI / AVG %s' % (_g[9], _g[14], _g[5], _g[10], _avg)
         # print(f"'{_g[0]}': '{last_tooltip}',")
         print(f"'{_g[0]}': {last_score},")
@@ -34,9 +34,21 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
     # print(f'{_hr} HR / {_sb} SB')
     # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
 
-pitching = bool(input('Have a new pitching data?(Yes:1, No:0) > '))
+shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
+with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
+    content = reader.read()
+    content = content.replace(
+                # "'%s': -1," % (_g[0],), 
+                '//@@TOOLTIP_DATE@@',
+                "'%s': %i,\n//@@TOOLTIP_DATE@@" % (_g[0], last_score), 
+            ).replace(
+                '//@@TOOLTIP@@', 
+                "'%s': '%s',\n    //@@TOOLTIP@@" % (_g[0], last_tooltip)
+            )
+
+pitching = input('Have a new pitching data?(Yes:1, No:0) > ')
 if pitching:
-    _game, _w, _l, _ip, _er, _era = 0, 0, 0, 0, 0,0
+    _game, _w, _l, _ip, _er, _era = 0, 0, 0, 0, 0, 0
 
     with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
         reader = csv.reader(f)
@@ -74,18 +86,8 @@ if pitching:
             # print(f"'{_p[0]}': '{last_tooltip}',")
             print(f"'{_p[0]}': {last_score_p},")
 
-shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
-with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
-    content = reader.read()
-    content = content.replace(
-                # "'%s': -1," % (_g[0],), 
-                '//@@TOOLTIP_DATE@@',
-                "'%s': %i,\n//@@TOOLTIP_DATE@@" % (_g[0], last_score), 
-            ).replace(
-                '//@@TOOLTIP@@', 
-                "'%s': '%s',\n    //@@TOOLTIP@@" % (_g[0], last_tooltip)
-            )
-    if pitching:
+    with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
+        content = reader.read()
         content = content.replace(
                     # "'%s': -1," % (_p[0],), 
                     '//@@TOOLTIP_DATE_P@@',
@@ -94,6 +96,7 @@ with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
                     '//@@TOOLTIP_P@@', 
                     "'%s': '%s',\n    //@@TOOLTIP_P@@" % (_p[0], last_tooltip_p)
                 )
+
 with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
     writer.write(content)
 
