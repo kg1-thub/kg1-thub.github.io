@@ -46,8 +46,12 @@ with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
                 "'%s': '%s',\n    //@@TOOLTIP@@" % (_g[0], last_tooltip)
             )
 
+with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
+    writer.write(content)
+
+
 pitching = input('Have a new pitching data?(Yes:1, No:0) > ')
-if pitching:
+if pitching == 1:
     _game, _w, _l, _ip, _er, _era = 0, 0, 0, 0, 0, 0
 
     with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
@@ -97,8 +101,8 @@ if pitching:
                     "'%s': '%s',\n    //@@TOOLTIP_P@@" % (_p[0], last_tooltip_p)
                 )
 
-with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
-    writer.write(content)
+    with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
+        writer.write(content)
 
 shoAREA = 'C:/Users/ki401/Documents/git/github-io/sho/sho-area-demo.js'
 with open(shoAREA,mode='r',encoding='utf-8') as reader:
