@@ -127,11 +127,11 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
     for row in f.readlines():
         if '<!-- @@SCORE1@@ -->' in row:
             content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s HITS / %s RBI</div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
-        elif '<!-- @@SCORE1P@@ -->' and pitching in row:
+        elif '<!-- @@SCORE1P@@ -->' in row and pitching:
             content += '            <div class="display-4"> %s GAMES / W-L %s-%s / ERA %s / %s IP</div><!-- @@SCORE1P@@ -->\n' % (_game, _w, _l, _era, _ip)
         elif '<!-- @@SCORE2@@ -->' in row:
             content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s HITS / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
-        elif '<!-- @@SCORE2P@@ -->' and pitching in row:
+        elif '<!-- @@SCORE2P@@ -->' in row and pitching:
             content += '\t'*9 + '<caption id="dt25pgamescaption"> W-L %s-%s / ERA %s / %s IP</caption><!-- @@SCORE2P@@ -->\n' % (_w, _l, _era, _ip)
         elif '<!-- @@HR10@@ -->' in row:
             content += '                        %s<!-- @@HR10@@ -->\n' % (_hr // 10)
