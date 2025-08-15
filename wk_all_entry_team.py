@@ -257,14 +257,16 @@ def get_query_category(sql, series, category):
     else:
         category1, category2 = category, category
         condition = ""
-        if num == 2 and category == 'pitcher':
-            condition = "AND NOT (catcher='中村' AND pitcher='星 知弥')"
+        # if num == 2 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='中村' AND pitcher='星 知弥')"
         if num == 3 and category == 'pitcher':
             condition = "AND NOT (catcher='戸柱' AND pitcher='山崎 康晃') AND NOT (catcher='松尾' AND pitcher='山崎 康晃') AND NOT (catcher='山本' AND pitcher='岩田 将貴')"
-        if num == 376 and category == 'pitcher':
-            condition = "AND NOT (catcher='田中貴' AND pitcher='西垣 雅矢')"
-        if num == 11 and category == 'pitcher':
-            condition = "AND NOT (catcher='森' AND pitcher='富山 凌雅')"
+        if num == 4 and category == 'pitcher':
+            condition = "AND NOT (catcher='加藤匠' AND pitcher='福 敬登')"
+        # if num == 376 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='田中貴' AND pitcher='西垣 雅矢')"
+        # if num == 11 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='森' AND pitcher='富山 凌雅')"
     cur.execute(sql % (category1, category, category2, series, condition, category, category, category))
     conn.commit()
     results = cur.fetchall()
@@ -288,18 +290,20 @@ def create_table_category(sql_cat, series, category):
         for i, x in enumerate(stat):
             print(i, stat)
             if x is None:
-                if stat[0] == '星 知弥' and i==1: #S,i=1,C:中村
-                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
-                elif stat[0] == '岩田 将貴' and i==1: #B,i=1,C:山本
+                # if stat[0] == '星 知弥' and i==1: #S,i=1,C:中村
+                #     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
+                if stat[0] == '岩田 将貴' and i==1: #B,i=1,C:山本
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 elif stat[0] == '山崎 康晃' and i==2: #B,i=2,C:戸柱
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 elif stat[0] == '山崎 康晃' and i==3: #B,i=3,C:松尾
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '富山 凌雅' and i==1: #O,i=1,C:森
-                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '西垣 雅矢' and i==4: #E,i=4,C:田中貴
-                    table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
+                elif stat[0] == '福 敬登' and i==3: #D,i=3,C:加藤匠
+                    table_html += tb+'\t<td>0-1-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '富山 凌雅' and i==1: #O,i=1,C:森
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '西垣 雅矢' and i==4: #E,i=4,C:田中貴
+                #     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 else:
                     table_html += tb+'\t<td>---</td>\n'
             else:
