@@ -112,6 +112,7 @@ var datas25 = {
     '2025-08-16': 1,
     '2025-08-17': 1,
     '2025-08-19': 1,
+    '2025-08-20': 1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -224,6 +225,7 @@ var score25 = {
     '2025-08-16': 'vs Eagles , 5-9 </br>Start P.加藤 / C.田宮',
     '2025-08-17': 'vs Eagles , 5-7 </br>Start P.伊藤 / C.田宮',
     '2025-08-19': 'vs Buffaloes , 6-5 </br>Start P.達 / C.田宮',
+    '2025-08-20': 'vs Buffaloes , 6-5 </br>Start P.山崎 / C.田宮',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
