@@ -128,6 +128,7 @@ var datas25 = {
 '2025-08-18': 3,
 '2025-08-19': 3,
 '2025-08-20': 1,
+'2025-08-22': 0,
 //@@TOOLTIP_DATE@@
 };
 var score25 = {
@@ -257,6 +258,7 @@ var score25 = {
     '2025-08-18': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>2 Hits / 1 RBI / AVG .285',
     '2025-08-19': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>1 Hits / 2 RBI / AVG .284',
     '2025-08-20': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .285',
+    '2025-08-22': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .283',
     //@@TOOLTIP@@
 };
 var chartData25 = [];
