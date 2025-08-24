@@ -918,8 +918,22 @@ if __name__=='__main__':
         team_num = 1
         while team_num > 0:
             print('どのチームにしますか?')
-            print('  0:exit, 1:巨人, 2:ﾔｸﾙﾄ, 3:横浜, 4:中日, 5:阪神, 6:広島')
-            print('  7:西武, 8:日ﾊﾑ, 9:ﾛｯﾃ, 10:楽天, 11:ｵﾘｯｸｽ, 12:ｿﾌﾄﾊﾞﾝｸ')
+            if entry_csv:
+                team_is = ['g', 's', 'b', 'd', 't', 'c', 'l', 'f', 'm', 'e', 'o', 'h']
+                r = []
+                for _team_i in team_is:
+                    _CALENDERHEATMAP = f'./assets/demo/calendar-heatmap-demo-{_team_i}.js'
+                    with open(_CALENDERHEATMAP, "r", encoding="utf-8") as f:
+                        js_content = f.read()
+                    if tday.strftime("%Y-%m-%d") in js_content:
+                        r.append('✅')
+                    else:
+                        r.append('⬜')
+                print(f'  0:exit, 1:巨人{r[0]}, 2:ﾔｸﾙﾄ{r[1]}, 3:横浜{r[2]}, 4:中日{r[3]}, 5:阪神{r[4]}, 6:広島{r[5]}')
+                print(f'  7:西武{r[6]}, 8:日ﾊﾑ{r[7]}, 9:ﾛｯﾃ{r[8]}, 10:楽天{r[9]}, 11:ｵﾘｯｸｽ{r[10]}, 12:ｿﾌﾄﾊﾞﾝｸ{r[11]}')
+            else:
+                print('  0:exit, 1:巨人, 2:ﾔｸﾙﾄ, 3:横浜, 4:中日, 5:阪神, 6:広島')
+                print('  7:西武, 8:日ﾊﾑ, 9:ﾛｯﾃ, 10:楽天, 11:ｵﾘｯｸｽ, 12:ｿﾌﾄﾊﾞﾝｸ')
             team_num = int(input('番号を入力してください> '))
             if team_num == 0:
                 entry_wl = bool(int(input('チーム勝敗を取り込む(1:Yes, 0:No)> ')))
