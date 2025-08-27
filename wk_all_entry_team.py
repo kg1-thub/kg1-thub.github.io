@@ -825,7 +825,6 @@ def task_entry_wl():
             writer.write(content)
 
         print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'STANDINGS Ce UPDATED!')
-        print()
 
     if entry_wl_pa:
         # H,F,M,E,B,L
