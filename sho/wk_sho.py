@@ -34,10 +34,13 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
     # print(f'{_hr} HR / {_sb} SB')
     # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
 
-pitching = int(input('Have a new pitching data?(Yes:1, No:0) > '))
-if pitching:
-    _game, _w, _l, _ip, _er, _era = 0, 0, 0, 0, 0, 0
+pitching = 0
+with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
+    if _g[0] in f.read():
+        pitching = 1
+        _game, _w, _l, _ip, _er, _era = 0, 0, 0, 0, 0, 0
 
+if pitching:
     with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
         reader = csv.reader(f)
         next(reader)
