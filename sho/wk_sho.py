@@ -38,7 +38,7 @@ pitching = 0
 with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
     if _g[0] in f.read():
         pitching = 1
-        _game, _w, _l, _ip, _er, _era = 0, 0, 0, 0, 0, 0
+        _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
 
 if pitching:
     with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
@@ -49,6 +49,7 @@ if pitching:
             _w  += int(_p[3])
             _l  += int(_p[4])
             _ip += float(_p[12])
+            _so += int(_p[20])
             _ip1 = int(abs(_ip) * 10) % 10
             if _ip1 == 3:
                 _ip = int(_ip) + 1
@@ -129,13 +130,13 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
     # reader = reader(f)
     for row in f.readlines():
         if '<!-- @@SCORE1@@ -->' in row:
-            content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s HITS / %s RBI</div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
+            content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s H / %s RBI</div><!-- @@SCORE1@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
         elif '<!-- @@SCORE1P@@ -->' in row and pitching:
-            content += '            <div class="display-4"> %s GAMES / W-L %s-%s / ERA %s / %s IP</div><!-- @@SCORE1P@@ -->\n' % (_game, _w, _l, _era, _ip)
+            content += '            <div class="display-4"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</div><!-- @@SCORE1P@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
         elif '<!-- @@SCORE2@@ -->' in row:
-            content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s HITS / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
+            content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s H / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
         elif '<!-- @@SCORE2P@@ -->' in row and pitching:
-            content += '\t'*9 + '<caption id="dt25pgamescaption"> W-L %s-%s / ERA %s / %s IP</caption><!-- @@SCORE2P@@ -->\n' % (_w, _l, _era, _ip)
+            content += '\t'*9 + '<caption id="dt25pgamescaption"> W-L %s-%s / ERA %s / %s IP / %s SO</caption><!-- @@SCORE2P@@ -->\n' % (_w, _l, _era, _ip, _so)
         elif '<!-- @@HR10@@ -->' in row:
             content += '                        %s<!-- @@HR10@@ -->\n' % (_hr // 10)
         elif '<!-- @@HR01@@ -->' in row:

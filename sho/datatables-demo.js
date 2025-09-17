@@ -94,7 +94,7 @@ function makeCSV(records, columns, year, keyword) {
           sb  += parseInt(data[3][i]);
           hr  += parseInt(data[4][i]);
         }
-        document.getElementById(`dt${year}gamescaption`).textContent = ` ${hr} HR / ${sb} SB / AVG .${Math.round(h/ab*1000)} / ${h} HITS / ${rbi} RBI`;
+        document.getElementById(`dt${year}gamescaption`).textContent = ` ${hr} HR / ${sb} SB / AVG .${Math.round(h/ab*1000)} / ${h} H / ${rbi} RBI`;
       })
     });
   }
@@ -185,25 +185,28 @@ function makeCSV2(records, columns, year, keyword) {
       })
       .on('search.dt', function() {
         var table = $(`#dt${year}pgames`).DataTable();
-        var data = table.columns( [4, 5, 13, 16] , {filter:'applied'}).data();
+        var data = table.columns( [4, 5, 13, 16, 21] , {filter:'applied'}).data();
         var w = 0;
         var l = 0;
         var ip = 0;
         var er = 0
         var ip1 = 0;
+        var so = 0;
         for (let i=0; i<data[0].length; i++) {
           w  += parseInt(data[0][i]);
           l  += parseInt(data[1][i]);
           ip += parseFloat(data[2][i]);
-          ip1 = (ip - Math.floor(ip))*10;
+          ip1 = parseInt(Math.floor((ip - Math.floor(ip))*10));
           if (ip1 == 3){
             ip = Math.floor(ip) + 1.0;
           }else if (ip1 == 4){
             ip += 0.7;
           }
+          console.log(ip1, ip);
           er += parseInt(data[3][i]);
+          so += parseInt(data[4][i]);
         }
-        document.getElementById(`dt${year}pgamescaption`).textContent = ` W-L ${w}-${l} / ERA ${Math.round(er/(Math.floor(ip)*3+(ip-Math.floor(ip))*10)*27*100)/100} / ${ip} IP`;
+        document.getElementById(`dt${year}pgamescaption`).textContent = ` W-L ${w}-${l} / ERA ${Math.round(er/(Math.floor(ip)*3+(ip-Math.floor(ip))*10)*27*100)/100} / ${ip} IP / ${so} SO`;
       })
     });
   }
