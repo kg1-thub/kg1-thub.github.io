@@ -1,7 +1,7 @@
 $(document).ready(function () {
     csvLoad(
         '25',
-        '2025-09-20' // @@KEYWORD@@
+        '2025-09-21' // @@KEYWORD@@
     );
     csvLoad2(
         '25',
