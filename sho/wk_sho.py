@@ -27,6 +27,8 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
         # print(f"'{_g[0]}': '{last_tooltip}',")
         print(f"'{_g[0]}': {last_score},")
 
+    print("Batting Score calcurated.")
+
     # print(f'{_sb},')
     # print(_hit, _hr, _sb, _rbi)
     # print(f"'{_g[0]}':{last_score},")
@@ -77,6 +79,8 @@ if pitching:
             last_tooltip_p = '(Regular Season)</br>%s IP / %s NP / %s R</br>%s' % (_p[12], _p[21].split('-')[0], _p[14], wl)
             # print(f"'{_p[0]}': '{last_tooltip}',")
             print(f"'{_p[0]}': {last_score_p},")
+
+    print("Pitching Score calcurated.")
 
 shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
 with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
