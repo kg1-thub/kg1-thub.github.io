@@ -27,7 +27,7 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
         # print(f"'{_g[0]}': '{last_tooltip}',")
         print(f"'{_g[0]}': {last_score},")
 
-    print("Batting Score calcurated.")
+    print("Batting Score UPDATED.")
 
     # print(f'{_sb},')
     # print(_hit, _hr, _sb, _rbi)
@@ -80,7 +80,7 @@ if pitching:
             # print(f"'{_p[0]}': '{last_tooltip}',")
             print(f"'{_p[0]}': {last_score_p},")
 
-    print("Pitching Score calcurated.")
+    print("Pitching Score UPDATED.")
 
 shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
 with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
