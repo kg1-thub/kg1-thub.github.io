@@ -155,6 +155,7 @@ var sho25_data = {'hits': [0,
 167,
 167,
 168,
+169,
 //@@HITS@@
   ], 
   'hrs': [0,
@@ -314,6 +315,7 @@ var sho25_data = {'hits': [0,
 53,
 53,
 53,
+54,
 //@@HRS@@
   ],
   'sbs': [0,
@@ -464,6 +466,7 @@ var sho25_data = {'hits': [0,
 18,
 18,
 18,
+19,
 19,
 19,
 19,
@@ -632,6 +635,7 @@ var sho25_data = {'hits': [0,
 99,
 99,
 99,
+101,
 //@@RBIS@@
   ], 
   'labels': ['Start',
@@ -791,6 +795,7 @@ var sho25_data = {'hits': [0,
 '2025-09-21',
 '2025-09-23',
 '2025-09-24',
+'2025-09-25',
 //@@TODAY@@
   ],
 }
@@ -895,17 +900,17 @@ const break24 = {
     }
   }
 };
-const clinch24 = {
+const clinch25 = {
   type: 'line',
   scaleID: 'x',
   borderWidth: 2,
   borderColor: 'rgba(0,128,0,0.3)',
-  value: 156,
+  value: 157,
   label: {
     // rotation: 270,
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'green',
-    content: ["DODGERS CLINCH NL WEST"],
+    content: ["DODGERS CLINCH","NL WEST"],
     padding: 1,
     enabled: true,
     position: 'start',
@@ -1042,7 +1047,7 @@ var sho25hrs = new Chart(ctx_sho25hrs, {
           // closed24,
           // shoday24,
           // break24,
-          // clinch24,
+          clinch25,
           // bar40,
           // bar50,
           // zero,
@@ -1085,6 +1090,7 @@ var sho25hits = new Chart(ctx_sho25hits, {
       autocplors: false,
       annotation: {
         annotations: {
+          clinch25,
           // zero,
           // ilperiod22,
           // illabel22,
@@ -1125,6 +1131,7 @@ var sho25rbis = new Chart(ctx_sho25rbis, {
       autocplors: false,
       annotation: {
         annotations: {
+          clinch25,
           // zero,
           // ilperiod22,
           // illabel22,
