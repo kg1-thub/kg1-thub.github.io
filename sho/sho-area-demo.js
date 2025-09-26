@@ -910,7 +910,7 @@ const clinch25 = {
     // rotation: 270,
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'green',
-    content: ["DODGERS CLINCH","NL WEST"],
+    content: ["DODGERS CLINCH NL WEST"],
     padding: 1,
     enabled: true,
     position: 'start',
