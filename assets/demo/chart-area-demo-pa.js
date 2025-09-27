@@ -154,12 +154,12 @@ const champ25p = {
   scaleID: 'x',
   borderWidth: 2,
   borderColor: 'rgba(0,128,0,0.7)',
-  value: 152,
+  value: 153,
   label: {
     // rotation: 270,
     backgroundColor: 'rgba(0,0,0,0.0)',
     color: 'green',
-    content: ['GIANTS CLINCH','CE-LEAGUE'],
+    content: ['HAWKS CLINCH','PA-LEAGUE'],
     padding: 1,
     enabled: true,
     position: 'start',
@@ -290,7 +290,7 @@ var myLineChart25p = new Chart(ctx25p, {
           ilperiod25p,
           illabel25p,
           asbreak25p,
-          // champ25p
+          champ25p
         },
       },
       legend: {
