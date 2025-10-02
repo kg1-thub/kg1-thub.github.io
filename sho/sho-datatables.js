@@ -1,7 +1,7 @@
 $(document).ready(function () {
     csvLoad(
         '25',
-        '[PS]' // @@KEYWORD@@
+        '(PS)' // @@KEYWORD@@
     );
     csvLoad2(
         '25',
