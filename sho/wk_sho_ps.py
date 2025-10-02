@@ -137,10 +137,10 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
             content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s H / %s RBI</div><!-- @@SCORE1_PS@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
         elif '<!-- @@SCORE1P_PS@@ -->' in row and pitching:
             content += '            <div class="display-4"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</div><!-- @@SCORE1P_PS@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
-        # elif '<!-- @@SCORE2_PS@@ -->' in row:
-        #     content += '\t'*9 + '<caption id="dt25psgamescaption">%s HR / %s SB / %s H / %s RBI </caption><!-- @@SCORE2_PS@@ -->\n' % (_g[9], _g[14], _g[5], _g[10])
-        # elif '<!-- @@SCORE2P_PS@@ -->' in row and pitching:
-        #     content += '\t'*9 + '<caption id="dt25ppsgamescaption"> W-L %s-%s / ERA %s / %s IP / %s SO</caption><!-- @@SCORE2P_PS@@ -->\n' % (_w, _l, _era, _ip, _so)
+        elif '<!-- @@SCORE2@@ -->' in row:
+            content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s H / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
+        elif '<!-- @@SCORE2P@@ -->' in row and pitching:
+            content += '\t'*9 + '<caption id="dt25pgamescaption"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</caption><!-- @@SCORE2P@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
         # elif '<!-- @@HR10@@ -->' in row:
         #     content += '                        %s<!-- @@HR10@@ -->\n' % (_hr // 10)
         # elif '<!-- @@HR01@@ -->' in row:

@@ -254,6 +254,8 @@ def get_query_category(sql, series, category):
     if category=='month':
         category1, category2 = "month::integer", "DATE_PART('month', day_of_game) AS month"
         condition = ""
+        if num == 5:
+            condition = "AND NOT catcher='原口'"
     else:
         category1, category2 = category, category
         condition = ""
@@ -263,6 +265,8 @@ def get_query_category(sql, series, category):
             condition = "AND NOT (catcher='戸柱' AND pitcher='山崎 康晃') AND NOT (catcher='松尾' AND pitcher='山崎 康晃') AND NOT (catcher='山本' AND pitcher='岩田 将貴')"
         if num == 4 and category == 'pitcher':
             condition = "AND NOT (catcher='加藤匠' AND pitcher='福 敬登')"
+        if num == 5 and category == 'pitcher':
+            condition = "AND NOT (catcher='原口' AND pitcher='岩貞 祐太')"
         # if num == 376 and category == 'pitcher':
         #     condition = "AND NOT (catcher='田中貴' AND pitcher='西垣 雅矢')"
         # if num == 11 and category == 'pitcher':
@@ -300,6 +304,8 @@ def create_table_category(sql_cat, series, category):
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 elif stat[0] == '福 敬登' and i==3: #D,i=3,C:加藤匠
                     table_html += tb+'\t<td>0-1-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '岩貞 裕太' and i==4: #E,i=4,C:原口
+                #     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 # elif stat[0] == '富山 凌雅' and i==1: #O,i=1,C:森
                 #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 # elif stat[0] == '西垣 雅矢' and i==4: #E,i=4,C:田中貴
@@ -620,7 +626,11 @@ def task_make_html():
         #     x.append(Decimal(x[10]/x[8]).quantize(Decimal('0.001'), rounding=ROUND_HALF_UP))
         # else:
         #     x.append('---')
-        x.insert(8, Decimal(x[7]*9/x[1]).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))
+        try:
+            print(x)
+            x.insert(8, Decimal(x[7]*9/x[1]).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))
+        except:
+            x.insert(8, "---")
 
     table_html = ''
     tb = '\t'*11
