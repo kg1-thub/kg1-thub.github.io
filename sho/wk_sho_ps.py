@@ -155,17 +155,17 @@ with open(shoINDEX,mode='w',encoding='utf-8') as writer:
     writer.write(content)
 print('sho-HEATMAP UPDATED.')
 
-# DATATABLESDEMO SEARCH KEYWORD UPDATE
-DATATABLESDEMO = f'./sho/sho-datatables.js'
-print(DATATABLESDEMO)
-with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
-    lines = reader.readlines()
-    content = ''
-    for line in lines:
-        if '@@KEYWORD@@' in line:
-            content += f"        '{_g[0]}' // @@KEYWORD@@\n"
-        else:
-            content += line
-with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
-    writer.write(content)
-print('DATATABLES-DEMO SEARCH KEYWORD UPDATED.')
+# # DATATABLESDEMO SEARCH KEYWORD UPDATE
+# DATATABLESDEMO = f'./sho/sho-datatables.js'
+# print(DATATABLESDEMO)
+# with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
+#     lines = reader.readlines()
+#     content = ''
+#     for line in lines:
+#         if '@@KEYWORD@@' in line:
+#             content += f"        '{_g[0]}' // @@KEYWORD@@\n"
+#         else:
+#             content += line
+# with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
+#     writer.write(content)
+# print('DATATABLES-DEMO SEARCH KEYWORD UPDATED.')
