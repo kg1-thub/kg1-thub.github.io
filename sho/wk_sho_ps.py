@@ -162,8 +162,8 @@ with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
     lines = reader.readlines()
     content = ''
     for line in lines:
-        if '@@KEYWORD_PS@@' in line:
-            content += f"        '{_g[0]}' // @@KEYWORD_PS@@\n"
+        if '@@KEYWORD@@' in line:
+            content += f"        '{_g[0]}' // @@KEYWORD@@\n"
         else:
             content += line
 with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
