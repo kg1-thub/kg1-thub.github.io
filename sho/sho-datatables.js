@@ -5,6 +5,6 @@ $(document).ready(function () {
     );
     csvLoad2(
         '25',
-        '' // @@KEYWORD_P@@
+        '(PS)' // @@KEYWORD_P@@
     );
 });

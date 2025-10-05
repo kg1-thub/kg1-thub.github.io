@@ -37,13 +37,13 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25_ps.csv') as f:
     # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
 
 pitching = 0
-with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
+with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p_ps.csv') as f:
     if _g[0] in f.read():
         pitching = 1
         _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
 
 if pitching:
-    with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
+    with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p_ps.csv') as f:
         reader = csv.reader(f)
         next(reader)
         for _p in reader:
@@ -138,7 +138,7 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
         elif '<!-- @@SCORE1P_PS@@ -->' in row and pitching:
             content += '            <div class="display-4"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</div><!-- @@SCORE1P_PS@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
         elif '<!-- @@SCORE2@@ -->' in row:
-            content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / %s H / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
+            content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / AVG %s / %s H / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
         elif '<!-- @@SCORE2P@@ -->' in row and pitching:
             content += '\t'*9 + '<caption id="dt25pgamescaption"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</caption><!-- @@SCORE2P@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
         # elif '<!-- @@HR10@@ -->' in row:

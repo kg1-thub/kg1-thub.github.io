@@ -163,6 +163,7 @@ var datas25 = {
 '2025-09-28': 4,
 '2025-09-30': 4,
 '2025-10-01': 2,
+'2025-10-04': 0,
 //@@TOOLTIP_DATE@@
 };
 var score25 = {
@@ -327,6 +328,7 @@ var score25 = {
     '2025-09-28': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>3 Hits / 1 RBI / AVG .282',
     '2025-09-30': '(Postseason)</br><span><strong>2 HR / 0 SB</strong></span></br>2 Hits / 3 RBI / AVG .400',
     '2025-10-01': '(Postseason)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 1 RBI / AVG .333',
+    '2025-10-04': '(Postseason)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .231',
     //@@TOOLTIP@@
 };
 var chartData25 = [];
@@ -364,6 +366,7 @@ var datas25p = {
 '2025-09-05': 1,
 '2025-09-16': 2,
 '2025-09-23': 2,
+'2025-10-04': 3,
 //@@TOOLTIP_DATE_P@@
 };
 var score25p = {
@@ -380,6 +383,7 @@ var score25p = {
     '2025-09-05': '(Regular Season)</br>3.2 IP / 70 NP / 0 R</br>---',
     '2025-09-16': '(Regular Season)</br>5.0 IP / 68 NP / 0 R</br>---',
     '2025-09-23': '(Regular Season)</br>6.0 IP / 91 NP / 0 R</br>---',
+    '2025-10-04': '(Postseason)</br>6.0 IP / 89 NP / 3 R</br>WIN',
     //@@TOOLTIP_P@@
 };
 var chartData25p = [];
