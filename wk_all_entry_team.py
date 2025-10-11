@@ -497,8 +497,8 @@ def task_entry_csv():
                     "'"+tday.strftime('%Y-%m-%d')+"'"+': '+str(heatmap_WLD)+',\n    //@@NEXTGAME@@'
                 ).replace(
                     '//@@NEXTSCORE@@', 
-                    "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
-                    # "'"+tday.strftime('%Y-%m-%d')+"': '(日本S) vs "+_team+' , '+score
+                    # "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
+                    "'"+tday.strftime('%Y-%m-%d')+"': '(CS)vs "+_team+' , '+score
                     + ' </br>Start P.'+start_pitcher+' / C.'+start_catcher+"',\n    //@@NEXTSCORE@@"
                 )
     with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:
