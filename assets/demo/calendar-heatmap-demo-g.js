@@ -147,6 +147,7 @@ var datas25 = {
     '2025-09-30': 1,
     '2025-10-01': 1,
     '2025-10-11': -1,
+    '2025-10-12': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -294,6 +295,7 @@ var score25 = {
     '2025-09-30': 'vs Dragons , 4-2 </br>Start P.田中 / C.小林',
     '2025-10-01': 'vs Dragons , 5-2 </br>Start P.山崎 / C.山瀬',
     '2025-10-11': '(CS)vs Baystars , 6-2 </br>Start P.山崎 / C.岸田',
+    '2025-10-12': '(CS)vs Baystars , 7-6 </br>Start P.戸郷 / C.岸田',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
