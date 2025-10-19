@@ -150,6 +150,7 @@ var datas25 = {
     '2025-10-16': 1,
     '2025-10-17': -1,
     '2025-10-18': -1,
+    '2025-10-19': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -300,6 +301,7 @@ var score25 = {
     '2025-10-16': '(CS)vs Fighters , 3-0 </br>Start P.有原 / C.海野',
     '2025-10-17': '(CS)vs Fighters , 0-6 </br>Start P.上沢 / C.海野',
     '2025-10-18': '(CS)vs Fighters , 3-9 </br>Start P.大関 / C.嶺井',
+    '2025-10-19': '(CS)vs Fighters , 1-7 </br>Start P.大津 / C.海野',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
