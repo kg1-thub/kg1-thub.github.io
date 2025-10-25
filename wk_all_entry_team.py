@@ -359,12 +359,13 @@ def task_entry_csv():
     soup = BeautifulSoup(xml.content, 'html.parser')
     _score = []
     for _, score_of_game in enumerate(soup.findAll('a', class_='bb-gameTeam__link')):
-        _score.append(score_of_game.text)
+        # _score.append(score_of_game.text)
+        _score.append(score_of_game.text.replace('\n', ''))
 
     _score.append(soup.find('span', class_='bb-gameTeam__homeScore').text)
     _score.append(soup.find('span', class_='bb-gameTeam__awayScore').text)
 
-    # print(_score)
+    print(_score)
     # if _score[0] == team_jp:
     if _score[0] == team_jp2:
         vsteam = _score[1]
@@ -382,6 +383,7 @@ def task_entry_csv():
 
     for _k, news in enumerate(soup.findAll('section', class_='bb-modCommon03')):
         _team = news.find('h3', class_='bb-head02__title')
+        print(_team, vsteam)
         if _team is None:
             pass
         elif _team.text == team_jp_full:
