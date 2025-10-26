@@ -500,7 +500,7 @@ def task_entry_csv():
                 ).replace(
                     '//@@NEXTSCORE@@', 
                     # "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
-                    "'"+tday.strftime('%Y-%m-%d')+"': '(CS)vs "+_team+' , '+score
+                    "'"+tday.strftime('%Y-%m-%d')+"': '(NS)vs "+_team+' , '+score
                     + ' </br>Start P.'+start_pitcher+' / C.'+start_catcher+"',\n    //@@NEXTSCORE@@"
                 )
     with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:
