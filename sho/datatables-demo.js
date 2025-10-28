@@ -41,7 +41,7 @@ function makeCSV(records, columns, year, keyword) {
   if (year == '25') {
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
-        order: [[ 0, "asc" ]],
+        order: [[ 1, "desc" ]],
         columnDefs: [
           { visible: false, targets: 0 },
           { visible: true, targets: 1 },
@@ -142,7 +142,7 @@ function makeCSV2(records, columns, year, keyword) {
   if (year == '25') {
     $(document).ready(function() {
       $(`#dt${year}pgames`).DataTable({
-        order: [[ 0, "asc" ]],
+        order: [[ 1, "desc" ]],
         columnDefs: [
           { visible: false, targets: 0 },
           { visible: true, targets: 1 },
