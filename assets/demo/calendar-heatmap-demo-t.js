@@ -154,6 +154,7 @@ var datas25 = {
     '2025-10-26': -1,
     '2025-10-28': -1,
     '2025-10-29': -1,
+    '2025-10-30': -1,
     //@@NEXTGAME@@
 };
 var score25 = {
@@ -308,6 +309,7 @@ var score25 = {
     '2025-10-26': '(NS)vs Hawks , 10-1 </br>Start P.デュプランティエ / C.坂本',
     '2025-10-28': '(NS)vs Hawks , 1-2 </br>Start P.才木 / C.坂本',
     '2025-10-29': '(NS)vs Hawks , 2-3 </br>Start P.高橋 / C.坂本',
+    '2025-10-30': '(NS)vs Hawks , 2-3 </br>Start P.大竹 / C.坂本',
     //@@NEXTSCORE@@
 };
 var chartData25 = [];
