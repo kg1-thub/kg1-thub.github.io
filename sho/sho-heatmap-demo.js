@@ -175,6 +175,8 @@ var datas25 = {
 '2025-10-25': 1,
 '2025-10-27': 4,
 '2025-10-28': 0,
+'2025-10-29': 0,
+'2025-10-31': 1,
 //@@TOOLTIP_DATE@@
 };
 var score25 = {
@@ -351,6 +353,8 @@ var score25 = {
     '2025-10-25': '(Postseason)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .224',
     '2025-10-27': '(Postseason)</br><span><strong>2 HR / 0 SB</strong></span></br>4 Hits / 3 RBI / AVG .283',
     '2025-10-28': '(Postseason)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .268',
+    '2025-10-29': '(Postseason)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .250',
+    '2025-10-31': '(Postseason)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .254',
     //@@TOOLTIP@@
 };
 var chartData25 = [];
