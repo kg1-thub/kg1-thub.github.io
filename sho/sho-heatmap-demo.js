@@ -370,7 +370,7 @@ for (var d in datas25) {
 var heatmap25 = calendarHeatmap()
   .data(chartData25)
   .startDate('2025-03-18')
-  .endDate('2025-10-31')
+  .endDate('2025-11-02')
   .selector('#shomap25')
   .tooltipEnabled(true)
   .legendEnabled(false)
