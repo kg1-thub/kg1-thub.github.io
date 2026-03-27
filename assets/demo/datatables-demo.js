@@ -382,6 +382,58 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $('#dt26catcher').DataTable({
+    order: [ [ 1, "desc" ] ],
+    columnDefs: [
+      { targets: '_all', className: 'text-center' },
+      { width: "8%", targets: 0 },
+      { width: "8%", targets: 1 },
+      { width: "8%", targets: 2 },
+      { width: "8%", targets: 3 },
+      { width: "8%", targets: 4 },
+      { width: "8%", targets: 5 },
+      { width: "8%", targets: 6 },
+      { width: "8%", targets: 7 },
+      { width: "8%", targets: 8 },
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
+
+$(document).ready(function() {
+  $('#dt26month').DataTable({
+    order: [ [ 0, "asc" ] ],
+    columnDefs: [
+      { targets: '_all', className: 'text-center', width: '10%' },
+      // { width: "17%", targets: 1 },
+      // { width: "17%", targets: 2 },
+      // { width: "17%", targets: 3 },
+      // { width: "11%", targets: 4 },
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
+
+$(document).ready(function() {
+  $('#dt26pitcher').DataTable({
+    order: [[ 1, "desc" ]],
+    columnDefs: [
+      { targets: '_all', className: 'text-center', width: '10%' },
+      // { width: "22%", targets: 1 },
+      // { width: "22%", targets: 2 },
+      // { width: "22%", targets: 3 },
+      // { width: "22%", targets: 4 },
+    ],
+    searching: false,
+    paging: false,
+    info: false
+  });
+});
 
 function makeCSV(records, columns, year, keyword) {
   const divtable = document.getElementById(`dt${year}games`);
@@ -601,7 +653,7 @@ function search_today(year) {
 };
 
 function csvLoad(year, keyword, team_initial="") {
-  if (year == "24" || year == "25"){
+  if (year == "24" || year == "25" || year == "26"){
     var cols = ["勝敗S","投手","投球回","球数","打者","被安","被本","三振","四球","死球","ボーク","失点","自責","捕手","月日","対戦","出場","series"];
   }
   // wls,pitcher,innings,pitches,at_bats,hits,homeruns,strikeouts,walks,hit_by_pitch,balks,runs,earned_runs,catcher,day_of_game,vs_team,starting,series
@@ -695,7 +747,7 @@ function makeCSV2(records, columns, year, keyword) {
   }
 
   // var keyword=KW;
-  if (year == '25') {
+  if (year == '25' || year == '26') {
     $(document).ready(function() {
       $(`#dt${year}gamesoffence`).DataTable({
         deferRender: true,
@@ -850,7 +902,7 @@ function switch_colvis(year) {
 };
 
 function csvLoad2(year, keyword, team_initial="") {
-  if (year == "25"){
+  if (year == "25" || year == "26"){
     // var cols = ["位置","選手","打率","打数","得点","安打","打点","三振","四球","死球","犠打","盗塁","失策","本打","1回","2回","3回","4回","5回","6回","7回","8回","9回","10回","11回","12回","月日","対戦","出場","series"];
     var cols = ["位置","選手","打率","打数","得点","安打","打点","三振","四球","死球","犠打","盗塁","失策","本打","月日","対戦","出場","series"];
   }

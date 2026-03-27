@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <!-- <script data-ad-client="ca-pub-1993395319769113" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:url" content="https://kg1-thub.github.io/sho" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="SHO-METER" />
+		<meta property="og:description" content="LAD大谷翔平/成績をビジュアル化" />
+		<meta property="og:image" content="https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/assets/img/screen_sho.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="description" content="大谷翔平/成績をビジュアル化" />
+        <meta name="keywords" content="ロサンゼルスドジャース LosAngeles Dodgers 大谷翔平 LAD Shohei Ohtani SHO-TIME SHO-METER" />
+        <meta name="author" content="kg1" />
+        <title>SHO-METER</title>
+        <link href="../../css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="../../sho.css" href="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1993395319769113"
+        crossorigin="anonymous"></script>
+
+        <script src="../js/utils.js"></script>
+        <style>
+            canvas {
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+        </style>
+
+        <!-- calendar-heatmap -->
+        <link rel="stylesheet" type="text/css" href="../../css/calendar-heatmap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js" charset="utf-8"></script>
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+        <script src="sho-heatmap.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147259112-3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-147259112-3');
+        </script>
+        <link rel="icon" href="../../assets/img/map_pin_shadow.ico">
+    </head>
+
+    <body class="sb-nav-fixed pt-5">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark" style="height: 60px; padding-left: 10px; background-color: navy;">
+            <div>
+                <a class="navbar-brand" href="https://kg1-thub.github.io/sho/" style="width: 120px; font-size: 20px; margin: 0; padding: 0;">SHO-METER</a>
+            </div>
+            <nav class="nav">
+                <ul class="navbar-nav">
+                    <div style="width: 3px; height: 38px; background-color: red; margin: 5px 0 0 0;"></div>
+                    <h3 style="color: aliceblue; align-items: center; display: flex; margin: 0 3px 0 15px;">HR</h3>
+                    <div style="width:28px; background-color: aliceblue; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 1px;" class="bebas-neue-regular">
+                        5<!-- @@HR10@@ -->
+                    </div>
+                    <div style="width:28px; background-color: aliceblue; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 1px;" class="bebas-neue-regular">
+                        5<!-- @@HR01@@ -->
+                    </div>
+                    <h3 style="color: aliceblue; align-items: center; display: flex; margin: 0 3px 0 15px;">SB</h3>
+                    <div style="width:28px; background-color: aliceblue; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 1px;" class="bebas-neue-regular">
+                        2<!-- @@SB10@@ -->
+                    </div>
+                    <div style="width:28px; background-color: aliceblue; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 1px 25px 1px 1px;" class="bebas-neue-regular">
+                        0<!-- @@SB01@@ -->
+                    </div>
+                    <li class="nav-item ms-auto dropdown">
+                        <a class="nav-link ms-auto dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">2025</a>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item d-none" href="https://kg1-thub.github.io/sho/" id="d2025">2025</a>
+                            <a class="dropdown-item" href="https://kg1-thub.github.io/sho/2024/" id="d2024">2024</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="https://kg1-thub.github.io/catcher-stats/about/about_site/" class="dropdown-item">About Site</a>
+                            <a href="https://forms.gle/f5mB854NhKq3hHq48" class="dropdown-item">Contact</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </nav>
+
+        <!-- Tab panes -->
+        <div class="tab-content p-1">
+            <div class="display-4">LAD #17 SHOHEI OHTANI</div>
+            <span class="badge badge-pill badge-primary">Postseason / Batting</span>
+            <div class="display-4"> 8 HR / 1 SB / AVG .265 / 18 H / 14 RBI</div><!-- @@SCORE1_PS@@ -->
+            <span class="badge badge-pill badge-primary">Postseason / Pitching</span>
+            <div class="display-4"> 4 G / W-L 2-1 / ERA 4.43 / 20.1 IP / 28 SO</div><!-- @@SCORE1P_PS@@ -->
+            <span class="badge badge-pill badge-secondary">Regular Season / Batting</span>
+            <div class="display-4"> 55 HR / 20 SB / AVG .282 / 172 H / 102 RBI</div><!-- @@SCORE1@@ -->
+            <span class="badge badge-pill badge-secondary">Regular Season / Pitching</span>
+            <div class="display-4"> 14 G / W-L 1-1 / ERA 2.87 / 47.0 IP / 62 SO</div><!-- @@SCORE1P@@ -->
+            <div>
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1 col-md-12" id="games25">
+                            <div class="card-header p-2">
+                                <span class="fa-solid--table mr-1"></span>
+                                SHOHEI/BATTING
+                            </div>
+                            <div class="card-body pl-1 pr-1 pb-0 pt-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt25games"
+                                     width="100%" cellspacing="0" style="font-size:13px;">
+									<caption id="dt25gamescaption">8 HR / 1 SB / AVG .265 / 18 H / 14 RBI </caption><!-- @@SCORE2@@ -->
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm p-1">
+                        <div class="card mb-1 col-md-12" id="games25p">
+                            <div class="card-header p-2">
+                                <span class="fa-solid--table mr-1"></span>
+                                SHOHEI/PITCHING
+                            </div>
+                            <div class="card-body pl-1 pr-1 pb-0 pt-1">
+                                <div class="table-responsive">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt25pgames"
+                                     width="100%" cellspacing="0" style="font-size:13px;">
+									<caption id="dt25pgamescaption"> 4 G / W-L 2-1 / ERA 4.43 / 20.1 IP / 28 SO</caption><!-- @@SCORE2P@@ -->
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="card mb-1 col-md-12">
+                        <div class="card-header p-2"><span class="fa-solid--th mr-1"></span>SHOHEI/HEATMAP</div>
+                        <div class="row pt-1 pb-1 ml-2">
+                            <span class="badge badge-pill badge-secondary mr-2">Batting</span>
+                            <div>Non-factor</div>
+                            <div style="background-color: rgb(146, 200, 200); width: 20px; height: 20px; border-radius: 30%;margin-left: 8px; margin-right: 1px;" class="my-auto"></div>
+                            <div style="background-color: rgb(110, 185, 185); width: 20px; height: 20px; border-radius: 30%;margin-left: 3px; margin-right: 1px;" class="my-auto"></div>
+                            <div style="background-color: rgb(73, 169, 169); width: 20px; height: 20px; border-radius: 30%;margin-left: 3px; margin-right: 1px;" class="my-auto"></div>
+                            <div style="background-color: rgb(37, 154, 154); width: 20px; height: 20px; border-radius: 30%;margin-left: 3px; margin-right: 1px;" class="my-auto"></div>
+                            <div style="background-color: rgb(0, 139, 139); width: 20px; height: 20px; border-radius: 30%;margin-left: 3px; margin-right: 8px;" class="my-auto"></div>
+                            <div>On fire</div>
+                        </div>
+                        <div class="card-body mx-auto pr-0 pl-2 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
+                            <div id="shomap25"></div>
+                            <div id="shomap25p"></div>
+                        </div>
+                        <div class="row pt-0 pb-1 ml-2">
+                            <span class="badge badge-pill badge-secondary mr-2">Pitching</span>
+                            <div>Non-factor</div>
+                            <div style="background-color: rgb(227, 183, 192); width: 20px; height: 20px; border-radius: 30%;margin-left: 8px; margin-right: 1px;" class="my-auto"></div>
+                            <div style="background-color: rgb(229, 146, 161); width: 20px; height: 20px; border-radius: 30%;margin-left: 3px; margin-right: 1px;" class="my-auto"></div>
+                            <div style="background-color: rgb(212, 110, 130); width: 20px; height: 20px; border-radius: 30%;margin-left: 3px; margin-right: 1px;" class="my-auto"></div>
+                            <div style="background-color: rgb(204, 73, 100); width: 20px; height: 20px; border-radius: 30%;margin-left: 3px; margin-right: 1px;" class="my-auto"></div>
+                            <div style="background-color: rgb(197, 37, 69); width: 20px; height: 20px; border-radius: 30%;margin-left: 3px; margin-right: 8px;" class="my-auto"></div>
+                            <div>On fire</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="card mb-1 col-md-12">
+                        <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/HIT</div>
+                        <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
+                            <div class="col-lg-12"><canvas id="sho25hits" height="250px" width="650px"></canvas></div>
+                        </div>
+                        <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/HR&SB</div>
+                        <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
+                            <div class="col-lg-12 p-0"><canvas id="sho25hrs" height="250px" width="650px"></canvas></div>
+                        </div>
+                        <div class="card-header p-2"><span class="fa-solid--chart-area mr-1"></span>SHOHEI/RegularSeason/RBI</div>
+                        <div class="card-body mx-auto pr-0 pl-0 pt-0 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
+                            <div class="col-lg-12"><canvas id="sho25rbis" height="250px" width="650px"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="py-3 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div>
+                            <a href="https://kg1-thub.github.io/">Giants/Catcher/Score</a>
+                            &middot;
+                            <a href="https://kg1-thub.github.io/soccer">SOCCER</a>
+                            &middot;
+                            <!-- <a href="https://kg1-thub.github.io/catcher-stats/">About Site</a>
+                            &middot;
+                            <a href="https://kg1-thub.github.io/links/">Link</a>
+                            &middot; -->
+                            <a href="https://forms.gle/f5mB854NhKq3hHq48">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- datatables.js -->
+        <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" />
+        <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> -->
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <!-- <script src="../js/scripts.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/1.0.2/chartjs-plugin-annotation.min.js" integrity="sha512-FuXN8O36qmtA+vRJyRoAxPcThh/1KJJp7WSRnjCpqA+13HYGrSWiyzrCHalCWi42L5qH1jt88lX5wy5JyFxhfQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js)"></script>
+        <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
+        <script src="../../js/scripts.js"></script>
+        <script src="../datatables-demo.js"></script>
+        <script src="sho-datatables.js"></script>
+        <script src="sho-heatmap-demo.js"></script>
+        <script src="sho-area-demo.js"></script>
+    </body>
+</html>

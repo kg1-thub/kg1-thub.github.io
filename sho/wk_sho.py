@@ -2,7 +2,7 @@ import csv
 
 _hit, _hr, _rbi, _sb, _avg= 0, 0, 0, 0, 0
 
-with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
+with open('C:/Users/ki401/Documents/git/github-io/sho/sho26.csv') as f:
     reader = csv.reader(f)
     next(reader)
     for _g in reader:
@@ -37,13 +37,13 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25.csv') as f:
     # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
 
 pitching = 0
-with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
+with open('C:/Users/ki401/Documents/git/github-io/sho/sho26p.csv') as f:
     if _g[0] in f.read():
         pitching = 1
         _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
 
 if pitching:
-    with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p.csv') as f:
+    with open('C:/Users/ki401/Documents/git/github-io/sho/sho26p.csv') as f:
         reader = csv.reader(f)
         next(reader)
         for _p in reader:

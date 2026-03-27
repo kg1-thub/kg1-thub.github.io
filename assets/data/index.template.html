@@ -74,9 +74,10 @@
                         </div>
                     </li> -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="@@title_color@@">2025</a>
+                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="@@title_color@@">2026</a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
-                            <a class="dropdown-item d-none" href="" id="d2025">2025</a>
+                            <a class="dropdown-item d-none" href="" id="d2026">2026</a>
+                            <a class="dropdown-item" href="https://kg1-thub.github.io/giants/" id="d2025">2025</a>
                             <a class="dropdown-item" href="https://kg1-thub.github.io/giants/" id="d2024">2024</a>
                             <a class="dropdown-item d-none" href="#2023" id="d2023">2023</a>
                             <a class="dropdown-item d-none" href="#2022" id="d2022">2022</a>
@@ -132,7 +133,7 @@
 
         <!-- Tab panes -->
         <div class="tab-content p-1">
-            <div class="container-fluid tab-pane active" id="t2025">
+            <div class="container-fluid tab-pane active" id="t2026">
                 <div class="row pt-1">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center small">
@@ -183,7 +184,7 @@
                     <div class="col-md-8 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-line mr-1" style="vertical-align: text-bottom;"></span>League/Team/貯金推移</div>
-                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart25" width="100%" height="60vh"></canvas></div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart26" width="100%" height="60vh"></canvas></div>
                         </div>
                     </div>
                     <div class="col-md-4 pb-1 pt-0 pl-1 pr-1">
@@ -199,13 +200,13 @@
                             </div>
                             <div class="card-body mx-auto pr-0 pl-2 pt-2 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
                             <!-- <div class="card-body mx-auto pr-0 pl-2 pt-2 pb-0" style="overflow-x: auto; width: 100%;"> -->
-                                <div id="calmap25@@i@@"></div>
+                                <div id="calmap26@@i@@"></div>
                             </div>
                         </div>
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-bar mr-1" style="vertical-align: text-bottom;"></span>Giants/Team/月別勝利数</div>
                             <div class="card-body pr-0 pl-1 pt-2 pb-1">
-                                <canvas id="bar25wins" width="100%" height="60vh"></canvas>
+                                <canvas id="bar26wins" width="100%" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -217,21 +218,21 @@
 
                 <div class="row">
                     <div class="col-sm p-1">
-                        <div class="card mb-1" id="games25p">
+                        <div class="card mb-1" id="games26p">
                             <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Giants/Pitcher/ゲーム成績
                                 <div class="float-right">
-                                    <button class="badge badge-pill badge-secondary" onclick="search_today(25)"><span class="fa-solid--search mr-1"></span>今日</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'先発')"><span class="fa-solid--search mr-1"></span>先発</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'交代')"><span class="fa-solid--search mr-1"></span>交代</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'@@catcher0@@')"><span class="fa-solid--search mr-1"></span>@@catcher0@@</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'@@catcher1@@')"><span class="fa-solid--search mr-1"></span>@@catcher1@@</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_today(26)"><span class="fa-solid--search mr-1"></span>今日</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(26,'先発')"><span class="fa-solid--search mr-1"></span>先発</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(26,'交代')"><span class="fa-solid--search mr-1"></span>交代</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(26,'@@catcher0@@')"><span class="fa-solid--search mr-1"></span>@@catcher0@@</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(26,'@@catcher1@@')"><span class="fa-solid--search mr-1"></span>@@catcher1@@</button>
                                 </div>
                             </div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-1">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25games"
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26games"
                                      width="100%" cellspacing="0">
-                                        <caption id="dt25gamescaption"></caption>
+                                        <caption id="dt26gamescaption"></caption>
                                     </table>
                                 </div>
                             </div>
@@ -241,15 +242,15 @@
 
                 <div class="row">
                     <div class="col-sm p-1">
-                        <div class="card mb-1" id="games25">
+                        <div class="card mb-1" id="games26">
                             <div class="card-header p-2"><span class="fa-solid--table mr-1"></span>Giants/Offence/ゲーム成績
-                                <!-- <button class="badge badge-secondary" onclick="switch_colvis(25)">Switch</button> -->
+                                <!-- <button class="badge badge-secondary" onclick="switch_colvis(26)">Switch</button> -->
                             </div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-1">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25gamesoffence"
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26gamesoffence"
                                      width="100%" cellspacing="0" style="font-size:13px;">
-                                        <caption id="dt25gamesoffencecaption"></caption>
+                                        <caption id="dt26gamesoffencecaption"></caption>
                                     </table>
                                 </div>
                             </div>
@@ -266,7 +267,7 @@
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/守備イニング</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25innings" height="60vh"></canvas>
+                                <canvas id="pie26innings" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -274,7 +275,7 @@
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/先発試合数</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25startings" height="60vh"></canvas>
+                                <canvas id="pie26startings" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -282,7 +283,7 @@
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/勝利数</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25wins" height="60vh"></canvas>
+                                <canvas id="pie26wins" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -292,20 +293,20 @@
                     <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-area mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/月別守備イニング
-                                <button id="redraw_canvas25innings" class="badge badge-secondary">Redraw</button>
+                                <button id="redraw_canvas26innings" class="badge badge-secondary">Redraw</button>
                             </div>
                             <div style="width:100%;">
-                                <canvas id="canvas25innings" height="150vh"></canvas>
+                                <canvas id="canvas26innings" height="150vh"></canvas>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-area mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/月別先発試合
-                                <button id="redraw_canvas25startings" class="badge badge-secondary">Redraw</button>
+                                <button id="redraw_canvas26startings" class="badge badge-secondary">Redraw</button>
                             </div>
                             <div style="width:100%;">
-                                <canvas id="canvas25startings" height="150vh"></canvas>
+                                <canvas id="canvas26startings" height="150vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -327,7 +328,7 @@
                             <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/シーズン成績</div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-0">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25catcher" width="100%" cellspacing="0">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26catcher" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>捕手</th>
@@ -357,7 +358,7 @@
                             <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/月別成績</div>
                             <div class="card-body p-1">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25month" width="100%" cellspacing="0">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26month" width="100%" cellspacing="0">
                                         <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
                                         <thead>
                                             <tr>
@@ -392,7 +393,7 @@
                             <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Giants/Catcher/投手別成績</div>
                             <div class="card-body p-1">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25pitcher" width="100%" cellspacing="0">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26pitcher" width="100%" cellspacing="0">
                                         <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
                                         <thead>
                                             <tr>
@@ -456,6 +457,6 @@
         <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
         <script src="assets/demo/datatables-demo.js"></script>
         <!-- <script src="assets/demo/datatables-demo24.js"></script> -->
-        <script src="assets/demo/datatables-demo25g.js"></script>
+        <script src="assets/demo/datatables-demo26g.js"></script>
     </body>
 </html>

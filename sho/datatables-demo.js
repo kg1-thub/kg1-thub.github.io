@@ -213,10 +213,10 @@ function makeCSV2(records, columns, year, keyword) {
 };
 
 function csvLoad(year, keyword, team_initial="") {
-  if (year == "25"){
+  if (year == "25" || year == "26"){
     var cols = ["Date","Team","OPP","AB","R","H","TB","2B","3B","HR","RBI","BB","IBB","SO","SB","CS","AVG","OBP","SLG","HBP","SAC","SF"];
   }
-  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/sho/sho25.csv`;
+  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/sho/sho${year}.csv`;
   fetch(fileurl)
   .then(res => res.blob()) // Gets the response and returns it as a blob
   .then(blob => {
@@ -241,10 +241,10 @@ function csvLoad(year, keyword, team_initial="") {
 };
 
 function csvLoad2(year, keyword, team_initial="") {
-  if (year == "25"){
+  if (year == "25" || year == "26"){
     var cols = ["Date","Team","OPP","W","L","ERA","G","GS","CG","SHO","SV","SVO","IP","H","R","ER","HR","HB","BB","IBB","SO","NP-S","AVG","WHIP","GO/AO"];
   }
-  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/sho/sho25p.csv`;
+  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/sho/sho${year}p.csv`;
   fetch(fileurl)
   .then(res => res.blob()) // Gets the response and returns it as a blob
   .then(blob => {

@@ -4,18 +4,18 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data25 = {'Catcher': ['佐藤', '田村', '寺地', 'その他'], 'Defense_inning': [[19.0, 74.0, 44.0, 25.0, 4.0, 104.33, 173.67, 17.0], [9.0, 34.33, 6.0, 9.0, 26.0, 15.67, 16.0, 0], [0, 76.0, 150.0, 161.67, 165.0, 99.33, 0, 0], [0, 1.0, 0, 0, 1.0, 0, 39.0, 1.0]], 'Starting_games': [[2, 9, 5, 3, 0, 11, 20, 2], [1, 4, 1, 0, 3, 1, 2, 0], [0, 8, 17, 19, 19, 12, 0, 0], [0, 0, 0, 0, 0, 0, 4, 0]], 'Winning_games': [[2, 3, 0, 1, 0, 5, 10, 1], [1, 0, 0, 2, 1, 0, 0, 0], [0, 5, 6, 8, 6, 4, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0]]};
-var catchers = ['佐藤', '田村', '寺地'];
+var pie_data26 = {'Catcher': ['佐藤', '田村', '寺地', '松川', 'その他'], 'Defense_inning': [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [9.0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
+var catchers = ['佐藤', '田村', '寺地', '松川'];
 
-var innings25 = pie_data25.Defense_inning;
-var starting_games25 = pie_data25.Starting_games;
-var wins25 = pie_data25.Winning_games;
-var total_innings25 = get_total_by_row(innings25);
-var innings25 = get_percentage_of_total(innings25);
-var total_starting_games25 = get_total_by_row(starting_games25);
-var starting_games25 = get_percentage_of_total(starting_games25);
-var total_wins25 = get_total_by_row(wins25);
-var wins25 = get_percentage_of_total(wins25);
+var innings26 = pie_data26.Defense_inning;
+var starting_games26 = pie_data26.Starting_games;
+var wins26 = pie_data26.Winning_games;
+var total_innings26 = get_total_by_row(innings26);
+var innings26 = get_percentage_of_total(innings26);
+var total_starting_games26 = get_total_by_row(starting_games26);
+var starting_games26 = get_percentage_of_total(starting_games26);
+var total_wins26 = get_total_by_row(wins26);
+var wins26 = get_percentage_of_total(wins26);
 
 var options_prm = {
     responsive: true,
@@ -56,8 +56,8 @@ var options_prm = {
     },
 };
 
-// 2025
-var innings25_ctx_config = {
+// 2026
+var innings26_ctx_config = {
   type: 'line',
   data: {
     labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
@@ -66,34 +66,41 @@ var innings25_ctx_config = {
           lineTension: 0,
           borderColor: window.chartColors.yellow,
           backgroundColor: window.chartColors.yellow,
-          data: innings25.p[0],
+          data: innings26.p[0],
           fill: true
       }, {
           label: catchers[1],
           lineTension: 0,
           borderColor: window.chartColors.red,
           backgroundColor: window.chartColors.red,
-          data: innings25.p[1],
+          data: innings26.p[1],
           fill: true
       }, {
           label: catchers[2],
           lineTension: 0,
           borderColor: window.chartColors.green,
           backgroundColor: window.chartColors.green,
-          data: innings25.p[2],
+          data: innings26.p[2],
           fill: true
       }, {
-          label: 'その他',
+          label: catchers[3],
           lineTension: 0,
           borderColor: window.chartColors.blue,
           backgroundColor: window.chartColors.blue,
-          data: innings25.p[3],
+          data: innings26.p[3],
+          fill: true
+        }, {
+          label: 'その他',
+          lineTension: 0,
+          borderColor: window.chartColors.purple,
+          backgroundColor: window.chartColors.purple,
+          data: innings26.p[4],
           fill: true
     }]
   },
   options: options_prm
 };
-var starting_games25_ctx_config = {
+var starting_games26_ctx_config = {
   type: 'line',
   data: {
       labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
@@ -102,58 +109,65 @@ var starting_games25_ctx_config = {
           lineTension: 0,
           borderColor: window.chartColors.yellow,
           backgroundColor: window.chartColors.yellow,
-          data: starting_games25.p[0],
+          data: starting_games26.p[0],
           fill: true
       }, {
           label: catchers[1],
           lineTension: 0,
           borderColor: window.chartColors.red,
           backgroundColor: window.chartColors.red,
-          data: starting_games25.p[1],
+          data: starting_games26.p[1],
           fill: true
       }, {
           label: catchers[2],
           lineTension: 0,
           borderColor: window.chartColors.green,
           backgroundColor: window.chartColors.green,
-          data: starting_games25.p[2],
+          data: starting_games26.p[2],
+          fill: true
+      }, {
+          label: catchers[3],
+          lineTension: 0,
+          borderColor: window.chartColors.blue,
+          backgroundColor: window.chartColors.blue,
+          data: starting_games26.p[3],
           fill: true
       }, {
           label: 'その他',
           lineTension: 0,
-          borderColor: window.chartColors.blue,
-          backgroundColor: window.chartColors.blue,
-          data: starting_games25.p[3],
+          borderColor: window.chartColors.purple,
+          backgroundColor: window.chartColors.purple,
+          data: starting_games26.p[4],
           fill: true
       }]
   },
   options: options_prm
 };
 
-var innings25_ctx = document.getElementById('canvas25innings').getContext('2d');
-var line25innings = new Chart(innings25_ctx, innings25_ctx_config);
-var starting_games25_ctx = document.getElementById('canvas25startings').getContext('2d');
-var line25startings = new Chart(starting_games25_ctx, starting_games25_ctx_config);
+var innings26_ctx = document.getElementById('canvas26innings').getContext('2d');
+var line26innings = new Chart(innings26_ctx, innings26_ctx_config);
+var starting_games26_ctx = document.getElementById('canvas26startings').getContext('2d');
+var line26startings = new Chart(starting_games26_ctx, starting_games26_ctx_config);
 
-document.getElementById('redraw_canvas25innings').addEventListener('click', function() {
-  switch_chart_type_line_to_bar(innings25_ctx_config, innings25, 'innings')
-  window.line25innings.update();
+document.getElementById('redraw_canvas26innings').addEventListener('click', function() {
+  switch_chart_type_line_to_bar(innings26_ctx_config, innings26, 'innings')
+  window.line26innings.update();
 });
 
-document.getElementById('redraw_canvas25startings').addEventListener('click', function() {
-  switch_chart_type_line_to_bar(starting_games25_ctx_config, starting_games25, 'games')
-  window.line25startings.update();
+document.getElementById('redraw_canvas26startings').addEventListener('click', function() {
+  switch_chart_type_line_to_bar(starting_games26_ctx_config, starting_games26, 'games')
+  window.line26startings.update();
 });
 
-// Pie Chart 2025 Defense_inning
-var ctx25 = document.getElementById("pie25innings");
-var pie25innings = new Chart(ctx25, {
+// Pie Chart 2026 Defense_inning
+var ctx26 = document.getElementById("pie26innings");
+var pie26innings = new Chart(ctx26, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
+    labels: [catchers[0], catchers[1], catchers[2], catchers[3], 'その他'],
     datasets: [{
-      data: total_innings25,
-      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
+      data: total_innings26,
+      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff', '#6F42CB'],
     }],
   },
   options: {
@@ -168,15 +182,15 @@ var pie25innings = new Chart(ctx25, {
     responsive: true,
   }
 });
-// Pie Chart 2025 v2 Starting_games
-var ctx25v2 = document.getElementById("pie25startings");
-var pie25startings = new Chart(ctx25v2, {
+// Pie Chart 2026 v2 Starting_games
+var ctx26v2 = document.getElementById("pie26startings");
+var pie26startings = new Chart(ctx26v2, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
+    labels: [catchers[0], catchers[1], catchers[2], catchers[3], 'その他'],
     datasets: [{
-      data: total_starting_games25,
-      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
+      data: total_starting_games26,
+      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff', '#6F42CB'],
     }],
   },
   options: {
@@ -191,15 +205,15 @@ var pie25startings = new Chart(ctx25v2, {
     responsive: true,
   }
 });
-// Pie Chart 2025 v3 wins
-var ctx25v3 = document.getElementById("pie25wins");
-var pie25wins = new Chart(ctx25v3, {
+// Pie Chart 2026 v3 wins
+var ctx26v3 = document.getElementById("pie26wins");
+var pie26wins = new Chart(ctx26v3, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
+    labels: [catchers[0], catchers[1], catchers[2], catchers[3], 'その他'],
     datasets: [{
-      data: total_wins25,
-      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
+      data: total_wins26,
+      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff', '#6F42CB'],
     }],
   },
   options: {
@@ -216,9 +230,9 @@ var pie25wins = new Chart(ctx25v3, {
 });
 
 // Bar Chart
-// Bar Chart 2025
-var ctx25 = document.getElementById("bar25wins");
-var myLineChart25 = new Chart(ctx25, {
+// Bar Chart 2026
+var ctx26 = document.getElementById("bar26wins");
+var myLineChart26 = new Chart(ctx26, {
   type: 'bar',
   data: {
     labels: ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
@@ -227,25 +241,31 @@ var myLineChart25 = new Chart(ctx25, {
         label: catchers[0],
         backgroundColor: "#ffc107",
         borderColor: "#ffc107",
-        data: pie_data25.Winning_games[0],
+        data: pie_data26.Winning_games[0],
       },
       {
         label: catchers[1],
         backgroundColor: "#dc3545",
         borderColor: "#dc3545",
-        data: pie_data25.Winning_games[1],
+        data: pie_data26.Winning_games[1],
       },
       {
         label: catchers[2],
         backgroundColor: "#28a745",
         borderColor: "#28a745",
-        data: pie_data25.Winning_games[2],
+        data: pie_data26.Winning_games[2],
+      },
+      {
+        label: catchers[3],
+        backgroundColor: "#007bff",
+        borderColor: "#007bff",
+        data: pie_data26.Winning_games[3],
       },
       {
         label: 'その他',
-        backgroundColor: "#007bff",
-        borderColor: "#007bff",
-        data: pie_data25.Winning_games[3],
+        backgroundColor: "#6F42CB",
+        borderColor: "#6F42CB",
+        data: pie_data26.Winning_games[4],
       },
     ],
   },

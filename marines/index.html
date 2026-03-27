@@ -74,9 +74,10 @@
                         </div>
                     </li> -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">2025</a>
+                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">2026</a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
-                            <a class="dropdown-item d-none" href="" id="d2025">2025</a>
+                            <a class="dropdown-item d-none" href="" id="d2026">2026</a>
+                            <a class="dropdown-item" href="https://kg1-thub.github.io/marines/2025/" id="d2025">2025</a>
                             <a class="dropdown-item" href="https://kg1-thub.github.io/marines/2024/" id="d2024">2024</a>
                             <a class="dropdown-item d-none" href="#2023" id="d2023">2023</a>
                             <a class="dropdown-item d-none" href="#2022" id="d2022">2022</a>
@@ -98,7 +99,7 @@
                     <div class="sharebtns col-xs-1 col-sm-4 pull-right">
                     <div class="sharebtns pull-right">
                         <div class="twitterbtn">
-							<a href="http://twitter.com/share?text=2025ロッテ捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A寺地, 29-43-11, 3.62 (652.0)%0D%0A佐藤, 22-26-16, 3.46 (461.0)%0D%0A田村, 4-11-2, 4.11 (116.0)%0D%0A松川, 0-3-0, 5.73 (22.0)%0D%0A植田, 1-1-1, 0.90 (20.0)%0D%0A%23marines%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2Fmarines%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">
+							<a href="http://twitter.com/share?text=2026ロッテ捕手別投手成績%0D%0A捕手, 勝-敗-S, 防御率 (イニング)%0D%0A松川, 1-0-1, 0.00 (9.0)%0D%0A%23marines%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2Fmarines%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">
                                 <!-- <i class="fa-brands fa-square-x-twitter"></i> -->
                                 <!-- <span class="fa-brands fa-square-x-twitter"></span> -->
                                 <img src="../assets/img/Twitter_Social_Icon_Rounded_Square_White.png" width="25" height="25" alt="share_twitter">
@@ -132,7 +133,7 @@
 
         <!-- Tab panes -->
         <div class="tab-content p-1">
-            <div class="container-fluid tab-pane active" id="t2025">
+            <div class="container-fluid tab-pane active" id="t2026">
                 <div class="row pt-1">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center small">
@@ -177,12 +178,13 @@
                 </div>
                 <div class="row">
                     <a href="https://kg1-thub.github.io/sho/" rel="nofollow">
-                        <img border="0" alt="redirect to sho-meter" src="../assets/img/sho.png" class="mx-auto d-block" style="max-width: 100%; height: auto; width: 800px;"></a>                </div>
+                        <img border="0" alt="redirect to sho-meter" src="../assets/img/sho.png" class="mx-auto d-block" style="max-width: 100%; height: auto; width: 800px;"></a>
+                </div>
                 <div class="row">
                     <div class="col-md-8 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-line mr-1" style="vertical-align: text-bottom;"></span>League/Team/貯金推移</div>
-                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart25p" width="100%" height="60vh"></canvas></div>
+                            <div class="card-body pr-0 pl-1 pt-2 pb-1"><canvas id="myAreaChart26p" width="100%" height="60vh"></canvas></div>
                         </div>
                     </div>
                     <div class="col-md-4 pb-1 pt-0 pl-1 pr-1">
@@ -198,13 +200,13 @@
                             </div>
                             <div class="card-body mx-auto pr-0 pl-2 pt-2 pb-0 calmap-r" style="overflow-x: auto; width: 100%;">
                             <!-- <div class="card-body mx-auto pr-0 pl-2 pt-2 pb-0" style="overflow-x: auto; width: 100%;"> -->
-                                <div id="calmap25m"></div>
+                                <div id="calmap26m"></div>
                             </div>
                         </div>
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-bar mr-1" style="vertical-align: text-bottom;"></span>Marines/Team/月別勝利数</div>
                             <div class="card-body pr-0 pl-1 pt-2 pb-1">
-                                <canvas id="bar25wins" width="100%" height="60vh"></canvas>
+                                <canvas id="bar26wins" width="100%" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -213,21 +215,21 @@
 
                 <div class="row">
                     <div class="col-sm p-1">
-                        <div class="card mb-1" id="games25p">
+                        <div class="card mb-1" id="games26p">
                             <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Marines/Pitcher/ゲーム成績
                                 <div class="float-right">
-                                    <button class="badge badge-pill badge-secondary" onclick="search_today(25)"><span class="fa-solid--search mr-1"></span></i>今日</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'先発')"><span class="fa-solid--search mr-1"></span>先発</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'交代')"><span class="fa-solid--search mr-1"></span>交代</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'佐藤')"><span class="fa-solid--search mr-1"></span>佐藤</button>
-                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(25,'田村')"><span class="fa-solid--search mr-1"></span>田村</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_today(26)"><span class="fa-solid--search mr-1"></span></i>今日</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(26,'先発')"><span class="fa-solid--search mr-1"></span>先発</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(26,'交代')"><span class="fa-solid--search mr-1"></span>交代</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(26,'佐藤')"><span class="fa-solid--search mr-1"></span>佐藤</button>
+                                    <button class="badge badge-pill badge-secondary" onclick="search_keyword(26,'田村')"><span class="fa-solid--search mr-1"></span>田村</button>
                                  </div>
                             </div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-1">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25games"
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26games"
                                      width="100%" cellspacing="0">
-                                        <caption id="dt25gamescaption"></caption>
+                                        <caption id="dt26gamescaption"></caption>
                                     </table>
                                 </div>
                             </div>
@@ -237,15 +239,15 @@
 
                 <div class="row">
                     <div class="col-sm p-1">
-                        <div class="card mb-1" id="games25">
+                        <div class="card mb-1" id="games26">
                             <div class="card-header p-2"><span class="fa-solid--table mr-1"></span>Marines/Offence/ゲーム成績
-                                <!-- <button class="badge badge-secondary" onclick="switch_colvis(25)">Switch</button> -->
+                                <!-- <button class="badge badge-secondary" onclick="switch_colvis(26)">Switch</button> -->
                             </div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-1">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25gamesoffence"
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26gamesoffence"
                                      width="100%" cellspacing="0" style="font-size:13px;">
-                                        <caption id="dt25gamesoffencecaption"></caption>
+                                        <caption id="dt26gamesoffencecaption"></caption>
                                     </table>
                                 </div>
                             </div>
@@ -258,7 +260,7 @@
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;"></span>Marines/Catcher/守備イニング</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25innings" height="60vh"></canvas>
+                                <canvas id="pie26innings" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -266,7 +268,7 @@
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;"></span>Marines/Catcher/先発試合数</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25startings" height="60vh"></canvas>
+                                <canvas id="pie26startings" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -274,7 +276,7 @@
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-pie mr-1" style="vertical-align: text-bottom;"></span>Marines/Catcher/勝利数</div>
                             <div class="card-body pr-0 pl-3 pt-0 pb-0"  style="position: relative; height:70%; width:90%">
-                                <canvas id="pie25wins" height="60vh"></canvas>
+                                <canvas id="pie26wins" height="60vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -284,20 +286,20 @@
                     <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-bar mr-1" style="vertical-align: text-bottom;"></span>Marines/Catcher/月別守備イニング
-                                <button id="redraw_canvas25innings" class="badge badge-secondary">Redraw</button>
+                                <button id="redraw_canvas26innings" class="badge badge-secondary">Redraw</button>
                             </div>
                             <div style="width:100%;">
-                                <canvas id="canvas25innings" height="150vh"></canvas>
+                                <canvas id="canvas26innings" height="150vh"></canvas>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 pb-1 pt-0 pl-1 pr-1">
                         <div class="card mb-1">
                             <div class="card-header p-2"><span class="fa-solid--chart-area mr-1" style="vertical-align: text-bottom;"></span>Marines/Catcher/月別先発試合
-                                <button id="redraw_canvas25startings" class="badge badge-secondary">Redraw</button>
+                                <button id="redraw_canvas26startings" class="badge badge-secondary">Redraw</button>
                             </div>
                             <div style="width:100%;">
-                                <canvas id="canvas25startings" height="150vh"></canvas>
+                                <canvas id="canvas26startings" height="150vh"></canvas>
                             </div>
                         </div>
                     </div>
@@ -309,7 +311,7 @@
                             <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Marines/Catcher/シーズン成績</div>
                             <div class="card-body pl-1 pr-1 pb-0 pt-0">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25catcher" width="100%" cellspacing="0">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26catcher" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>捕手</th>
@@ -325,59 +327,15 @@
                                         </thead>
                                         <tbody>
 											<tr>
-												<td>寺地</td>
-												<td>652.0</td>
-												<td>29</td>
-												<td>43</td>
-												<td>11</td>
-												<td>75</td>
-												<td>280</td>
-												<td>262</td>
-												<td>3.62</td>
-											</tr>
-											<tr>
-												<td>佐藤</td>
-												<td>461.0</td>
-												<td>22</td>
-												<td>26</td>
-												<td>16</td>
-												<td>52</td>
-												<td>200</td>
-												<td>177</td>
-												<td>3.46</td>
-											</tr>
-											<tr>
-												<td>田村</td>
-												<td>116.0</td>
-												<td>4</td>
-												<td>11</td>
-												<td>2</td>
-												<td>12</td>
-												<td>55</td>
-												<td>53</td>
-												<td>4.11</td>
-											</tr>
-											<tr>
 												<td>松川</td>
-												<td>22.0</td>
+												<td>9.0</td>
+												<td>1</td>
 												<td>0</td>
-												<td>3</td>
+												<td>1</td>
+												<td>1</td>
+												<td>1</td>
 												<td>0</td>
-												<td>2</td>
-												<td>16</td>
-												<td>14</td>
-												<td>5.73</td>
-											</tr>
-											<tr>
-												<td>植田</td>
-												<td>20.0</td>
-												<td>1</td>
-												<td>1</td>
-												<td>1</td>
-												<td>2</td>
-												<td>2</td>
-												<td>2</td>
-												<td>0.90</td>
+												<td>0.00</td>
 											</tr>
 										</tbody>
                                     </table>
@@ -393,7 +351,7 @@
                             <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Marines/Catcher/月別成績</div>
                             <div class="card-body p-1">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25month" width="100%" cellspacing="0">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26month" width="100%" cellspacing="0">
                                         <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
                                         <thead>
                                             <tr>
@@ -401,56 +359,16 @@
                                                 <th>佐藤</th>
                                                 <th>田村</th>
                                                 <th>寺地</th>
+                                                <th>松川</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 											<tr>
 												<td>3</td>
-												<td>2-0-2, 0.95 (19)</td>
-												<td>1-0-0, 4.00 (9)</td>
-												<td>---</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td>3-5-1, 3.41 (74)</td>
-												<td>0-5-0, 3.41 (34.1)</td>
-												<td>5-3-4, 2.13 (76)</td>
-											</tr>
-											<tr>
-												<td>5</td>
-												<td>0-5-0, 5.73 (44)</td>
-												<td>0-1-0, 6.00 (6)</td>
-												<td>6-11-2, 3.54 (150)</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>1-1-1, 4.68 (25)</td>
-												<td>2-0-1, 0.00 (9)</td>
-												<td>8-10-3, 3.40 (161.2)</td>
-											</tr>
-											<tr>
-												<td>7</td>
-												<td>0-0-0, 2.25 (4)</td>
-												<td>1-2-1, 3.46 (26)</td>
-												<td>6-11-1, 4.42 (165)</td>
-											</tr>
-											<tr>
-												<td>8</td>
-												<td>5-5-5, 3.62 (104.1)</td>
-												<td>0-1-0, 4.02 (15.2)</td>
-												<td>4-8-1, 3.90 (99.1)</td>
-											</tr>
-											<tr>
-												<td>9</td>
-												<td>10-9-6, 3.01 (173.2)</td>
-												<td>0-2-0, 8.44 (16)</td>
-												<td>---</td>
-											</tr>
-											<tr>
-												<td>10</td>
-												<td>1-1-1, 2.65 (17)</td>
 												<td>---</td>
 												<td>---</td>
+												<td>---</td>
+												<td>1-0-1, 0.00 (9)</td>
 											</tr>
 										</tbody>
                                     </table>
@@ -474,7 +392,7 @@
                             <div class="card-header p-2"><span class="fa-solid--table mr-1" style="vertical-align: text-bottom;"></span>Marines/Catcher/投手別成績</div>
                             <div class="card-body p-1">
                                 <div class="table-responsive">
-                                    <table class="table-sm table-bordered table-hover text-center" id="dt25pitcher" width="100%" cellspacing="0">
+                                    <table class="table-sm table-bordered table-hover text-center" id="dt26pitcher" width="100%" cellspacing="0">
                                         <caption style="caption-side:top;" class="pt-0 pb-0">勝-敗-S, 防御率 (イニング)</caption>
                                         <thead>
                                             <tr>
@@ -482,206 +400,44 @@
                                                 <th>佐藤</th>
                                                 <th>田村</th>
                                                 <th>寺地</th>
+                                                <th>松川</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 											<tr>
-												<td>ゲレーロ</td>
-												<td>0-1-1, 3.60 (10)</td>
-												<td>1-0-0, 4.50 (2)</td>
-												<td>0-2-0, 10.80 (6.2)</td>
-											</tr>
-											<tr>
-												<td>サモンズ</td>
-												<td>1-3-0, 5.91 (32)</td>
-												<td>---</td>
-												<td>4-2-0, 2.83 (47.2)</td>
-											</tr>
-											<tr>
-												<td>ボス</td>
-												<td>1-3-0, 4.15 (26)</td>
-												<td>0-0-0, 7.20 (5)</td>
-												<td>2-6-0, 3.64 (89)</td>
-											</tr>
-											<tr>
-												<td>一條 力真</td>
+												<td>ロング</td>
 												<td>---</td>
 												<td>---</td>
-												<td>0-0-0, 9.00 (1)</td>
-											</tr>
-											<tr>
-												<td>中村 稔弥</td>
-												<td>0-0-0, 3.00 (3)</td>
-												<td>0-0-0, 0.00 (3.1)</td>
-												<td>0-0-0, 3.09 (11.2)</td>
-											</tr>
-											<tr>
-												<td>中森 俊介</td>
-												<td>1-0-0, 1.13 (8)</td>
-												<td>0-1-1, 3.00 (6)</td>
-												<td>1-1-4, 0.59 (15.1)</td>
-											</tr>
-											<tr>
-												<td>二木 康太</td>
-												<td>0-1-0, 36.00 (1)</td>
 												<td>---</td>
-												<td>---</td>
-											</tr>
-											<tr>
-												<td>八木 彬</td>
-												<td>0-0-0, 6.48 (8.1)</td>
-												<td>0-1-0, 3.38 (2.2)</td>
-												<td>0-0-0, 6.59 (13.2)</td>
-											</tr>
-											<tr>
-												<td>吉川 悠斗</td>
-												<td>1-0-0, 5.40 (5)</td>
-												<td>---</td>
-												<td>0-0-0, 6.75 (4)</td>
-											</tr>
-											<tr>
-												<td>唐川 侑己</td>
-												<td>0-1-0, 18.00 (2)</td>
-												<td>---</td>
-												<td>---</td>
-											</tr>
-											<tr>
-												<td>坂井 遼</td>
 												<td>0-0-0, 0.00 (1)</td>
-												<td>---</td>
-												<td>---</td>
-											</tr>
-											<tr>
-												<td>坂本 光士郎</td>
-												<td>0-0-0, 0.00 (1.1)</td>
-												<td>---</td>
-												<td>1-2-0, 8.31 (4.1)</td>
-											</tr>
-											<tr>
-												<td>小島 和哉</td>
-												<td>5-5-0, 3.12 (80.2)</td>
-												<td>---</td>
-												<td>3-5-0, 4.48 (64.1)</td>
-											</tr>
-											<tr>
-												<td>小野 郁</td>
-												<td>1-1-0, 2.87 (15.2)</td>
-												<td>0-1-0, 3.00 (6)</td>
-												<td>1-0-0, 2.37 (19)</td>
-											</tr>
-											<tr>
-												<td>廣池 康志郎</td>
-												<td>1-0-0, 5.06 (5.1)</td>
-												<td>---</td>
-												<td>0-3-0, 6.55 (11)</td>
-											</tr>
-											<tr>
-												<td>廣畑 敦也</td>
-												<td>0-0-0, 5.79 (4.2)</td>
-												<td>---</td>
-												<td>0-0-0, 4.50 (2)</td>
-											</tr>
-											<tr>
-												<td>早坂 響</td>
-												<td>0-0-0, 11.25 (4)</td>
-												<td>0-0-0, 0.00 (2)</td>
-												<td>0-0-0, 7.20 (5)</td>
-											</tr>
-											<tr>
-												<td>木村 優人</td>
-												<td>2-1-0, 3.07 (29.1)</td>
-												<td>---</td>
-												<td>1-0-1, 2.67 (33.2)</td>
-											</tr>
-											<tr>
-												<td>東妻 勇輔</td>
-												<td>---</td>
-												<td>---</td>
-												<td>0-0-0, 6.75 (5.1)</td>
 											</tr>
 											<tr>
 												<td>横山 陸人</td>
-												<td>0-1-11, 2.25 (20)</td>
-												<td>1-1-0, 1.93 (9.1)</td>
-												<td>1-2-0, 2.13 (25.1)</td>
-											</tr>
-											<tr>
-												<td>河村 説人</td>
-												<td>2-0-0, 1.04 (17.1)</td>
-												<td>---</td>
-												<td>0-1-0, 9.82 (3.2)</td>
-											</tr>
-											<tr>
-												<td>澤村 拓一</td>
-												<td>0-0-0, 1.74 (10.1)</td>
-												<td>0-1-0, 12.27 (3.2)</td>
-												<td>0-0-0, 2.45 (3.2)</td>
-											</tr>
-											<tr>
-												<td>澤田 圭佑</td>
-												<td>0-0-1, 2.53 (10.2)</td>
-												<td>0-0-0, 16.20 (1.2)</td>
-												<td>1-0-0, 2.77 (13)</td>
-											</tr>
-											<tr>
-												<td>田中 晴也</td>
 												<td>---</td>
 												<td>---</td>
-												<td>3-5-0, 2.48 (76.1)</td>
-											</tr>
-											<tr>
-												<td>益田 直也</td>
-												<td>1-1-1, 5.06 (5.1)</td>
+												<td>---</td>
 												<td>0-0-1, 0.00 (1)</td>
-												<td>0-3-3, 4.40 (14.1)</td>
 											</tr>
 											<tr>
-												<td>石川 柊太</td>
-												<td>1-4-0, 4.40 (57.1)</td>
-												<td>1-2-0, 4.97 (29)</td>
-												<td>2-1-0, 4.76 (17)</td>
-											</tr>
-											<tr>
-												<td>種市 篤暉</td>
-												<td>5-2-0, 1.92 (56.1)</td>
-												<td>0-1-0, 6.14 (7.1)</td>
-												<td>4-5-0, 2.78 (97)</td>
-											</tr>
-											<tr>
-												<td>美馬 学</td>
+												<td>毛利 海大</td>
 												<td>---</td>
 												<td>---</td>
 												<td>---</td>
-											</tr>
-											<tr>
-												<td>菊地 吏玖</td>
-												<td>0-1-0, 7.56 (8.1)</td>
-												<td>0-0-0, 0.00 (2)</td>
-												<td>0-0-0, 6.10 (10.1)</td>
-											</tr>
-											<tr>
-												<td>西村 天裕</td>
-												<td>---</td>
-												<td>---</td>
-												<td>0-0-0, 40.50 (0.2)</td>
-											</tr>
-											<tr>
-												<td>西野 勇士</td>
-												<td>0-0-0, 0.84 (10.2)</td>
-												<td>0-3-0, 3.86 (28)</td>
-												<td>0-1-0, 3.27 (11)</td>
+												<td>1-0-0, 0.00 (5)</td>
 											</tr>
 											<tr>
 												<td>鈴木 昭汰</td>
-												<td>0-0-2, 1.29 (7)</td>
-												<td>1-0-0, 0.00 (2)</td>
-												<td>0-3-3, 6.63 (19)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+												<td>0-0-0, 0.00 (1)</td>
 											</tr>
 											<tr>
 												<td>高野 脩汰</td>
-												<td>0-1-0, 1.33 (20.1)</td>
-												<td>0-0-0, 0.00 (5)</td>
-												<td>5-1-0, 2.00 (27)</td>
+												<td>---</td>
+												<td>---</td>
+												<td>---</td>
+												<td>0-0-0, 0.00 (1)</td>
 											</tr>
 										</tbody>
                                     </table>
@@ -703,7 +459,7 @@
             <footer class="py-3 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Updated 2025.10.05</div>
+                        <div class="text-muted">Updated 2026.03.27</div>
                         <div>
                             <a href="https://kg1-thub.github.io/home/">DASHBOARD</a>
                             &middot;
@@ -730,6 +486,6 @@
         <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js)"></script>
         <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
         <script src="../assets/demo/datatables-demo.js"></script>
-        <script src="../assets/demo/datatables-demo25m.js"></script>
+        <script src="../assets/demo/datatables-demo26m.js"></script>
     </body>
 </html>
