@@ -38,7 +38,7 @@ function makeCSV(records, columns, year, keyword) {
       }
   }
 
-  if (year == '25') {
+  if (year == '25' || year == '26') {
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
         order: [[ 1, "desc" ]],
@@ -139,7 +139,7 @@ function makeCSV2(records, columns, year, keyword) {
       }
   }
 
-  if (year == '25') {
+  if (year == '25' || year == '26') {
     $(document).ready(function() {
       $(`#dt${year}pgames`).DataTable({
         order: [[ 1, "desc" ]],
@@ -216,7 +216,7 @@ function csvLoad(year, keyword, team_initial="") {
   if (year == "25" || year == "26"){
     var cols = ["Date","Team","OPP","AB","R","H","TB","2B","3B","HR","RBI","BB","IBB","SO","SB","CS","AVG","OBP","SLG","HBP","SAC","SF"];
   }
-  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/sho/sho${year}.csv`;
+  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/sho/csv/sho${year}.csv`;
   fetch(fileurl)
   .then(res => res.blob()) // Gets the response and returns it as a blob
   .then(blob => {
@@ -244,7 +244,7 @@ function csvLoad2(year, keyword, team_initial="") {
   if (year == "25" || year == "26"){
     var cols = ["Date","Team","OPP","W","L","ERA","G","GS","CG","SHO","SV","SVO","IP","H","R","ER","HR","HB","BB","IBB","SO","NP-S","AVG","WHIP","GO/AO"];
   }
-  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/sho/sho${year}p.csv`;
+  var fileurl = `https://raw.githubusercontent.com/kg1-thub/kg1-thub.github.io/master/sho/csv/sho${year}p.csv`;
   fetch(fileurl)
   .then(res => res.blob()) // Gets the response and returns it as a blob
   .then(blob => {
