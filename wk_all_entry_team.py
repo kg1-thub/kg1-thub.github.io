@@ -20,9 +20,9 @@ def set_team_param(_num):
         color_win = '#008DDA'
         color_draw = 'rgb(94, 180, 228)'
         color_lose = 'rgb(189, 219, 237)'
-        catcher0 = '甲斐'
-        catcher1 = '大城'
-        catcher2 = '岸田'
+        catcher0 = '岸田'
+        catcher1 = '甲斐'
+        catcher2 = '大城'
         catcher3 = '小林'
         catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 2:
@@ -38,10 +38,11 @@ def set_team_param(_num):
         color_draw = 'rgb(98, 154, 146)'
         color_lose = 'rgb(190, 211, 213)'
         catcher0 = '中村'
-        catcher1 = '松本直'
-        catcher2 = '古賀'
-        catcher3 = '内山'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher1 = '鈴木叶'
+        catcher2 = '松本直'
+        # catcher3 = '古賀'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 3:
         num = 3
         Team = 'Baystars'
@@ -55,8 +56,8 @@ def set_team_param(_num):
         color_draw = 'rgb(94, 180, 228)'
         color_lose = 'rgb(189, 219, 237)'
         catcher0 = '山本'
-        catcher1 = '戸柱'
-        catcher2 = '松尾'
+        catcher1 = '松尾'
+        catcher2 = '戸柱'
         catchers = [catcher0, catcher1, catcher2]
     if _num == 4:
         num = 4
@@ -70,10 +71,10 @@ def set_team_param(_num):
         color_win = '#6F3BC8'
         color_draw = 'rgb(161, 131, 217)'
         color_lose = 'rgb(211, 203, 234)'
-        catcher0 = '木下'
-        catcher1 = '宇佐見'
-        catcher2 = '加藤匠'
-        catcher3 = '石伊'
+        catcher0 = '石伊'
+        catcher1 = '木下'
+        catcher2 = '宇佐見'
+        catcher3 = '加藤匠'
         catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 5:
         num = 5
@@ -87,9 +88,9 @@ def set_team_param(_num):
         color_win = '#fcc800'
         color_draw = 'rgb(246, 216, 97)'
         color_lose = 'rgb(239, 231, 194)'
-        catcher0 = '梅野'
-        catcher1 = '坂本'
-        catcher2 = '伏見'
+        catcher0 = '坂本'
+        catcher1 = '伏見'
+        catcher2 = '梅野'
         catchers = [catcher0, catcher1, catcher2]
     if _num == 6:
         num = 6
@@ -121,10 +122,11 @@ def set_team_param(_num):
         color_draw = 'rgb(108, 160, 178)'
         color_lose = 'rgb(193, 213, 221)'
         catcher0 = '古賀悠'
-        catcher1 = '炭谷'
-        catcher2 = '小島'
-        catcher3 = '柘植'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher1 = '小島'
+        catcher2 = '柘植'
+        # catcher3 = '炭谷'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 8:
         num = 8
         Team = 'Fighters'
@@ -139,8 +141,10 @@ def set_team_param(_num):
         color_lose = 'rgb(189, 211, 224)'
         catcher0 = '田宮'
         catcher1 = '郡司'
-        catcher2 = '進藤'
+        catcher2 = '清水優'
+        # catcher3 = '進藤'
         catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 9:
         num = 9
         Team = 'Marines'
@@ -153,11 +157,12 @@ def set_team_param(_num):
         color_win = '#124076'
         color_draw = 'rgb(105, 134, 168)'
         color_lose = 'rgb(192, 204, 217)'
-        catcher0 = '佐藤'
-        catcher1 = '田村'
+        catcher0 = '松川'
+        catcher1 = '佐藤'
         catcher2 = '寺地'
-        catcher3 = '松川'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        # catcher3 = '田村'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 10:
         num = 376
         Team = 'Eagles'
@@ -171,9 +176,9 @@ def set_team_param(_num):
         color_draw = 'rgb(175, 96, 107)'
         color_lose = 'rgb(216, 191, 197)'
         catcher0 = '太田'
-        catcher1 = '石原'
-        catcher2 = '堀内'
-        catcher3 = '伊藤'
+        catcher1 = '伊藤'
+        catcher2 = '石原'
+        catcher3 = '堀内'
         catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 11:
         num = 11
@@ -258,14 +263,14 @@ def get_query_category(sql, series, category):
     else:
         category1, category2 = category, category
         condition = ""
-        # if num == 2 and category == 'pitcher':
-        #     condition = "AND NOT (catcher='中村' AND pitcher='星 知弥')"
-        if num == 3 and category == 'pitcher':
-            condition = "AND NOT (catcher='戸柱' AND pitcher='山崎 康晃') AND NOT (catcher='松尾' AND pitcher='山崎 康晃') AND NOT (catcher='山本' AND pitcher='岩田 将貴')"
-        if num == 4 and category == 'pitcher':
-            condition = "AND NOT (catcher='加藤匠' AND pitcher='福 敬登')"
-        if num == 5 and category == 'pitcher':
-            condition = "AND NOT (catcher='原口' AND pitcher='岩貞 祐太')"
+        if num == 7 and category == 'pitcher':
+            condition = "AND NOT (catcher='古賀悠' AND pitcher='冨士 大和')"
+        # if num == 3 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='戸柱' AND pitcher='山崎 康晃') AND NOT (catcher='松尾' AND pitcher='山崎 康晃') AND NOT (catcher='山本' AND pitcher='岩田 将貴')"
+        # if num == 4 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='加藤匠' AND pitcher='福 敬登')"
+        # if num == 5 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='原口' AND pitcher='岩貞 祐太')"
         # if num == 376 and category == 'pitcher':
         #     condition = "AND NOT (catcher='田中貴' AND pitcher='西垣 雅矢')"
         # if num == 11 and category == 'pitcher':
@@ -293,16 +298,16 @@ def create_table_category(sql_cat, series, category):
         for i, x in enumerate(stat):
             print(i, stat)
             if x is None:
-                # if stat[0] == '星 知弥' and i==1: #S,i=1,C:中村
-                #     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
-                if stat[0] == '岩田 将貴' and i==1: #B,i=1,C:山本
+                if stat[0] == '冨士 大和' and i==1: #S,i=1,C:中村
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '山崎 康晃' and i==2: #B,i=2,C:戸柱
-                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '山崎 康晃' and i==3: #B,i=3,C:松尾
-                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '福 敬登' and i==3: #D,i=3,C:加藤匠
-                    table_html += tb+'\t<td>0-1-0, 99.99 (0.0)</td>\n'
+                # if stat[0] == '岩田 将貴' and i==1: #B,i=1,C:山本
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '山崎 康晃' and i==2: #B,i=2,C:戸柱
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '山崎 康晃' and i==3: #B,i=3,C:松尾
+                #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '福 敬登' and i==3: #D,i=3,C:加藤匠
+                #     table_html += tb+'\t<td>0-1-0, 99.99 (0.0)</td>\n'
                 # elif stat[0] == '岩貞 裕太' and i==4: #E,i=4,C:原口
                 #     table_html += tb+'\t<td>0-0-0, --- (0.0)</td>\n'
                 # elif stat[0] == '富山 凌雅' and i==1: #O,i=1,C:森
@@ -498,8 +503,8 @@ def task_entry_csv():
                     "'"+tday.strftime('%Y-%m-%d')+"'"+': '+str(heatmap_WLD)+',\n    //@@NEXTGAME@@'
                 ).replace(
                     '//@@NEXTSCORE@@', 
-                    # "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
-                    "'"+tday.strftime('%Y-%m-%d')+"': '(NS)vs "+_team+' , '+score
+                    "'"+tday.strftime('%Y-%m-%d')+"': 'vs "+_team+' , '+score
+                    # "'"+tday.strftime('%Y-%m-%d')+"': '(NS)vs "+_team+' , '+score
                     + ' </br>Start P.'+start_pitcher+' / C.'+start_catcher+"',\n    //@@NEXTSCORE@@"
                 )
     with open(CALENDERHEATMAP,mode='w',encoding='utf-8') as writer:

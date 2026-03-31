@@ -4,10 +4,14 @@ var _colorRange = ['#ECEFF2', '#fcc800'];
 // 2026
 var datas26 = {
     '2026-03-27': 1,
+    '2026-03-28': 1,
+    '2026-03-29': 1,
     //@@NEXTGAME@@
 };
 var score26 = {
-    '2026-03-27': '(NS)vs Fighters , 6-5 </br>Start P.上沢 / C.海野',
+    '2026-03-27': 'vs Fighters , 6-5 </br>Start P.上沢 / C.海野',
+    '2026-03-28': 'vs Fighters , 6-4 </br>Start P.松本 / C.海野',
+    '2026-03-29': 'vs Fighters , 8-4 </br>Start P.スチュワート・ジュニア / C.谷川原',
     //@@NEXTSCORE@@
 };
 var chartData26 = [];

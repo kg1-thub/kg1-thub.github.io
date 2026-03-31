@@ -4,10 +4,14 @@ var _colorRange = ['#ECEFF2', '#008DDA'];
 // 2026
 var datas26 = {
     '2026-03-27': -1,
+    '2026-03-28': -1,
+    '2026-03-29': -1,
     //@@NEXTGAME@@
 };
 var score26 = {
-    '2026-03-27': '(NS)vs Swallows , 2-3 </br>Start P.東 / C.山本',
+    '2026-03-27': 'vs Swallows , 2-3 </br>Start P.東 / C.山本',
+    '2026-03-28': 'vs Swallows , 2-5 </br>Start P.入江 / C.松尾',
+    '2026-03-29': 'vs Swallows , 3-5 </br>Start P.石田 / C.山本',
     //@@NEXTSCORE@@
 };
 var chartData26 = [];

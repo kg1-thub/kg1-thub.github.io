@@ -29,7 +29,7 @@ function tab_change(year) {
                     tabYear.classList.add('active');
                     ddYear.classList.add('d-none');
                 }
-                calmap_scroll_right();
+                // calmap_scroll_right();
             } else {
                 // document.getElementById('t'+years[i]).classList.remove('active');
                 // document.getElementById('d'+years[i]).classList.remove('d-none');
@@ -39,7 +39,7 @@ function tab_change(year) {
                     tabYear_i.classList.remove('active');
                     ddYear_i.classList.remove('d-none');
                 }
-                calmap_scroll_right();
+                // calmap_scroll_right();
             }
         };
         if (year != '2024') {
@@ -129,7 +129,7 @@ $(document).ready(function() {
     if (year.includes(years)) {
         tab_change(year);
     }
-    calmap_scroll_right();
+    // calmap_scroll_right();
 });
 
 const tabCeLeague = document.getElementById('tab-ce-league');
