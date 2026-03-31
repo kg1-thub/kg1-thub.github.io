@@ -516,7 +516,7 @@ function makeCSV(records, columns, year, keyword) {
       }
   }
 
-  if (year == '24' || year == '25') {
+  if (year == '24' || year == '25' || year == '26') {
     $(document).ready(function() {
       $(`#dt${year}games`).DataTable({
         deferRender: true,
