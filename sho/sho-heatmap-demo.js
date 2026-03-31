@@ -4,10 +4,14 @@ var _colorRangep = ['#EEEEEE', '#bd0026'];
 
 var datas26 = {
 '2026-03-26': 1,
+'2026-03-27': 0,
+'2026-03-28': 0,
 //@@TOOLTIP_DATE@@
 };
 var score26 = {
     '2026-03-26': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .333',
+    '2026-03-27': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .167',
+    '2026-03-28': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .125',
     //@@TOOLTIP@@
 };
 var chartData26 = [];
