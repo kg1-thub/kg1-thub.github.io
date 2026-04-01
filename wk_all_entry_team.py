@@ -37,9 +37,9 @@ def set_team_param(_num):
         color_win = '#066163'
         color_draw = 'rgb(98, 154, 146)'
         color_lose = 'rgb(190, 211, 213)'
-        catcher0 = '中村'
+        catcher0 = '古賀'
         catcher1 = '鈴木叶'
-        catcher2 = '古賀'
+        catcher2 = '中村'
         # catcher3 = '松本直'
         catchers = [catcher0, catcher1, catcher2]
         # catchers = [catcher0, catcher1, catcher2, catcher3]
@@ -107,8 +107,9 @@ def set_team_param(_num):
         catcher0 = '坂倉'
         catcher1 = '會澤'
         catcher2 = '石原'
-        catcher3 = '磯村'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        # catcher3 = '磯村'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 7:
         num = 7
         Team = 'Lions'
@@ -140,8 +141,8 @@ def set_team_param(_num):
         color_draw = 'rgb(94, 154, 188)'
         color_lose = 'rgb(189, 211, 224)'
         catcher0 = '田宮'
-        catcher1 = '郡司'
-        catcher2 = '清水優'
+        catcher1 = '清水優'
+        catcher2 = '郡司'
         # catcher3 = '進藤'
         catchers = [catcher0, catcher1, catcher2]
         # catchers = [catcher0, catcher1, catcher2, catcher3]
@@ -178,8 +179,9 @@ def set_team_param(_num):
         catcher0 = '太田'
         catcher1 = '伊藤'
         catcher2 = '石原'
-        catcher3 = '堀内'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        # catcher3 = '堀内'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 11:
         num = 11
         Team = 'Buffaloes'
@@ -767,22 +769,22 @@ def task_make_html():
     print(datetime.datetime.now().strftime('%m/%d %H:%M,'),'HTML UPDATED!')
 
 def task_entry_wl():
-    entry_wl = int(input('対象のリーグは? (0:break, 1:セ・リーグ, 2:パ・リーグ, 3:両リーグ)> '))
+    entry_wl = int(input('対象のリーグは? (0:セ・リーグ, 1:パ・リーグ, 2:両リーグ)> '))
 
     entry_wl_ce = 0
     entry_wl_pa = 0
 
-    if entry_wl == 1:
+    if entry_wl == 0:
         entry_wl_ce = 1
-    elif entry_wl == 2:
+    elif entry_wl == 1:
         entry_wl_pa = 1
-    elif entry_wl == 3:
+    elif entry_wl == 2:
         entry_wl_ce = 1
         entry_wl_pa = 1
 
     STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
     STANDINGAREADEMOPA = './assets/demo/chart-area-demo-pa.js'
-    _rjust = 3
+    _rjust = 2
     url = 'https://baseball.yahoo.co.jp/npb/standings/'
     xml = requests.get(url)
     soup = BeautifulSoup(xml.content, 'html.parser')
