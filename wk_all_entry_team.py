@@ -21,10 +21,11 @@ def set_team_param(_num):
         color_draw = 'rgb(94, 180, 228)'
         color_lose = 'rgb(189, 219, 237)'
         catcher0 = '岸田'
-        catcher1 = '甲斐'
-        catcher2 = '大城'
-        catcher3 = '小林'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher1 = '山瀬'
+        catcher2 = '甲斐'
+        # catcher3 = '小林'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 2:
         num = 2
         Team = 'Swallows'
