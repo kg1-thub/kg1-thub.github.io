@@ -149,10 +149,10 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
             content += '                        %s<!-- @@SB10@@ -->\n' % (_sb // 10)
         elif '<!-- @@SB01@@ -->' in row:
             content += '                        %s<!-- @@SB01@@ -->\n' % (_sb % 10)
-        elif '<!-- @@WIN10@@ -->' in row:
-            content += '                        %s<!-- @@WIN10@@ -->\n' % (_w)
-        elif '<!-- @@WIN01@@ -->' in row:
-            content += '                        %s<!-- @@WIN01@@ -->\n' % (_w)
+        elif '<!-- @@WIN10@@ -->' in row and pitching:
+            content += '                        %s<!-- @@WIN10@@ -->\n' % (_w,)
+        elif '<!-- @@WIN01@@ -->' in row and pitching:
+            content += '                        %s<!-- @@WIN01@@ -->\n' % (_w,)
         else:
             content += row
 with open(shoINDEX,mode='w',encoding='utf-8') as writer:
@@ -168,6 +168,8 @@ with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
     for line in lines:
         if '@@KEYWORD@@' in line:
             content += f"        '{_g[0]}' // @@KEYWORD@@\n"
+        elif '@@KEYWORD_P@@' in line and pitching:
+            content += f"        '{_g[0]}' // @@KEYWORD_P@@\n"
         else:
             content += line
 with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
