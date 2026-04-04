@@ -149,6 +149,10 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
             content += '                        %s<!-- @@SB10@@ -->\n' % (_sb // 10)
         elif '<!-- @@SB01@@ -->' in row:
             content += '                        %s<!-- @@SB01@@ -->\n' % (_sb % 10)
+        elif '<!-- @@WIN10@@ -->' in row:
+            content += '                        %s<!-- @@WIN10@@ -->\n' % (_w)
+        elif '<!-- @@WIN01@@ -->' in row:
+            content += '                        %s<!-- @@WIN01@@ -->\n' % (_w)
         else:
             content += row
 with open(shoINDEX,mode='w',encoding='utf-8') as writer:
