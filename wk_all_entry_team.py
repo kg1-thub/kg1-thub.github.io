@@ -22,7 +22,7 @@ def set_team_param(_num):
         color_lose = 'rgb(189, 219, 237)'
         catcher0 = '岸田'
         catcher1 = '山瀬'
-        catcher2 = '甲斐'
+        catcher2 = '大城'
         # catcher3 = '小林'
         catchers = [catcher0, catcher1, catcher2]
         # catchers = [catcher0, catcher1, catcher2, catcher3]
@@ -74,9 +74,10 @@ def set_team_param(_num):
         color_lose = 'rgb(211, 203, 234)'
         catcher0 = '石伊'
         catcher1 = '木下'
-        catcher2 = '宇佐見'
-        catcher3 = '加藤匠'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher2 = '味谷'
+        # catcher3 = '加藤匠'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 5:
         num = 5
         Team = 'Tigers'
@@ -106,8 +107,8 @@ def set_team_param(_num):
         color_draw = 'rgb(239, 145, 132)'
         color_lose = 'rgb(237, 208, 205)'
         catcher0 = '坂倉'
-        catcher1 = '會澤'
-        catcher2 = '石原'
+        catcher1 = '石原'
+        catcher2 = '會澤'
         # catcher3 = '磯村'
         catchers = [catcher0, catcher1, catcher2]
         # catchers = [catcher0, catcher1, catcher2, catcher3]
@@ -123,8 +124,8 @@ def set_team_param(_num):
         color_win = '#176B87'
         color_draw = 'rgb(108, 160, 178)'
         color_lose = 'rgb(193, 213, 221)'
-        catcher0 = '古賀悠'
-        catcher1 = '小島'
+        catcher0 = '小島'
+        catcher1 = '古賀悠'
         catcher2 = '柘植'
         # catcher3 = '炭谷'
         catchers = [catcher0, catcher1, catcher2]
@@ -212,10 +213,11 @@ def set_team_param(_num):
         color_draw = 'rgb(246, 216, 97)'
         color_lose = 'rgb(239, 231, 194)'
         catcher0 = '海野'
-        catcher1 = '渡邉'
-        catcher2 = '嶺井'
-        catcher3 = '谷川原'
-        catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher1 = '谷川原'
+        catcher2 = '渡邉'
+        # catcher3 = '嶺井'
+        catchers = [catcher0, catcher1, catcher2]
+        # catchers = [catcher0, catcher1, catcher2, catcher3]
 
 TODAY = datetime.datetime.today()
 _y = TODAY.strftime('%y')
