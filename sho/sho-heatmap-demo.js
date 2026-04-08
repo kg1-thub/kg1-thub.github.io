@@ -14,6 +14,7 @@ var datas26 = {
 '2026-04-05': 4,
 '2026-04-06': 4,
 '2026-04-07': 2,
+'2026-04-08': 0,
 //@@TOOLTIP_DATE@@
 };
 var score26 = {
@@ -28,6 +29,7 @@ var score26 = {
     '2026-04-05': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>2 Hits / 2 RBI / AVG .273',
     '2026-04-06': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>2 Hits / 1 RBI / AVG .282',
     '2026-04-07': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 1 RBI / AVG .286',
+    '2026-04-08': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .267',
     //@@TOOLTIP@@
 };
 var chartData26 = [];
@@ -52,10 +54,12 @@ heatmap26();  // render the chart
 
 var datas26p = {
 '2026-03-31': 4,
+'2026-04-08': 2,
 //@@TOOLTIP_DATE_P@@
 };
 var score26p = {
     '2026-03-31': '(Regular Season)</br>6.0 IP / 87 NP / 0 R</br>WIN',
+    '2026-04-08': '(Regular Season)</br>6.0 IP / 96 NP / 1 R</br>---',
     //@@TOOLTIP_P@@
 };
 var chartData26p = [];
