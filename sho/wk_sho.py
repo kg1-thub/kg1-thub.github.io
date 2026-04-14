@@ -150,9 +150,9 @@ with open(shoINDEX,mode='r',encoding='utf-8') as f:
         elif '<!-- @@SB01@@ -->' in row:
             content += '                        %s<!-- @@SB01@@ -->\n' % (_sb % 10)
         elif '<!-- @@WIN10@@ -->' in row and pitching:
-            content += '                        %s<!-- @@WIN10@@ -->\n' % (_w,)
+            content += '                        %s<!-- @@WIN10@@ -->\n' % (_w // 10)
         elif '<!-- @@WIN01@@ -->' in row and pitching:
-            content += '                        %s<!-- @@WIN01@@ -->\n' % (_w,)
+            content += '                        %s<!-- @@WIN01@@ -->\n' % (_w % 10)
         else:
             content += row
 with open(shoINDEX,mode='w',encoding='utf-8') as writer:
