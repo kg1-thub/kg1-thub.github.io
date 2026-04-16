@@ -65,11 +65,13 @@ heatmap26();  // render the chart
 var datas26p = {
 '2026-03-31': 4,
 '2026-04-08': 2,
+'2026-04-15': 4,
 //@@TOOLTIP_DATE_P@@
 };
 var score26p = {
     '2026-03-31': '(Regular Season)</br>6.0 IP / 87 NP / 0 R</br>WIN',
     '2026-04-08': '(Regular Season)</br>6.0 IP / 96 NP / 1 R</br>---',
+    '2026-04-15': '(Regular Season)</br>6.0 IP / 95 NP / 1 R</br>WIN',
     //@@TOOLTIP_P@@
 };
 var chartData26p = [];
