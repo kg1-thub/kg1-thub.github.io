@@ -20,6 +20,7 @@ var datas26 = {
     '2026-04-14': 1,
     '2026-04-16': 1,
     '2026-04-17': -1,
+    '2026-04-18': 1,
     //@@NEXTGAME@@
 };
 var score26 = {
@@ -40,6 +41,7 @@ var score26 = {
     '2026-04-14': 'vs Baystars , 5-3 </br>Start P.小川 / C.古賀',
     '2026-04-16': 'vs Baystars , 2-0 </br>Start P.松本 / C.古賀',
     '2026-04-17': 'vs Giants , 2-8 </br>Start P.ウォルターズ / C.中村',
+    '2026-04-18': 'vs Giants , 4-3 </br>Start P.奥川 / C.古賀',
     //@@NEXTSCORE@@
 };
 var chartData26 = [];
