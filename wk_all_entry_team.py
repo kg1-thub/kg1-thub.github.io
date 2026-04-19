@@ -162,10 +162,10 @@ def set_team_param(_num):
         color_lose = 'rgb(192, 204, 217)'
         catcher0 = '松川'
         catcher1 = '佐藤'
-        catcher2 = '寺地'
-        # catcher3 = '田村'
-        catchers = [catcher0, catcher1, catcher2]
-        # catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher2 = '田村'
+        catcher3 = '寺地'
+        # catchers = [catcher0, catcher1, catcher2]
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 10:
         num = 376
         Team = 'Eagles'
