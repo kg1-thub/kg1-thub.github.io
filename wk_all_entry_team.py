@@ -23,7 +23,7 @@ def set_team_param(_num):
         catcher0 = '岸田'
         catcher1 = '山瀬'
         catcher2 = '大城'
-        # catcher3 = '小林'
+        # catcher3 = '甲斐'
         catchers = [catcher0, catcher1, catcher2]
         # catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 2:
@@ -725,7 +725,9 @@ def task_make_html():
     today = datetime.date.today().strftime('%Y.%m.%d')
 
     if num == 1:
-        INDEX_TEMPLATE = f'./assets/data/index.template.html'
+        INDEX_TEMPLATE = f'./assets/data/index.template4.html' \
+                            if len(catchers) > 3 \
+                            else f'./assets/data/index.template.html'
     else:
         p = 'p' if num > 6 else ''
         INDEX_TEMPLATE = f'./assets/data/index.template-{p}team4.html' \
