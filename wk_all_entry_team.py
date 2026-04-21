@@ -270,8 +270,8 @@ def get_query_category(sql, series, category):
         condition = ""
         if num == 7 and category == 'pitcher':
             condition = "AND NOT (catcher='古賀悠' AND pitcher='冨士 大和')"
-        if num == 4 and category == 'pitcher':
-            condition = "AND NOT (catcher='加藤' AND pitcher='齋藤 綱記')"
+        # if num == 4 and category == 'pitcher':
+        #     condition = "AND NOT (catcher='加藤' AND pitcher='齋藤 綱記')"
         # if num == 3 and category == 'pitcher':
         #     condition = "AND NOT (catcher='戸柱' AND pitcher='山崎 康晃') AND NOT (catcher='松尾' AND pitcher='山崎 康晃') AND NOT (catcher='山本' AND pitcher='岩田 将貴')"
         # if num == 5 and category == 'pitcher':
@@ -305,8 +305,8 @@ def create_table_category(sql_cat, series, category):
             if x is None:
                 if stat[0] == '冨士 大和' and i==1: #S,i=1,C:中村
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
-                elif stat[0] == '齋藤 綱記' and i==4: #D,i=4,C:加藤
-                    table_html += tb+'\t<td>0-1-0, 99.99 (0.0)</td>\n'
+                # elif stat[0] == '齋藤 綱記' and i==4: #D,i=4,C:加藤
+                #     table_html += tb+'\t<td>0-1-0, 99.99 (0.0)</td>\n'
                 # if stat[0] == '岩田 将貴' and i==1: #B,i=1,C:山本
                 #     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 # elif stat[0] == '山崎 康晃' and i==2: #B,i=2,C:戸柱
@@ -409,6 +409,8 @@ def task_entry_csv():
                             elif wls == '敗':
                                 wls = 'L'
                                 heatmap_WLD = -1
+                            elif wls == 'Ｓ':
+                                wls = 'S'
                             _playerscore.append(wls)
                         elif i == 1:
                             _playerscore.append(
