@@ -23,9 +23,9 @@ def set_team_param(_num):
         catcher0 = '岸田'
         catcher1 = '山瀬'
         catcher2 = '大城'
-        # catcher3 = '甲斐'
-        catchers = [catcher0, catcher1, catcher2]
-        # catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher3 = '小林'
+        # catchers = [catcher0, catcher1, catcher2]
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 2:
         num = 2
         Team = 'Swallows'
@@ -789,7 +789,8 @@ def task_entry_wl():
 
     STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
     STANDINGAREADEMOPA = './assets/demo/chart-area-demo-pa.js'
-    _rjust = 2
+    _rjust = 3
+    _rjust_pa = 2
     url = 'https://baseball.yahoo.co.jp/npb/standings/'
     xml = requests.get(url)
     soup = BeautifulSoup(xml.content, 'html.parser')
@@ -886,12 +887,12 @@ def task_entry_wl():
             for line in lines:
                 if '//wl_' in line:
                     content += line\
-                        .replace('//wl_Hawks',     str(wl_teams[0]).rjust(_rjust)+',//wl_Hawks')\
-                        .replace('//wl_Fighters',     str(wl_teams[1]).rjust(_rjust)+',//wl_Fighters')\
-                        .replace('//wl_Marines',   str(wl_teams[2]).rjust(_rjust)+',//wl_Marines')\
-                        .replace('//wl_Eagles',   str(wl_teams[3]).rjust(_rjust)+',//wl_Eagles')\
-                        .replace('//wl_Buffaloes',    str(wl_teams[4]).rjust(_rjust)+',//wl_Buffaloes')\
-                        .replace('//wl_Lions',       str(wl_teams[5]).rjust(_rjust)+',//wl_Lions')
+                        .replace('//wl_Hawks',     str(wl_teams[0]).rjust(_rjust_pa)+',//wl_Hawks')\
+                        .replace('//wl_Fighters',     str(wl_teams[1]).rjust(_rjust_pa)+',//wl_Fighters')\
+                        .replace('//wl_Marines',   str(wl_teams[2]).rjust(_rjust_pa)+',//wl_Marines')\
+                        .replace('//wl_Eagles',   str(wl_teams[3]).rjust(_rjust_pa)+',//wl_Eagles')\
+                        .replace('//wl_Buffaloes',    str(wl_teams[4]).rjust(_rjust_pa)+',//wl_Buffaloes')\
+                        .replace('//wl_Lions',       str(wl_teams[5]).rjust(_rjust_pa)+',//wl_Lions')
                 else:
                     content += line
         with open(STANDINGAREADEMOPA,mode='w',encoding='utf-8') as writer:
