@@ -93,7 +93,8 @@ def set_team_param(_num):
         catcher0 = '坂本'
         catcher1 = '伏見'
         catcher2 = '嶋村'
-        catchers = [catcher0, catcher1, catcher2]
+        catcher3 = '梅野'
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 6:
         num = 6
         Team = 'Carp'
