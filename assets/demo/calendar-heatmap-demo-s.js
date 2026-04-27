@@ -47,7 +47,7 @@ var score26 = {
     '2026-04-12': 'vs Giants , 0-2 </br>Start P.高梨 / C.古賀',
     '2026-04-14': 'vs Baystars , 5-3 </br>Start P.小川 / C.古賀',
     '2026-04-16': 'vs Baystars , 2-0 </br>Start P.松本 / C.古賀',
-    '2026-04-17': 'vs Giants , 2-8 </br>Start P.ウォルターズ / C.中村',
+    '2026-04-17': 'vs Giants , 2-8 </br>Start P.ｳｫﾙﾀｰｽﾞ / C.中村',
     '2026-04-18': 'vs Giants , 4-3 </br>Start P.奥川 / C.古賀',
     '2026-04-19': 'vs Giants , 3-1 </br>Start P.増居 / C.古賀',
     '2026-04-21': 'vs Carp , 2-1 </br>Start P.吉村 / C.古賀',

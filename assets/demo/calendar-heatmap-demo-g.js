@@ -46,7 +46,7 @@ var score26 = {
     '2026-04-12': 'vs Swallows , 0-2 </br>Start P.井上 / C.山瀬',
     '2026-04-14': 'vs Tigers , 3-4 </br>Start P.則本 / C.大城',
     '2026-04-16': 'vs Tigers , 3-4 </br>Start P.田中 / C.岸田',
-    '2026-04-17': 'vs Swallows , 2-8 </br>Start P.ウィットリー / C.大城',
+    '2026-04-17': 'vs Swallows , 2-8 </br>Start P.ｳｨｯﾄﾘｰ / C.大城',
     '2026-04-18': 'vs Swallows , 4-3 </br>Start P.マタ / C.山瀬',
     '2026-04-19': 'vs Swallows , 3-1 </br>Start P.井上 / C.岸田',
     '2026-04-21': 'vs Dragons , 2-1 </br>Start P.則本 / C.大城',

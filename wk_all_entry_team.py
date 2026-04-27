@@ -444,6 +444,11 @@ def task_entry_csv():
                     if order_of_pitcher==0: ## heatmap data
                         start_catcher = catcher
                         start_pitcher = _playerscore[1].split(" ")[0]
+                        if start_pitcher=='ウィットリー': start_pitcher='ｳｨｯﾄﾘ-'
+                        if start_pitcher=='デュプランティエ': start_pitcher='ﾃﾞｭﾌﾟﾗﾝﾃｨｴ'
+                        if start_pitcher=='スチュワート・ジュニア': start_pitcher='ｽﾁｭﾜｰﾄ.J'
+                        if start_pitcher=='ウォルターズ': start_pitcher='ｳｫﾙﾀｰｽﾞ'
+                        if start_pitcher=='エスピノーザ': start_pitcher='ｴｽﾋﾟﾉｰｻﾞ'
 
                     print(','.join(_playerscore))
                     if not fullmask: print()
