@@ -4,8 +4,8 @@
 
 var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var pie_data26 = {'Catcher': ['田宮', '清水優', 'ﾏﾙﾃｨﾈｽ', 'その他'], 'Defense_inning': [[32.0, 154.0, 0, 0, 0, 0, 0, 0], [1.0, 46.0, 0, 0, 0, 0, 0, 0], [0, 2.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[4, 18, 0, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[1, 9, 0, 0, 0, 0, 0, 0], [0, 2, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
-var catchers = ['田宮', '清水優', 'ﾏﾙﾃｨﾈｽ'];
+var pie_data26 = {'Catcher': ['田宮', '清水優', '進藤', 'ﾏﾙﾃｨﾈｽ', 'その他'], 'Defense_inning': [[32.0, 154.0, 0, 0, 0, 0, 0, 0], [1.0, 46.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 10.0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Starting_games': [[4, 18, 0, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 'Winning_games': [[1, 9, 0, 0, 0, 0, 0, 0], [0, 2, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]};
+var catchers = ['田宮', '清水優', '進藤', 'ﾏﾙﾃｨﾈｽ'];
 
 var innings26 = pie_data26.Defense_inning;
 var starting_games26 = pie_data26.Starting_games;
@@ -83,11 +83,18 @@ var innings26_ctx_config = {
           data: innings26.p[2],
           fill: true
       }, {
-          label: 'その他',
+          label: catchers[3],
           lineTension: 0,
           borderColor: window.chartColors.blue,
           backgroundColor: window.chartColors.blue,
           data: innings26.p[3],
+          fill: true
+        }, {
+          label: 'その他',
+          lineTension: 0,
+          borderColor: window.chartColors.purple,
+          backgroundColor: window.chartColors.purple,
+          data: innings26.p[4],
           fill: true
     }]
   },
@@ -119,11 +126,18 @@ var starting_games26_ctx_config = {
           data: starting_games26.p[2],
           fill: true
       }, {
-          label: 'その他',
+          label: catchers[3],
           lineTension: 0,
           borderColor: window.chartColors.blue,
           backgroundColor: window.chartColors.blue,
           data: starting_games26.p[3],
+          fill: true
+      }, {
+          label: 'その他',
+          lineTension: 0,
+          borderColor: window.chartColors.purple,
+          backgroundColor: window.chartColors.purple,
+          data: starting_games26.p[4],
           fill: true
       }]
   },
@@ -150,10 +164,10 @@ var ctx26 = document.getElementById("pie26innings");
 var pie26innings = new Chart(ctx26, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
+    labels: [catchers[0], catchers[1], catchers[2], catchers[3], 'その他'],
     datasets: [{
       data: total_innings26,
-      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
+      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff', '#6F42CB'],
     }],
   },
   options: {
@@ -173,10 +187,10 @@ var ctx26v2 = document.getElementById("pie26startings");
 var pie26startings = new Chart(ctx26v2, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
+    labels: [catchers[0], catchers[1], catchers[2], catchers[3], 'その他'],
     datasets: [{
       data: total_starting_games26,
-      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
+      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff', '#6F42CB'],
     }],
   },
   options: {
@@ -196,10 +210,10 @@ var ctx26v3 = document.getElementById("pie26wins");
 var pie26wins = new Chart(ctx26v3, {
   type: 'pie',
   data: {
-    labels: [catchers[0], catchers[1], catchers[2], 'その他'],
+    labels: [catchers[0], catchers[1], catchers[2], catchers[3], 'その他'],
     datasets: [{
       data: total_wins26,
-      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff'],
+      backgroundColor: ['#ffc107', '#dc3545', '#28a745', '#007bff', '#6F42CB'],
     }],
   },
   options: {
@@ -242,10 +256,16 @@ var myLineChart26 = new Chart(ctx26, {
         data: pie_data26.Winning_games[2],
       },
       {
-        label: 'その他',
+        label: catchers[3],
         backgroundColor: "#007bff",
         borderColor: "#007bff",
         data: pie_data26.Winning_games[3],
+      },
+      {
+        label: 'その他',
+        backgroundColor: "#6F42CB",
+        borderColor: "#6F42CB",
+        data: pie_data26.Winning_games[4],
       },
     ],
   },
