@@ -16,7 +16,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '読売ジャイアンツ'
         team_i = 'g'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#008DDA'
         color_draw = 'rgb(94, 180, 228)'
         color_lose = 'rgb(189, 219, 237)'
@@ -34,7 +34,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '東京ヤクルトスワローズ'
         team_i = 's'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#066163'
         color_draw = 'rgb(98, 154, 146)'
         color_lose = 'rgb(190, 211, 213)'
@@ -52,7 +52,7 @@ def set_team_param(_num):
         team_jp2 = 'DeNA'
         team_jp_full = '横浜DeNAベイスターズ'
         team_i = 'b'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#008DDA'
         color_draw = 'rgb(94, 180, 228)'
         color_lose = 'rgb(189, 219, 237)'
@@ -68,7 +68,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '中日ドラゴンズ'
         team_i = 'd'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#6F3BC8'
         color_draw = 'rgb(161, 131, 217)'
         color_lose = 'rgb(211, 203, 234)'
@@ -86,7 +86,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '阪神タイガース'
         team_i = 't'
-        title_color = 'color: black;'
+        title_color = 'black'
         color_win = '#fcc800'
         color_draw = 'rgb(246, 216, 97)'
         color_lose = 'rgb(239, 231, 194)'
@@ -103,7 +103,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '広島東洋カープ'
         team_i = 'c'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#F1533A'
         color_draw = 'rgb(239, 145, 132)'
         color_lose = 'rgb(237, 208, 205)'
@@ -121,7 +121,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '埼玉西武ライオンズ'
         team_i = 'l'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#176B87'
         color_draw = 'rgb(108, 160, 178)'
         color_lose = 'rgb(193, 213, 221)'
@@ -139,7 +139,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '北海道日本ハムファイターズ'
         team_i = 'f'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#006298'
         color_draw = 'rgb(94, 154, 188)'
         color_lose = 'rgb(189, 211, 224)'
@@ -157,7 +157,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '千葉ロッテマリーンズ'
         team_i = 'm'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#124076'
         color_draw = 'rgb(105, 134, 168)'
         color_lose = 'rgb(192, 204, 217)'
@@ -175,7 +175,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '東北楽天ゴールデンイーグルス'
         team_i = 'e'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#870011'
         color_draw = 'rgb(175, 96, 107)'
         color_lose = 'rgb(216, 191, 197)'
@@ -193,7 +193,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = 'オリックス・バファローズ'
         team_i = 'o'
-        title_color = 'color: white;'
+        title_color = 'white'
         color_win = '#0A1D56'
         color_draw = 'rgb(100, 113, 148)'
         color_lose = 'rgb(191, 197, 211)'
@@ -209,7 +209,7 @@ def set_team_param(_num):
         team_jp2 = team_jp
         team_jp_full = '福岡ソフトバンクホークス'
         team_i = 'h'
-        title_color = 'color: black;'
+        title_color = 'black'
         color_win = '#fcc800'
         color_draw = 'rgb(246, 216, 97)'
         color_lose = 'rgb(239, 231, 194)'
