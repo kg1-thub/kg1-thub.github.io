@@ -671,9 +671,9 @@ def task_make_html():
         atag_tweet_html += catcher_stat[0]+', '+str(catcher_stat[2])+'-'+str(catcher_stat[3])+'-'+str(catcher_stat[4])+', '
         atag_tweet_html += str(catcher_stat[8])+' ('+str(float(catcher_stat[1])).replace('.67', '.2').replace('.33', '.1')+')%0D%0A'
     # atag_tweet_html += '&hashtags=giants" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Tweet for sharing">'
-    atag_tweet_html += f'%23{team}%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2F{team}%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">' \
+    atag_tweet_html += f'%23{team} 👇%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2F{team}%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">' \
         if num > 1 else  \
-        f'%23{team}%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">'
+        f'%23{team} 👇%0D%0Ahttps%3A%2F%2Fkg1-thub.github.io%2F" target="_blank" data-toggle="tooltip" data-placement="bottom" title="X for sharing">'
 
     pie_data = {'Catcher':
                     [catchers[0], catchers[1], catchers[2], catchers[3], 'その他'] \
