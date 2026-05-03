@@ -264,8 +264,8 @@ def get_query_category(sql, series, category):
     if category=='month':
         category1, category2 = "month::integer", "DATE_PART('month', day_of_game) AS month"
         condition = ""
-        if num == 5:
-            condition = "AND NOT catcher='原口'"
+        # if num == 5:
+        #     condition = "AND NOT catcher='原口'"
     else:
         category1, category2 = category, category
         condition = ""
