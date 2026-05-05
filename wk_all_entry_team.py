@@ -850,7 +850,7 @@ def task_entry_wl():
                         .replace('//wl_Swallows',   str(wl_teams[3]).rjust(_rjust)+',//wl_Swallows')\
                         .replace('//wl_Dragons',    str(wl_teams[4]).rjust(_rjust)+',//wl_Dragons')\
                         .replace('//wl_Carp',       str(wl_teams[5]).rjust(_rjust)+',//wl_Carp')\
-                        .replace('//wl_today', datetime.datetime.now().strftime('%m/%d')+',//wl_today')
+                        .replace('//wl_today', f"'{datetime.datetime.now().strftime('%m/%d')}',//wl_today")
                 else:
                     content += line
         with open(STANDINGAREADEMO,mode='w',encoding='utf-8') as writer:
@@ -902,7 +902,7 @@ def task_entry_wl():
                         .replace('//wl_Eagles',   str(wl_teams[3]).rjust(_rjust_pa)+',//wl_Eagles')\
                         .replace('//wl_Buffaloes',    str(wl_teams[4]).rjust(_rjust_pa)+',//wl_Buffaloes')\
                         .replace('//wl_Lions',       str(wl_teams[5]).rjust(_rjust_pa)+',//wl_Lions')\
-                        .replace('//wl_today', datetime.datetime.now().strftime('%m/%d')+',//wl_today')
+                        .replace('//wl_today', f"'{datetime.datetime.now().strftime('%m/%d')}',//wl_today")
                 else:
                     content += line
         with open(STANDINGAREADEMOPA,mode='w',encoding='utf-8') as writer:
