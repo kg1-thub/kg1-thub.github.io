@@ -99,6 +99,7 @@ var datas26p = {
 '2026-04-22': 2,
 '2026-04-28': 2,
 '2026-04-28': 2,
+'2026-05-05': 3,
 //@@TOOLTIP_DATE_P@@
 };
 var score26p = {
@@ -108,6 +109,7 @@ var score26p = {
     '2026-04-22': '(Regular Season)</br>6.0 IP / 91 NP / 0 R</br>---',
     '2026-04-28': '(Regular Season)</br>6.0 IP / 104 NP / 2 R</br>LOSE',
     '2026-04-28': '(Regular Season)</br>6.0 IP / 104 NP / 2 R</br>LOSE',
+    '2026-05-05': '(Regular Season)</br>7.0 IP / 89 NP / 2 R</br>LOSE',
     //@@TOOLTIP_P@@
 };
 var chartData26p = [];
