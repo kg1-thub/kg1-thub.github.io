@@ -216,9 +216,9 @@ def set_team_param(_num):
         catcher0 = '海野'
         catcher1 = '谷川原'
         catcher2 = '渡邉'
-        # catcher3 = '嶺井'
-        catchers = [catcher0, catcher1, catcher2]
-        # catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher3 = '山本'
+        # catchers = [catcher0, catcher1, catcher2]
+        catchers = [catcher0, catcher1, catcher2, catcher3]
 
 TODAY = datetime.datetime.today()
 _y = TODAY.strftime('%y')
