@@ -65,8 +65,8 @@ const ilperiod26p = {
   borderColor: 'rgba(0,150,0,0)',
   borderWidth: 1,
   cornerRadius: 4,
-  xMin: 56,
-  xMax: 75,
+  xMin: 50,
+  xMax: 68,
 };
 
 const asbreak26p = {
@@ -227,7 +227,7 @@ var myLineChart26p = new Chart(ctx26p, {
       annotation: {
         annotations: {
           zero26p,
-          // ilperiod26p,
+          ilperiod26p,
           // illabel26p,
           // asbreak26p,
           // champ26p
