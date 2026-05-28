@@ -218,7 +218,7 @@ def set_team_param(_num):
         catcher0 = '海野'
         catcher1 = '谷川原'
         catcher2 = '渡邉'
-        catcher3 = '山本'
+        catcher3 = '山本祐'
         # catchers = [catcher0, catcher1, catcher2]
         catchers = [catcher0, catcher1, catcher2, catcher3]
 
@@ -447,7 +447,7 @@ def task_entry_csv():
                         start_pitcher = _playerscore[1].split(" ")[0]
                         if start_pitcher=='ウィットリー': start_pitcher='ｳｨｯﾄﾘ-'
                         if start_pitcher=='デュプランティエ': start_pitcher='ﾃﾞｭﾌﾟﾗﾝﾃｨｴ'
-                        if start_pitcher=='スチュワート・ジュニア': start_pitcher='ｽﾁｭﾜｰﾄ.J'
+                        if start_pitcher=='スチュワート・ジュニア': start_pitcher='ｽﾁｭﾜｰﾄJ'
                         if start_pitcher=='ウォルターズ': start_pitcher='ｳｫﾙﾀｰｽﾞ'
                         if start_pitcher=='エスピノーザ': start_pitcher='ｴｽﾋﾟﾉｰｻﾞ'
 
