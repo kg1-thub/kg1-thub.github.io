@@ -21,8 +21,8 @@ def set_team_param(_num):
         color_draw = 'rgb(94, 180, 228)'
         color_lose = 'rgb(189, 219, 237)'
         catcher0 = '岸田'
-        catcher1 = '山瀬'
-        catcher2 = '大城'
+        catcher1 = '大城'
+        catcher2 = '山瀬'
         catcher3 = '小林'
         # catchers = [catcher0, catcher1, catcher2]
         catchers = [catcher0, catcher1, catcher2, catcher3]
@@ -147,7 +147,8 @@ def set_team_param(_num):
         catcher0 = '田宮'
         catcher1 = '清水優'
         catcher2 = '進藤'
-        catcher3 = 'ﾏﾙﾃｨﾈｽ'
+        catcher3 = '梅林'
+        # catcher3 = 'ﾏﾙﾃｨﾈｽ'
         # catchers = [catcher0, catcher1, catcher2]
         catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 9:
@@ -182,8 +183,8 @@ def set_team_param(_num):
         color_lose = 'rgb(216, 191, 197)'
         catcher0 = '太田'
         catcher1 = '伊藤'
-        catcher2 = '石原'
         catcher3 = '堀内'
+        catcher2 = '安田'
         # catchers = [catcher0, catcher1, catcher2]
         catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 11:
