@@ -74,6 +74,9 @@ def find_today_game(games):
             return game
     return None
 
+batting = None
+pitching = None
+
 # =========================================
 # BATTING
 # =========================================
@@ -299,6 +302,13 @@ with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
 with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
     writer.write(content)
 
+latest_date = TODAY
+
+if batting:
+    latest_date = _g[0]
+elif pitching:
+    latest_date = _p[0]
+
 shoAREA = 'C:/Users/ki401/Documents/git/github-io/sho/sho-area-demo.js'
 with open(shoAREA,mode='r',encoding='utf-8') as reader:
     content = reader.read()
@@ -316,7 +326,7 @@ with open(shoAREA,mode='r',encoding='utf-8') as reader:
                 '%s,\n//@@RBIS@@' % (_rbi,)
             ).replace(
                 '//@@TODAY@@', 
-                "'%s',\n//@@TODAY@@" % (_g[0])
+                "'%s',\n//@@TODAY@@" % (latest_date)
             )
 with open(shoAREA,mode='w',encoding='utf-8') as writer:
     writer.write(content)
@@ -360,9 +370,9 @@ with open(DATATABLESDEMO,mode='r',encoding='utf-8') as reader:
     content = ''
     for line in lines:
         if '@@KEYWORD@@' in line:
-            content += f"        '{_g[0]}' // @@KEYWORD@@\n"
+            content += f"        '{latest_date}' // @@KEYWORD@@\n"
         elif '@@KEYWORD_P@@' in line and pitching:
-            content += f"        '{_g[0]}' // @@KEYWORD_P@@\n"
+            content += f"        '{latest_date}' // @@KEYWORD_P@@\n"
         else:
             content += line
 with open(DATATABLESDEMO,mode='w',encoding='utf-8') as writer:
