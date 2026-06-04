@@ -11,9 +11,6 @@ PITCHING_CSV = f'C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv'
 
 jst = pytz.timezone("Asia/Tokyo")
 
-batting = 0
-pitching = 0
-
 TODAY = (
     datetime.now(jst) - timedelta(days=1)
 ).strftime("%Y-%m-%d")
@@ -125,42 +122,6 @@ try:
         print("Batting added:")
         print(csv_line)
 
-        _hit, _hr, _rbi, _sb, _avg= 0, 0, 0, 0, 0
-
-        with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26.csv') as f:
-            reader = csv.reader(f)
-            next(reader)
-            for _g in reader:
-                _hit += int(_g[5])
-                _hr += int(_g[9])
-                _rbi += int(_g[10])
-                _sb += int(_g[14])
-                _avg = str(_g[16])
-
-                pt = 0
-                if int(_g[5]) > 0: #hit
-                    pt += 1 * int(_g[5])
-                if int(_g[9]) > 0: #hr
-                    pt += 2 * int(_g[9])
-                elif int(_g[10]) > 0: #rbi
-                    pt += 1 * int(_g[10])
-                if int(_g[14]) > 0: #sb
-                    pt += 1 * int(_g[14])
-
-                last_score = min(pt, 4)
-                last_tooltip = '(Regular Season)</br><span><strong>%s HR / %s SB</strong></span></br>%s Hits / %s RBI / AVG %s' % (_g[9], _g[14], _g[5], _g[10], _avg)
-                # print(f"'{_g[0]}': '{last_tooltip}',")
-                print(f"'{_g[0]}': {last_score},")
-
-            print("Batting Score UPDATED.")
-
-            # print(f'{_sb},')
-            # print(_hit, _hr, _sb, _rbi)
-            # print(f"'{_g[0]}':{last_score},")
-            # print(f"'{_g[0]}': '{last_tooltip}',")
-            # print(f'{_hr} HR / {_sb} SB')
-            # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
-
     else:
         print("No batting data today.")
 
@@ -221,56 +182,102 @@ try:
         print("Pitching added:")
         print(csv_line)
 
-        with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv') as f:
-            reader = csv.reader(f)
-            next(reader)
-            for _p in reader:
-                _game  += 1
-                _w  += int(_p[3])
-                _l  += int(_p[4])
-                _ip += float(_p[12])
-                _so += int(_p[20])
-                _ip1 = int(abs(_ip) * 10) % 10
-                if _ip1 == 3:
-                    _ip = int(_ip) + 1
-                elif _ip1 == 4:
-                    _ip += 0.7
-                _er += int(_p[15])
-                _era = _p[5]
-
-                pt = 0
-                wl = '---'
-                if int(_p[3]) > 0: #win
-                    pt += 2 * int(_p[3])
-                    wl = 'WIN'
-                if int(_p[4]) > 0: #lose
-                    wl = 'LOSE'
-                if float(_p[12]) > 0: #ip
-                    if float(_p[12]) >= 5:
-                        pt += 1
-                    if float(_p[12]) >= 7:
-                        pt += 1
-                    if int(_p[15])/float(_p[12])*9 < 3.5:
-                        pt += 1
-
-                last_score_p = min(pt, 4)
-                last_tooltip_p = '(Regular Season)</br>%s IP / %s NP / %s R</br>%s' % (_p[12], _p[21].split('-')[0], _p[14], wl)
-                # print(f"'{_p[0]}': '{last_tooltip}',")
-                print(f"'{_p[0]}': {last_score_p},")
-
-        print("Pitching Score UPDATED.")
-
     else:
         print("No pitching data today.")
 
 except Exception as e:
     print("Pitching error:", e)
 
+if batting:
+
+    _hit, _hr, _rbi, _sb, _avg= 0, 0, 0, 0, 0
+
+    with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26.csv') as f:
+        reader = csv.reader(f)
+        next(reader)
+        for _g in reader:
+            _hit += int(_g[5])
+            _hr += int(_g[9])
+            _rbi += int(_g[10])
+            _sb += int(_g[14])
+            _avg = str(_g[16])
+
+            pt = 0
+            if int(_g[5]) > 0: #hit
+                pt += 1 * int(_g[5])
+            if int(_g[9]) > 0: #hr
+                pt += 2 * int(_g[9])
+            elif int(_g[10]) > 0: #rbi
+                pt += 1 * int(_g[10])
+            if int(_g[14]) > 0: #sb
+                pt += 1 * int(_g[14])
+
+            last_score = min(pt, 4)
+            last_tooltip = '(Regular Season)</br><span><strong>%s HR / %s SB</strong></span></br>%s Hits / %s RBI / AVG %s' % (_g[9], _g[14], _g[5], _g[10], _avg)
+            # print(f"'{_g[0]}': '{last_tooltip}',")
+            print(f"'{_g[0]}': {last_score},")
+
+        print("Batting Score UPDATED.")
+
+        # print(f'{_sb},')
+        # print(_hit, _hr, _sb, _rbi)
+        # print(f"'{_g[0]}':{last_score},")
+        # print(f"'{_g[0]}': '{last_tooltip}',")
+        # print(f'{_hr} HR / {_sb} SB')
+        # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
+
+# pitching = 0
+# with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv') as f:
+#     if _g[0] in f.read():
+#         pitching = 1
+#         _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
+
+if pitching:
+    _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
+
+    with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv') as f:
+        reader = csv.reader(f)
+        next(reader)
+        for _p in reader:
+            _game  += 1
+            _w  += int(_p[3])
+            _l  += int(_p[4])
+            _ip += float(_p[12])
+            _so += int(_p[20])
+            _ip1 = int(abs(_ip) * 10) % 10
+            if _ip1 == 3:
+                _ip = int(_ip) + 1
+            elif _ip1 == 4:
+                _ip += 0.7
+            _er += int(_p[15])
+            _era = _p[5]
+
+            pt = 0
+            wl = '---'
+            if int(_p[3]) > 0: #win
+                pt += 2 * int(_p[3])
+                wl = 'WIN'
+            if int(_p[4]) > 0: #lose
+                wl = 'LOSE'
+            if float(_p[12]) > 0: #ip
+                if float(_p[12]) >= 5:
+                    pt += 1
+                if float(_p[12]) >= 7:
+                    pt += 1
+                if int(_p[15])/float(_p[12])*9 < 3.5:
+                    pt += 1
+
+            last_score_p = min(pt, 4)
+            last_tooltip_p = '(Regular Season)</br>%s IP / %s NP / %s R</br>%s' % (_p[12], _p[21].split('-')[0], _p[14], wl)
+            # print(f"'{_p[0]}': '{last_tooltip}',")
+            print(f"'{_p[0]}': {last_score_p},")
+
+    print("Pitching Score UPDATED.")
 
 shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
 with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
+    content = reader.read()
     if batting:
-        content = reader.read()
         content = content.replace(
                     # "'%s': -1," % (_g[0],), 
                     '//@@TOOLTIP_DATE@@',

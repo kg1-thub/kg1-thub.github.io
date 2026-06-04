@@ -11,6 +11,9 @@ PITCHING_CSV = f'C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv'
 
 jst = pytz.timezone("Asia/Tokyo")
 
+batting = 0
+pitching = 0
+
 TODAY = (
     datetime.now(jst) - timedelta(days=1)
 ).strftime("%Y-%m-%d")
@@ -66,7 +69,6 @@ def fetch_gamelog(group):
     data = res.json()
 
     return data["stats"][0]["splits"]
-
 
 def find_today_game(games):
     for game in games:
@@ -189,7 +191,6 @@ except Exception as e:
     print("Pitching error:", e)
 
 if batting:
-
     _hit, _hr, _rbi, _sb, _avg= 0, 0, 0, 0, 0
 
     with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26.csv') as f:
@@ -226,15 +227,7 @@ if batting:
         # print(f'{_hr} HR / {_sb} SB')
         # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
 
-# pitching = 0
-# with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv') as f:
-#     if _g[0] in f.read():
-#         pitching = 1
-#         _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
-
 if pitching:
-    _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
-
     with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv') as f:
         reader = csv.reader(f)
         next(reader)
@@ -276,8 +269,8 @@ if pitching:
 
 shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
 with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
-    content = reader.read()
     if batting:
+        content = reader.read()
         content = content.replace(
                     # "'%s': -1," % (_g[0],), 
                     '//@@TOOLTIP_DATE@@',

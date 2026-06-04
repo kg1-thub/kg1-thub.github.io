@@ -58,6 +58,8 @@ var datas26 = {
 '2026-05-31': 2,
 '2026-06-01': 3,
 '2026-06-02': 4,
+'2026-06-03': 3,
+'2026-06-03': 3,
 //@@TOOLTIP_DATE@@
 };
 var score26 = {
@@ -116,6 +118,8 @@ var score26 = {
     '2026-05-31': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>2 Hits / 0 RBI / AVG .280',
     '2026-06-01': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>3 Hits / 0 RBI / AVG .289',
     '2026-06-02': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>2 Hits / 2 RBI / AVG .293',
+    '2026-06-03': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>3 Hits / 0 RBI / AVG .301',
+    '2026-06-03': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>3 Hits / 0 RBI / AVG .301',
     //@@TOOLTIP@@
 };
 var chartData26 = [];
@@ -149,6 +153,8 @@ var datas26p = {
 '2026-05-13': 4,
 '2026-05-20': 4,
 '2026-05-27': 4,
+'2026-06-03': 4,
+'2026-06-03': 4,
 //@@TOOLTIP_DATE_P@@
 };
 var score26p = {
@@ -162,6 +168,8 @@ var score26p = {
     '2026-05-13': '(Regular Season)</br>7.0 IP / 105 NP / 0 R</br>WIN',
     '2026-05-20': '(Regular Season)</br>5.0 IP / 88 NP / 0 R</br>WIN',
     '2026-05-27': '(Regular Season)</br>6.0 IP / 99 NP / 1 R</br>WIN',
+    '2026-06-03': '(Regular Season)</br>6.0 IP / 89 NP / 0 R</br>WIN',
+    '2026-06-03': '(Regular Season)</br>6.0 IP / 89 NP / 0 R</br>WIN',
     //@@TOOLTIP_P@@
 };
 var chartData26p = [];
