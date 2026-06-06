@@ -1,12 +1,12 @@
 {
   csvLoad(
     '26',
-    '06/05', // @@KEYWORD@@
+    '06/06', // @@KEYWORD@@
     'c'
   );
   csvLoad2(
     '26',
-    '06/05', // @@KEYWORD@@
+    '06/06', // @@KEYWORD@@
     'c'
   );
 }
