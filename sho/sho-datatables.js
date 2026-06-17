@@ -1,10 +1,10 @@
 $(document).ready(function () {
     csvLoad(
         '26',
-        '2026-06-16' // @@KEYWORD@@
+        '2026-06-17' // @@KEYWORD@@
     );
     csvLoad2(
         '26',
-        '2026-06-10' // @@KEYWORD_P@@
+        '2026-06-17' // @@KEYWORD_P@@
     );
 });
