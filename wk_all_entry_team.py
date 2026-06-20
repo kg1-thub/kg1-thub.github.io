@@ -802,7 +802,7 @@ def task_entry_wl():
     STANDINGAREADEMO = './assets/demo/chart-area-demo.js'
     STANDINGAREADEMOPA = './assets/demo/chart-area-demo-pa.js'
     _rjust = 3
-    _rjust_pa = 2
+    _rjust_pa = 3
     url = 'https://baseball.yahoo.co.jp/npb/standings/'
     xml = requests.get(url)
     soup = BeautifulSoup(xml.content, 'html.parser')
