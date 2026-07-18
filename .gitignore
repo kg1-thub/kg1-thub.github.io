@@ -16,3 +16,7 @@ assets/data/gcs/note.md
 assets/img/giants-pride.jpg
 wk_all_entry_team__.py
 message.txt
+.venv/
+.DS_Store
+baseball_ddl.sql
+income.sql

@@ -246,17 +246,20 @@ def get_query(sql, series):
     conn.close()
     return results
 
-csvdir = 'C:/Users/ki401/Documents/git/github-io/assets/data/csv'
+# csvdir = 'C:/Users/ki401/Documents/git/github-io/assets/data/csv'
+csvdir = 'assets/data/csv'
 
 def replace_table(tablename, filename):
     conn = psycopg2.connect('dbname=baseball host=localhost user=postgres password=postgres')
     cur = conn.cursor()
-    trunctb = "TRUNCATE %s;" % tablename
-    # copytotb = "COPY %s FROM '%s/%s' WITH (format csv, encoding 'SJIS');" \
-    copytotb = "COPY %s FROM '%s/%s' WITH (format csv, header, encoding 'SJIS');" \
-                    % (tablename, csvdir, filename)
+    trunctb = f"TRUNCATE {tablename}"
+    # copytotb = "COPY %s FROM '%s/%s' WITH (format csv, header, encoding 'SJIS');" \
+    #                 % (tablename, csvdir, filename)
+    copytotb = f"COPY {tablename} FROM STDIN WITH CSV HEADER"
     res1 = cur.execute(trunctb)
-    res2 = cur.execute(copytotb)
+    # res2 = cur.execute(copytotb)
+    with open(f'{csvdir}/{filename}', "r", encoding="shift_jis") as f:
+        cur.copy_expert(copytotb,f)
     conn.commit()
     cur.close()
     conn.close()
