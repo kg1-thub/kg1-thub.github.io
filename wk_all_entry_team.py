@@ -361,7 +361,7 @@ def task_entry_csv():
     _game_calender = f'https://baseball.yahoo.co.jp/npb/teams/{num}/schedule?month='+tday.strftime('%Y-%m')
     xml = requests.get(_game_calender)
     soup = BeautifulSoup(xml.content, 'html.parser')
-    for x in soup.findAll('div', class_='bb-calendarTable__wrap'):
+    for x in soup.find_all('div', class_='bb-calendarTable__wrap'):
         d = x.find('p', class_='bb-calendarTable__date')
         if (d is not None):
             if (int(d.text) == int(tday.strftime('%e'))):
@@ -375,7 +375,7 @@ def task_entry_csv():
     xml = requests.get(url)
     soup = BeautifulSoup(xml.content, 'html.parser')
     _score = []
-    for _, score_of_game in enumerate(soup.findAll('a', class_='bb-gameTeam__link')):
+    for _, score_of_game in enumerate(soup.find_all('a', class_='bb-gameTeam__link')):
         # _score.append(score_of_game.text)
         _score.append(score_of_game.text.replace('\n', ''))
 
@@ -398,7 +398,7 @@ def task_entry_csv():
     soup = BeautifulSoup(xml.content, 'html.parser')
     heatmap_WLD = 0    # (WIN=1, LOSE=-1, DRAW=0)
 
-    for _k, news in enumerate(soup.findAll('section', class_='bb-modCommon03')):
+    for _k, news in enumerate(soup.find_all('section', class_='bb-modCommon03')):
         _team = news.find('h3', class_='bb-head02__title')
         print(_team, vsteam)
         if _team is None:
@@ -406,9 +406,9 @@ def task_entry_csv():
         elif _team.text == team_jp_full:
             _batteries = []
             with open(csvdir+f'/catcher_stats{_y}{team_i}.csv',mode='a',encoding='shift-jis') as f:
-                for order_of_pitcher, scores_of_pitcher in enumerate(news.findAll('tr', class_='bb-scoreTable__row')):
+                for order_of_pitcher, scores_of_pitcher in enumerate(news.find_all('tr', class_='bb-scoreTable__row')):
                     _playerscore = []
-                    for i, score_of_pitcher in enumerate(scores_of_pitcher.findAll('td')):
+                    for i, score_of_pitcher in enumerate(scores_of_pitcher.find_all('td')):
                         if i == 0:
                             wls = score_of_pitcher.text
                             if wls == '勝':
@@ -462,17 +462,17 @@ def task_entry_csv():
                     _batteries.append([_playerscore[1], _playerscore[13], _playerscore[2]])
     print('PITCH CSV UPDATED.')
 
-    for _k, news in enumerate(soup.findAll('table', class_='bb-statsTable')):
+    for _k, news in enumerate(soup.find_all('table', class_='bb-statsTable')):
         if _k == _k_table:
             with open(csvdir+f'/offence_stats{_y}{team_i}.csv',mode='a',encoding='utf-8') as f:
-                for order_of_batter, scores_of_batter in enumerate(news.findAll('tr', class_='bb-statsTable__row')):
+                for order_of_batter, scores_of_batter in enumerate(news.find_all('tr', class_='bb-statsTable__row')):
                     if order_of_batter == 0:
                         pass
                     else:
                         # print(scores_of_pitcher)
                         _playerscore = []
                         starting = 0
-                        for i, score_of_batter in enumerate(scores_of_batter.findAll('td')):
+                        for i, score_of_batter in enumerate(scores_of_batter.find_all('td')):
                             if i == 0 and score_of_batter.text[0] == '(':
                                 starting = 1
                             _playerscore.append(score_of_batter.text.strip('\n').replace('\n', ' '))
@@ -810,17 +810,17 @@ def task_entry_wl():
     xml = requests.get(url)
     soup = BeautifulSoup(xml.content, 'html.parser')
     _score = []
-    standing = soup.findAll('section', class_='bb-modCommon03')
+    standing = soup.find_all('section', class_='bb-modCommon03')
 
     if entry_wl_ce:
         # G,T,B,S,D,C
         wl_teams = [0, 0, 0, 0, 0, 0]
-        for _, table in enumerate(standing[0].findAll('tbody')):
-            for _, rec in enumerate(table.findAll('tr')):
+        for _, table in enumerate(standing[0].find_all('tbody')):
+            for _, rec in enumerate(table.find_all('tr')):
                 team = ''
                 _team = 0
                 _wl = 0
-                for i, td in enumerate(rec.findAll('td', class_='bb-rankTable__data')):
+                for i, td in enumerate(rec.find_all('td', class_='bb-rankTable__data')):
                     print(i, td)
                     if i == 1:
                         team = td.text.replace('\n', '')
@@ -868,12 +868,12 @@ def task_entry_wl():
     if entry_wl_pa:
         # H,F,M,E,B,L
         wl_teams = [0, 0, 0, 0, 0, 0]
-        for _, table in enumerate(standing[1].findAll('tbody')):
-            for _, rec in enumerate(table.findAll('tr')):
+        for _, table in enumerate(standing[1].find_all('tbody')):
+            for _, rec in enumerate(table.find_all('tr')):
                 team = ''
                 _team = 0
                 _wl = 0
-                for i, td in enumerate(rec.findAll('td', class_='bb-rankTable__data')):
+                for i, td in enumerate(rec.find_all('td', class_='bb-rankTable__data')):
                     if i == 1:
                         team = td.text.replace('\n', '')
                         if team == 'ソフトバンク':
@@ -968,8 +968,8 @@ if __name__=='__main__':
                         r.append('✅')
                     else:
                         r.append('⬜')
-                print(f'  0:exit, 1:巨人{r[0]}  2:ﾔｸﾙﾄ{r[1]}  3:DeNA{r[2]}  4:中日{r[3]}  5:阪神{r[4]}  6:広島{r[5]}')
-                print(f'  7:西武{r[6]}  8:日ﾊﾑ{r[7]}  9:ﾛｯﾃ{r[8]}  10:楽天{r[9]}  11:ｵﾘｯｸｽ{r[10]}  12:ｿﾌﾄﾊﾞﾝｸ{r[11]}')
+                print(f'  0:exit 1:巨人{r[0]} 2:ﾔｸﾙﾄ{r[1]} 3:DeNA{r[2]} 4:中日{r[3]} 5:阪神{r[4]} 6:広島{r[5]}')
+                print(f'  7:西武{r[6]} 8:日ﾊﾑ{r[7]} 9:ﾛｯﾃ{r[8]} 10:楽天{r[9]} 11:ｵﾘｯｸｽ{r[10]} 12:ｿﾌﾄﾊﾞﾝｸ{r[11]}')
             else:
                 print('  0:exit, 1:巨人, 2:ﾔｸﾙﾄ, 3:DeNA, 4:中日, 5:阪神, 6:広島')
                 print('  7:西武, 8:日ﾊﾑ, 9:ﾛｯﾃ, 10:楽天, 11:ｵﾘｯｸｽ, 12:ｿﾌﾄﾊﾞﾝｸ')
