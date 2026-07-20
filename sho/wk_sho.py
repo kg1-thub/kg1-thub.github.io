@@ -6,8 +6,8 @@ import pytz
 PLAYER_ID = 660271  # ohtani number
 SEASON = 2026
 
-BATTING_CSV  = f'C:/Users/ki401/Documents/git/github-io/sho/csv/sho26.csv'
-PITCHING_CSV = f'C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv'
+BATTING_CSV  = f'sho/csv/sho26.csv'
+PITCHING_CSV = f'sho/csv/sho26p.csv'
 
 jst = pytz.timezone("Asia/Tokyo")
 
@@ -195,7 +195,7 @@ if batting:
 
     _hit, _hr, _rbi, _sb, _avg= 0, 0, 0, 0, 0
 
-    with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26.csv') as f:
+    with open('sho/csv/sho26.csv') as f:
         reader = csv.reader(f)
         next(reader)
         for _g in reader:
@@ -230,7 +230,7 @@ if batting:
         # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
 
 # pitching = 0
-# with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv') as f:
+# with open('sho/csv/sho26p.csv') as f:
 #     if _g[0] in f.read():
 #         pitching = 1
 #         _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
@@ -238,7 +238,7 @@ if batting:
 if pitching:
     _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
 
-    with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p.csv') as f:
+    with open('sho/csv/sho26p.csv') as f:
         reader = csv.reader(f)
         next(reader)
         for _p in reader:
@@ -277,7 +277,7 @@ if pitching:
 
     print("Pitching Score UPDATED.")
 
-shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
+shoHEATMAP = 'sho/sho-heatmap-demo.js'
 with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
     content = reader.read()
     if batting:
@@ -309,7 +309,7 @@ if batting:
 elif pitching:
     latest_date = _p[0]
 
-shoAREA = 'C:/Users/ki401/Documents/git/github-io/sho/sho-area-demo.js'
+shoAREA = 'sho/sho-area-demo.js'
 with open(shoAREA,mode='r',encoding='utf-8') as reader:
     content = reader.read()
     content = content.replace(
@@ -332,7 +332,7 @@ with open(shoAREA,mode='w',encoding='utf-8') as writer:
     writer.write(content)
 
 content = ''
-shoINDEX = 'C:/Users/ki401/Documents/git/github-io/sho/index.html'
+shoINDEX = 'sho/index.html'
 with open(shoINDEX,mode='r',encoding='utf-8') as f:
     # reader = reader(f)
     for row in f.readlines():
