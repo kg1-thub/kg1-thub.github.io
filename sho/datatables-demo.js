@@ -16,6 +16,9 @@ function makeCSV(records, columns, year, keyword) {
   let divth = document.createElement("th");
   divth.textContent = 'seq';
   divtheadr.appendChild(divth);
+
+  console.log(records);
+
   for (var j = 0; j < columns.length; j++) {
       let divth = document.createElement("th");
       divth.textContent = columns[j];
