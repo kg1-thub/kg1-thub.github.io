@@ -90,6 +90,7 @@ var datas26 = {
     '2026-07-18': 1,
     '2026-07-19': 1,
     '2026-07-20': 1,
+    '2026-07-21': -1,
     //@@NEXTGAME@@
 };
 var score26 = {
@@ -180,6 +181,7 @@ var score26 = {
     '2026-07-18': 'vs Marines , 4-5 </br>Start P.大津 / C.海野',
     '2026-07-19': 'vs Marines , 0-3 </br>Start P.前田 / C.海野',
     '2026-07-20': 'vs Marines , 4-5 </br>Start P.大関 / C.海野',
+    '2026-07-21': 'vs Buffaloes , 1-2 </br>Start P.上沢 / C.海野',
     //@@NEXTSCORE@@
 };
 var chartData26 = [];
