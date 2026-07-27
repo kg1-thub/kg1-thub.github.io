@@ -96,7 +96,7 @@ const asbreak26p = {
   scaleID: 'x',
   borderWidth: 2,
   borderColor: 'rgba(0,128,0,0.7)',
-  value: 98,
+  value: 103,
   label: {
     // rotation: 270,
     backgroundColor: 'rgba(0,0,0,0.0)',
@@ -105,7 +105,7 @@ const asbreak26p = {
     padding: 1,
     enabled: true,
     position: 'start',
-    textAlign: 'right',
+    textAlign: 'left',
     font: {
       size: 10
     }
@@ -251,7 +251,7 @@ var myLineChart26p = new Chart(ctx26p, {
           zero26p,
           ilperiod26p,
           illabel26p,
-          // asbreak26p,
+          asbreak26p,
           // champ26p
         },
       },

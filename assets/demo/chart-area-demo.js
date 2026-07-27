@@ -102,7 +102,7 @@ const asbreak26 = {
   scaleID: 'x',
   borderWidth: 2,
   borderColor: 'rgba(0,128,0,0.7)',
-  value: 97,
+  value: 103,
   label: {
     // rotation: 270,
     backgroundColor: 'rgba(0,0,0,0.0)',
@@ -110,7 +110,7 @@ const asbreak26 = {
     content: [' ALL-STAR GAME', ' BREAK'],
     padding: 1,
     enabled: true,
-    position: 'end',
+    position: 'start',
     textAlign: 'left',
     font: {
       size: 10
@@ -257,7 +257,7 @@ var myLineChart26 = new Chart(ctx26, {
           zero,
           ilperiod26,
           illabel26,
-          // asbreak26,
+          asbreak26,
           // champ26
         },
       },
