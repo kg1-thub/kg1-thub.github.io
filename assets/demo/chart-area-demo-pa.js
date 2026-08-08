@@ -112,7 +112,7 @@ const asbreak26p = {
     padding: 1,
     enabled: true,
     position: 'start',
-    textAlign: 'left',
+    textAlign: 'right',
     font: {
       size: 10
     }
