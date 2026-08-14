@@ -113,6 +113,7 @@ var datas26 = {
 '2026-08-10': 4,
 '2026-08-11': 0,
 '2026-08-12': 4,
+'2026-08-13': 1,
 //@@TOOLTIP_DATE@@
 };
 var score26 = {
@@ -226,6 +227,7 @@ var score26 = {
     '2026-08-10': '(Regular Season)</br><span><strong>0 HR / 1 SB</strong></span></br>2 Hits / 1 RBI / AVG .294',
     '2026-08-11': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .290',
     '2026-08-12': '(Regular Season)</br><span><strong>1 HR / 0 SB</strong></span></br>2 Hits / 2 RBI / AVG .292',
+    '2026-08-13': '(Regular Season)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .292',
     //@@TOOLTIP@@
 };
 var chartData26 = [];
