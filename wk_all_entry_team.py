@@ -147,7 +147,7 @@ def set_team_param(_num):
         catcher0 = '田宮'
         catcher1 = '清水優'
         catcher2 = '進藤'
-        catcher3 = '梅林'
+        catcher3 = '郡司'
         # catcher3 = 'ﾏﾙﾃｨﾈｽ'
         # catchers = [catcher0, catcher1, catcher2]
         catchers = [catcher0, catcher1, catcher2, catcher3]
