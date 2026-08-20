@@ -278,8 +278,8 @@ def get_query_category(sql, series, category):
         condition = ""
         if num == 7 and category == 'pitcher':
             condition = "AND NOT (catcher='古賀悠' AND pitcher='冨士 大和')"
-        # if num == 4 and category == 'pitcher':
-        #     condition = "AND NOT (catcher='加藤' AND pitcher='齋藤 綱記')"
+        if num == 8 and category == 'pitcher':
+            condition = "AND NOT (catcher='郡司' AND pitcher='福島 蓮')"
         # if num == 3 and category == 'pitcher':
         #     condition = "AND NOT (catcher='戸柱' AND pitcher='山崎 康晃') AND NOT (catcher='松尾' AND pitcher='山崎 康晃') AND NOT (catcher='山本' AND pitcher='岩田 将貴')"
         # if num == 5 and category == 'pitcher':
@@ -311,7 +311,9 @@ def create_table_category(sql_cat, series, category):
         for i, x in enumerate(stat):
             print(i, stat)
             if x is None:
-                if stat[0] == '冨士 大和' and i==1: #S,i=1,C:中村
+                if stat[0] == '冨士 大和' and i==2: #L,C:古賀
+                    table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
+                elif stat[0] == '福島 蓮' and i==3: #F,C:郡司
                     table_html += tb+'\t<td>0-0-0, 99.99 (0.0)</td>\n'
                 # elif stat[0] == '齋藤 綱記' and i==4: #D,i=4,C:加藤
                 #     table_html += tb+'\t<td>0-1-0, 99.99 (0.0)</td>\n'
