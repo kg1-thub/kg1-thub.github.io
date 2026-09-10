@@ -203,7 +203,7 @@ def set_team_param(_num):
         catcher0 = '森'
         catcher1 = '若月'
         catcher2 = '福永'
-        catcher3 = '堀'
+        catcher3 = '石川'
         catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 12:
         num = 12

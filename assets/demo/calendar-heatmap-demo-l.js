@@ -130,6 +130,7 @@ var datas26 = {
     '2026-09-06': 1,
     '2026-09-08': 1,
     '2026-09-09': 1,
+    '2026-09-10': 1,
     //@@NEXTGAME@@
 };
 var score26 = {
@@ -260,6 +261,7 @@ var score26 = {
     '2026-09-06': 'vs Hawks , 2-5 </br>Start P.武内 / C.小島',
     '2026-09-08': 'vs Buffaloes , 0-2 </br>Start P.平良 / C.小島',
     '2026-09-09': 'vs Buffaloes , 0-8 </br>Start P.菅井 / C.小島',
+    '2026-09-10': 'vs Buffaloes , 4-8 </br>Start P.佐藤 / C.小島',
     //@@NEXTSCORE@@
 };
 var chartData26 = [];
