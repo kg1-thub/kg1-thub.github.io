@@ -131,7 +131,7 @@ const champ26p = {
   scaleID: 'x',
   borderWidth: 2,
   borderColor: 'rgba(0,128,0,0.7)',
-  value: 153,
+  value: 145,
   label: {
     // rotation: 270,
     backgroundColor: 'rgba(0,0,0,0.0)',
@@ -267,7 +267,7 @@ var myLineChart26p = new Chart(ctx26p, {
           ilperiod26p,
           illabel26p,
           asbreak26p,
-          // champ26p
+          champ26p
         },
       },
       legend: {
