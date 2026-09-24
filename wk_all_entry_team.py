@@ -111,9 +111,9 @@ def set_team_param(_num):
         catcher0 = '坂倉'
         catcher1 = '石原'
         catcher2 = '持丸'
-        # catcher3 = '會澤'
-        catchers = [catcher0, catcher1, catcher2]
-        # catchers = [catcher0, catcher1, catcher2, catcher3]
+        catcher3 = '清水'
+        # catchers = [catcher0, catcher1, catcher2]
+        catchers = [catcher0, catcher1, catcher2, catcher3]
     if _num == 7:
         num = 7
         Team = 'Lions'
