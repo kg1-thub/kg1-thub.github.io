@@ -2,7 +2,10 @@ import csv
 
 _hit, _hr, _rbi, _sb, _avg= 0, 0, 0, 0, 0
 
-with open('C:/Users/ki401/Documents/git/github-io/sho/sho25_ps.csv') as f:
+BATTING_CSV  = f'sho/csv/sho26_ps.csv'
+PITCHING_CSV = f'sho/csv/sho26p_ps.csv'
+
+with open(BATTING_CSV) as f:
     reader = csv.reader(f)
     next(reader)
     for _g in reader:
@@ -37,52 +40,52 @@ with open('C:/Users/ki401/Documents/git/github-io/sho/sho25_ps.csv') as f:
     # print(f'AVG {_avg} / {_hit} HITS / {_rbi} RBI')
 
 pitching = 0
-with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p_ps.csv') as f:
-    if _g[0] in f.read():
-        pitching = 1
-        _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
+# with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p_ps.csv') as f:
+#     if _g[0] in f.read():
+#         pitching = 1
+#         _game, _w, _l, _ip, _er, _era, _so = 0, 0, 0, 0, 0, 0, 0
 
-if pitching:
-    with open('C:/Users/ki401/Documents/git/github-io/sho/sho25p_ps.csv') as f:
-        reader = csv.reader(f)
-        next(reader)
-        for _p in reader:
-            _game  += 1
-            _w  += int(_p[3])
-            _l  += int(_p[4])
-            _ip += float(_p[12])
-            _so += int(_p[20])
-            _ip1 = int(abs(_ip) * 10) % 10
-            if _ip1 == 3:
-                _ip = int(_ip) + 1
-            elif _ip1 == 4:
-                _ip += 0.7
-            _er += int(_p[15])
-            _era = _p[5]
+# if pitching:
+#     with open('C:/Users/ki401/Documents/git/github-io/sho/csv/sho26p_ps.csv') as f:
+#         reader = csv.reader(f)
+#         next(reader)
+#         for _p in reader:
+#             _game  += 1
+#             _w  += int(_p[3])
+#             _l  += int(_p[4])
+#             _ip += float(_p[12])
+#             _so += int(_p[20])
+#             _ip1 = int(abs(_ip) * 10) % 10
+#             if _ip1 == 3:
+#                 _ip = int(_ip) + 1
+#             elif _ip1 == 4:
+#                 _ip += 0.7
+#             _er += int(_p[15])
+#             _era = _p[5]
 
-            pt = 0
-            wl = '---'
-            if int(_p[3]) > 0: #win
-                pt += 2 * int(_p[3])
-                wl = 'WIN'
-            if int(_p[4]) > 0: #lose
-                wl = 'LOSE'
-            if float(_p[12]) > 0: #ip
-                if float(_p[12]) >= 5:
-                    pt += 1
-                if float(_p[12]) >= 7:
-                    pt += 1
-                if int(_p[15])/float(_p[12])*9 < 3.5:
-                    pt += 1
+#             pt = 0
+#             wl = '---'
+#             if int(_p[3]) > 0: #win
+#                 pt += 2 * int(_p[3])
+#                 wl = 'WIN'
+#             if int(_p[4]) > 0: #lose
+#                 wl = 'LOSE'
+#             if float(_p[12]) > 0: #ip
+#                 if float(_p[12]) >= 5:
+#                     pt += 1
+#                 if float(_p[12]) >= 7:
+#                     pt += 1
+#                 if int(_p[15])/float(_p[12])*9 < 3.5:
+#                     pt += 1
 
-            last_score_p = min(pt, 4)
-            last_tooltip_p = '(Postseason)</br>%s IP / %s NP / %s R</br>%s' % (_p[12], _p[21].split('-')[0], _p[14], wl)
-            # print(f"'{_p[0]}': '{last_tooltip}',")
-            print(f"'{_p[0]}': {last_score_p},")
+#             last_score_p = min(pt, 4)
+#             last_tooltip_p = '(Postseason)</br>%s IP / %s NP / %s R</br>%s' % (_p[12], _p[21].split('-')[0], _p[14], wl)
+#             # print(f"'{_p[0]}': '{last_tooltip}',")
+#             print(f"'{_p[0]}': {last_score_p},")
 
-    print("Pitching Score UPDATED.")
+#     print("Pitching Score UPDATED.")
 
-shoHEATMAP = 'C:/Users/ki401/Documents/git/github-io/sho/sho-heatmap-demo.js'
+shoHEATMAP = f'sho/sho-heatmap-demo.js'
 with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
     content = reader.read()
     content = content.replace(
@@ -93,15 +96,15 @@ with open(shoHEATMAP,mode='r',encoding='utf-8') as reader:
                 '//@@TOOLTIP@@', 
                 "'%s': '%s',\n    //@@TOOLTIP@@" % (_g[0], last_tooltip)
             )
-    if pitching:
-        content = content.replace(
-                # "'%s': -1," % (_p[0],), 
-                '//@@TOOLTIP_DATE_P@@',
-                "'%s': %i,\n//@@TOOLTIP_DATE_P@@" % (_p[0], last_score_p), 
-            ).replace(
-                '//@@TOOLTIP_P@@', 
-                "'%s': '%s',\n    //@@TOOLTIP_P@@" % (_p[0], last_tooltip_p)
-            )
+    # if pitching:
+    #     content = content.replace(
+    #             # "'%s': -1," % (_p[0],), 
+    #             '//@@TOOLTIP_DATE_P@@',
+    #             "'%s': %i,\n//@@TOOLTIP_DATE_P@@" % (_p[0], last_score_p), 
+    #         ).replace(
+    #             '//@@TOOLTIP_P@@', 
+    #             "'%s': '%s',\n    //@@TOOLTIP_P@@" % (_p[0], last_tooltip_p)
+    #         )
 
 with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
     writer.write(content)
@@ -129,18 +132,18 @@ with open(shoHEATMAP,mode='w',encoding='utf-8') as writer:
 #     writer.write(content)
 
 content = ''
-shoINDEX = 'C:/Users/ki401/Documents/git/github-io/sho/index.html'
+shoINDEX = f'sho/index.html'
 with open(shoINDEX,mode='r',encoding='utf-8') as f:
     # reader = reader(f)
     for row in f.readlines():
         if '<!-- @@SCORE1_PS@@ -->' in row:
             content += '            <div class="display-4"> %s HR / %s SB / AVG %s / %s H / %s RBI</div><!-- @@SCORE1_PS@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
-        elif '<!-- @@SCORE1P_PS@@ -->' in row and pitching:
-            content += '            <div class="display-4"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</div><!-- @@SCORE1P_PS@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
+        # elif '<!-- @@SCORE1P_PS@@ -->' in row and pitching:
+        #     content += '            <div class="display-4"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</div><!-- @@SCORE1P_PS@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
         elif '<!-- @@SCORE2@@ -->' in row:
-            content += '\t'*9 + '<caption id="dt25gamescaption">%s HR / %s SB / AVG %s / %s H / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
-        elif '<!-- @@SCORE2P@@ -->' in row and pitching:
-            content += '\t'*9 + '<caption id="dt25pgamescaption"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</caption><!-- @@SCORE2P@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
+            content += '\t'*9 + '<caption id="dt26gamescaption">%s HR / %s SB / AVG %s / %s H / %s RBI </caption><!-- @@SCORE2@@ -->\n' % (_hr, _sb, _avg, _hit, _rbi)
+        # elif '<!-- @@SCORE2P@@ -->' in row and pitching:
+        #     content += '\t'*9 + '<caption id="dt26pgamescaption"> %s G / W-L %s-%s / ERA %s / %s IP / %s SO</caption><!-- @@SCORE2P@@ -->\n' % (_game, _w, _l, _era, _ip, _so)
         # elif '<!-- @@HR10@@ -->' in row:
         #     content += '                        %s<!-- @@HR10@@ -->\n' % (_hr // 10)
         # elif '<!-- @@HR01@@ -->' in row:
