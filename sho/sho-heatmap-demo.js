@@ -142,6 +142,7 @@ var datas26 = {
 '2026-10-06': 0,
 '2026-10-07': 1,
 '2026-10-11': 1,
+'2026-10-12': 0,
 //@@TOOLTIP_DATE@@
 };
 var score26 = {
@@ -284,6 +285,7 @@ var score26 = {
     '2026-10-06': '(Postseason DS)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .200',
     '2026-10-07': '(Postseason DS)</br><span><strong>0 HR / 1 SB</strong></span></br>0 Hits / 0 RBI / AVG .154',
     '2026-10-11': '(Postseason LCS)</br><span><strong>0 HR / 0 SB</strong></span></br>1 Hits / 0 RBI / AVG .188',
+    '2026-10-12': '(Postseason LCS)</br><span><strong>0 HR / 0 SB</strong></span></br>0 Hits / 0 RBI / AVG .150',
     //@@TOOLTIP@@
 };
 var chartData26 = [];
